@@ -9,6 +9,7 @@
 #include "Components/ComponentTransform.h"
 #include "Components/ComponentAnimation.h"
 #include "Components/ComponentCamera.h"
+#include "Components/ComponentParticleSystem.h"
 #include "Components/ComponentLight.h"
 #include "Modules/ModuleInput.h"
 #include "Modules/ModuleWindow.h"
@@ -194,6 +195,12 @@ UpdateStatus ModuleRender::Update() {
 				light.DrawGizmos();
 			}
 		}
+		if (drawParticleGizmos) {
+			for (ComponentParticleSystem& particle : scene->particleComponents) {
+				particle.DrawGizmos();
+			}
+		}
+
 		// Draw quadtree
 		if (drawQuadtree) DrawQuadtreeRecursive(App->scene->scene->quadtree.root, App->scene->scene->quadtree.bounds);
 
@@ -246,11 +253,11 @@ void ModuleRender::ViewportResized(int width, int height) {
 }
 
 void ModuleRender::UpdateFramebuffer() {
-	#if GAME
-		glBindFramebuffer(GL_FRAMEBUFFER, 0);
-	#else
-		glBindFramebuffer(GL_FRAMEBUFFER, framebuffer);
-	#endif
+#if GAME
+	glBindFramebuffer(GL_FRAMEBUFFER, 0);
+#else
+	glBindFramebuffer(GL_FRAMEBUFFER, framebuffer);
+#endif
 
 	glBindTexture(GL_TEXTURE_2D, renderTexture);
 	glTexImage2D(GL_TEXTURE_2D, 0, GL_RGB, static_cast<int>(viewportSize.x), static_cast<int>(viewportSize.y), 0, GL_RGB, GL_UNSIGNED_BYTE, NULL);
@@ -300,6 +307,9 @@ void ModuleRender::ToggleDrawCameraFrustums() {
 
 void ModuleRender::ToggleDrawLightGizmos() {
 	drawLightGizmos = !drawLightGizmos;
+}
+void ModuleRender::ToggleDrawParticleGizmos() {
+	drawParticleGizmos = !drawParticleGizmos;
 }
 
 void ModuleRender::UpdateShadingMode(const char* shadingMode) {

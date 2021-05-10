@@ -130,14 +130,24 @@ void ModuleUserInterface::GetCharactersInString(UID font, const std::string& sen
 	}
 }
 
+void ModuleUserInterface::RecursiveRender(const GameObject* obj) {
+	ComponentCanvasRenderer* renderer = obj->GetComponent<ComponentCanvasRenderer>();
+
+	if (obj->IsActive()) {
+		if (renderer && renderer->IsActive()) {
+			renderer->Render(obj);
+		}
+
+		for (const GameObject* child : obj->GetChildren()) {
+			RecursiveRender(child);
+		}
+	}
+}
+
 void ModuleUserInterface::Render() {
 	Scene* scene = App->scene->scene;
 	if (scene != nullptr) {
-		for (ComponentCanvasRenderer& canvasRenderer : scene->canvasRendererComponents) {
-			if (canvasRenderer.GetOwner().IsActive()) {
-				canvasRenderer.Render(&canvasRenderer.GetOwner());
-			}
-		}
+		RecursiveRender(scene->root);
 	}
 }
 

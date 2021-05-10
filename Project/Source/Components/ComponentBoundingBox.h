@@ -18,6 +18,9 @@ public:
 	void CalculateWorldBoundingBox(bool force = false); // Recalculates the OBB when the transform of the GameObject has changed.
 	void DrawBoundingBox();								// Send to render the edges of the worldOBB.
 
+	const TESSERACT_ENGINE_API float3 GetLocalMinPointAABB();
+	const TESSERACT_ENGINE_API float3 GetLocalMaxPointAABB();
+
 	// ---------- Setters ---------- //
 	void Invalidate(); // Sets dirty to true. This function must be called any time the Transform of the GameObject has changed, to recalculate the BBs on the next frame.
 	void SetLocalBoundingBox(const AABB& boundingBox);

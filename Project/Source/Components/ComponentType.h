@@ -39,6 +39,7 @@ enum class ComponentType {
 	ANIMATION,
 	TEXT,
 	SCRIPT,
+	PARTICLE,
 	AUDIO_SOURCE,
 	AUDIO_LISTENER
 };

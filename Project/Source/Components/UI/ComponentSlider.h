@@ -38,6 +38,11 @@ public:
 	float4 GetClickColor() const;								// Returns colorClicked
 	float2 GetClickedPosition() const;							// Returns mouse click position inside the slider
 
+	TESSERACT_ENGINE_API float GetCurrentValue() const;
+	TESSERACT_ENGINE_API float GetMaxValue() const;
+	TESSERACT_ENGINE_API float GetMinValue() const;
+	TESSERACT_ENGINE_API float GetNormalizedValue() const;
+
 	bool handleStopsOnEdge = false;
 
 private:

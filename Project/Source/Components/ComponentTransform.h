@@ -18,13 +18,18 @@ public:
 
 	void InvalidateHierarchy();						// Marks all the hierarchy of the owner GameObject as 'dirty'
 	void CalculateGlobalMatrix(bool force = false); // Recalculates the Transformation Matrix from 'position', 'rotation' and 'scale'.
-	
+
 	// ---------- Setters ---------- //
 	TESSERACT_ENGINE_API void SetPosition(float3 position);
 	TESSERACT_ENGINE_API void SetRotation(Quat rotation);
 	TESSERACT_ENGINE_API void SetRotation(float3 rotation);
 	TESSERACT_ENGINE_API void SetScale(float3 scale);
 	TESSERACT_ENGINE_API void SetTRS(float4x4& newTransform);
+	TESSERACT_ENGINE_API void SetGlobalPosition(float3 position);
+	TESSERACT_ENGINE_API void SetGlobalRotation(Quat rotation);
+	TESSERACT_ENGINE_API void SetGlobalRotation(float3 rotation);
+	TESSERACT_ENGINE_API void SetGlobalScale(float3 scale);
+	TESSERACT_ENGINE_API void SetGlobalTRS(float4x4& newTransform);
 
 	// ---------- Getters ---------- //
 

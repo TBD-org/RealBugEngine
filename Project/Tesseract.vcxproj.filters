@@ -36,7 +36,6 @@
     <ClCompile Include="Source\Panels\PanelInspector.cpp" />
     <ClCompile Include="Source\Panels\PanelScene.cpp" />
     <ClCompile Include="Source\Panels\PanelControlEditor.cpp" />
-    <ClCompile Include="Source\Panels\PanelResource.cpp" />
     <ClCompile Include="Libs\ImGuizmo\ImCurveEdit.cpp" />
     <ClCompile Include="Libs\ImGuizmo\ImGradient.cpp" />
     <ClCompile Include="Libs\ImGuizmo\ImGuizmo.cpp" />
@@ -90,7 +89,6 @@
     <ClCompile Include="Libs\MathGeoLib\Math\TransformOps.cpp" />
     <ClCompile Include="Libs\MathGeoLib\Time\Clock.cpp" />
     <ClCompile Include="Source\Components\ComponentAnimation.cpp" />
-    <ClCompile Include="Source\Resources\ResourceAnimation.cpp" />
     <ClCompile Include="Libs\PhysicsFS\physfs.c" />
     <ClCompile Include="Libs\PhysicsFS\physfs_archiver_7z.c" />
     <ClCompile Include="Libs\PhysicsFS\physfs_archiver_dir.c" />
@@ -117,22 +115,13 @@
     <ClCompile Include="Source\Resources\ResourceStateMachine.cpp" />
     <ClCompile Include="Source\Modules\ModuleAudio.cpp" />
     <ClCompile Include="Source\Panels\PanelProject.cpp" />
-    <ClCompile Include="Source\Resources\ResourceType.cpp" />
     <ClCompile Include="Source\Scene.cpp" />
-    <ClCompile Include="Source\Resources\ResourcePrefab.cpp" />
     <ClCompile Include="Source\Utils\FileDialog.cpp" />
     <ClCompile Include="Source\FileSystem\MaterialImporter.cpp" />
     <ClCompile Include="Source\FileSystem\ModelImporter.cpp" />
     <ClCompile Include="Source\FileSystem\ShaderImporter.cpp" />
-    <ClCompile Include="Source\Resources\Resource.cpp" />
-    <ClCompile Include="Source\Resources\ResourceMaterial.cpp" />
-    <ClCompile Include="Source\Resources\ResourceMesh.cpp" />
-    <ClCompile Include="Source\Resources\ResourceScene.cpp" />
-    <ClCompile Include="Source\Resources\ResourceShader.cpp" />
-    <ClCompile Include="Source\Resources\ResourceTexture.cpp" />
     <ClCompile Include="Source\GameObject.cpp" />
     <ClCompile Include="Source\AnimationController.cpp" />
-    <ClCompile Include="Source\Resources\ResourceFont.cpp" />
     <ClCompile Include="Source\Components\UI\ComponentToggle.cpp" />
     <ClCompile Include="Source\Components\ComponentBoundingBox2D.cpp" />
     <ClCompile Include="Source\FileSystem\FontImporter.cpp" />
@@ -152,10 +141,8 @@
     <ClCompile Include="Source\Modules\ModuleProject.cpp" />
     <ClCompile Include="Source\Scripting\Factory.cpp" />
     <ClCompile Include="Source\Components\ComponentSkyBox.cpp" />
-    <ClCompile Include="Source\Resources\ResourceSkybox.cpp" />
     <ClCompile Include="Source\FileSystem\SkyboxImporter.cpp" />
     <ClCompile Include="Source\FileSystem\ScriptImporter.cpp" />
-    <ClCompile Include="Source\Resources\ResourceScript.cpp" />
     <ClCompile Include="Source\GameplaySystems.cpp" />
     <ClCompile Include="Source\Utils\AssetFile.cpp" />
     <ClCompile Include="Source\Modules\ModuleEvents.cpp" />
@@ -164,6 +151,18 @@
     <ClCompile Include="Source\FileSystem\ClipImporter.cpp" />
     <ClCompile Include="Source\Components\ComponentType.cpp" />
     <ClCompile Include="Source\TesseractEvent.cpp" />
+    <ClCompile Include="Source\Resources\Resource.cpp" />
+    <ClCompile Include="Source\Resources\ResourceAnimation.cpp" />
+    <ClCompile Include="Source\Resources\ResourceFont.cpp" />
+    <ClCompile Include="Source\Resources\ResourceMaterial.cpp" />
+    <ClCompile Include="Source\Resources\ResourceMesh.cpp" />
+    <ClCompile Include="Source\Resources\ResourcePrefab.cpp" />
+    <ClCompile Include="Source\Resources\ResourceScene.cpp" />
+    <ClCompile Include="Source\Resources\ResourceScript.cpp" />
+    <ClCompile Include="Source\Resources\ResourceShader.cpp" />
+    <ClCompile Include="Source\Resources\ResourceSkybox.cpp" />
+    <ClCompile Include="Source\Resources\ResourceTexture.cpp" />
+    <ClCompile Include="Source\Resources\ResourceType.cpp" />
     <ClCompile Include="Source\FileSystem\PrefabImporter.cpp" />
     <ClCompile Include="Source\Components\ComponentAudioListener.cpp" />
     <ClCompile Include="Source\Components\ComponentAudioSource.cpp" />
@@ -173,6 +172,8 @@
     <ClCompile Include="Source\Components\UI\ComponentSlider.cpp" />
     <ClCompile Include="Source\Utils\ImGuiUtils.cpp" />
     <ClCompile Include="Source\Scripting\Member.cpp" />
+    <ClCompile Include="Source\Components\ComponentParticleSystem.cpp" />
+    <ClCompile Include="Source\Panels\PanelResource.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Libs\imgui\IconsFontAwesome5.h" />
@@ -311,7 +312,6 @@
     <ClInclude Include="Libs\MathGeoLib\Math\vec2d.h" />
     <ClInclude Include="Libs\MathGeoLib\Time\Clock.h" />
     <ClInclude Include="Source\Components\ComponentAnimation.h" />
-    <ClInclude Include="Source\Resources\ResourceAnimation.h" />
     <ClInclude Include="Libs\PhysicsFS\physfs.h" />
     <ClInclude Include="Libs\PhysicsFS\physfs_casefolding.h" />
     <ClInclude Include="Libs\PhysicsFS\physfs_internal.h" />
@@ -321,9 +321,7 @@
     <ClInclude Include="Source\Components\ComponentMeshRenderer.h" />
     <ClInclude Include="Source\Resources\ResourceStateMachine.h" />
     <ClInclude Include="Source\Panels\PanelProject.h" />
-    <ClInclude Include="Source\Resources\ResourceType.h" />
     <ClInclude Include="Source\Scene.h" />
-    <ClInclude Include="Source\Resources\ResourcePrefab.h" />
     <ClInclude Include="Source\Modules\ModuleAudio.h" />
     <ClInclude Include="Source\TesseractEvent.h" />
     <ClInclude Include="Source\Utils\alcErrors.h" />
@@ -332,14 +330,8 @@
     <ClInclude Include="Source\FileSystem\MaterialImporter.h" />
     <ClInclude Include="Source\FileSystem\ModelImporter.h" />
     <ClInclude Include="Source\FileSystem\ShaderImporter.h" />
-    <ClInclude Include="Source\Resources\ResourceScene.h" />
-    <ClInclude Include="Source\Resources\ResourceShader.h" />
-    <ClInclude Include="Source\Resources\Resource.h" />
     <ClInclude Include="Source\Utils\ImGuiUtils.h" />
     <ClInclude Include="Source\GameObject.h" />
-    <ClInclude Include="Source\Resources\ResourceMaterial.h" />
-    <ClInclude Include="Source\Resources\ResourceMesh.h" />
-    <ClInclude Include="Source\Resources\ResourceTexture.h" />
     <ClInclude Include="Source\AnimationController.h" />
     <ClInclude Include="Source\Components\UI\ComponentToggle.h" />
     <ClInclude Include="Libs\freetype\include\freetype\freetype.h" />
@@ -387,7 +379,6 @@
     <ClInclude Include="Libs\freetype\include\freetype\tttables.h" />
     <ClInclude Include="Libs\freetype\include\freetype\tttags.h" />
     <ClInclude Include="Libs\freetype\include\ft2build.h" />
-    <ClInclude Include="Source\Resources\ResourceFont.h" />
     <ClInclude Include="Source\Components\ComponentBoundingBox2D.h" />
     <ClInclude Include="Source\UI\Interfaces\IMouseClickHandler.h" />
     <ClInclude Include="Source\UI\Interfaces\IPointerEnterHandler.h" />
@@ -421,10 +412,8 @@
     <ClInclude Include="Source\Modules\ModuleProject.h" />
     <ClInclude Include="Source\Scripting\Factory.h" />
     <ClInclude Include="Source\FileSystem\ScriptImporter.h" />
-    <ClInclude Include="Source\Resources\ResourceScript.h" />
     <ClInclude Include="Source\GameplaySystems.h" />
     <ClInclude Include="Source\Components\ComponentSkyBox.h" />
-    <ClInclude Include="Source\Resources\ResourceSkybox.h" />
     <ClInclude Include="Source\FileSystem\SkyboxImporter.h" />
     <ClInclude Include="Source\Utils\AssetFile.h" />
     <ClInclude Include="Source\Modules\ModuleEvents.h" />
@@ -440,10 +429,23 @@
     <ClInclude Include="Source\Resources\ResourceAudioClip.h" />
     <ClInclude Include="Source\FileSystem\AudioImporter.h" />
     <ClInclude Include="Source\Utils\PoolMap.h" />
+    <ClInclude Include="Source\Resources\Resource.h" />
+    <ClInclude Include="Source\Resources\ResourceAnimation.h" />
+    <ClInclude Include="Source\Resources\ResourceFont.h" />
+    <ClInclude Include="Source\Resources\ResourceMaterial.h" />
+    <ClInclude Include="Source\Resources\ResourceMesh.h" />
+    <ClInclude Include="Source\Resources\ResourcePrefab.h" />
+    <ClInclude Include="Source\Resources\ResourceScene.h" />
+    <ClInclude Include="Source\Resources\ResourceScript.h" />
+    <ClInclude Include="Source\Resources\ResourceShader.h" />
+    <ClInclude Include="Source\Resources\ResourceSkybox.h" />
+    <ClInclude Include="Source\Resources\ResourceTexture.h" />
+    <ClInclude Include="Source\Resources\ResourceType.h" />
     <ClInclude Include="Source\FileSystem\PrefabImporter.h" />
     <ClInclude Include="Source\Components\UI\ComponentSlider.h" />
     <ClInclude Include="Source\Scripting\Member.h" />
     <ClInclude Include="Source\Utils\StringBlocksParser.h" />
+    <ClInclude Include="Source\Components\ComponentParticleSystem.h" />
     <ClInclude Include="Source\Panels\PanelResource.h" />
   </ItemGroup>
   <ItemGroup>

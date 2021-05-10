@@ -9,5 +9,5 @@ class ResourcePrefab : public Resource {
 public:
 	REGISTER_RESOURCE(ResourcePrefab, ResourceType::PREFAB);
 
-	TESSERACT_ENGINE_API void BuildPrefab(GameObject* parent);
+	TESSERACT_ENGINE_API UID BuildPrefab(GameObject* parent);
 };

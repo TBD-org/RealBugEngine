@@ -149,6 +149,56 @@ void ComponentTransform::SetTRS(float4x4& newTransform_) {
 	InvalidateHierarchy();
 }
 
+void ComponentTransform::SetGlobalPosition(float3 position_) {
+	GameObject* parent = GetOwner().GetParent();
+	if (parent != nullptr) {
+		float4x4 parentTransformInverted = parent->GetComponent<ComponentTransform>()->GetGlobalMatrix().Inverted();
+		SetPosition(parentTransformInverted.TransformPos(position_));
+	} else {
+		SetPosition(position_);
+	}
+}
+
+void ComponentTransform::SetGlobalRotation(Quat rotation_) {
+	GameObject* parent = GetOwner().GetParent();
+	if (parent != nullptr) {
+		Quat parentRotationInverted = parent->GetComponent<ComponentTransform>()->GetGlobalRotation().Inverted();
+		SetRotation(parentRotationInverted.Mul(rotation_));
+	} else {
+		SetRotation(rotation_);
+	}
+}
+
+void ComponentTransform::SetGlobalRotation(float3 rotation_) {
+	GameObject* parent = GetOwner().GetParent();
+	if (parent != nullptr) {
+		Quat parentRotationInverted = parent->GetComponent<ComponentTransform>()->GetGlobalRotation().Inverted();
+		SetRotation(parentRotationInverted.Mul(Quat::FromEulerXYZ(rotation_.x, rotation_.y, rotation_.z)));
+	} else {
+		SetRotation(rotation_);
+	}
+}
+
+void ComponentTransform::SetGlobalScale(float3 scale_) {
+	GameObject* parent = GetOwner().GetParent();
+	if (parent != nullptr) {
+		float3 parentScale = parent->GetComponent<ComponentTransform>()->GetGlobalScale();
+		SetScale(scale_.Div(parentScale));
+	} else {
+		SetScale(scale_);
+	}
+}
+
+void ComponentTransform::SetGlobalTRS(float4x4& newTransform_) {
+	GameObject* parent = GetOwner().GetParent();
+	if (parent != nullptr) {
+		float4x4 parentTransformInverted = parent->GetComponent<ComponentTransform>()->GetGlobalMatrix().Inverted();
+		SetTRS(parentTransformInverted * newTransform_);
+	} else {
+		SetTRS(newTransform_);
+	}
+}
+
 float3 ComponentTransform::GetPosition() const {
 	return position;
 }

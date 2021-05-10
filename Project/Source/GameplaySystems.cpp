@@ -87,6 +87,9 @@ void Debug::ToggleDrawCameraFrustums() {
 void Debug::ToggleDrawLightGizmos() {
 	App->renderer->ToggleDrawLightGizmos();
 }
+void Debug::ToggleDrawParticleGizmos() {
+	App->renderer->ToggleDrawParticleGizmos();
+}
 
 void Debug::UpdateShadingMode(const char* shadingMode) {
 	App->renderer->UpdateShadingMode(shadingMode);

@@ -46,6 +46,8 @@ const char* GetComponentTypeName(ComponentType type) {
 		return "Text";
 	case ComponentType::SCRIPT:
 		return "Script";
+	case ComponentType::PARTICLE:
+		return "Particle";
 	case ComponentType::AUDIO_LISTENER:
 		return "AudioListener";
 	case ComponentType::AUDIO_SOURCE:
@@ -96,6 +98,8 @@ ComponentType GetComponentTypeFromName(const char* name) {
 		return ComponentType::TEXT;
 	} else if (strcmp(name, "Script") == 0) {
 		return ComponentType::SCRIPT;
+	} else if (strcmp(name, "Particle") == 0) {
+		return ComponentType::PARTICLE;
 	} else if (strcmp(name, "AudioListener") == 0) {
 		return ComponentType::AUDIO_LISTENER;
 	} else if (strcmp(name, "AudioSource") == 0) {

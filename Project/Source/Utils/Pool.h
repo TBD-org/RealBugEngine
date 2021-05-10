@@ -44,8 +44,8 @@ public:
 
 	template<typename... Args>
 	T* Obtain(Args&&... args) {
-		assert(data != nullptr);   // ERROR: The pool hasn't been initialized
-		assert(count < capacity); // ERROR: Pool overflow
+		assert(data != nullptr);			   // ERROR: The pool hasn't been initialized
+		if (count == capacity) return nullptr; // Pool overflow
 
 		// Obtain a new object
 		return new (allocated[count++]) T(std::forward<Args>(args)...);

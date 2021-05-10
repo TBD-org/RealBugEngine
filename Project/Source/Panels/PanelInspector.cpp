@@ -133,6 +133,9 @@ void PanelInspector::Update() {
 				case ComponentType::ANIMATION:
 					cName = "Animation";
 					break;
+				case ComponentType::PARTICLE:
+					cName = "Particle";
+					break;
 				case ComponentType::AUDIO_SOURCE:
 					cName = "Audio Source";
 					break;
@@ -227,6 +230,30 @@ void PanelInspector::Update() {
 					ComponentAnimation* animation = selected->CreateComponent<ComponentAnimation>();
 					if (animation != nullptr) {
 						animation->Init();
+					} else {
+						App->editor->modalToOpen = Modal::COMPONENT_EXISTS;
+					}
+				}
+				if (ImGui::MenuItem("Particle")) {
+					ComponentParticleSystem* particle = selected->CreateComponent<ComponentParticleSystem>();
+					if (particle != nullptr) {
+						particle->Init();
+					} else {
+						App->editor->modalToOpen = Modal::COMPONENT_EXISTS;
+					}
+				}
+				if (ImGui::MenuItem("Audio Source")) {
+					ComponentAudioSource* audioSource = selected->CreateComponent<ComponentAudioSource>();
+					if (audioSource != nullptr) {
+						audioSource->Init();
+					} else {
+						App->editor->modalToOpen = Modal::COMPONENT_EXISTS;
+					}
+				}
+				if (ImGui::MenuItem("Audio Listener")) {
+					ComponentAudioListener* audioListener = selected->CreateComponent<ComponentAudioListener>();
+					if (audioListener != nullptr) {
+						audioListener->Init();
 					} else {
 						App->editor->modalToOpen = Modal::COMPONENT_EXISTS;
 					}
@@ -329,7 +356,7 @@ void PanelInspector::AddUIComponentsOptions(GameObject* selected) {
 				App->editor->modalToOpen = Modal::COMPONENT_EXISTS;
 			}
 		}
-		
+
 		if (ImGui::MenuItem("Toggle")) {
 			ComponentToggle* component = selected->GetComponent<ComponentToggle>();
 			if (component == nullptr) {

@@ -95,7 +95,9 @@ void PanelHierarchy::UpdateHierarchyNode(GameObject* gameObject) {
 		if (ImGui::Selectable("Create Empty")) {
 			CreateEmptyGameObject(gameObject);
 		}
-
+		if (ImGui::Selectable("Particle System")) {
+			CreatePartycleSystemObject(gameObject);
+		}
 		// TODO: code duplicated in every CreateXX(gameObject). Generalisation could be done here. Also with PanelInspector->AddUIComponentsOptions()
 		if (ImGui::BeginMenu("UI")) {
 			if (ImGui::MenuItem("Event System")) {
@@ -156,22 +158,8 @@ void PanelHierarchy::UpdateHierarchyNode(GameObject* gameObject) {
 				payloadGameObject->SetParent(gameObject);
 
 				ComponentTransform* transform = payloadGameObject->GetComponent<ComponentTransform>();
-				ComponentTransform* parentTransform = gameObject->GetComponent<ComponentTransform>();
-				// Recompute local matrix to maintain global position
-				// 1. Get current matrix
 				float4x4 childGlobalMatrix = transform->GetGlobalMatrix();
-				float4x4 parentGlobalMatrix = parentTransform->GetGlobalMatrix();
-				float3 parentScale = float3(parentGlobalMatrix.Col3(0).Length(), parentGlobalMatrix.Col3(1).Length(), parentGlobalMatrix.Col3(2).Length());
-				// 2. Invert the new parent global matrix with the fastest possible method
-				if (parentScale.Equals(float3::one)) { // No scaling
-					parentGlobalMatrix.InverseOrthonormal();
-				} else if (parentScale.xxx().Equals(parentScale)) { // Uniform scaling
-					parentGlobalMatrix.InverseOrthogonalUniformScale();
-				} else { // Non-uniform scaling
-					parentGlobalMatrix.InverseColOrthogonal();
-				}
-				// 3. New local matrix
-				transform->SetTRS(parentGlobalMatrix * childGlobalMatrix);
+				transform->SetGlobalTRS(childGlobalMatrix);
 			}
 		}
 
@@ -279,6 +267,17 @@ GameObject* PanelHierarchy::CreateUIButton(GameObject* gameObject) {
 	return newGameObject;
 }
 
+GameObject* PanelHierarchy::CreatePartycleSystemObject(GameObject* gameObject) {
+	GameObject* newGameObject = App->scene->scene->CreateGameObject(gameObject, GenerateUID(), "ParticleSystem");
+	ComponentTransform* transform = newGameObject->CreateComponent<ComponentTransform>();
+	ComponentParticleSystem* particle = newGameObject->CreateComponent<ComponentParticleSystem>();
+	transform->SetPosition(float3(0, 0, 0));
+	transform->SetRotation(Quat::identity);
+	transform->SetScale(float3(1, 1, 1));
+	newGameObject->InitComponents();
+
+	return newGameObject;
+}
 GameObject* PanelHierarchy::CreateUIToggle(GameObject* gameObject) {
 	if (gameObject->HasComponentInAnyParent<ComponentCanvas>(gameObject) == nullptr) {
 		gameObject = CreateUICanvas(gameObject);
@@ -341,7 +340,7 @@ GameObject* PanelHierarchy::CreateUISlider(GameObject* gameObject) {
 	ComponentCanvasRenderer* handleRenderer = handleGameObject->CreateComponent<ComponentCanvasRenderer>();
 	ComponentImage* handleImage = handleGameObject->CreateComponent<ComponentImage>();
 
-	
+
 	selectable->SetSelectableType(slider->GetType());
 	backgroundGameObject->InitComponents();
 	fillGameObject->InitComponents();
