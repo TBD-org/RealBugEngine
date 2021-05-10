@@ -1,0 +1,243 @@
+{
+    "QuadtreeBounds": [
+        -1000.0,
+        -1000.0,
+        1000.0,
+        1000.0
+    ],
+    "QuadtreeMaxDepth": 4,
+    "QuadtreeElementsPerNode": 200,
+    "GameCamera": 3031323492620156558,
+    "AmbientLight": [
+        0.25,
+        0.25,
+        0.25
+    ],
+    "Root": {
+        "Id": 10424880320197846679,
+        "Name": "Scene",
+        "Active": true,
+        "ActiveHierarchy": true,
+        "RootBoneId": 0,
+        "Components": [
+            {
+                "Type": "Transform",
+                "Id": 4045206739347421916,
+                "Active": true,
+                "Position": [
+                    0.0,
+                    0.0,
+                    0.0
+                ],
+                "Rotation": [
+                    0.0,
+                    0.0,
+                    0.0,
+                    1.0
+                ],
+                "Scale": [
+                    1.0,
+                    1.0,
+                    1.0
+                ],
+                "LocalEulerAngles": [
+                    0.0,
+                    0.0,
+                    0.0
+                ]
+            }
+        ],
+        "Children": [
+            {
+                "Id": 8192758552489275004,
+                "Name": "Directional Light",
+                "Active": true,
+                "ActiveHierarchy": true,
+                "RootBoneId": 0,
+                "Components": [
+                    {
+                        "Type": "Transform",
+                        "Id": 8463638837657216774,
+                        "Active": true,
+                        "Position": [
+                            0.0,
+                            300.0,
+                            0.0
+                        ],
+                        "Rotation": [
+                            0.7071068286895752,
+                            0.0,
+                            0.0,
+                            0.7071068286895752
+                        ],
+                        "Scale": [
+                            1.0,
+                            1.0,
+                            1.0
+                        ],
+                        "LocalEulerAngles": [
+                            90.00000762939453,
+                            0.0,
+                            -0.0
+                        ]
+                    },
+                    {
+                        "Type": "Light",
+                        "Id": 16731279280054517806,
+                        "Active": true,
+                        "LightType": 0,
+                        "Color": [
+                            1.0,
+                            1.0,
+                            1.0
+                        ],
+                        "Intensity": 1.0,
+                        "Kl": 0.04500000178813934,
+                        "Kq": 0.007499999832361937,
+                        "InnerAngle": 0.2617993950843811,
+                        "OuterAngle": 0.5235987901687622
+                    }
+                ],
+                "Children": null
+            },
+            {
+                "Id": 9698925305384791148,
+                "Name": "Game Camera",
+                "Active": true,
+                "ActiveHierarchy": true,
+                "RootBoneId": 0,
+                "Components": [
+                    {
+                        "Type": "Transform",
+                        "Id": 1717995874487694663,
+                        "Active": true,
+                        "Position": [
+                            2.0,
+                            3.0,
+                            -5.0
+                        ],
+                        "Rotation": [
+                            0.0,
+                            0.0,
+                            0.0,
+                            1.0
+                        ],
+                        "Scale": [
+                            1.0,
+                            1.0,
+                            1.0
+                        ],
+                        "LocalEulerAngles": [
+                            -0.0,
+                            0.0,
+                            -0.0
+                        ]
+                    },
+                    {
+                        "Type": "Camera",
+                        "Id": 15963214638654000721,
+                        "Active": true,
+                        "Frustum": {
+                            "Pos": [
+                                2.0,
+                                3.0,
+                                -5.0
+                            ],
+                            "Up": [
+                                0.0,
+                                1.0,
+                                0.0
+                            ],
+                            "Front": [
+                                0.0,
+                                0.0,
+                                1.0
+                            ],
+                            "NearPlaneDistance": 0.10000000149011612,
+                            "FarPlaneDistance": 200.0,
+                            "HorizontalFov": 1.9316883087158204,
+                            "VerticalFov": 1.3113912343978882
+                        }
+                    },
+                    {
+                        "Type": "Skybox",
+                        "Id": 5912933584775997410,
+                        "Active": true,
+                        "Shader": 0,
+                        "Skybox": 0
+                    },
+                    {
+                        "Type": "AudioListener",
+                        "Id": 2840186910622170138,
+                        "Active": true,
+                        "Gain": 1.0
+                    }
+                ],
+                "Children": null
+            },
+            {
+                "Id": 9692255515369132842,
+                "Name": "ParticleSystem",
+                "Active": true,
+                "ActiveHierarchy": true,
+                "RootBoneId": 0,
+                "Components": [
+                    {
+                        "Type": "Transform",
+                        "Id": 3710706589129808174,
+                        "Active": true,
+                        "Position": [
+                            0.0,
+                            0.0,
+                            0.0
+                        ],
+                        "Rotation": [
+                            0.0,
+                            0.0,
+                            0.0,
+                            1.0
+                        ],
+                        "Scale": [
+                            1.0,
+                            1.0,
+                            1.0
+                        ],
+                        "LocalEulerAngles": [
+                            -0.0,
+                            0.0,
+                            -0.0
+                        ]
+                    },
+                    {
+                        "Type": "Particle",
+                        "Id": 14821685099584137093,
+                        "Active": true,
+                        "ShaderId": 14028879591438108246,
+                        "TextureId": 10393701290624893540,
+                        "IsPlaying": true,
+                        "IsLooping": false,
+                        "IsRandomFrame": true,
+                        "IsRandomDirection": true,
+                        "ParticleScale": 2.0,
+                        "MaxParticle": 100.0,
+                        "Velocity": 0.10000000149011612,
+                        "LifeParticle": 1.0,
+                        "Ytiles": 2,
+                        "Xtiles": 2,
+                        "InitColor": [
+                            0.9117648601531982,
+                            1.0,
+                            0.0
+                        ],
+                        "FinalColor": [
+                            0.0,
+                            0.38236355781555178,
+                            1.0
+                        ]
+                    }
+                ],
+                "Children": null
+            }
+        ]
+    }
+}

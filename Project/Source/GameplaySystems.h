@@ -4,6 +4,7 @@
 #include "Application.h"
 #include "Modules/ModuleResources.h"
 #include "Components/ComponentCamera.h"
+#include "Components/ComponentAudioSource.h"
 #include "Utils/Logging.h"
 #include "Utils/UID.h"
 
