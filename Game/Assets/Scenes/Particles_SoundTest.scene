@@ -1,0 +1,271 @@
+{
+    "QuadtreeBounds": [
+        -1000.0,
+        -1000.0,
+        1000.0,
+        1000.0
+    ],
+    "QuadtreeMaxDepth": 4,
+    "QuadtreeElementsPerNode": 200,
+    "GameCamera": 2084275569154865199,
+    "AmbientLight": [
+        0.25,
+        0.25,
+        0.25
+    ],
+    "Root": {
+        "Id": 16447070139524949130,
+        "Name": "Scene",
+        "Active": true,
+        "ActiveHierarchy": true,
+        "RootBoneId": 0,
+        "Components": [
+            {
+                "Type": "Transform",
+                "Id": 12547059557385054515,
+                "Active": true,
+                "Position": [
+                    0.0,
+                    0.0,
+                    0.0
+                ],
+                "Rotation": [
+                    0.0,
+                    0.0,
+                    0.0,
+                    1.0
+                ],
+                "Scale": [
+                    1.0,
+                    1.0,
+                    1.0
+                ],
+                "LocalEulerAngles": [
+                    0.0,
+                    0.0,
+                    0.0
+                ]
+            }
+        ],
+        "Children": [
+            {
+                "Id": 17215676130364663844,
+                "Name": "Directional Light",
+                "Active": true,
+                "ActiveHierarchy": true,
+                "RootBoneId": 0,
+                "Components": [
+                    {
+                        "Type": "Transform",
+                        "Id": 1051810193904861592,
+                        "Active": true,
+                        "Position": [
+                            0.0,
+                            300.0,
+                            0.0
+                        ],
+                        "Rotation": [
+                            0.7071068286895752,
+                            0.0,
+                            0.0,
+                            0.7071068286895752
+                        ],
+                        "Scale": [
+                            1.0,
+                            1.0,
+                            1.0
+                        ],
+                        "LocalEulerAngles": [
+                            90.00000762939453,
+                            0.0,
+                            -0.0
+                        ]
+                    },
+                    {
+                        "Type": "Light",
+                        "Id": 5718752377672268342,
+                        "Active": true,
+                        "LightType": 0,
+                        "Color": [
+                            1.0,
+                            1.0,
+                            1.0
+                        ],
+                        "Intensity": 1.0,
+                        "Kl": 0.04500000178813934,
+                        "Kq": 0.007499999832361937,
+                        "InnerAngle": 0.2617993950843811,
+                        "OuterAngle": 0.5235987901687622
+                    }
+                ],
+                "Children": null
+            },
+            {
+                "Id": 11439522683194383947,
+                "Name": "Game Camera",
+                "Active": true,
+                "ActiveHierarchy": true,
+                "RootBoneId": 0,
+                "Components": [
+                    {
+                        "Type": "Transform",
+                        "Id": 17313417172394674190,
+                        "Active": true,
+                        "Position": [
+                            2.0,
+                            3.0,
+                            -5.0
+                        ],
+                        "Rotation": [
+                            0.0,
+                            0.0,
+                            0.0,
+                            1.0
+                        ],
+                        "Scale": [
+                            1.0,
+                            1.0,
+                            1.0
+                        ],
+                        "LocalEulerAngles": [
+                            -0.0,
+                            0.0,
+                            -0.0
+                        ]
+                    },
+                    {
+                        "Type": "Camera",
+                        "Id": 14153711527369271107,
+                        "Active": true,
+                        "Frustum": {
+                            "Pos": [
+                                2.0,
+                                3.0,
+                                -5.0
+                            ],
+                            "Up": [
+                                0.0,
+                                1.0,
+                                0.0
+                            ],
+                            "Front": [
+                                0.0,
+                                0.0,
+                                1.0
+                            ],
+                            "NearPlaneDistance": 0.10000000149011612,
+                            "FarPlaneDistance": 200.0,
+                            "HorizontalFov": 2.1319990158081056,
+                            "VerticalFov": 1.3113912343978882
+                        }
+                    },
+                    {
+                        "Type": "Skybox",
+                        "Id": 6633812227189504550,
+                        "Active": true,
+                        "Shader": 0,
+                        "Skybox": 0
+                    },
+                    {
+                        "Type": "AudioListener",
+                        "Id": 5832702804401467815,
+                        "Active": true,
+                        "Gain": 1.0
+                    }
+                ],
+                "Children": null
+            },
+            {
+                "Id": 2855596681960219718,
+                "Name": "ParticleSystem",
+                "Active": true,
+                "ActiveHierarchy": true,
+                "RootBoneId": 0,
+                "Components": [
+                    {
+                        "Type": "Transform",
+                        "Id": 11925625454185989484,
+                        "Active": true,
+                        "Position": [
+                            0.0,
+                            0.0,
+                            0.0
+                        ],
+                        "Rotation": [
+                            0.0,
+                            0.0,
+                            0.0,
+                            1.0
+                        ],
+                        "Scale": [
+                            1.0,
+                            1.0,
+                            1.0
+                        ],
+                        "LocalEulerAngles": [
+                            -0.0,
+                            0.0,
+                            -0.0
+                        ]
+                    },
+                    {
+                        "Type": "Particle",
+                        "Id": 13700593205973745563,
+                        "Active": true,
+                        "ShaderId": 14028879591438108246,
+                        "TextureId": 10393701290624893540,
+                        "IsPlaying": true,
+                        "IsLooping": false,
+                        "IsRandomFrame": true,
+                        "IsRandomDirection": false,
+                        "ParticleScale": 5.0,
+                        "MaxParticle": 100.0,
+                        "Velocity": 0.5,
+                        "LifeParticle": 0.20000000298023225,
+                        "Ytiles": 1,
+                        "Xtiles": 1,
+                        "InitColor": [
+                            1.0,
+                            0.0,
+                            0.0
+                        ],
+                        "FinalColor": [
+                            0.0,
+                            1.0,
+                            0.02976202964782715
+                        ]
+                    },
+                    {
+                        "Type": "AudioSource",
+                        "Id": 15182217389652113561,
+                        "Active": true,
+                        "Pitch": 1.0,
+                        "Gain": 1.0,
+                        "Mute": false,
+                        "Looping": false,
+                        "AudioClipId": 5172556388168822277,
+                        "SpatialBlend": 0,
+                        "SourceType": 0,
+                        "InnerAngle": 90.0,
+                        "OuterAngle": 180.0,
+                        "OuterGain": 0.0
+                    },
+                    {
+                        "Type": "Script",
+                        "Id": 15604162491220430693,
+                        "Active": true,
+                        "Script": 14035224464235357155,
+                        "Values": [
+                            {
+                                "Name": "skullUID",
+                                "Type": "GameObjectUID",
+                                "Value": 2855596681960219718
+                            }
+                        ]
+                    }
+                ],
+                "Children": null
+            }
+        ]
+    }
+}

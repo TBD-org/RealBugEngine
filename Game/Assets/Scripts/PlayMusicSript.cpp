@@ -20,9 +20,11 @@ void PlayMusicSript::Start() {
 
 void PlayMusicSript::Update() {
 	ComponentAudioSource* audioSource = skull->GetComponent<ComponentAudioSource>();
+	ComponentParticleSystem* particle = skull->GetComponent<ComponentParticleSystem>();
 	if (!audioSource) return;
 	if (Input::GetMouseButtonDown(0)) {
 		audioSource->Play();
+		particle->Play();
 		Debug::Log("Play");
 	}
 }
