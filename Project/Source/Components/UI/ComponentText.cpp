@@ -47,6 +47,17 @@ void ComponentText::Init() {
 }
 
 void ComponentText::OnEditorUpdate() {
+	if (ImGui::Checkbox("Active", &active)) {
+		if (GetOwner().IsActive()) {
+			if (active) {
+				Enable();
+			} else {
+				Disable();
+			}
+		}
+	}
+	ImGui::Separator();
+
 	ImGuiInputTextFlags flags = ImGuiInputTextFlags_AllowTabInput;
 
 	bool mustRecalculateVertices = false;

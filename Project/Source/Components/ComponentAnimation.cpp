@@ -37,6 +37,17 @@ void ComponentAnimation::Update() {
 }
 
 void ComponentAnimation::OnEditorUpdate() {
+	if (ImGui::Checkbox("Active", &active)) {
+		if (GetOwner().IsActive()) {
+			if (active) {
+				Enable();
+			} else {
+				Disable();
+			}
+		}
+	}
+	ImGui::Separator();
+
 	ImGui::TextColored(App->editor->titleColor, "Animation");
 
 	UID oldStateMachineUID = stateMachineResourceUID;

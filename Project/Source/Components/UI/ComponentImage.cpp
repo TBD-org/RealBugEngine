@@ -41,6 +41,17 @@ void ComponentImage::Update() {
 }
 
 void ComponentImage::OnEditorUpdate() {
+	if (ImGui::Checkbox("Active", &active)) {
+		if (GetOwner().IsActive()) {
+			if (active) {
+				Enable();
+			} else {
+				Disable();
+			}
+		}
+	}
+	ImGui::Separator();
+
 	ImGui::TextColored(App->editor->textColor, "Texture Settings:");
 
 	ImGui::ColorEdit4("Color##", color.ptr());

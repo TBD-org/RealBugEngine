@@ -24,6 +24,17 @@ void ComponentButton::Init() {
 }
 
 void ComponentButton::OnEditorUpdate() {
+	if (ImGui::Checkbox("Active", &active)) {
+		if (GetOwner().IsActive()) {
+			if (active) {
+				Enable();
+			} else {
+				Disable();
+			}
+		}
+	}
+	ImGui::Separator();
+
 	ImGui::ColorEdit4("Click Color##", colorClicked.ptr());
 }
 

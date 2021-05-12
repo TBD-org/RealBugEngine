@@ -27,6 +27,8 @@ void ComponentBoundingBox::OnEditorUpdate() {
 			}
 		}
 	}
+	ImGui::Separator();
+
 
 	if (IsActive()) DrawBoundingBox();
 }

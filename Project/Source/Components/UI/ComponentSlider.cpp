@@ -96,6 +96,17 @@ void ComponentSlider::Update() {
 }
 
 void ComponentSlider::OnEditorUpdate() {
+	if (ImGui::Checkbox("Active", &active)) {
+		if (GetOwner().IsActive()) {
+			if (active) {
+				Enable();
+			} else {
+				Disable();
+			}
+		}
+	}
+	ImGui::Separator();
+
 	ImGui::Checkbox("Handle Stops On Edges ", &handleStopsOnEdge);
 
 	if (ImGui::DragFloat("Max. Value", &maxValue, App->editor->dragSpeed1f, minValue, inf)) {

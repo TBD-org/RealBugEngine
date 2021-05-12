@@ -91,6 +91,16 @@ void ComponentProgressBar::Update() {
 }
 
 void ComponentProgressBar::OnEditorUpdate() {
+	if (ImGui::Checkbox("Active", &active)) {
+		if (GetOwner().IsActive()) {
+			if (active) {
+				Enable();
+			} else {
+				Disable();
+			}
+		}
+	}
+	ImGui::Separator();
 
 	ImGui::DragFloat("Value", &value, App->editor->dragSpeed2f, min, max);
 	ImGui::DragFloat("Min", &min, App->editor->dragSpeed2f, -inf, max - 1);

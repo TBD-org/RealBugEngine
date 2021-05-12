@@ -57,6 +57,8 @@ void ComponentLight::OnEditorUpdate() {
 			}
 		}
 	}
+	ImGui::Separator();
+
 
 	ImGui::TextColored(App->editor->titleColor, "Parameters");
 

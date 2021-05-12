@@ -33,11 +33,23 @@ void ComponentCamera::Update() {
 
 void ComponentCamera::DrawGizmos() {
 	if (App->camera->GetActiveCamera() == this) return;
+	if (App->camera->GetEngineCamera() == this) return;
 
 	if (IsActive()) dd::frustum(frustum.ViewProjMatrix().Inverted(), dd::colors::White);
 }
 
 void ComponentCamera::OnEditorUpdate() {
+	if (ImGui::Checkbox("Active", &active)) {
+		if (GetOwner().IsActive()) {
+			if (active) {
+				Enable();
+			} else {
+				Disable();
+			}
+		}
+	}
+	ImGui::Separator();
+
 	bool isActive = this == App->camera->GetActiveCamera();
 	bool isCulling = this == App->camera->GetCullingCamera();
 	bool isGameCamera = this == App->camera->GetGameCamera();

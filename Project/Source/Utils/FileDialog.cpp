@@ -42,12 +42,13 @@ void FileDialog::DestroyContext() {
 	RELEASE(fileDialogContext);
 }
 
-void FileDialog::Init(const std::string& title, bool saveMode, AllowedExtensionsFlag ext) {
+void FileDialog::Init(const std::string& title, bool saveMode, AllowedExtensionsFlag ext, const char* specificPath) {
 	fileDialogContext->title_ = title;
 	if (fileDialogContext->workingDirectory_ == "") {
 		sprintf(fileDialogContext->currentSelectedPath_, GetAbsolutePath(".").c_str());
 	} else {
-		sprintf(fileDialogContext->currentSelectedPath_, fileDialogContext->workingDirectory_.c_str());
+		sprintf(fileDialogContext->currentSelectedPath_, (fileDialogContext->workingDirectory_ + ((specificPath!=nullptr) ? (std::string("\\") + specificPath) : "")).c_str());
+			
 	}
 	fileDialogContext->saveMode_ = saveMode;
 	fileDialogContext->currentDrive_ = std::string() + fileDialogContext->currentSelectedPath_[0] + ":";

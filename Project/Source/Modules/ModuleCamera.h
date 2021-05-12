@@ -1,6 +1,7 @@
 #pragma once
 
 #include "Module.h"
+#include "Components/ComponentCamera.h"
 #include "Utils/Quadtree.h"
 
 #include "MathGeoLibFwd.h"
@@ -12,7 +13,7 @@
 
 class Model;
 class GameObject;
-class ComponentCamera;
+//class ComponentCamera;
 
 struct FrustumPlanes {
 	float3 points[8]; // 0: ftl, 1: ftr, 2: fbl, 3: fbr, 4: ntl, 5: ntr, 6: nbl, 7: nbr. (far/near, top/bottom, left/right).
@@ -62,7 +63,7 @@ public:
 	float GetAspectRatio() const;
 	float4x4 GetProjectionMatrix() const;
 	float4x4 GetViewMatrix() const;
-	ComponentCamera* GetEngineCamera() const;
+	ComponentCamera* GetEngineCamera();
 	ComponentCamera* GetActiveCamera() const;
 	ComponentCamera* GetCullingCamera() const;
 	ComponentCamera* GetGameCamera() const;
@@ -75,7 +76,7 @@ public:
 	float rotationSpeed = 0.2f;				 // Deltatime multiplier for the camera rotation speed.
 	float zoomSpeed = 0.001f;				 // Deltatime multiplier for the camera zooming speed.
 	float shiftMultiplier = 5.0f;			 // Multiplier of the previows three, applied when the SHIFT key is pressed.
-	ComponentCamera* engineCamera = nullptr; // Default Engine camera.
+	ComponentCamera engineCamera = ComponentCamera(nullptr, GenerateUID(), true); // Default Engine camera.
 
 private:
 	void GetIntersectingAABBRecursive(const Quadtree<GameObject>::Node& node, const AABB2D& nodeAABB, const LineSegment& ray, std::vector<GameObject*>& intersectingObjects); // Subfunction of CalculateFrustumNearestObject(). Checks the Quatree for the GameObjects which BoundingBox intersect with the click (ray).

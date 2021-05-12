@@ -29,6 +29,7 @@ void ComponentAudioListener::OnEditorUpdate() {
 			}
 		}
 	}
+	ImGui::Separator();
 }
 
 void ComponentAudioListener::Save(JsonValue jComponent) const {

@@ -123,6 +123,17 @@ void ComponentToggle::Load(JsonValue jComponent) {
 }
 
 void ComponentToggle::OnEditorUpdate() {
+	if (ImGui::Checkbox("Active", &active)) {
+		if (GetOwner().IsActive()) {
+			if (active) {
+				Enable();
+			} else {
+				Disable();
+			}
+		}
+	}
+	ImGui::Separator();
+
 	ImGui::ColorEdit4("Click Color##", colorClicked.ptr());
 	ImGui::GameObjectSlot("Enabled Image GameObject", &enabledImageObjectID);
 
