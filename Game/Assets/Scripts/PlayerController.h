@@ -6,6 +6,7 @@
 class GameObject;
 class ComponentTransform;
 class ComponentCamera;
+class ComponentParticleSystem;
 
 class PlayerController : public Script
 {
@@ -25,11 +26,16 @@ public:
 	GameObject* camera = nullptr;
 	GameObject* fang = nullptr;
 	GameObject* robot = nullptr;
+	GameObject* fParticles = nullptr;
+	GameObject* onimariParticles = nullptr;
 
 	UID fangUID = 0;
 	UID robotUID = 0;
 	UID mainNodeUID = 0;
 	UID cameraUID = 0;
+	UID fangParticlesUID = 0;
+	UID onimaruParticlesUID = 0;
+
 private:
 	void MoveTo(MovementDirection md);
 	void InitDash(MovementDirection md);
@@ -45,6 +51,10 @@ private:
 	float dashDistance = 10.f;
 	float dashError = 2.f;
 
+	float timeToShoot = 1.0f;
+	float timeRestToShoot = 0.0f;
+	float speedShoot = 1000.0f;
+
 	float dashCooldown = 5.f; //seconds
 	float dashCooldownRemaing = 0.f;
 	bool  dashInCooldown = false;
@@ -58,12 +68,12 @@ private:
 	float switchCooldown = 5.f;
 	float switchCooldownRemaing = 0.f;
 
-
 	float3 initialPosition = float3(0, 0, 0);
 	float3 dashDestination = float3(0, 0, 0);
 	float3 dashDirection = float3(0, 0, 0);
 
 	ComponentTransform* transform = nullptr;
 	ComponentCamera* compCamera = nullptr;
+	ComponentParticleSystem* fangParticles = nullptr;
+	ComponentParticleSystem* oniParticles = nullptr;
 };
-

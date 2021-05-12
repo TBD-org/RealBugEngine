@@ -57,8 +57,5 @@ void main()
 	}else{
 		outColor = finalColor * texture2D(diffuse,  vec2(u, v) ) ;
 	}
-	if(outColor.a <0.1){
-		discard;
-	}
 }
 

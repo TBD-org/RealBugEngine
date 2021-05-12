@@ -15,7 +15,9 @@ EXPOSE_MEMBERS(PlayerController) {
 	MEMBER(MemberType::GAME_OBJECT_UID, fangUID),
 		MEMBER(MemberType::GAME_OBJECT_UID, robotUID),
 		MEMBER(MemberType::GAME_OBJECT_UID, mainNodeUID),
-		MEMBER(MemberType::GAME_OBJECT_UID, cameraUID)
+		MEMBER(MemberType::GAME_OBJECT_UID, cameraUID),
+		MEMBER(MemberType::GAME_OBJECT_UID, fangParticlesUID),
+		MEMBER(MemberType::GAME_OBJECT_UID, onimaruParticlesUID)
 };
 
 GENERATE_BODY_IMPL(PlayerController);
@@ -25,6 +27,11 @@ void PlayerController::Start() {
 	fang = GameplaySystems::GetGameObject(fangUID);
 	robot = GameplaySystems::GetGameObject(robotUID);
 	camera = GameplaySystems::GetGameObject(cameraUID);
+	fParticles = GameplaySystems::GetGameObject(fangParticlesUID);
+	onimariParticles = GameplaySystems::GetGameObject(onimaruParticlesUID);
+
+	fangParticles = fParticles->GetComponent<ComponentParticleSystem>();
+	fangParticles = onimariParticles->GetComponent<ComponentParticleSystem>();
 
 	if (gameObject) {
 		transform = gameObject->GetComponent<ComponentTransform>();
@@ -65,7 +72,7 @@ void PlayerController::LookAtMouse() {
 	float3 facePoint = float3(0, 0, 0);
 	cameraGlobalPos.z = 0;
 	facePoint = p.ClosestPoint(ray) - (transform->GetGlobalPosition());
-	Debug::Log((" x: " + std::to_string(facePoint.x) + " y: " + std::to_string(facePoint.y) + " z: " + std::to_string(facePoint.z)).c_str());
+	//Debug::Log((" x: " + std::to_string(facePoint.x) + " y: " + std::to_string(facePoint.y) + " z: " + std::to_string(facePoint.z)).c_str());
 	Quat quat = transform->GetRotation();
 	float angle = Atan2(facePoint.x, facePoint.z);
 	Quat rotation = quat.RotateAxisAngle(float3(0, 1, 0), angle);
@@ -171,6 +178,8 @@ void PlayerController::Update() {
 	if (!gameObject) return;
 	if (!camera) return;
 	if (!transform) return;
+	if (!fParticles) return;
+	if (!onimariParticles) return;
 	CheckCoolDowns();
 	ComponentTransform* cameraTransform = camera->GetComponent<ComponentTransform>();
 	gameObject = GameplaySystems::GetGameObject(mainNodeUID);
@@ -206,5 +215,21 @@ void PlayerController::Update() {
 			InitDash(md);
 		}
 		Dash();
+
+		if (timeRestToShoot <= 0) {
+			if (Input::GetMouseButtonDown(0)) {
+				timeRestToShoot = timeToShoot;
+				if (fang->IsActive()) {
+					fangParticles->Play();
+				}
+				else {
+					oniParticles->Play();
+				}
+			}
+		}
+		else {
+			Debug::Log(std::to_string(timeRestToShoot).c_str());
+			timeRestToShoot -= Time::GetDeltaTime() * speedShoot;
+		}
 	}
 }

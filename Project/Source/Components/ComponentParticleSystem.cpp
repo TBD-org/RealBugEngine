@@ -341,10 +341,12 @@ void ComponentParticleSystem::Draw() {
 				return;
 			}
 
-			glDisable(GL_CULL_FACE);
+			//glDisable(GL_CULL_FACE);
 			//glDisable(GL_DEPTH_TEST);
-			//glDepthMask(GL_FALSE);
-			/*		glEnable(GL_BLEND);*/
+			glDepthMask(GL_FALSE);
+			glEnable(GL_BLEND);
+			glBlendEquation(GL_FUNC_ADD);
+			glBlendFunc(GL_ONE, GL_ONE);
 			//glBlendEquation(GL_MAX);
 			//glBlendFunc(GL_ZERO, GL_ONE_MINUS_SRC_ALPHA);
 
@@ -396,8 +398,8 @@ void ComponentParticleSystem::Draw() {
 			glBindTexture(GL_TEXTURE_2D, 0);
 			glBindBuffer(GL_ARRAY_BUFFER, 0);
 
-			/*	glDisable(GL_BLEND);
-			glEnable(GL_CULL_FACE);*/
+			glDisable(GL_BLEND);
+			glDepthMask(GL_TRUE);
 			/*		glEnable(GL_DEPTH_TEST);*/
 		}
 		if (looping || (particleSpawned <= maxParticles)) {

@@ -184,6 +184,12 @@ UpdateStatus ModuleRender::Update() {
 		DrawSceneRecursive(scene->quadtree.root, scene->quadtree.bounds);
 	}
 
+	for (ComponentParticleSystem& particleSystem : scene->particleComponents) {
+		if (particleSystem.GetOwner().IsActive()) {
+			particleSystem.Draw();
+		}
+	}
+
 	// Draw Gizmos
 	if (App->camera->IsEngineCameraActive() || debugMode) {
 		GameObject* selectedGameObject = App->editor->selectedGameObject;
@@ -200,6 +206,7 @@ UpdateStatus ModuleRender::Update() {
 				light.DrawGizmos();
 			}
 		}
+
 		if (drawParticleGizmos) {
 			for (ComponentParticleSystem& particle : scene->particleComponents) {
 				particle.DrawGizmos();
@@ -466,9 +473,9 @@ void ModuleRender::DrawGameObject(GameObject* gameObject) {
 			culledTriangles += resourceMesh->numIndices / 3;
 		}
 	}
-	for (ComponentParticleSystem& particle : particles) {
-		particle.Draw();
-	}
+	//for (ComponentParticleSystem& particle : particles) {
+	//	particle.Draw();
+	//}
 }
 
 void ModuleRender::RenderUI() {
