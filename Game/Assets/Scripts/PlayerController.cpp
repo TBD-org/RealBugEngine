@@ -5,6 +5,7 @@
 #include "TesseractEvent.h"
 
 #include "AIMovement.h"
+#include "HUDController.h"
 
 #include "Math/Quat.h"
 #include "Geometry/Plane.h"
@@ -27,6 +28,7 @@ EXPOSE_MEMBERS(PlayerController) {
 	MEMBER(MemberType::GAME_OBJECT_UID, onimaruParticleUID),
 	MEMBER(MemberType::GAME_OBJECT_UID, switchAudioSourceUID),
 	MEMBER(MemberType::GAME_OBJECT_UID, dashAudioSourceUID),
+	MEMBER(MemberType::GAME_OBJECT_UID, canvasUID),
 	MEMBER(MemberType::FLOAT, distanceRayCast),
 	MEMBER(MemberType::FLOAT, switchCooldown),
 	MEMBER(MemberType::FLOAT, dashCooldown),
@@ -36,7 +38,8 @@ EXPOSE_MEMBERS(PlayerController) {
 	MEMBER(MemberType::FLOAT, cameraOffsetY),
 	MEMBER(MemberType::FLOAT, movementSpeed),
 	MEMBER(MemberType::FLOAT, shootCooldown),
-	MEMBER(MemberType::INT, lifePoints)
+	MEMBER(MemberType::INT, lifePointsFang),
+	MEMBER(MemberType::INT, lifePointsOni)
 
 };
 
@@ -47,6 +50,12 @@ void PlayerController::Start() {
 	fang = GameplaySystems::GetGameObject(fangUID);
 	onimaru = GameplaySystems::GetGameObject(onimaruUID);
 	camera = GameplaySystems::GetGameObject(cameraUID);
+
+	GameObject* canvasGO = GameplaySystems::GetGameObject(canvasUID);
+	if (canvasGO) {
+		hudControllerScript = GET_SCRIPT(canvasGO, HUDController);
+	}
+
 	//animation
 	fangParticle = GameplaySystems::GetGameObject(fangParticleUID);
 	onimaruParticle = GameplaySystems::GetGameObject(onimaruParticleUID);
@@ -368,11 +377,21 @@ void PlayerController::Update() {
 	if (!fangParticle) return;
 	if (!onimaruParticle) return;
 	if (!shootAudioSource) return;
+	if (!hudControllerScript) return;
 
-	if (hitTaken && lifePoints > 0) { 
-		--lifePoints;
+	if (hitTaken && fang->IsActive() && lifePointsFang > 0) { 
+		--lifePointsFang;
+		hudControllerScript->UpdateHP(lifePointsFang, lifePointsOni);
+		hitTaken = false;
+	} else if (hitTaken && onimaru->IsActive() && lifePointsOni > 0) {
+		--lifePointsOni;
+		hudControllerScript->UpdateHP(lifePointsOni, lifePointsFang);
 		hitTaken = false;
 	}
+
+	float realDashCooldown = 1.0f - (dashCooldownRemaing / dashCooldown);
+	float realSwitchCooldown = 1.0f - (switchCooldownRemaing / switchCooldown);
+	hudControllerScript->UpdateCooldowns(0.0f, 0.0f, 0.0f, realDashCooldown, 0.0f, 0.0f, realSwitchCooldown);
 
 	ComponentTransform* cameraTransform = camera->GetComponent<ComponentTransform>();
 	gameObject = GameplaySystems::GetGameObject(mainNodeUID);
@@ -394,6 +413,7 @@ void PlayerController::Update() {
 			}
 			if (CanSwitch() && Input::GetKeyCode(Input::KEYCODE::KEY_T)) {
 				SwitchCharacter();
+				hudControllerScript->ChangePlayerHUD();
 			}
 		}
 		PlayAnimation(md, fang->IsActive());

@@ -10,6 +10,8 @@ class ComponentCamera;
 class ComponentAudioSource;
 class ComponentParticleSystem;
 
+class HUDController;
+
 class ComponentAnimation;
 class State;
 struct TesseractEvent;
@@ -46,11 +48,14 @@ public:
 	UID mainNodeUID = 0;
 	UID cameraUID = 0;
 
+	UID canvasUID = 0;
+
 	UID switchAudioSourceUID = 0;
 	UID dashAudioSourceUID = 0;
 
 	bool hitTaken = false;
-	int lifePoints = 5;
+	int lifePointsFang = 5;
+	int lifePointsOni = 5;
 
 	float distanceRayCast = 2.f;
 	float dashCooldown = 5.f; //seconds
@@ -121,5 +126,7 @@ private:
 	ComponentAudioSource* shootAudioSource = nullptr;
 	ComponentAudioSource* dashAudioSource = nullptr;
 	ComponentAudioSource* switchAudioSource = nullptr;
+
+	HUDController* hudControllerScript = nullptr;
 };
 

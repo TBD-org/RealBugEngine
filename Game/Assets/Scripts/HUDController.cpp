@@ -92,15 +92,11 @@ void HUDController::Update() {
 void HUDController::ChangePlayerHUD() {
     if (!fang || !onimaru) return;
 
-    if (fang->IsActive()) {
-        fang->Disable();
-        onimaru->Enable();
+    if (!fang->IsActive()) {
         fangCanvas->Disable();
         onimaruCanvas->Enable();
     }
     else {
-        onimaru->Disable();
-        fang->Enable();
         onimaruCanvas->Disable();
         fangCanvas->Enable();
     }

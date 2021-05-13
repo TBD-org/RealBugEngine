@@ -60,7 +60,7 @@ public:
 	bool drawQuadtree = true;
 	bool drawAllBoundingBoxes = false;
 	bool skyboxActive = true; // TODO: review Godmodecamera
-	bool drawAllBones = true;
+	bool drawAllBones = false;
 	bool drawCameraFrustums = false;
 	bool drawLightGizmos = false;
 	bool drawParticleGizmos = false;

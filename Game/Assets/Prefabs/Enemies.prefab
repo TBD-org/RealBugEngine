@@ -1,0 +1,36 @@
+{
+    "Root": {
+        "Name": "Enemies",
+        "Active": true,
+        "RootBoneName": "",
+        "Mask": 0,
+        "Components": [
+            {
+                "Type": "Transform",
+                "Active": true,
+                "Position": [
+                    0.0,
+                    0.0,
+                    0.0
+                ],
+                "Rotation": [
+                    0.0,
+                    0.0,
+                    0.0,
+                    1.0
+                ],
+                "Scale": [
+                    1.0,
+                    1.0,
+                    1.0
+                ],
+                "LocalEulerAngles": [
+                    -0.0,
+                    0.0,
+                    -0.0
+                ]
+            }
+        ],
+        "Children": null
+    }
+}
