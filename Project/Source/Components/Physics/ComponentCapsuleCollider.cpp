@@ -34,17 +34,17 @@ void ComponentCapsuleCollider::DrawGizmos() {
 		ComponentTransform* ownerTransform = GetOwner().GetComponent<ComponentTransform>();
 		switch (type) {
 		case CapsuleType::X:
-			dd::cone(ownerTransform->GetGlobalPosition() + ownerTransform->GetGlobalRotation() * centerOffset - float3(height / 2, 0, 0), float3(height, 0, 0), dd::colors::Green, radius, radius);
+			dd::cone(ownerTransform->GetGlobalPosition() + ownerTransform->GetGlobalRotation() * centerOffset - float3(height / 2, 0, 0), ownerTransform->GetGlobalRotation() * float3(height, 0, 0).Mul(centerOffset), dd::colors::Green, radius, radius);
 			dd::sphere(ownerTransform->GetGlobalPosition() + ownerTransform->GetGlobalRotation() * centerOffset + float3(height / 2, 0, 0), dd::colors::Green, radius, 3);
 			dd::sphere(ownerTransform->GetGlobalPosition() + ownerTransform->GetGlobalRotation() * centerOffset - float3(height / 2, 0, 0), dd::colors::Green, radius, 4);
 			break;
 		case CapsuleType::Y:
-			dd::cone(ownerTransform->GetGlobalPosition() + ownerTransform->GetGlobalRotation() * centerOffset - float3(0, height / 2, 0), float3(0, height, 0), dd::colors::Green, radius, radius);
+			dd::cone(ownerTransform->GetGlobalPosition() + ownerTransform->GetGlobalRotation() * centerOffset - float3(0, height / 2, 0), ownerTransform->GetGlobalRotation() * float3(0, height, 0), dd::colors::Green, radius, radius);
 			dd::sphere(ownerTransform->GetGlobalPosition() + ownerTransform->GetGlobalRotation() * centerOffset + float3(0, height / 2, 0), dd::colors::Green, radius, 1);
 			dd::sphere(ownerTransform->GetGlobalPosition() + ownerTransform->GetGlobalRotation() * centerOffset - float3(0, height / 2, 0), dd::colors::Green, radius, 2);
 			break;
 		case CapsuleType::Z:
-			dd::cone(ownerTransform->GetGlobalPosition() + ownerTransform->GetGlobalRotation() * centerOffset - float3(0, 0, height / 2), float3(0, 0, height), dd::colors::Green, radius, radius);
+			dd::cone(ownerTransform->GetGlobalPosition() + ownerTransform->GetGlobalRotation() * centerOffset - float3(0, 0, height / 2), ownerTransform->GetGlobalRotation() * float3(0, 0, height), dd::colors::Green, radius, radius);
 			dd::sphere(ownerTransform->GetGlobalPosition() + ownerTransform->GetGlobalRotation() * centerOffset + float3(0, 0, height / 2), dd::colors::Green, radius, 5);
 			dd::sphere(ownerTransform->GetGlobalPosition() + ownerTransform->GetGlobalRotation() * centerOffset - float3(0, 0, height / 2), dd::colors::Green, radius, 6);
 			break;

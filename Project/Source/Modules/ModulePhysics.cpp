@@ -154,6 +154,7 @@ void ModulePhysics::CreateSphereRigidbody(ComponentSphereCollider* sphereCollide
 
 	sphereCollider->rigidBody->setUserPointer(sphereCollider);
 	world->addRigidBody(sphereCollider->rigidBody);
+	//switch
 }
 
 btRigidBody* ModulePhysics::AddSphereBody(MotionState* myMotionState, float radius, float mass) {

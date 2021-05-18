@@ -3071,7 +3071,7 @@ void cone(DD_EXPLICIT_CONTEXT_ONLY(ContextHandle ctx,) ddVec3_In apex, ddVec3_In
         return;
     }
 
-    static const int stepSize = 20;
+    static const int stepSize = 15;
     ddVec3 axis[3];
     ddVec3 top, temp0, temp1, temp2;
     ddVec3 p1, p2, lastP1, lastP2;
