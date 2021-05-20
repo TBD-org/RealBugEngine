@@ -504,9 +504,9 @@ void ModuleProject::CreateMSVCProject(const char* path, const char* name, const 
 	std::string enginePath = FileDialog::GetFileFolder(FileDialog::GetAbsolutePath("").c_str());
 
 #ifdef _DEBUG
-	std::string result = fmt::format(project, name, UIDProject, "../../Project/Source/", "../../Project/Libs/MathGeoLib", "../../Project/Libs/SDL/include", "../../Project/Libs/rapidjson/include", "../../Project/Libs/OpenAL-soft/include", enginePath);
+	std::string result = fmt::format(project, name, UIDProject, "../../Project/Source/", "../../Project/Libs/MathGeoLib", "../../Project/Libs/SDL/include", "../../Project/Libs/rapidjson/include", "../../Project/Libs/OpenAL-soft/include", "../../Project/Libs/Bullet/include", enginePath);
 #else
-	std::string result = fmt::format(project, name, UIDProject, "../Engine/Source/", "../Engine/Libs/MathGeoLib", "../Engine/Libs/SDL/include", "../Engine/Libs/rapidjson/include", "../Engine/Libs/OpenAL-soft/include", enginePath);
+	std::string result = fmt::format(project, name, UIDProject, "../Engine/Source/", "../Engine/Libs/MathGeoLib", "../Engine/Libs/SDL/include", "../Engine/Libs/rapidjson/include", "../Engine/Libs/OpenAL-soft/include", "../Engine/Libs/Bullet/include", enginePath);
 #endif
 
 	App->files->Save(path, result.data(), result.size());

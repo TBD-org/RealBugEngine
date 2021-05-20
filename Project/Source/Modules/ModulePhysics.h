@@ -3,7 +3,6 @@
 
 #include "Math/float4x4.h"
 #include "btBulletDynamicsCommon.h"
-#include "debugdraw.h"
 
 class DebugDrawer;
 class MotionState;

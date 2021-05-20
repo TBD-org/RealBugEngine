@@ -22,6 +22,13 @@
 #include "Utils/Logging.h"
 #include "TesseractEvent.h"
 
+#include "Application.h"
+#include "Modules/ModuleResources.h"
+#include "Components/ComponentCamera.h"
+#include "Components/ComponentScript.h"
+#include "Utils/Logging.h"
+#include "Utils/UID.h"
+
 #include "debugdraw.h"
 #include "Geometry/Frustum.h"
 #include "Geometry/LineSegment.h"

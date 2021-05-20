@@ -1,14 +1,9 @@
 #pragma once
 
 #include "Globals.h"
-#include "GameObject.h"
-#include "Application.h"
-#include "Modules/ModuleResources.h"
+
 #include "Modules/ModuleWindow.h"
-#include "Components/ComponentCamera.h"
-#include "Components/ComponentScript.h"
-#include "Utils/Logging.h"
-#include "Utils/UID.h"
+#include "GameObject.h"
 
 #include "Math/float2.h"
 
@@ -20,7 +15,10 @@
 
 #define GET_SCRIPT(gameObject, _class_) GameplaySystems::GetScript<_class_>(gameObject, #_class_)
 
+typedef unsigned long long UID;
+
 class GameObject;
+class ComponentCamera;
 class ResourcePrefab;
 
 namespace GameplaySystems {

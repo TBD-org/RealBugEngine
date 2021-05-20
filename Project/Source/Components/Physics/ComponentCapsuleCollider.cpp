@@ -7,6 +7,8 @@
 #include "Modules/ModuleTime.h"
 #include "Components/ComponentBoundingBox.h"
 
+#include "debugdraw.h"
+
 #define JSON_TAG_MASS "mass"
 #define JSON_TAG_RADIUS "radius"
 #define JSON_TAG_HEIGHT "height"

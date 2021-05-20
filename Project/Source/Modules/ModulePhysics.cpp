@@ -17,6 +17,9 @@
 #include "Components/Physics/ComponentSphereCollider.h"
 #include "Components/Physics/ComponentCapsuleCollider.h"
 #include "Components/Physics/ComponentBoxCollider.h"
+#include "Components/ComponentTransform.h"
+
+#include "debugdraw.h"
 
 bool ModulePhysics::Init() {
 	LOG("Creating Physics environment using Bullet Physics.");
@@ -50,13 +53,26 @@ UpdateStatus ModulePhysics::PreUpdate() {
 				Component* pbodyB = (Component*) obB->getUserPointer();
 
 				if (pbodyA && pbodyB) {
+					if (obA->isKinematicObject() && obB->isStaticOrKinematicObject()) {
+						pbodyA->GetOwner().GetComponent<ComponentTransform>()->SetGlobalPosition(
+							pbodyA->GetOwner().GetComponent<ComponentTransform>()->GetGlobalPosition() +
+							0.07f * float3(contactManifold->getContactPoint(0).m_normalWorldOnB));
+					}
+					if (obB->isKinematicObject() && obA->isStaticOrKinematicObject()) {
+						pbodyB->GetOwner().GetComponent<ComponentTransform>()->SetGlobalPosition(
+							pbodyB->GetOwner().GetComponent<ComponentTransform>()->GetGlobalPosition() -
+							0.07f * float3(contactManifold->getContactPoint(0).m_normalWorldOnB));
+					}
 					switch (pbodyA->GetType()) {
 					case ComponentType::SPHERE_COLLIDER:
 						((ComponentSphereCollider*) pbodyA)->OnCollision();
 						break;
-						//case
-						//case
-
+					case ComponentType::BOX_COLLIDER:
+						((ComponentBoxCollider*) pbodyA)->OnCollision();
+						break;
+					case ComponentType::CAPSULE_COLLIDER:
+						((ComponentCapsuleCollider*) pbodyA)->OnCollision();
+						break;
 					default:
 						break;
 					}
@@ -65,9 +81,12 @@ UpdateStatus ModulePhysics::PreUpdate() {
 					case ComponentType::SPHERE_COLLIDER:
 						((ComponentSphereCollider*) pbodyB)->OnCollision();
 						break;
-						//case
-						//case
-
+					case ComponentType::BOX_COLLIDER:
+						((ComponentBoxCollider*) pbodyB)->OnCollision();
+						break;
+					case ComponentType::CAPSULE_COLLIDER:
+						((ComponentCapsuleCollider*) pbodyB)->OnCollision();
+						break;
 					default:
 						break;
 					}
@@ -136,7 +155,7 @@ bool ModulePhysics::CleanUp() {
 void ModulePhysics::CreateSphereRigidbody(ComponentSphereCollider* sphereCollider) {
 	sphereCollider->motionState = MotionState(sphereCollider, sphereCollider->centerOffset, sphereCollider->freezeRotation);
 	sphereCollider->rigidBody = App->physics->AddSphereBody(&sphereCollider->motionState, sphereCollider->radius, sphereCollider->colliderType == ColliderType::DYNAMIC ? sphereCollider->mass : 0);
-	
+
 	switch (sphereCollider->colliderType) {
 	case ColliderType::STATIC:
 		sphereCollider->rigidBody->setCollisionFlags(btCollisionObject::CF_STATIC_OBJECT);
@@ -228,7 +247,7 @@ void ModulePhysics::UpdateBoxRigidbody(ComponentBoxCollider* boxCollider) {
 void ModulePhysics::CreateCapsuleRigidbody(ComponentCapsuleCollider* capsuleCollider) {
 	capsuleCollider->motionState = MotionState(capsuleCollider, capsuleCollider->centerOffset, capsuleCollider->freezeRotation);
 	capsuleCollider->rigidBody = App->physics->AddCapsuleBody(&capsuleCollider->motionState, capsuleCollider->radius, capsuleCollider->height, capsuleCollider->type, capsuleCollider->colliderType == ColliderType::DYNAMIC ? capsuleCollider->mass : 0);
-	
+
 	switch (capsuleCollider->colliderType) {
 	case ColliderType::STATIC:
 		capsuleCollider->rigidBody->setCollisionFlags(btCollisionObject::CF_STATIC_OBJECT);
@@ -245,7 +264,7 @@ void ModulePhysics::CreateCapsuleRigidbody(ComponentCapsuleCollider* capsuleColl
 	}
 
 	capsuleCollider->rigidBody->setUserPointer(capsuleCollider);
-	world->addRigidBody(capsuleCollider->rigidBody);
+	world->addRigidBody(capsuleCollider->rigidBody, 4, 7);
 }
 
 btRigidBody* ModulePhysics::AddCapsuleBody(MotionState* myMotionState, float radius, float height, CapsuleType type, float mass) {

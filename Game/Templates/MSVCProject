@@ -70,8 +70,8 @@
     <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
   </ImportGroup>
   <PropertyGroup Label="UserMacros" >
-    <Tesseract_IncludePath>{2};{3};{4};{5};{6}</Tesseract_IncludePath>
-    <Tesseract_LibraryPath>{7}</Tesseract_LibraryPath>
+    <Tesseract_IncludePath>{2};{3};{4};{5};{6};{7}</Tesseract_IncludePath>
+    <Tesseract_LibraryPath>{8}</Tesseract_LibraryPath>
   </PropertyGroup>
   <ItemGroup>
     <BuildMacro Include="Tesseract_IncludePath">
