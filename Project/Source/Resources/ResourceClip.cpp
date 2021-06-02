@@ -119,7 +119,7 @@ void ResourceClip::OnEditorUpdate() {
 	ImGui::DragScalar("End Index", ImGuiDataType_U32, &endIndex);
 	SetEndIndex(endIndex);
 
-	ImGui::DragFloat("Speed", &speed, 0.001);
+	ImGui::DragFloat("Speed", &speed, 0.001f);
 
 	ImGui::NewLine();
 	if (ImGui::Button("Save##clip")) {

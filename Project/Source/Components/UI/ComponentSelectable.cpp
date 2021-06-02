@@ -333,6 +333,8 @@ bool ComponentSelectable::IsClicked() const {
 		default:
 			return false;
 		}
+	} else {
+		return false;
 	}
 }
 
