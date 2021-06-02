@@ -4,6 +4,7 @@
 #include "Application.h"
 #include "GameObject.h"
 #include "Modules/ModuleScene.h"
+#include "Modules/ModuleRender.h"
 
 #include "debugdraw.h"
 #include "Geometry/Plane.h"
@@ -30,10 +31,10 @@ void LightFrustum::ReconstructFrustum() {
 	AABB lightAABB;
 	lightAABB.SetNegativeInfinity();
 
-	for (GameObject& go : App->scene->scene->gameObjects) {
-		Mask mask = go.GetMask();
-		if ((mask.bitMask & static_cast<int>(MaskType::CAST_SHADOWS)) != 0 && go.HasComponent<ComponentMeshRenderer>()) {
-			ComponentBoundingBox* componentBBox = go.GetComponent<ComponentBoundingBox>();
+	for (GameObject* go : App->renderer->shadowGameObjects) {
+		Mask mask = go->GetMask();
+		if ((mask.bitMask & static_cast<int>(MaskType::CAST_SHADOWS)) != 0 && go->HasComponent<ComponentMeshRenderer>()) {
+			ComponentBoundingBox* componentBBox = go->GetComponent<ComponentBoundingBox>();
 			if (componentBBox) {
 				AABB boundingBox = componentBBox->GetWorldAABB();
 				OBB orientedBoundingBox = boundingBox.Transform(lightOrientation.Inverted());

@@ -106,4 +106,6 @@ private:
 	std::vector<GameObject*> shadowGameObjects;			 // Vector of Shadow Casted GameObjects
 	std::vector<GameObject*> opaqueGameObjects;			 // Vector of Opaque GameObjects
 	std::map<float, GameObject*> transparentGameObjects; // Map with Transparent GameObjects
+
+	friend class LightFrustum;
 };
