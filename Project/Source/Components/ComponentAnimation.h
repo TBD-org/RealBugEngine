@@ -20,6 +20,7 @@ class ResourceTransition;
 class ComponentAnimation : public Component {
 public:
 	REGISTER_COMPONENT(ComponentAnimation, ComponentType::ANIMATION, false); // Refer to ComponentType for the Constructor
+	~ComponentAnimation();
 
 	void Update() override;
 	void OnEditorUpdate() override;
@@ -28,13 +29,13 @@ public:
 
 	void OnUpdate();
 
-	TESSERACT_ENGINE_API void SendTriggerPrincipal(const std::string& trigger); // Method to trigger the change of state
+	TESSERACT_ENGINE_API void SendTrigger(const std::string& trigger); // Method to trigger the change of state
 	TESSERACT_ENGINE_API void SendTriggerSecondary(const std::string& trigger); // Method to trigger the change of state
 
-	TESSERACT_ENGINE_API State* GetCurrentStatePrincipal() {
+	TESSERACT_ENGINE_API State* GetCurrentState() {
 		return currentStatePrincipal;
 	}
-	TESSERACT_ENGINE_API void SetCurrentStatePrincipal(State* mCurrentState) {
+	TESSERACT_ENGINE_API void SetCurrentState(State* mCurrentState) {
 		currentStatePrincipal = mCurrentState;
 	}
 

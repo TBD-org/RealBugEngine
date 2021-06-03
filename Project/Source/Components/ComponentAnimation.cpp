@@ -30,7 +30,15 @@
 #define JSON_TAG_STATE_MACHINE_SECONDARY_ID "StateMachineSecondaryId"
 #define JSON_TAG_CLIP "Clip"
 
+ComponentAnimation::~ComponentAnimation() {
+	RELEASE(currentStatePrincipal);
+	RELEASE(currentStateSecondary);
+}
+
 void ComponentAnimation::Update() {
+	if(!App->time->IsGameRunning()) {
+		return;
+	}
 	if (!currentStatePrincipal) { //Checking if there is no state machine
 		LoadResourceStateMachine(stateMachineResourceUIDPrincipal, StateMachineEnum::PRINCIPAL);
 	}
@@ -96,6 +104,8 @@ void ComponentAnimation::Save(JsonValue jComponent) const {
 void ComponentAnimation::Load(JsonValue jComponent) {
 	stateMachineResourceUIDPrincipal = jComponent[JSON_TAG_STATE_MACHINE_PRINCIPAL_ID];
 	stateMachineResourceUIDSecondary = jComponent[JSON_TAG_STATE_MACHINE_SECONDARY_ID];
+	GameObject* rootBone = GetOwner().GetRootBone();
+	GameObject owner = GetOwner();
 
 	if (stateMachineResourceUIDPrincipal != 0) App->resources->IncreaseReferenceCount(stateMachineResourceUIDPrincipal);
 	if (stateMachineResourceUIDSecondary != 0) App->resources->IncreaseReferenceCount(stateMachineResourceUIDSecondary);
@@ -123,7 +133,7 @@ void ComponentAnimation::OnUpdate() {
 	}
 }
 
-void ComponentAnimation::SendTriggerPrincipal(const std::string& trigger) {
+void ComponentAnimation::SendTrigger(const std::string& trigger) {
 	StateMachineManager::SendTrigger(trigger, currentTimeStatesPrincipal, animationInterpolationsPrincipal, stateMachineResourceUIDPrincipal, *currentStatePrincipal, currentTimeStatesPrincipal);
 }
 void ComponentAnimation::SendTriggerSecondary(const std::string& trigger) {
@@ -192,10 +202,12 @@ void ComponentAnimation::LoadResourceStateMachine(UID stateMachineResourceUid, S
 	if (resourceStateMachine) {
 		switch (stateMachineEnum) {
 		case StateMachineEnum::PRINCIPAL:
-			currentStatePrincipal = &resourceStateMachine->initialState;
+			RELEASE(currentStatePrincipal);
+			currentStatePrincipal = new State(resourceStateMachine->initialState);
 			break;
 		case StateMachineEnum::SECONDARY:
-			currentStateSecondary = &resourceStateMachine->initialState;
+			RELEASE(currentStateSecondary);
+			currentStateSecondary = new State(resourceStateMachine->initialState);
 			break;
 		}
 	}

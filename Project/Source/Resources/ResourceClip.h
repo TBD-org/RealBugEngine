@@ -28,7 +28,6 @@ public:
 	void SetSpeed(float mSpeed) {
 		speed = mSpeed;
 	}
-
 	ResourceAnimation* GetResourceAnimation() const;
 
 public:

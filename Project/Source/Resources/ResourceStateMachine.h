@@ -28,6 +28,10 @@ public:
 		initialState = newState;
 	}
 
+	State GetInitialState() const{
+		return initialState;
+	}
+
 public:
 	std::unordered_map<UID, State> states;
 	State initialState;

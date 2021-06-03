@@ -71,6 +71,7 @@ void ResourceStateMachine::Load() {
 		bones.insert(name);
 	}
 
+	initialState = State();
 	UID initialStateId = jStateMachine[JSON_TAG_INITIAL_STATE];
 	JsonValue stateArray = jStateMachine[JSON_TAG_STATES];
 	for (unsigned int i = 0; i < stateArray.Size(); ++i) {

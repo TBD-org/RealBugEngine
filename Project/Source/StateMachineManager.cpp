@@ -80,6 +80,9 @@ bool StateMachineManager::CalculateAnimation(GameObject* gameObject, const GameO
 	} else {
 		if (currentState->id != 0) {
 			ResourceClip* clip = App->resources->GetResource<ResourceClip>(currentState->clipUid);
+			if (!clip) {
+				return result;
+			}
 			result = AnimationController::GetTransform(*clip, currentTimeStates[currentState->id], gameObject->name.c_str(), position, rotation);
 
 			if (gameObject->name == (*resourceStateMachine->bones.begin())) { //Only call this once
