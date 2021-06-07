@@ -44,7 +44,7 @@ public:
 	virtual void OnValueChanged() {}
 	virtual void OnAnimationFinished() {}
 	virtual void OnAnimationSecondaryFinished() {}
-	virtual void OnCollision(GameObject& collidedWith, float3 normalCollision) {}
+	virtual void OnCollision(GameObject& collidedWith, float3 contactPoint, float3 normalCollision) {}
 
 private:
 	GameObject* owner = nullptr;

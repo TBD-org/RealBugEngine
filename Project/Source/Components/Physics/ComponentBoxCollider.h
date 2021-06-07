@@ -21,7 +21,7 @@ public:
 	void Load(JsonValue jComponent) override;
 
 	// ----- Collider Functions ---- //
-	void OnCollision(GameObject& collidedWith, float3 normalCollision); // Callback function for scripting
+	void OnCollision(GameObject& collidedWith, float3 contactPoint, float3 normalCollision); // Callback function for scripting
 	void CalculateWorldBoundingBox(); // Set the worldOBB from the localAABB and the GameObject transform
 
 	TESSERACT_ENGINE_API float3 GetSize();

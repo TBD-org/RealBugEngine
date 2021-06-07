@@ -11,6 +11,7 @@
 #include "Scene.h"
 #include "Utils/MotionState.h"
 #include "Utils/Logging.h"
+#include "debugdraw.h"
 
 bool ModulePhysics::Init() {
 	LOG("Creating Physics environment using Bullet Physics.");
@@ -22,10 +23,10 @@ bool ModulePhysics::Init() {
 	world = new btDiscreteDynamicsWorld(dispatcher, broadPhase, constraintSolver, collisionConfiguration);
 	world->setGravity(btVector3(0.f, gravity, 0.f));
 
-	/* BULLET DEBUG: Uncomment to activate it
+	/* BULLET DEBUG: Uncomment to activate it*/
 	debugDrawer = new DebugDrawer();
 	world->setDebugDrawer(debugDrawer);
-	*/
+	
 	return true;
 }
 
@@ -46,41 +47,53 @@ UpdateStatus ModulePhysics::PreUpdate() {
 
 				if (pbodyA && pbodyB) {
 					float3 collisionNormal = float3(contactManifold->getContactPoint(0).m_normalWorldOnB).Normalized();
+					// Contact point is in global coordinates
+			/*		float3 contactPoint = pbodyB->GetOwner().GetComponent<ComponentTransform>()->GetGlobalPosition() 
+						                + pbodyB->GetOwner().GetComponent<ComponentTransform>()->GetGlobalRotation().Transform(float3(contactManifold->getContactPoint(0).m_localPointB));*/
+
+					
+					//float3 contactPoint = pbodyB->GetOwner().GetComponent<ComponentTransform>()->GetGlobalMatrix().MulPos(float3(contactManifold->getContactPoint(0).m_localPointB));
+					float3 contactPoint = pbodyB->GetOwner().GetComponent<ComponentTransform>()->GetGlobalMatrix().MulPos(CalculateMeanPoint(contactManifold, true));
 					switch (pbodyA->GetType()) {
 					case ComponentType::SPHERE_COLLIDER: {
 						ComponentSphereCollider* sphereCol = (ComponentSphereCollider*) pbodyA;
-
-						sphereCol->OnCollision(pbodyB->GetOwner(), collisionNormal);
+						sphereCol->OnCollision(pbodyB->GetOwner(), contactPoint, collisionNormal);
 						break;
 					}
 					case ComponentType::BOX_COLLIDER: {
 						ComponentBoxCollider* boxCol = (ComponentBoxCollider*) pbodyA;
-						boxCol->OnCollision(pbodyB->GetOwner(), collisionNormal);
+						boxCol->OnCollision(pbodyB->GetOwner(), contactPoint, collisionNormal);
 						break;
 					}
 					case ComponentType::CAPSULE_COLLIDER: {
 						ComponentCapsuleCollider* capsuleCol = (ComponentCapsuleCollider*) pbodyA;
-						capsuleCol->OnCollision(pbodyB->GetOwner(), collisionNormal);
+						capsuleCol->OnCollision(pbodyB->GetOwner(), contactPoint, collisionNormal);
 						break;
 					}
 					default:
 						break;
 					}
 
+				/*	contactPoint = pbodyA->GetOwner().GetComponent<ComponentTransform>()->GetGlobalPosition()
+								 + pbodyA->GetOwner().GetComponent<ComponentTransform>()->GetGlobalRotation().Transform(float3(contactManifold->getContactPoint(0).m_localPointA));*/
+
+					//contactPoint = pbodyB->GetOwner().GetComponent<ComponentTransform>()->GetGlobalMatrix().MulPos(float3(contactManifold->getContactPoint(0).m_localPointA));
+					contactPoint = pbodyB->GetOwner().GetComponent<ComponentTransform>()->GetGlobalMatrix().MulPos(CalculateMeanPoint(contactManifold, false));
+
 					switch (pbodyB->GetType()) {
 					case ComponentType::SPHERE_COLLIDER: {
 						ComponentSphereCollider* sphereCol = (ComponentSphereCollider*) pbodyB;
-						sphereCol->OnCollision(pbodyA->GetOwner(), -collisionNormal);
+						sphereCol->OnCollision(pbodyA->GetOwner(), contactPoint, -collisionNormal);
 						break;
 					}
 					case ComponentType::BOX_COLLIDER: {
 						ComponentBoxCollider* boxCol = (ComponentBoxCollider*) pbodyB;
-						boxCol->OnCollision(pbodyA->GetOwner(), -collisionNormal);
+						boxCol->OnCollision(pbodyA->GetOwner(), contactPoint, -collisionNormal);
 						break;
 					}
 					case ComponentType::CAPSULE_COLLIDER: {
 						ComponentCapsuleCollider* capsuleCol = (ComponentCapsuleCollider*) pbodyB;
-						capsuleCol->OnCollision(pbodyA->GetOwner(), -collisionNormal);
+						capsuleCol->OnCollision(pbodyA->GetOwner(), contactPoint, -collisionNormal);
 						break;
 					}
 					default:
@@ -94,11 +107,11 @@ UpdateStatus ModulePhysics::PreUpdate() {
 }
 
 UpdateStatus ModulePhysics::Update() {
-	/* BULLET DEBUG: Uncomment to activate it
+	/* BULLET DEBUG: Uncomment to activate it */
 	if (debug == true) {
 		world->debugDrawWorld();
 	}
-	*/
+	
 	return UpdateStatus::CONTINUE;
 }
 
@@ -107,9 +120,8 @@ bool ModulePhysics::CleanUp() {
 
 	RELEASE(world);
 
-	/* BULLET DEBUG: Uncomment to activate it
+	/* BULLET DEBUG: Uncomment to activate it */
 	RELEASE(debugDrawer);
-	*/
 	RELEASE(constraintSolver);
 	RELEASE(broadPhase);
 	RELEASE(dispatcher);
@@ -287,8 +299,17 @@ void ModulePhysics::SetGravity(float newGravity) {
 	world->setGravity(btVector3(0.f, newGravity, 0.f));
 }
 
+float3 ModulePhysics::CalculateMeanPoint(btPersistentManifold* contactManifold, bool isFirstContact) {
+	float3 result = float3(0, 0, 0);
+	for (int i = 0; i < contactManifold->getNumContacts(); ++i) {
+		result += float3(isFirstContact ? contactManifold->getContactPoint(i).m_localPointB : contactManifold->getContactPoint(i).m_localPointA);
+	}
+	result /= contactManifold->getNumContacts();
+	return result;
+}
+
 /* BULLET DEBUG: Uncomment to activate it. #include "debugdraw.h" in this file if using it.
-// =================== BULLET DEBUG CALLBACKS ==========================
+// =================== BULLET DEBUG CALLBACKS ==========================*/
 void DebugDrawer::drawLine(const btVector3& from, const btVector3& to, const btVector3& color) {
 	dd::line((ddVec3) from, (ddVec3) to, (ddVec3) color); // TODO: Test if this actually works
 }
@@ -312,4 +333,4 @@ void DebugDrawer::setDebugMode(int debugMode) {
 int DebugDrawer::getDebugMode() const {
 	return mode;
 }
-*/
+
