@@ -36,8 +36,8 @@ public:
 
 	// ---------- Getters ---------- //
 	TESSERACT_ENGINE_API ComponentType GetType() const;
-	GameObject& GetOwner() const;
-	UID GetID() const;
+	TESSERACT_ENGINE_API GameObject& GetOwner() const;
+	TESSERACT_ENGINE_API UID GetID() const;
 	TESSERACT_ENGINE_API bool IsActive() const;
 	bool IsActiveInternal() const;
 
