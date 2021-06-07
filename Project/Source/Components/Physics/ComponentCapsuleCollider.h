@@ -26,7 +26,9 @@ public:
 	void Load(JsonValue jComponent) override;
 
 	// ----- Collider Functions ---- //
-	void OnCollision(const GameObject& collidedWith); // Callback function for scripting
+	void OnCollision(GameObject& collidedWith, float3 normalCollision); // Callback function for scripting
+
+	TESSERACT_ENGINE_API float GetRadius();
 
 public:
 	btRigidBody* rigidBody = nullptr;										// Body that is represented in the physic world.

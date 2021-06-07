@@ -45,20 +45,22 @@ UpdateStatus ModulePhysics::PreUpdate() {
 				Component* pbodyB = (Component*) obB->getUserPointer();
 
 				if (pbodyA && pbodyB) {
+					float3 collisionNormal = float3(contactManifold->getContactPoint(0).m_normalWorldOnB).Normalized();
 					switch (pbodyA->GetType()) {
 					case ComponentType::SPHERE_COLLIDER: {
 						ComponentSphereCollider* sphereCol = (ComponentSphereCollider*) pbodyA;
-						sphereCol->OnCollision(pbodyB->GetOwner());
+
+						sphereCol->OnCollision(pbodyB->GetOwner(), collisionNormal);
 						break;
 					}
 					case ComponentType::BOX_COLLIDER: {
 						ComponentBoxCollider* boxCol = (ComponentBoxCollider*) pbodyA;
-						boxCol->OnCollision(pbodyB->GetOwner());
+						boxCol->OnCollision(pbodyB->GetOwner(), collisionNormal);
 						break;
 					}
 					case ComponentType::CAPSULE_COLLIDER: {
 						ComponentCapsuleCollider* capsuleCol = (ComponentCapsuleCollider*) pbodyA;
-						capsuleCol->OnCollision(pbodyB->GetOwner());
+						capsuleCol->OnCollision(pbodyB->GetOwner(), collisionNormal);
 						break;
 					}
 					default:
@@ -68,17 +70,17 @@ UpdateStatus ModulePhysics::PreUpdate() {
 					switch (pbodyB->GetType()) {
 					case ComponentType::SPHERE_COLLIDER: {
 						ComponentSphereCollider* sphereCol = (ComponentSphereCollider*) pbodyB;
-						sphereCol->OnCollision(pbodyA->GetOwner());
+						sphereCol->OnCollision(pbodyA->GetOwner(), -collisionNormal);
 						break;
 					}
 					case ComponentType::BOX_COLLIDER: {
 						ComponentBoxCollider* boxCol = (ComponentBoxCollider*) pbodyB;
-						boxCol->OnCollision(pbodyA->GetOwner());
+						boxCol->OnCollision(pbodyA->GetOwner(), -collisionNormal);
 						break;
 					}
 					case ComponentType::CAPSULE_COLLIDER: {
 						ComponentCapsuleCollider* capsuleCol = (ComponentCapsuleCollider*) pbodyB;
-						capsuleCol->OnCollision(pbodyA->GetOwner());
+						capsuleCol->OnCollision(pbodyA->GetOwner(), -collisionNormal);
 						break;
 					}
 					default:

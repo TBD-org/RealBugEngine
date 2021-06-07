@@ -167,11 +167,11 @@ void ComponentBoxCollider::Load(JsonValue jComponent) {
 	freezeRotation = jFreeze;
 }
 
-void ComponentBoxCollider::OnCollision(const GameObject& collidedWith) {
+void ComponentBoxCollider::OnCollision(GameObject& collidedWith, float3 normalCollision) {
 	for (ComponentScript& scriptComponent : GetOwner().GetComponents<ComponentScript>()) {
 		Script* script = scriptComponent.GetScriptInstance();
 		if (script != nullptr) {
-			script->OnCollision(collidedWith);
+			script->OnCollision(collidedWith, normalCollision);
 		}
 	}
 }
@@ -179,4 +179,8 @@ void ComponentBoxCollider::OnCollision(const GameObject& collidedWith) {
 void ComponentBoxCollider::CalculateWorldBoundingBox() {
 	worldOBB = OBB(localAABB);
 	worldOBB.Transform(GetOwner().GetComponent<ComponentTransform>()->GetGlobalMatrix());
+}
+
+float3 ComponentBoxCollider::GetSize() {
+	return size;
 }

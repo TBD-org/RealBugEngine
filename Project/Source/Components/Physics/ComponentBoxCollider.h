@@ -21,8 +21,10 @@ public:
 	void Load(JsonValue jComponent) override;
 
 	// ----- Collider Functions ---- //
-	void OnCollision(const GameObject& collidedWith);  // Callback function for scripting
+	void OnCollision(GameObject& collidedWith, float3 normalCollision); // Callback function for scripting
 	void CalculateWorldBoundingBox(); // Set the worldOBB from the localAABB and the GameObject transform
+
+	TESSERACT_ENGINE_API float3 GetSize();
 
 public:
 	btRigidBody* rigidBody = nullptr;										// Body that is represented in the physic world.

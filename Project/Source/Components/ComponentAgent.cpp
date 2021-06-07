@@ -45,6 +45,7 @@ void ComponentAgent::SetMoveTarget(float3 newTargetPosition, bool usePathfinding
 			crowd->requestMoveVelocity(agentId, vel.ptr());
 		}
 	}
+	targetPosition = newTargetPosition;
 }
 
 void ComponentAgent::SetMaxSpeed(float newSpeed) {
