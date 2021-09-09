@@ -1,5 +1,6 @@
 #pragma once
 #include "Components/Component.h"
+#include "SDL_audio.h"
 
 extern "C" {
 #include "libavutil/rational.h"
@@ -13,6 +14,20 @@ struct AVCodecContext;
 struct SwsContext;
 struct AVFrame;
 struct AVPacket;
+struct AVPacketList;
+
+typedef struct PacketQueue {
+	AVPacketList *firstPkt, *lastPkt;
+	int nbPackets;
+	int size;
+	SDL_mutex* mutex;
+	SDL_cond* cond;
+} PacketQueue;
+
+typedef struct CallbackBicho {
+	AVCodecContext* codecCtx;
+	ComponentVideo* dis;
+};
 
 class ComponentVideo : public Component {
 public:
@@ -33,6 +48,53 @@ public:
 	TESSERACT_ENGINE_API void Stop();
 	TESSERACT_ENGINE_API void SetVideoFrameSize(int width, int height); // Sets the ComponentTransform2D size to adjust to the video sizes.
 	TESSERACT_ENGINE_API bool HasVideoFinished();						// Returns true if the video has finished and it is not playing anymore.
+
+	static int AudioDecodeFrame(AVCodecContext* aCodecCtx, uint8_t* audioBuffer, int bufferSize);
+
+private:
+	void OpenVideoReader(const char* filename); // Opens a video file and allocates the neccessary memory to work with it.
+	void ReadFrame();							// Reads the next frame packets of the allocated video.
+	void CloseVideoReader();					// Frees the memory of the allocated video.
+	void RemoveVideoResource();					// Reinitialises the video variables when changing the Video Resource loaded from inspector.
+	void CleanFrameBuffer();					// Sets the framebuffer to all zeros (black screen).
+
+	// Audio queue management
+	void PacketQueueInit(PacketQueue* q);
+	int PacketQueuePut(PacketQueue* q, AVPacket* pkt);
+	int PacketQueueGet(PacketQueue* q, AVPacket* pkt, int block);
+
+private:
+	UID videoID = 0; // Video file resource ID.
+
+	// Auxiliar members
+	ProgramImageUI* imageUIProgram = nullptr; // Shader program.
+	unsigned int frameTexture = 0;			  // GL texture ID that stores the frame as an image texture.
+	int frameWidth = 0, frameHeight = 0;	  // Size of video frame.
+	uint8_t* frameData = nullptr;			  // Buffer for the frame texture data.
+	bool verticalFlip = false;				  // Invert the Y axis of the rendered image.
+
+	// LibAV internal state
+	AVFormatContext* formatCtx = nullptr;	 // Video file context.
+	AVCodecContext* videoCodecCtx = nullptr; // Video Decoder context.
+	AVCodecContext* audioCodecCtx = nullptr; // Audio Decoder context.
+	AVPacket* avPacket = nullptr;			 // Data packet. This is sent to de decoders to obtain a frame of any type (video or audio).
+	AVFrame* avFrame = nullptr;				 // Frame Data. This is what a decoder returns after decoding a packet.
+	SwsContext* scalerCtx = nullptr;		 // Used for converting the frame data to RGB format.
+	int videoStreamIndex = -1;				 // Video data stream inside file.
+	int audioStreamIndex = -1;				 // Audio data stream inside file.
+
+	SDL_AudioSpec* wantedSpec = nullptr;
+	SDL_AudioSpec* spec = nullptr;
+
+	PacketQueue* audioQueue = nullptr;
+	int quitAudioThread = 0;
+
+
+
+
+
+	/* YE OLDE VIDEO 
+
 
 private:
 	void OpenVideoReader(const char* filename); // Opens a video file and allocates the neccessary memory to work with it.
@@ -79,5 +141,5 @@ private:
 	// Auxiliar members
 	ProgramImageUI* imageUIProgram = nullptr; // Shader program.
 	unsigned int frameTexture = 0;			  // GL texture ID that stores the frame as an image texture.
-	float elapsedVideoTime = 0;				  // Elapsed time playing video. Used for framerate sync and video-audio sync.
+	float elapsedVideoTime = 0;				  // Elapsed time playing video. Used for framerate sync and video-audio sync.*/
 };
