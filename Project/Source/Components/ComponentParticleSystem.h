@@ -169,7 +169,7 @@ public:
 	TESSERACT_ENGINE_API void PlayChildParticles();
 	TESSERACT_ENGINE_API void RestartChildParticles();
 	TESSERACT_ENGINE_API void StopChildParticles();
-
+	TESSERACT_ENGINE_API void SetParticlesPerSecondChild(float2 particlesPerSecond);
 	float ChildParticlesInfo();
 
 	// ----- GETTERS -----

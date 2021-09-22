@@ -2159,6 +2159,15 @@ void ComponentParticleSystem::StopChildParticles() {
 	}
 }
 
+void ComponentParticleSystem::SetParticlesPerSecondChild(float2 particlesPerSecond) {
+	SetParticlesPerSecond(particlesPerSecond);
+	for (GameObject* currentChild : GetOwner().GetChildren()) {
+		if (currentChild->GetComponent<ComponentParticleSystem>()) {
+			currentChild->GetComponent<ComponentParticleSystem>()->SetParticlesPerSecondChild(particlesPerSecond);
+		}
+	}
+}
+
 float ComponentParticleSystem::ChildParticlesInfo() {
 	float particlesInfo = (float) particles.Count();
 	for (GameObject* currentChild : GetOwner().GetChildren()) {
