@@ -91,6 +91,10 @@ static void SaveJSON(const char* filePath, rapidjson::Document& document) {
 bool ModuleResources::Init() {
 	ilInit();
 	iluInit();
+	ilEnable(IL_KEEP_DXTC_DATA);
+	ilEnable(IL_ORIGIN_SET);
+	ilSetInteger(IL_ORIGIN_MODE, IL_ORIGIN_UPPER_LEFT);
+
 	App->events->AddObserverToEvent(TesseractEventType::CREATE_RESOURCE, this);
 	App->events->AddObserverToEvent(TesseractEventType::DESTROY_RESOURCE, this);
 	App->events->AddObserverToEvent(TesseractEventType::UPDATE_ASSET_CACHE, this);

@@ -12,6 +12,7 @@ public:
 
 public:
 	bool flip = false;
+	TextureCompression compression = TextureCompression::NONE;
 	TextureWrap wrap = TextureWrap::REPEAT;
 	TextureMinFilter minFilter = TextureMinFilter::LINEAR_MIPMAP_LINEAR;
 	TextureMagFilter magFilter = TextureMagFilter::LINEAR;

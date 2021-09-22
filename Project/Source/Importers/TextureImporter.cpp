@@ -20,6 +20,7 @@
 #include "Utils/Leaks.h"
 
 #define JSON_TAG_FLIP "Flip"
+#define JSON_TAG_COMPRESSION "Compression"
 #define JSON_TAG_WRAP "Wrap"
 #define JSON_TAG_MIN_FILTER "MinFilter"
 #define JSON_TAG_MAG_FILTER "MagFilter"
@@ -27,6 +28,22 @@
 void TextureImportOptions::ShowImportOptions() {
 	// Flip
 	ImGui::Checkbox("Flip", &flip);
+
+	// Compression combo box
+	const char* compression_items[] = {"None", "DXT1", "DXT3", "DXT5"};
+	const char* compression_item_current = compression_items[int(compression)];
+	if (ImGui::BeginCombo("Compression", compression_item_current)) {
+		for (int n = 0; n < IM_ARRAYSIZE(compression_items); ++n) {
+			bool is_selected = (compression_item_current == compression_items[n]);
+			if (ImGui::Selectable(compression_items[n], is_selected)) {
+				compression = TextureCompression(n);
+			}
+			if (is_selected) {
+				ImGui::SetItemDefaultFocus();
+			}
+		}
+		ImGui::EndCombo();
+	}
 
 	// Filters
 	ImGui::TextColored(App->editor->titleColor, "Filters");
@@ -82,6 +99,7 @@ void TextureImportOptions::ShowImportOptions() {
 
 void TextureImportOptions::Load(JsonValue jMeta) {
 	flip = jMeta[JSON_TAG_FLIP];
+	compression = (TextureCompression)(int) jMeta[JSON_TAG_COMPRESSION];
 	wrap = (TextureWrap)(int) jMeta[JSON_TAG_WRAP];
 	minFilter = (TextureMinFilter)(int) jMeta[JSON_TAG_MIN_FILTER];
 	magFilter = (TextureMagFilter)(int) jMeta[JSON_TAG_MAG_FILTER];
@@ -89,6 +107,7 @@ void TextureImportOptions::Load(JsonValue jMeta) {
 
 void TextureImportOptions::Save(JsonValue jMeta) {
 	jMeta[JSON_TAG_FLIP] = flip;
+	jMeta[JSON_TAG_COMPRESSION] = (int) compression;
 	jMeta[JSON_TAG_WRAP] = (int) wrap;
 	jMeta[JSON_TAG_MIN_FILTER] = (int) minFilter;
 	jMeta[JSON_TAG_MAG_FILTER] = (int) magFilter;
@@ -122,17 +141,12 @@ bool TextureImporter::ImportTexture(const char* filePath, JsonValue jMeta) {
 		LOG("Failed to load image.");
 		return false;
 	}
-	bool imageConverted = ilConvertImage(IL_RGBA, IL_UNSIGNED_BYTE);
+
+	ILenum format = ilGetInteger(IL_IMAGE_BPP) == 4 ? IL_RGBA : IL_RGB;
+	bool imageConverted = ilConvertImage(format, IL_UNSIGNED_BYTE);
 	if (!imageConverted) {
 		LOG("Failed to convert image.");
 		return false;
-	}
-
-	// Flip image if neccessary
-	ILinfo info;
-	iluGetImageInfo(&info);
-	if (info.Origin == IL_ORIGIN_UPPER_LEFT) {
-		iluFlipImage();
 	}
 
 	// Flip if asked to
@@ -140,26 +154,48 @@ bool TextureImporter::ImportTexture(const char* filePath, JsonValue jMeta) {
 		iluFlipImage();
 	}
 
+	// Create texture resource
+	unsigned resourceIndex = 0;
+	std::unique_ptr<ResourceTexture> texture = ImporterCommon::CreateResource<ResourceTexture>(PathUtils::GetFileName(filePath).c_str(), filePath, jMeta, resourceIndex);
+
+	texture->compression = importOptions->compression;
+	texture->wrap = importOptions->wrap;
+	texture->minFilter = importOptions->minFilter;
+	texture->magFilter = importOptions->magFilter;
+
+	ILenum type = IL_TGA;
+	switch (importOptions->compression) {
+	case TextureCompression::DXT1:
+		ilSetInteger(IL_DXTC_FORMAT, IL_DXT1);
+		type = IL_DDS;
+		break;
+	case TextureCompression::DXT3:
+		ilSetInteger(IL_DXTC_FORMAT, IL_DXT3);
+		type = IL_DDS;
+		break;
+	case TextureCompression::DXT5:
+		ilSetInteger(IL_DXTC_FORMAT, IL_DXT5);
+		type = IL_DDS;
+		break;
+	default:
+		break;
+	}
+
+	// Save import options to the meta file
+	importOptions->Save(jMeta);
+
 	// Save image
-	size_t size = ilSaveL(IL_RAW, nullptr, 0);
+	size_t size = ilSaveL(type, nullptr, 0);
 	if (size == 0) {
 		LOG("Failed to save image.");
 		return false;
 	}
 	Buffer<char> buffer = Buffer<char>(size);
-	size = ilSaveL(IL_RAW, buffer.Data(), size);
+	size = ilSaveL(type, buffer.Data(), size);
 	if (size == 0) {
 		LOG("Failed to save image.");
 		return false;
 	}
-
-	// Create texture resource
-	unsigned resourceIndex = 0;
-	std::unique_ptr<ResourceTexture> texture = ImporterCommon::CreateResource<ResourceTexture>(PathUtils::GetFileName(filePath).c_str(), filePath, jMeta, resourceIndex);
-
-	texture->wrap = importOptions->wrap;
-	texture->minFilter = importOptions->minFilter;
-	texture->magFilter = importOptions->magFilter;
 
 	// Save resource meta file
 	bool saved = ImporterCommon::SaveResourceMetaFile(texture.get());
