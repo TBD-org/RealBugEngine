@@ -8,7 +8,7 @@
 */
 
 // REGISTER_RESOURCE builds the data structures common to all Resources.
-// This includes the Constructor.
+// This includes the Constructor and the Destructor.
 #define REGISTER_RESOURCE(resourceClass, resourceType)   \
 	static const ResourceType staticType = resourceType; \
 	resourceClass(UID id, const char* name, const char* assetFilePath, const char* resourceFilePath) : Resource(staticType, id, name, assetFilePath, resourceFilePath) {}

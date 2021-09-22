@@ -33,6 +33,7 @@ private:
 	unsigned int targetPolygon = 0;		  // Target Polygon of the NavMesh to navigate
 	float3 targetPosition = float3::zero; // Target position of the NavMesh to navigate
 	int agentId = -1;					  // Agent identifier in NavMesh's crowd
+	bool shouldAddAgentToCrowd = true;
 
 	float maxSpeed = 5.0f;
 	float maxAcceleration = 8.0f;

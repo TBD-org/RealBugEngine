@@ -2,7 +2,7 @@
 
 #include "Utils/Logging.h"
 #include "Utils/MSTimer.h"
-#include "Utils/FileDialog.h"
+#include "Utils/PathUtils.h"
 
 #include "ft2build.h"
 #include "freetype/freetype.h"
@@ -10,7 +10,7 @@
 
 #include "Utils/Leaks.h"
 
-void ResourceFont::Load() {
+void ResourceFont::FinishLoading() {
 	// Timer to measure loading a font
 	MSTimer timer;
 	timer.Start();
@@ -72,9 +72,12 @@ void ResourceFont::Load() {
 	FT_Done_Face(face);
 	FT_Done_FreeType(ft);
 
-	name = FileDialog::GetFileName(filePath.c_str());
+	name = PathUtils::GetFileName(filePath.c_str());
 }
 
 void ResourceFont::Unload() {
-	// TODO: release all textures generated with glDeleteTextures
+	for (const auto& entry : characters) {
+		glDeleteTextures(1, &entry.second.textureID);
+	}
+	characters.clear();
 }

@@ -19,8 +19,9 @@
 #include "Resources/ResourcePrefab.h"
 #include "Resources/ResourceMaterial.h"
 #include "Resources/ResourceClip.h"
+#include "Resources/ResourceScene.h"
 #include "Scripting/PropertyMap.h"
-#include "FileSystem/SceneImporter.h"
+#include "Importers/SceneImporter.h"
 #include "Utils/Logging.h"
 #include "TesseractEvent.h"
 
@@ -34,16 +35,16 @@
 // ----------- GAMEPLAY ------------ //
 
 GameObject* GameplaySystems::GetGameObject(const char* name) {
-	GameObject* root = App->scene->scene->root;
+	GameObject* root = App->scene->GetCurrentScene()->root;
 	return root->name == name ? root : root->FindDescendant(name);
 }
 
 GameObject* GameplaySystems::GetGameObject(UID id) {
-	return App->scene->scene->GetGameObject(id);
+	return App->scene->GetCurrentScene()->GetGameObject(id);
 }
 // --------- Instantiating --------- //
 GameObject* GameplaySystems::Instantiate(ResourcePrefab* prefab, float3 position, Quat rotation) {
-	UID prefabId = prefab->BuildPrefab(App->scene->scene->root);
+	UID prefabId = prefab->BuildPrefab(App->scene->GetCurrentScene()->root);
 	GameObject* go = GameplaySystems::GetGameObject(prefabId);
 	ComponentTransform* transform = go->GetComponent<ComponentTransform>();
 	transform->SetGlobalRotation(rotation);
@@ -59,6 +60,11 @@ T* GameplaySystems::GetResource(UID id) {
 template TESSERACT_ENGINE_API ResourcePrefab* GameplaySystems::GetResource<ResourcePrefab>(UID id);
 template TESSERACT_ENGINE_API ResourceMaterial* GameplaySystems::GetResource<ResourceMaterial>(UID id);
 template TESSERACT_ENGINE_API ResourceClip* GameplaySystems::GetResource<ResourceClip>(UID id);
+template TESSERACT_ENGINE_API ResourceScene* GameplaySystems::GetResource<ResourceScene>(UID id);
+
+bool GameplaySystems::HaveResourcesFinishedLoading() {
+	return App->resources->HaveResourcesFinishedLoading();
+}
 
 template<typename T>
 T GameplaySystems::GetGlobalVariable(const char* name, const T& defaultValue) {
@@ -162,7 +168,7 @@ void Debug::UpdateShadingMode(const char* shadingMode) {
 }
 
 int Debug::GetTotalTriangles() {
-	return App->scene->scene->GetTotalTriangles();
+	return App->scene->GetCurrentScene()->GetTotalTriangles();
 }
 
 int Debug::GetCulledTriangles() {
@@ -310,10 +316,12 @@ bool Input::IsGamepadConnected(int index) {
 
 // --------- SCENE MANAGER --------- //
 
+void SceneManager::PreloadScene(UID sceneId) {
+	App->scene->PreloadScene(sceneId);
+}
+
 void SceneManager::ChangeScene(UID sceneId) {
-	TesseractEvent e(TesseractEventType::CHANGE_SCENE);
-	e.Set<ChangeSceneStruct>(sceneId);
-	App->events->AddEvent(e);
+	App->scene->ChangeScene(sceneId);
 }
 
 void SceneManager::ExitGame() {
@@ -325,7 +333,7 @@ void SceneManager::ExitGame() {
 GameObject* Physics::Raycast(const float3& start, const float3& end, const int mask) {
 	LineSegment ray = LineSegment(start, end);
 
-	Scene* scene = App->scene->scene;
+	Scene* scene = App->scene->GetCurrentScene();
 
 	GameObject* closestGo = nullptr;
 	float closestNear = FLT_MAX;

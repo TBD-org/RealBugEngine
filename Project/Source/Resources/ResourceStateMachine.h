@@ -15,6 +15,7 @@ public:
 	REGISTER_RESOURCE(ResourceStateMachine, ResourceType::STATE_MACHINE);
 
 	void Load() override;
+	void FinishLoading() override;
 	void Unload() override;
 	void SaveToFile(const char* filePath);
 	void OnEditorUpdate() override;
@@ -30,6 +31,6 @@ public:
 	std::set<std::string> bones;
 
 private:
-	std::list<UID> clipsUids;
+	std::list<UID> clipIds;
 	std::unordered_map<std::string, Transition> transitions;
 };

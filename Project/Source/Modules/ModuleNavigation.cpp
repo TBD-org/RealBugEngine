@@ -21,12 +21,11 @@ bool ModuleNavigation::Init() {
 }
 
 UpdateStatus ModuleNavigation::Update() {
-	if (!navMesh.IsGenerated()) {
-		return UpdateStatus::CONTINUE;
-	}
+	NavMesh* navMesh = GetCurrentNavMesh();
+	if (navMesh == nullptr || !navMesh->IsGenerated()) return UpdateStatus::CONTINUE;
 
-	navMesh.GetTileCache()->update(App->time->GetDeltaTime(), navMesh.GetNavMesh());	// Update obstacles
-	navMesh.GetCrowd()->update(App->time->GetDeltaTime(), nullptr);						// Update agents
+	navMesh->GetTileCache()->update(App->time->GetDeltaTime(), navMesh->GetNavMesh()); // Update obstacles
+	navMesh->GetCrowd()->update(App->time->GetDeltaTime(), nullptr);				   // Update agents
 
 	return UpdateStatus::CONTINUE;
 }
@@ -34,12 +33,12 @@ UpdateStatus ModuleNavigation::Update() {
 void ModuleNavigation::ReceiveEvent(TesseractEvent& e) {
 	switch (e.type) {
 	case TesseractEventType::PRESSED_PLAY:
-		for (ComponentAgent& agent : App->scene->scene->agentComponents) {
+		for (ComponentAgent& agent : App->scene->GetCurrentScene()->agentComponents) {
 			agent.AddAgentToCrowd();
 		}
 		break;
 	case TesseractEventType::PRESSED_STOP:
-		for (ComponentAgent& agent : App->scene->scene->agentComponents) {
+		for (ComponentAgent& agent : App->scene->GetCurrentScene()->agentComponents) {
 			agent.RemoveAgentFromCrowd();
 		}
 		break;
@@ -47,17 +46,18 @@ void ModuleNavigation::ReceiveEvent(TesseractEvent& e) {
 }
 
 void ModuleNavigation::BakeNavMesh() {
+	Scene* scene = App->scene->GetCurrentScene();
+	NavMesh* navMesh = GetCurrentNavMesh();
+	if (navMesh == nullptr) return;
+
 	MSTimer timer;
 	timer.Start();
 	LOG("Loading NavMesh");
-	bool generated = navMesh.Build();
+	bool generated = navMesh->Build(scene);
 	unsigned timeMs = timer.Stop();
 	if (generated) {
-		navMesh.GetTileCache()->update(App->time->GetDeltaTime(), navMesh.GetNavMesh());
-		navMesh.GetCrowd()->update(App->time->GetDeltaTime(), nullptr);
-
-		navMesh.RescanCrowd();
-		navMesh.RescanObstacles();
+		navMesh->GetTileCache()->update(App->time->GetDeltaTime(), navMesh->GetNavMesh());
+		navMesh->GetCrowd()->update(App->time->GetDeltaTime(), nullptr);
 
 		LOG("NavMesh successfully baked in %ums", timeMs);
 	} else {
@@ -66,32 +66,36 @@ void ModuleNavigation::BakeNavMesh() {
 }
 
 void ModuleNavigation::DrawGizmos() {
-	navMesh.DrawGizmos();
+	NavMesh* navMesh = GetCurrentNavMesh();
+	if (navMesh == nullptr) return;
+
+	navMesh->DrawGizmos(App->scene->GetCurrentScene());
 }
 
-NavMesh& ModuleNavigation::GetNavMesh() {
-	return navMesh;
+NavMesh* ModuleNavigation::GetCurrentNavMesh() {
+	return App->scene->GetCurrentScene()->GetNavMesh();
 }
 
 void ModuleNavigation::Raycast(float3 startPosition, float3 targetPosition, bool& hitResult, float3& hitPosition) {
 	hitResult = false;
 	hitPosition = startPosition;
 
-	if (!navMesh.IsGenerated()) return;
+	NavMesh* navMesh = GetCurrentNavMesh();
+	if (navMesh == nullptr || !navMesh->IsGenerated()) return;
 
-	dtNavMeshQuery* navQuery = navMesh.GetNavMeshQuery();
+	dtNavMeshQuery* navQuery = navMesh->GetNavMeshQuery();
 	if (navQuery == nullptr) return;
 
 	float3 polyPickExt = float3(2, 4, 2);
 	dtQueryFilter filter;
 	filter.setIncludeFlags(0xffff ^ 0x10); // SAMPLE_POLYFLAGS_ALL ^ SAMPLE_POLYFLAGS_DISABLED
 	filter.setExcludeFlags(0);
-	filter.setAreaCost(0, 1.0f);	// SAMPLE_POLYAREA_GROUND
-	filter.setAreaCost(1, 10.0f);	// SAMPLE_POLYAREA_WATER
-	filter.setAreaCost(2, 1.0f);	// SAMPLE_POLYAREA_ROAD
-	filter.setAreaCost(3, 1.0f);	// SAMPLE_POLYAREA_DOOR
-	filter.setAreaCost(4, 2.0f);	// SAMPLE_POLYAREA_GRASS
-	filter.setAreaCost(5, 1.5f);	// SAMPLE_POLYAREA_JUMP
+	filter.setAreaCost(0, 1.0f);  // SAMPLE_POLYAREA_GROUND
+	filter.setAreaCost(1, 10.0f); // SAMPLE_POLYAREA_WATER
+	filter.setAreaCost(2, 1.0f);  // SAMPLE_POLYAREA_ROAD
+	filter.setAreaCost(3, 1.0f);  // SAMPLE_POLYAREA_DOOR
+	filter.setAreaCost(4, 2.0f);  // SAMPLE_POLYAREA_GRASS
+	filter.setAreaCost(5, 1.5f);  // SAMPLE_POLYAREA_JUMP
 
 	dtPolyRef startRef;
 	navQuery->findNearestPoly(startPosition.ptr(), polyPickExt.ptr(), &filter, &startRef, 0);

@@ -21,9 +21,6 @@
 #define JSON_TAG_DIRECTION "Direction"
 #define JSON_TAG_STOP_EDGES "StopOnEdges"
 
-ComponentSlider::~ComponentSlider() {
-}
-
 void ComponentSlider::Init() {
 	// TODO: Refactor this. It's not good right now but it lets me check the functionality
 	SearchForMissingGameObjectReferences();

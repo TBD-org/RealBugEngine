@@ -40,11 +40,11 @@ void ResourceAnimation::Load() {
 
 			name[sizeName] = '\0';
 
-			channel.tranlation.x = *((float*) cursor);
+			channel.translation.x = *((float*) cursor);
 			cursor += sizeof(float);
-			channel.tranlation.y = *((float*) cursor);
+			channel.translation.y = *((float*) cursor);
 			cursor += sizeof(float);
-			channel.tranlation.z = *((float*) cursor);
+			channel.translation.z = *((float*) cursor);
 			cursor += sizeof(float);
 
 			channel.rotation.x = *((float*) cursor);

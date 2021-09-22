@@ -29,8 +29,8 @@ public:
 	LightFrustum();
 	~LightFrustum() {}
 
-	void UpdateFrustums();
-	void ReconstructFrustum(ShadowCasterType shadowCasterType);
+	void UpdateCameraFrustum();
+	void UpdateLightFrustum(ShadowCasterType shadowCasterType);
 
 	void DrawGizmos();
 
@@ -40,10 +40,7 @@ public:
 
 	FrustumInformation& operator[](int i);
 
-	void Invalidate();
-
 private:
-	bool dirty = true;
 	CascadeMode mode = CascadeMode::FitToScene;
 	std::vector<FrustumInformation> subFrustums;
 };

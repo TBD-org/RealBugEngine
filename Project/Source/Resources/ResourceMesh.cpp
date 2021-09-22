@@ -12,6 +12,22 @@
 
 #include "Utils/Leaks.h"
 
+const int positionsSizeQuantity = 3;
+const int normalSizeQuantity = 3;
+const int tangentSizeQuantity = 3;
+const int uvSizeQuantity = 2;
+const int bonesIDSizeQuantity = 4;
+const int weightSizeQuantity = 4;
+
+const unsigned positionSize = sizeof(float) * positionsSizeQuantity;
+const unsigned normalSize = sizeof(float) * normalSizeQuantity;
+const unsigned tangentSize = sizeof(float) * tangentSizeQuantity;
+const unsigned uvSize = sizeof(float) * uvSizeQuantity;
+const unsigned bonesIDSize = sizeof(unsigned) * bonesIDSizeQuantity;
+const unsigned weightsSize = sizeof(float) * weightSizeQuantity;
+
+const unsigned nonPosVertexAttributesSize = normalSize + tangentSize + uvSize + bonesIDSize + weightsSize;
+
 void ResourceMesh::Load() {
 	// Timer to measure loading a mesh
 	MSTimer timer;
@@ -24,38 +40,15 @@ void ResourceMesh::Load() {
 	char* cursor = buffer.Data();
 
 	// Header
-	numVertices = *((unsigned*) cursor);
+	unsigned numVertices = *((unsigned*) cursor);
 	cursor += sizeof(unsigned);
-	numIndices = *((unsigned*) cursor);
+	unsigned numIndices = *((unsigned*) cursor);
 	cursor += sizeof(unsigned);
-	numBones = *((unsigned*) cursor);
+	unsigned numBones = *((unsigned*) cursor);
 	cursor += sizeof(unsigned);
-
-	int positionsSizeQuantity = 3;
-	int normalSizeQuantity = 3;
-	int tangentSizeQuantity = 3;
-	int uvSizeQuantity = 2;
-	int bonesIDSizeQuantity = 4;
-	int weightSizeQuantity = 4;
-
-	unsigned positionSize = sizeof(float) * positionsSizeQuantity;
-	unsigned normalSize = sizeof(float) * normalSizeQuantity;
-	unsigned tangentSize = sizeof(float) * tangentSizeQuantity;
-	unsigned uvSize = sizeof(float) * uvSizeQuantity;
-	unsigned bonesIDSize = sizeof(unsigned) * bonesIDSizeQuantity;
-	unsigned weightsSize = sizeof(float) * weightSizeQuantity;
-	unsigned indexSize = sizeof(unsigned);
-
-	// IMPORTANT! Add to elementsPerVertex any other element that must be included in the Vertex
-	int elementsPerVertex = positionsSizeQuantity + normalSizeQuantity + tangentSizeQuantity + uvSizeQuantity + bonesIDSizeQuantity + weightSizeQuantity;
-
-	unsigned vertexSize = positionSize + normalSize + tangentSize + uvSize + bonesIDSize + weightsSize;
-	unsigned vertexBufferSize = vertexSize * numVertices;
-	unsigned indexBufferSize = indexSize * numIndices;
-
-	bones.resize(numBones);
 
 	// Bones
+	bones.resize(numBones);
 	for (unsigned i = 0; i < numBones; ++i) {
 		float3 position, scaling;
 		Quat rotation;
@@ -102,29 +95,27 @@ void ResourceMesh::Load() {
 		free(name);
 	}
 
+	LOG("Loading %i vertices...", numVertices);
+
 	// Vertices
-	float* vertices = (float*) cursor;
-	cursor += vertexBufferSize;
-
-	for (unsigned i = 0; i < numVertices * elementsPerVertex; i += elementsPerVertex) {
-		meshVertices.push_back(vertices[i]);
-		meshVertices.push_back(vertices[i + 1]);
-		meshVertices.push_back(vertices[i + 2]);
-
-		meshNormals.push_back(vertices[i + 3]);
-		meshNormals.push_back(vertices[i + 4]);
-		meshNormals.push_back(vertices[i + 5]);
+	vertices.resize(numVertices);
+	for (unsigned i = 0; i < numVertices; ++i) {
+		vertices[i] = *((Vertex*) cursor);
+		cursor += sizeof(Vertex);
 	}
 
 	// Indices
-	unsigned* indices = (unsigned*) cursor;
-
+	indices.resize(numIndices);
 	for (unsigned i = 0; i < numIndices; ++i) {
-		meshIndices.push_back(indices[i]);
+		indices[i] = *((unsigned*) cursor);
+		cursor += sizeof(unsigned);
 	}
 
-	LOG("Loading %i vertices...", numVertices);
+	unsigned timeMs = timer.Stop();
+	LOG("Mesh loaded in %ums", timeMs);
+}
 
+void ResourceMesh::FinishLoading() {
 	// Create VAO
 	glGenVertexArrays(1, &vao);
 	glGenBuffers(1, &vbo);
@@ -135,10 +126,10 @@ void ResourceMesh::Load() {
 	glBindBuffer(GL_ELEMENT_ARRAY_BUFFER, ebo);
 
 	// Load VBO
-	glBufferData(GL_ARRAY_BUFFER, vertexBufferSize, vertices, (numBones > 0) ? GL_DYNAMIC_DRAW : GL_STATIC_DRAW);
+	glBufferData(GL_ARRAY_BUFFER, vertices.size() * sizeof(Vertex), vertices.data(), (bones.size() > 0) ? GL_DYNAMIC_DRAW : GL_STATIC_DRAW);
 
 	// Load EBO
-	glBufferData(GL_ELEMENT_ARRAY_BUFFER, indexBufferSize, indices, GL_STATIC_DRAW);
+	glBufferData(GL_ELEMENT_ARRAY_BUFFER, indices.size() * sizeof(unsigned), indices.data(), GL_STATIC_DRAW);
 
 	// Load vertex attributes
 	glEnableVertexAttribArray(0);
@@ -148,28 +139,36 @@ void ResourceMesh::Load() {
 	glEnableVertexAttribArray(4);
 	glEnableVertexAttribArray(5);
 
-	glVertexAttribPointer(0, 3, GL_FLOAT, GL_FALSE, vertexSize, (void*) 0);
-	glVertexAttribPointer(1, 3, GL_FLOAT, GL_FALSE, vertexSize, (void*) positionSize);
-	glVertexAttribPointer(2, 3, GL_FLOAT, GL_FALSE, vertexSize, (void*) (positionSize + normalSize));
-	glVertexAttribPointer(3, 2, GL_FLOAT, GL_FALSE, vertexSize, (void*) (positionSize + normalSize + tangentSize));
-	glVertexAttribIPointer(4, 4, GL_UNSIGNED_INT, vertexSize, (void*) (positionSize + normalSize + tangentSize + uvSize));
-	glVertexAttribPointer(5, 4, GL_FLOAT, GL_FALSE, vertexSize, (void*) (positionSize + normalSize + tangentSize + uvSize + bonesIDSize));
+	glVertexAttribPointer(0, 3, GL_FLOAT, GL_FALSE, sizeof(Vertex), (void*) 0);
+	glVertexAttribPointer(1, 3, GL_FLOAT, GL_FALSE, sizeof(Vertex), (void*) positionSize);
+	glVertexAttribPointer(2, 3, GL_FLOAT, GL_FALSE, sizeof(Vertex), (void*) (positionSize + normalSize));
+	glVertexAttribPointer(3, 2, GL_FLOAT, GL_FALSE, sizeof(Vertex), (void*) (positionSize + normalSize + tangentSize));
+	glVertexAttribIPointer(4, 4, GL_UNSIGNED_INT, sizeof(Vertex), (void*) (positionSize + normalSize + tangentSize + uvSize));
+	glVertexAttribPointer(5, 4, GL_FLOAT, GL_FALSE, sizeof(Vertex), (void*) (positionSize + normalSize + tangentSize + uvSize + bonesIDSize));
 
 	// Unbind VAO
 	glBindVertexArray(0);
-
-	unsigned timeMs = timer.Stop();
-	LOG("Mesh loaded in %ums", timeMs);
 }
 
 void ResourceMesh::Unload() {
-	if (!vao) return;
-
 	bones.clear();
+	vertices.clear();
+	indices.clear();
 
-	glDeleteVertexArrays(1, &vao);
-	glDeleteBuffers(1, &vbo);
-	glDeleteBuffers(1, &ebo);
+	if (vao) {
+		glDeleteVertexArrays(1, &vao);
+		vao = 0;
+	}
+
+	if (vbo) {
+		glDeleteBuffers(1, &vbo);
+		vbo = 0;
+	}
+	
+	if (ebo) {
+		glDeleteBuffers(1, &ebo);
+		ebo = 0;
+	}
 }
 
 std::vector<Triangle> ResourceMesh::ExtractTriangles(const float4x4& modelMatrix) const {
@@ -198,12 +197,6 @@ std::vector<Triangle> ResourceMesh::ExtractTriangles(const float4x4& modelMatrix
 	}
 
 	// Vertices
-	unsigned normalSize = sizeof(float) * 3;
-	unsigned tangentSize = sizeof(float) * 3;
-	unsigned uvSize = sizeof(float) * 2;
-	unsigned bonesIDSize = sizeof(unsigned) * 4;
-	unsigned weightsSize = sizeof(float) * 4;
-	unsigned nonPosVertexAttributesSize = normalSize + tangentSize + uvSize + bonesIDSize + weightsSize;
 	std::vector<float3> vertices;
 	for (unsigned i = 0; i < numVertices; ++i) {
 		float vertex[3] = {};

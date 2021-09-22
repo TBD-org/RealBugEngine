@@ -13,9 +13,11 @@ class btRigidBody;
 class ComponentBoxCollider : public Component {
 public:
 	REGISTER_COMPONENT(ComponentBoxCollider, ComponentType::BOX_COLLIDER, false); // Refer to ComponentType for the Constructor
+	~ComponentBoxCollider();
 
 	// ------- Core Functions ------ //
 	void Init() override;
+	void Start() override;
 	void DrawGizmos() override;
 	void OnEditorUpdate() override;
 	void Save(JsonValue jComponent) const override;

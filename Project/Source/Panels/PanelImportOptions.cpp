@@ -6,7 +6,7 @@
 #include "Modules/ModuleUserInterface.h"
 #include "Modules/ModuleScene.h"
 #include "Modules/ModuleResources.h"
-#include "FileSystem/TextureImporter.h"
+#include "Importers/TextureImporter.h"
 #include "Utils/FileDialog.h"
 #include "Utils/Logging.h"
 

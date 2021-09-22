@@ -7,12 +7,30 @@
 #include "Modules/ModuleRender.h"
 #include "Modules/ModulePhysics.h"
 #include "Modules/ModuleTime.h"
+#include "Modules/ModuleCamera.h"
+#include "Modules/ModuleRender.h"
+#include "Modules/ModuleFiles.h"
 #include "Modules/ModuleWindow.h"
-#include "Resources/ResourceMesh.h"
+#include "Modules/ModuleProject.h"
 #include "Modules/ModuleResources.h"
+#include "Scripting/PropertyMap.h"
+#include "Resources/ResourceMesh.h"
+#include "Resources/ResourceMaterial.h"
+#include "Resources/ResourceNavMesh.h"
 #include "Utils/Logging.h"
 
 #include "Utils/Leaks.h"
+
+#define JSON_TAG_ROOT "Root"
+#define JSON_TAG_QUADTREE_BOUNDS "QuadtreeBounds"
+#define JSON_TAG_QUADTREE_MAX_DEPTH "QuadtreeMaxDepth"
+#define JSON_TAG_QUADTREE_ELEMENTS_PER_NODE "QuadtreeElementsPerNode"
+#define JSON_TAG_GAME_CAMERA "GameCamera"
+#define JSON_TAG_AMBIENTLIGHT "AmbientLight"
+#define JSON_TAG_NAVMESH "NavMesh"
+#define JSON_TAG_CURSOR_WIDTH "CursorWidth"
+#define JSON_TAG_CURSOR_HEIGHT "CursorHeight"
+#define JSON_TAG_CURSOR "Cursor"
 
 Scene::Scene(unsigned numGameObjects) {
 	gameObjects.Allocate(numGameObjects);
@@ -51,6 +69,10 @@ Scene::Scene(unsigned numGameObjects) {
 	videoComponents.Allocate(numGameObjects);
 }
 
+Scene::~Scene() {
+	ClearScene();
+}
+
 void Scene::ClearScene() {
 	DestroyGameObject(root);
 	root = nullptr;
@@ -60,9 +82,6 @@ void Scene::ClearScene() {
 
 	assert(gameObjects.Count() == 0); // There should be no GameObjects outside the scene hierarchy
 	gameObjects.Clear();			  // This looks redundant, but it resets the free list so that GameObject order is mantained when saving/loading
-
-	staticShadowCasters.clear();
-	dynamicShadowCasters.clear();
 }
 
 void Scene::RebuildQuadtree() {
@@ -84,6 +103,93 @@ void Scene::ClearQuadtree() {
 	for (GameObject& gameObject : gameObjects) {
 		gameObject.isInQuadtree = false;
 	}
+}
+
+void Scene::Init() {
+	App->resources->IncreaseReferenceCount(navMeshId);
+	App->resources->IncreaseReferenceCount(cursorId);
+
+	root->Init();
+}
+
+void Scene::Start() {
+	App->project->GetGameState()->Clear();
+
+	if (App->camera->GetGameCamera()) {
+		// Set the Game Camera as active
+		App->camera->ChangeActiveCamera(App->camera->GetGameCamera(), true);
+		App->camera->ChangeCullingCamera(App->camera->GetGameCamera(), true);
+	} else {
+		// TODO: Modal window. Warning - camera not set.
+	}
+
+	App->window->SetCursor(cursorId, widthCursor, heightCursor);
+	App->window->ActivateCursor(true);
+
+	root->Start();
+}
+
+void Scene::Load(JsonValue jScene) {
+	ClearScene();
+
+	// Load GameObjects
+	JsonValue jRoot = jScene[JSON_TAG_ROOT];
+	root = gameObjects.Obtain(0);
+	root->scene = this;
+	root->Load(jRoot);
+
+	// Quadtree generation
+	JsonValue jQuadtreeBounds = jScene[JSON_TAG_QUADTREE_BOUNDS];
+	quadtreeBounds = {{jQuadtreeBounds[0], jQuadtreeBounds[1]}, {jQuadtreeBounds[2], jQuadtreeBounds[3]}};
+	quadtreeMaxDepth = jScene[JSON_TAG_QUADTREE_MAX_DEPTH];
+	quadtreeElementsPerNode = jScene[JSON_TAG_QUADTREE_ELEMENTS_PER_NODE];
+	RebuildQuadtree();
+
+	// Game Camera
+	gameCameraId = jScene[JSON_TAG_GAME_CAMERA];
+
+	// Ambient Light
+	JsonValue ambientLight = jScene[JSON_TAG_AMBIENTLIGHT];
+	ambientColor = {ambientLight[0], ambientLight[1], ambientLight[2]};
+
+	// NavMesh
+	navMeshId = jScene[JSON_TAG_NAVMESH];
+
+	// Cursor
+	heightCursor = jScene[JSON_TAG_CURSOR_HEIGHT];
+	widthCursor = jScene[JSON_TAG_CURSOR_WIDTH];
+	cursorId = jScene[JSON_TAG_CURSOR];
+}
+
+void Scene::Save(JsonValue jScene) const {
+	// Save scene information
+	JsonValue jQuadtreeBounds = jScene[JSON_TAG_QUADTREE_BOUNDS];
+	jQuadtreeBounds[0] = quadtreeBounds.minPoint.x;
+	jQuadtreeBounds[1] = quadtreeBounds.minPoint.y;
+	jQuadtreeBounds[2] = quadtreeBounds.maxPoint.x;
+	jQuadtreeBounds[3] = quadtreeBounds.maxPoint.y;
+	jScene[JSON_TAG_QUADTREE_MAX_DEPTH] = quadtreeMaxDepth;
+	jScene[JSON_TAG_QUADTREE_ELEMENTS_PER_NODE] = quadtreeElementsPerNode;
+
+	ComponentCamera* gameCamera = App->camera->GetGameCamera();
+	jScene[JSON_TAG_GAME_CAMERA] = gameCamera ? gameCamera->GetID() : 0;
+
+	JsonValue ambientLight = jScene[JSON_TAG_AMBIENTLIGHT];
+	ambientLight[0] = App->renderer->ambientColor.x;
+	ambientLight[1] = App->renderer->ambientColor.y;
+	ambientLight[2] = App->renderer->ambientColor.z;
+
+	// NavMesh
+	jScene[JSON_TAG_NAVMESH] = navMeshId;
+
+	// Cursor
+	jScene[JSON_TAG_CURSOR_HEIGHT] = heightCursor;
+	jScene[JSON_TAG_CURSOR_WIDTH] = widthCursor;
+	jScene[JSON_TAG_CURSOR] = cursorId;
+
+	// Save GameObjects
+	JsonValue jRoot = jScene[JSON_TAG_ROOT];
+	root->Save(jRoot);
 }
 
 GameObject* Scene::CreateGameObject(GameObject* parent, UID id, const char* name) {
@@ -381,9 +487,9 @@ void Scene::RemoveComponentByTypeAndId(ComponentType type, UID componentId) {
 int Scene::GetTotalTriangles() const {
 	int triangles = 0;
 	for (const ComponentMeshRenderer& meshComponent : meshRendererComponents) {
-		ResourceMesh* mesh = App->resources->GetResource<ResourceMesh>(meshComponent.meshId);
+		ResourceMesh* mesh = App->resources->GetResource<ResourceMesh>(meshComponent.GetMeshID());
 		if (mesh != nullptr) {
-			triangles += mesh->numIndices / 3;
+			triangles += mesh->indices.size() / 3;
 		}
 	}
 	return triangles;
@@ -393,11 +499,11 @@ std::vector<float> Scene::GetVertices() {
 	std::vector<float> result;
 
 	for (ComponentMeshRenderer& meshRenderer : meshRendererComponents) {
-		ResourceMesh* mesh = App->resources->GetResource<ResourceMesh>(meshRenderer.meshId);
+		ResourceMesh* mesh = App->resources->GetResource<ResourceMesh>(meshRenderer.GetMeshID());
 		ComponentTransform* transform = meshRenderer.GetOwner().GetComponent<ComponentTransform>();
 		if (mesh != nullptr && transform->GetOwner().IsStatic()) {
-			for (size_t i = 0; i < mesh->meshVertices.size(); i += 3) {
-				float4 transformedVertex = transform->GetGlobalMatrix() * float4(mesh->meshVertices[i], mesh->meshVertices[i + 1], mesh->meshVertices[i + 2], 1);
+			for (const ResourceMesh::Vertex& vertex : mesh->vertices) {
+				float4 transformedVertex = transform->GetGlobalMatrix() * float4(vertex.position, 1.0f);
 				result.push_back(transformedVertex.x);
 				result.push_back(transformedVertex.y);
 				result.push_back(transformedVertex.z);
@@ -413,10 +519,10 @@ std::vector<int> Scene::GetTriangles() {
 	std::vector<int> maxVertMesh;
 	maxVertMesh.push_back(0);
 	for (ComponentMeshRenderer& meshRenderer : meshRendererComponents) {
-		ResourceMesh* mesh = App->resources->GetResource<ResourceMesh>(meshRenderer.meshId);
+		ResourceMesh* mesh = App->resources->GetResource<ResourceMesh>(meshRenderer.GetMeshID());
 		if (mesh != nullptr && meshRenderer.GetOwner().IsStatic()) {
-			triangles += mesh->numIndices / 3;
-			maxVertMesh.push_back(mesh->numVertices);
+			triangles += mesh->indices.size() / 3;
+			maxVertMesh.push_back(mesh->vertices.size());
 		}
 	}
 	std::vector<int> result(triangles * 3);
@@ -426,13 +532,13 @@ std::vector<int> Scene::GetTriangles() {
 	int i = 0;
 
 	for (ComponentMeshRenderer& meshRenderer : meshRendererComponents) {
-		ResourceMesh* mesh = App->resources->GetResource<ResourceMesh>(meshRenderer.meshId);
+		ResourceMesh* mesh = App->resources->GetResource<ResourceMesh>(meshRenderer.GetMeshID());
 		if (mesh != nullptr && meshRenderer.GetOwner().IsStatic()) {
 			vertOverload += maxVertMesh[i];
-			for (unsigned j = 0; j < mesh->meshIndices.size(); j += 3) {
-				result[currentGlobalTri] = mesh->meshIndices[j] + vertOverload;
-				result[currentGlobalTri + 1] = mesh->meshIndices[j + 1] + vertOverload;
-				result[currentGlobalTri + 2] = mesh->meshIndices[j + 2] + vertOverload;
+			for (unsigned j = 0; j < mesh->indices.size(); j += 3) {
+				result[currentGlobalTri] = mesh->indices[j] + vertOverload;
+				result[currentGlobalTri + 1] = mesh->indices[j + 1] + vertOverload;
+				result[currentGlobalTri + 2] = mesh->indices[j + 2] + vertOverload;
 				currentGlobalTri += 3;
 			}
 			i++;
@@ -446,11 +552,11 @@ std::vector<float> Scene::GetNormals() {
 	std::vector<float> result;
 
 	for (ComponentMeshRenderer& meshRenderer : meshRendererComponents) {
-		ResourceMesh* mesh = App->resources->GetResource<ResourceMesh>(meshRenderer.meshId);
+		ResourceMesh* mesh = App->resources->GetResource<ResourceMesh>(meshRenderer.GetMeshID());
 		ComponentTransform* transform = meshRenderer.GetOwner().GetComponent<ComponentTransform>();
 		if (mesh != nullptr && transform->GetOwner().IsStatic()) {
-			for (size_t i = 0; i < mesh->meshNormals.size(); i += 3) {
-				float4 transformedVertex = transform->GetGlobalMatrix() * float4(mesh->meshNormals[i], mesh->meshNormals[i + 1], mesh->meshNormals[i + 2], 1);
+			for (const ResourceMesh::Vertex& vertex : mesh->vertices) {
+				float4 transformedVertex = transform->GetGlobalMatrix() * float4(vertex.normal, 1.0f);
 				result.push_back(transformedVertex.x);
 				result.push_back(transformedVertex.y);
 				result.push_back(transformedVertex.z);
@@ -461,121 +567,21 @@ std::vector<float> Scene::GetNormals() {
 	return result;
 }
 
-const std::vector<GameObject*>& Scene::GetStaticShadowCasters() const {
-	return staticShadowCasters;
-}
-
-const std::vector<GameObject*>& Scene::GetDynamicShadowCasters() const {
-	return dynamicShadowCasters;
-}
-
-bool Scene::InsideFrustumPlanes(const FrustumPlanes& planes, const GameObject* go) {
-	
-	ComponentBoundingBox* boundingBox = go->GetComponent<ComponentBoundingBox>();
-	if (boundingBox && planes.CheckIfInsideFrustumPlanes(boundingBox->GetWorldAABB(), boundingBox->GetWorldOBB())) {
-		return true;
-	}
-	return false;
-}
-
-std::vector<GameObject*> Scene::GetCulledMeshes(const FrustumPlanes& planes, const int mask) {
-	std::vector<GameObject*> meshes;
-
-	for (ComponentMeshRenderer componentMR : meshRendererComponents) {
-
-		GameObject *go = &componentMR.GetOwner();
-
-		Mask& maskGo = go->GetMask();
-
-		if ((maskGo.bitMask & mask) != 0) {
-			if (InsideFrustumPlanes(planes, go)) {
-				meshes.push_back(go);
-			}
-		}
-
-	}
-
-	return meshes;
-}
-
-std::vector<GameObject*> Scene::GetStaticCulledShadowCasters(const FrustumPlanes& planes) {
-	std::vector<GameObject*> meshes;
-
-	for (GameObject* go : staticShadowCasters) {
-		if (InsideFrustumPlanes(planes, go)) {
-			meshes.push_back(go);
-		}
-	}
-
-	return meshes;
-}
-
-std::vector<GameObject*> Scene::GetDynamicCulledShadowCasters(const FrustumPlanes& planes) {
-	std::vector<GameObject*> meshes;
-
-	for (GameObject* go : dynamicShadowCasters) {
-		if (InsideFrustumPlanes(planes, go)) {
-			meshes.push_back(go);
-		}
-	}
-
-	return meshes;
-}
-
-void Scene::SetNavMesh(UID navMesh) {
+void Scene::SetNavMesh(UID id) {
 	if (navMeshId != 0) {
 		App->resources->DecreaseReferenceCount(navMeshId);
 	}
 
-	navMeshId = navMesh;
+	navMeshId = id;
 
-	if (navMesh != 0) {
-		App->resources->IncreaseReferenceCount(navMesh);
+	if (id != 0) {
+		App->resources->IncreaseReferenceCount(id);
 	}
 }
 
-UID Scene::GetNavMesh() {
-	return navMeshId;
-}
-
-void Scene::RemoveStaticShadowCaster(const GameObject* go) {
-	auto it = std::find(staticShadowCasters.begin(), staticShadowCasters.end(), go);
-
-	if (it == staticShadowCasters.end()) return;
-
-	staticShadowCasters.erase(it);
-
-	App->renderer->lightFrustumStatic.Invalidate();
-}
-
-void Scene::AddStaticShadowCaster(GameObject* go) {
-	auto it = std::find(staticShadowCasters.begin(), staticShadowCasters.end(), go);
-
-	if (it != staticShadowCasters.end()) return;
-
-	staticShadowCasters.push_back(go);
-
-	App->renderer->lightFrustumStatic.Invalidate();
-}
-
-void Scene::RemoveDynamicShadowCaster(const GameObject* go) {
-	auto it = std::find(dynamicShadowCasters.begin(), dynamicShadowCasters.end(), go);
-
-	if (it == dynamicShadowCasters.end()) return;
-
-	dynamicShadowCasters.erase(it);
-
-	App->renderer->lightFrustumDynamic.Invalidate();
-}
-
-void Scene::AddDynamicShadowCaster(GameObject* go) {
-	auto it = std::find(dynamicShadowCasters.begin(), dynamicShadowCasters.end(), go);
-
-	if (it != dynamicShadowCasters.end()) return;
-
-	dynamicShadowCasters.push_back(go);
-
-	App->renderer->lightFrustumDynamic.Invalidate();
+NavMesh* Scene::GetNavMesh() {
+	ResourceNavMesh* navMeshResource = App->resources->GetResource<ResourceNavMesh>(navMeshId);
+	return navMeshResource ? navMeshResource->GetNavMesh() : nullptr;
 }
 
 void Scene::SetCursor(UID cursor) {

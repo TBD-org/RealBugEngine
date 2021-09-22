@@ -12,7 +12,7 @@ public:
 	REGISTER_COMPONENT(ComponentEventSystem, ComponentType::EVENT_SYSTEM, false);
 	~ComponentEventSystem();
 
-	void Init() override;
+	void Start() override;
 	void Update() override;
 	void OnEditorUpdate() override;
 	void Save(JsonValue jComponent) const override;

@@ -9,4 +9,9 @@ public:
 
 	void Load() override;
 	void Unload() override;
+
+	NavMesh* GetNavMesh();
+
+private:
+	NavMesh* navMesh = nullptr;
 };

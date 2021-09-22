@@ -5,7 +5,7 @@
 #include "Modules/ModuleEditor.h"
 #include "Modules/ModuleScene.h"
 #include "Components/UI/ComponentTransform2D.h"
-#include "FileSystem/JsonValue.h"
+#include "Utils/JsonValue.h"
 
 #include "Utils/Leaks.h"
 
@@ -19,11 +19,9 @@
 #define JSON_TAG_BACKGROUND_POSITION "BackgroundPosition"
 #define JSON_TAG_BACKGROUND_SIZE "BackgroundSize"
 
-ComponentProgressBar::~ComponentProgressBar() {
-}
-
 void ComponentProgressBar::Init() {
-
+	fill = GetOwner().scene->GetGameObject(fillID);
+	background = GetOwner().scene->GetGameObject(backgroundID);
 }
 
 void ComponentProgressBar::Update() {
@@ -38,13 +36,15 @@ void ComponentProgressBar::Update() {
 				fill = *it;
 			}
 		}
-
-		if (background != nullptr && fill != nullptr) {
-			rectBack = background->GetComponent<ComponentTransform2D>();
-			rectFill = fill->GetComponent<ComponentTransform2D>();
-		} else
-			return;
 	}
+
+	if (background != nullptr && fill != nullptr) {
+		rectBack = background->GetComponent<ComponentTransform2D>();
+		rectFill = fill->GetComponent<ComponentTransform2D>();
+	} else {
+		return;
+	}
+
 	backPos = rectBack->GetPosition();
 	backSize = rectBack->GetSize();
 
@@ -132,9 +132,7 @@ void ComponentProgressBar::Load(JsonValue jComponent) {
 	dir = (FillDirection)(int) jFillDir;
 	dirIndex = (int) dir;
 	fillID = jComponent[JSON_TAG_FILL_IMAGE];
-	fill = App->scene->scene->GetGameObject(fillID);
 	backgroundID = jComponent[JSON_TAG_BACKGROUND_IMAGE];
-	background = App->scene->scene->GetGameObject(backgroundID);
 	JsonValue jPosition = jComponent[JSON_TAG_BACKGROUND_POSITION];
 	backPos.Set(jPosition[0], jPosition[1], jPosition[2]);
 	JsonValue jSize = jComponent[JSON_TAG_BACKGROUND_SIZE];

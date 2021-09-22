@@ -32,9 +32,13 @@
 
 ComponentAudioSource::~ComponentAudioSource() {
 	Stop();
+
+	App->resources->DecreaseReferenceCount(audioClipId);
 }
 
 void ComponentAudioSource::Init() {
+	App->resources->IncreaseReferenceCount(audioClipId);
+
 	isStarted = false;
 	UpdateAudioSource();
 }
@@ -200,8 +204,7 @@ void ComponentAudioSource::UpdateSourceParameters() {
 
 	alSourcef(sourceId, AL_PITCH, pitch);
 	alSourcei(sourceId, AL_LOOPING, loop);
-	alSourcei(sourceId, AL_BUFFER, audioResource->ALbuffer); // buffer here
-	audioResource->AddSource(this);
+	alSourcei(sourceId, AL_BUFFER, audioResource->alBuffer);
 
 	if (!spatialBlend) {
 		alSourcei(sourceId, AL_SOURCE_RELATIVE, AL_TRUE);
@@ -234,8 +237,10 @@ void ComponentAudioSource::UpdateSourceParameters() {
 void ComponentAudioSource::Play() {
 	if (IsActive()) {
 		sourceId = App->audio->GetAvailableSource();
-		UpdateSourceParameters();
-		alSourcePlay(sourceId);
+		if (sourceId) {
+			UpdateSourceParameters();
+			alSourcePlay(sourceId);
+		}
 	}
 }
 
@@ -243,11 +248,6 @@ void ComponentAudioSource::Stop() {
 	if (sourceId) {
 		alSourceStop(sourceId);
 		alSourcei(sourceId, AL_BUFFER, NULL);
-
-		ResourceAudioClip* audioResource = App->resources->GetResource<ResourceAudioClip>(audioClipId);
-		if (audioResource != nullptr) {
-			audioResource->RemoveSource(this);
-		}
 		sourceId = 0;
 	}
 }
@@ -308,10 +308,6 @@ void ComponentAudioSource::Load(JsonValue jComponent) {
 	rollOffFactor = jComponent[JSON_TAG_ROLLOFF_FACTOR];
 	referenceDistance = jComponent[JSON_TAG_REFERENCE_DISTANCE];
 	maxDistance = jComponent[JSON_TAG_MAX_DISTANCE];
-
-	if (audioClipId) {
-		App->resources->IncreaseReferenceCount(audioClipId);
-	}
 }
 
 // --- GETTERS ---

@@ -11,7 +11,6 @@ public:
 	void Init() override;
 	void OnEditorUpdate() override;
 	void Update() override;
-
 	void Save(JsonValue jComponent) const override;
 	void Load(JsonValue jComponent) override;
 	bool CanBeRemoved() const override;

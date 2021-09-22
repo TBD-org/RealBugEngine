@@ -11,7 +11,7 @@
 #include "Components/ComponentAnimation.h"
 
 bool StateMachineManager::Contains(std::list<AnimationInterpolation>& animationInterpolations, const UID& id) {
-	for (const auto &element : animationInterpolations) {
+	for (const auto& element : animationInterpolations) {
 		if (element.state->id == id) return true;
 	}
 	return false;

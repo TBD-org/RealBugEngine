@@ -9,10 +9,9 @@
 #include "Utils/UID.h"
 #include <string>
 
-
-struct EventClip  {
+struct EventClip {
 	bool sent = false;
-	std::string name = "";	
+	std::string name = "";
 };
 
 class ResourceClip : public Resource {
@@ -20,6 +19,7 @@ public:
 	REGISTER_RESOURCE(ResourceClip, ResourceType::CLIP);
 
 	void Load() override;
+	void FinishLoading() override;
 	void GetInfoJson();
 	void Unload() override;
 	void OnEditorUpdate() override;
@@ -30,8 +30,6 @@ public:
 
 	void SetBeginIndex(unsigned int index);
 	void SetEndIndex(unsigned int index);
-
-	ResourceAnimation* GetResourceAnimation() const;
 
 public:
 	std::string name = "";

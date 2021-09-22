@@ -11,9 +11,11 @@ class btRigidBody;
 class ComponentSphereCollider : public Component {
 public:
 	REGISTER_COMPONENT(ComponentSphereCollider, ComponentType::SPHERE_COLLIDER, false); // Refer to ComponentType for the Constructor
+	~ComponentSphereCollider();
 
 	// ------- Core Functions ------ //
 	void Init() override;
+	void Start() override;
 	void DrawGizmos() override;
 	void OnEditorUpdate() override;
 	void Save(JsonValue jComponent) const override;

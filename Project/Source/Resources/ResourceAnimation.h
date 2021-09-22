@@ -10,7 +10,7 @@
 class ResourceAnimation : public Resource {
 public:
 	struct Channel {
-		float3 tranlation = float3::zero;
+		float3 translation = float3::zero;
 		Quat rotation = Quat::identity;
 	};
 

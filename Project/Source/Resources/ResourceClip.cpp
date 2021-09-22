@@ -2,22 +2,22 @@
 
 #include "Application.h"
 
-#include "FileSystem/JsonValue.h"
 #include "Modules/ModuleFiles.h"
 #include "Modules/ModuleTime.h"
 #include "Modules/ModuleResources.h"
 #include "Modules/ModuleEditor.h"
+#include "Utils/JsonValue.h"
 #include "Utils/ImGuiUtils.h"
 #include "Utils/UID.h"
+#include "Utils/Logging.h"
+#include "Utils/Buffer.h"
 
 #include "rapidjson/error/en.h"
 #include "rapidjson/stringbuffer.h"
 #include "rapidjson/prettywriter.h"
 #include "rapidjson/document.h"
-
 #include "imgui.h"
-#include "Utils/Logging.h"
-#include "Utils/Buffer.h"
+
 #include "Utils/Leaks.h"
 
 #define JSON_TAG_CLIP_ID "ClipId"
@@ -54,7 +54,6 @@ void ResourceClip::Load() {
 
 	name = jStateMachine[JSON_TAG_NAME];
 	animationUID = jStateMachine[JSON_TAG_ANIMATION_UID];
-	App->resources->IncreaseReferenceCount(animationUID);
 	endIndex = jStateMachine[JSON_TAG_END_INDEX];
 	beginIndex = jStateMachine[JSON_TAG_BEGIN_INDEX];
 	loop = jStateMachine[JSON_TAG_LOOP];
@@ -115,8 +114,14 @@ void ResourceClip::GetInfoJson() {
 	LOG("Clip info received in %ums", timeMs);
 }
 
+void ResourceClip::FinishLoading() {
+	App->resources->IncreaseReferenceCount(animationUID);
+}
+
 void ResourceClip::Unload() {
 	App->resources->DecreaseReferenceCount(animationUID);
+
+	animationUID = 0;
 }
 
 void ResourceClip::OnEditorUpdate() {
@@ -135,7 +140,7 @@ void ResourceClip::OnEditorUpdate() {
 	ImGui::ResourceSlot<ResourceAnimation>("Animaton", &animationUID);
 
 	int maxFrames = 0;
-	ResourceAnimation* resourceAnimation = GetResourceAnimation();
+	ResourceAnimation* resourceAnimation = App->resources->GetResource<ResourceAnimation>(animationUID);
 	if (resourceAnimation != nullptr && resourceAnimation->keyFrames.size() != 0) {
 		maxFrames = resourceAnimation->keyFrames.size();
 	}
@@ -274,8 +279,4 @@ void ResourceClip::SetEndIndex(unsigned int index) {
 			duration = keyFramesSize * frameRate;
 		}
 	}
-}
-
-ResourceAnimation* ResourceClip::GetResourceAnimation() const {
-	return App->resources->GetResource<ResourceAnimation>(animationUID);
 }

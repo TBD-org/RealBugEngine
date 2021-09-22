@@ -18,8 +18,6 @@ class ComponentSlider : public Component
 public:
 	REGISTER_COMPONENT(ComponentSlider, ComponentType::SLIDER, false);
 
-	~ComponentSlider();
-
 	void Init() override; // Component Initialization
 	void Update() override;
 	void OnEditorUpdate() override; // Input for class variables

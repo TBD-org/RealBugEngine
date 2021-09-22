@@ -6,17 +6,19 @@
 #include "Modules/ModuleResources.h"
 #include "Modules/ModuleEditor.h"
 #include "Utils/MSTimer.h"
+#include "Utils/Logging.h"
 
 #include "rapidjson/error/en.h"
 #include "rapidjson/stringbuffer.h"
 #include "rapidjson/prettywriter.h"
 #include "rapidjson/document.h"
 
-#include "Utils/Logging.h"
 #include "IL/il.h"
 #include "IL/ilu.h"
 #include "GL/glew.h"
 #include "imgui.h"
+
+#include "Utils/Leaks.h"
 
 #define JSON_TAG_MINFILTER "MinFilter"
 #define JSON_TAG_MAGFILTER "MagFilter"
@@ -45,23 +47,43 @@ void ResourceTexture::Load() {
 		return;
 	}
 
+	// Get data
+	width = ilGetInteger(IL_IMAGE_WIDTH);
+	height = ilGetInteger(IL_IMAGE_HEIGHT);
+	unsigned bpp = ilGetInteger(IL_IMAGE_BYTES_PER_PIXEL);
+	unsigned dataSize = width * height * bpp;
+	imageData = new unsigned char[dataSize];
+	memcpy(imageData, ilGetData(), dataSize);
+
+	unsigned timeMs = timer.Stop();
+	LOG("Texture loaded in %ums.", timeMs);
+}
+
+void ResourceTexture::FinishLoading() {
+	if (imageData == nullptr) return;
+	DEFER {
+		RELEASE(imageData);
+	};
+
 	// Generate texture from image
 	glGenTextures(1, &glTexture);
 	glBindTexture(GL_TEXTURE_2D, glTexture);
-	glTexImage2D(GL_TEXTURE_2D, 0, GL_RGBA8, ilGetInteger(IL_IMAGE_WIDTH), ilGetInteger(IL_IMAGE_HEIGHT), 0, GL_RGBA, GL_UNSIGNED_BYTE, ilGetData());
+	glTexImage2D(GL_TEXTURE_2D, 0, GL_RGBA8, width, height, 0, GL_RGBA, GL_UNSIGNED_BYTE, imageData);
 
 	// Generate mipmaps and set filtering and wrapping
 	glGenerateMipmap(GL_TEXTURE_2D);
 	UpdateWrap(wrap);
 	UpdateMinFilter(minFilter);
 	UpdateMagFilter(magFilter);
-
-	unsigned timeMs = timer.Stop();
-	LOG("Texture loaded in %ums.", timeMs);
 }
 
 void ResourceTexture::Unload() {
-	glDeleteTextures(1, &glTexture);
+	RELEASE(imageData);
+
+	if (glTexture) {
+		glDeleteTextures(1, &glTexture);
+		glTexture = 0;
+	}
 }
 
 void ResourceTexture::LoadResourceMeta(JsonValue jResourceMeta) {

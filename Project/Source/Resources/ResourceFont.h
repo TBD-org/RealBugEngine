@@ -17,7 +17,7 @@ class ResourceFont : public Resource {
 public:
 	REGISTER_RESOURCE(ResourceFont, ResourceType::FONT);
 
-	void Load() override;
+	void FinishLoading() override;
 	void Unload() override;
 
 public:

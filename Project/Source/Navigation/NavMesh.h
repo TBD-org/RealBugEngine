@@ -4,6 +4,8 @@
 #include "Utils/Buffer.h"
 #include <vector>
 
+class Scene;
+
 class dtCrowd;
 class dtNavMeshQuery;
 class dtNavMesh;
@@ -11,25 +13,20 @@ class dtTileCache;
 
 class NavMesh {
 public:
-	NavMesh();				// Allocates navQuery data and crowd memory
-	~NavMesh();				// Releases memory
+	NavMesh();	// Allocates navQuery data and crowd memory
+	~NavMesh(); // Releases memory
 
-	bool Build();			// Generates the navMesh from Scene Meshes (Vertices and triangles of MeshRenderer), and saves the data in navData and navDataSize. Also inits navMesh, navQuery and crowd.
-	void DrawGizmos();		// Drawas the Bounding Box and the NavMesh
-	void Load(Buffer<char>& buffer);	// Loads NavMesh from buffer and Inits data
-	void CleanUp();						// Releases memory
+	bool Build(Scene* scene);		 // Generates the navMesh from Scene Meshes (Vertices and triangles of MeshRenderer), and saves the data in navData and navDataSize. Also inits navMesh, navQuery and crowd.
+	void DrawGizmos(Scene* scene);	 // Drawas the Bounding Box and the NavMesh
+	void Load(Buffer<char>& buffer); // Loads NavMesh from buffer and Inits data
+	void CleanUp();					 // Releases memory
 	Buffer<char> Save();
 
-	bool IsGenerated();					// Returns true if navMesh is valid
-	dtCrowd* GetCrowd();				// Returns crowd
-	dtNavMeshQuery* GetNavMeshQuery();	// Returns navQuery
-	dtNavMesh* GetNavMesh();			// Returns navMesh
-	dtTileCache* GetTileCache();		// Returns tileCache
-
-	void CleanCrowd();
-	void RescanCrowd();
-	void CleanObstacles();
-	void RescanObstacles();
+	bool IsGenerated();				   // Returns true if navMesh is valid
+	dtCrowd* GetCrowd();			   // Returns crowd
+	dtNavMeshQuery* GetNavMeshQuery(); // Returns navQuery
+	dtNavMesh* GetNavMesh();		   // Returns navMesh
+	dtTileCache* GetTileCache();	   // Returns tileCache
 
 public:
 	enum DrawMode {
@@ -83,8 +80,7 @@ public:
 	DrawMode drawMode = DRAWMODE_NAVMESH;
 
 private:
-	void InitCrowd();			// Inits crowd with MAX_AGENTS
-
+	void InitCrowd(); // Inits crowd with MAX_AGENTS
 
 private:
 	BuildContext* ctx = nullptr;
@@ -100,12 +96,4 @@ private:
 	struct MeshProcess* tmproc = nullptr;
 
 	unsigned char navMeshDrawFlags = 0;
-
-	// SCENE DATA
-	std::vector<float> verts;
-	std::vector<int> tris;
-	std::vector<float> normals;
-
-	int nverts = 0;
-	int ntris = 0;
 };

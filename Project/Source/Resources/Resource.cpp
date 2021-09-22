@@ -38,7 +38,17 @@ void Resource::SetName(const char* name_) {
 	name = name_;
 }
 
+bool Resource::IsLoaded() {
+	return isLoaded;
+}
+
+void Resource::SetLoaded(bool loaded) {
+	isLoaded = loaded;
+}
+
 void Resource::Load() {}
+
+void Resource::FinishLoading() {}
 
 void Resource::Unload() {}
 

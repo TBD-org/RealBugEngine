@@ -22,8 +22,8 @@
 #define JSON_TAG_OUTER_ANGLE "OuterAngle"
 
 void ComponentLight::Init() {
-	if (App->scene->scene->directionalLight == nullptr) {
-		App->scene->scene->directionalLight = &this->GetOwner();
+	if (GetOwner().scene->directionalLight == nullptr) {
+		GetOwner().scene->directionalLight = &this->GetOwner();
 	}
 }
 
@@ -71,12 +71,12 @@ void ComponentLight::OnEditorUpdate() {
 			if (ImGui::Selectable(lightTypeCombo[n], isSelected)) {
 				lightType = (LightType) n;
 				if (lightType == LightType::DIRECTIONAL) {
-					if (App->scene->scene->directionalLight == nullptr) {
-						App->scene->scene->directionalLight = &this->GetOwner();
+					if (GetOwner().scene->directionalLight == nullptr) {
+						GetOwner().scene->directionalLight = &this->GetOwner();
 					}
 				} else {
-					if (App->scene->scene->directionalLight == &this->GetOwner()) {
-						App->scene->scene->directionalLight = nullptr;
+					if (GetOwner().scene->directionalLight == &this->GetOwner()) {
+						GetOwner().scene->directionalLight = nullptr;
 					}
 				}
 			}

@@ -10,10 +10,20 @@
 class GameObject;
 class Component;
 class Resource;
+class Scene;
 
 struct AssetCache;
 
-#define EventVariant std::variant<int, DestroyGameObjectStruct, CreateResourceStruct, DestroyResourceStruct, UpdateAssetCacheStruct, ChangeSceneStruct, ViewportResizedStruct>
+#define EventVariant std::variant< \
+	int,                           \
+	DestroyGameObjectStruct,       \
+	CreateResourceStruct,          \
+	DestroyResourceStruct,         \
+	UpdateAssetCacheStruct,        \
+	ChangeSceneStruct,             \
+	LoadSceneStruct,               \
+	SaveSceneStruct,               \
+	ViewportResizedStruct>
 
 /* Creating a new event type:
 *    1. Add a new EventType for the new event (ALWAYS ABOVE COUNT)
@@ -36,7 +46,8 @@ enum class TesseractEventType {
 	MOUSE_CLICKED,
 	MOUSE_RELEASED,
 	CHANGE_SCENE,
-	RESOURCES_LOADED,
+	LOAD_SCENE,
+	SAVE_SCENE,
 	COMPILATION_FINISHED,
 	SCREEN_RESIZED,
 	COUNT
@@ -61,9 +72,10 @@ struct DestroyResourceStruct {
 };
 
 struct DestroyGameObjectStruct {
+	Scene* scene = nullptr;
 	GameObject* gameObject = nullptr;
-	DestroyGameObjectStruct(GameObject* gameObject_)
-		: gameObject(gameObject_) {}
+	DestroyGameObjectStruct(Scene* scene_, GameObject* gameObject_)
+		: scene(scene_), gameObject(gameObject_) {}
 };
 
 struct UpdateAssetCacheStruct {
@@ -77,6 +89,18 @@ struct ChangeSceneStruct {
 	UID sceneId = 0;
 	ChangeSceneStruct(UID sceneId_)
 		: sceneId(sceneId_) {}
+};
+
+struct LoadSceneStruct {
+	std::string filePath = "";
+	LoadSceneStruct(const char* filePath_)
+		: filePath(filePath_) {}
+};
+
+struct SaveSceneStruct {
+	std::string filePath = "";
+	SaveSceneStruct(const char* filePath_)
+		: filePath(filePath_) {}
 };
 
 struct ViewportResizedStruct {

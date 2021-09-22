@@ -2,8 +2,9 @@
 
 #include "Globals.h"
 #include "Application.h"
+#include "GameObject.h"
 #include "Utils/Logging.h"
-#include "FileSystem/SceneImporter.h"
+#include "Importers/SceneImporter.h"
 #include "Scripting/PropertyMap.h"
 #include "Modules/ModuleCamera.h"
 #include "Modules/ModuleScene.h"
@@ -47,7 +48,7 @@ UpdateStatus ModuleTime::PreUpdate() {
 
 	unsigned int autoSaveDeltaMs = realTime - lastAutoSave;
 	if (!HasGameStarted() && autoSaveDeltaMs >= TIME_BETWEEN_AUTOSAVES_MS) {
-		SceneImporter::SaveScene(TEMP_SCENE_FILE_NAME);
+		App->scene->SaveScene(TEMP_SCENE_FILE_NAME);
 		lastAutoSave = realTime;
 	}
 
@@ -166,22 +167,10 @@ void ModuleTime::StartGame() {
 	gameRunning = true;
 
 #if !GAME
-	SceneImporter::SaveScene(TEMP_SCENE_FILE_NAME);
-	App->scene->scene->sceneLoaded = false;
+	App->scene->SaveScene(TEMP_SCENE_FILE_NAME);
 #endif // !GAME
 
-	App->project->GetGameState()->Clear();
-
-	//TODO: this goes inside !GAME?
-	if (App->camera->GetGameCamera()) {
-		// Set the Game Camera as active
-		App->camera->ChangeActiveCamera(App->camera->GetGameCamera(), true);
-		App->camera->ChangeCullingCamera(App->camera->GetGameCamera(), true);
-	} else {
-		// TODO: Modal window. Warning - camera not set.
-	}
-
-	App->physics->InitializeRigidBodies();
+	App->scene->GetCurrentScene()->Start();
 }
 
 void ModuleTime::StopGame() {
@@ -197,12 +186,10 @@ void ModuleTime::StopGame() {
 	App->audio->StopAllSources();
 
 #if !GAME
-	SceneImporter::LoadScene(TEMP_SCENE_FILE_NAME);
+	App->scene->LoadScene(TEMP_SCENE_FILE_NAME);
 #endif
 	App->camera->ChangeActiveCamera(nullptr, false);
 	App->camera->ChangeCullingCamera(nullptr, false);
-
-	App->physics->ClearPhysicBodies();
 }
 
 void ModuleTime::PauseGame() {

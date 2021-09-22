@@ -56,6 +56,7 @@ struct AnchorPreset {
 class ComponentTransform2D : public Component {
 public:
 	REGISTER_COMPONENT(ComponentTransform2D, ComponentType::TRANSFORM2D, false);
+
 	void Update() override;							// Calculates the Global Matrix
 	void OnEditorUpdate() override;					// Works as input of the different values of the component
 	void Save(JsonValue jComponent) const override; // Serializes Component

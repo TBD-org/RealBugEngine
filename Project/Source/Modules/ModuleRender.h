@@ -57,6 +57,10 @@ public:
 	float4x4 GetLightViewMatrix(unsigned int i, ShadowCasterType lightFrustumType) const;
 	float4x4 GetLightProjectionMatrix(unsigned int i, ShadowCasterType lightFrustumType) const;
 
+	std::vector<GameObject*> GetCulledMeshes(const FrustumPlanes& planes, const int mask);
+	std::vector<GameObject*> GetStaticCulledShadowCasters(const FrustumPlanes& planes) const;
+	std::vector<GameObject*> GetDynamicCulledShadowCasters(const FrustumPlanes& planes) const;
+
 	int GetCulledTriangles() const;
 	const float2 GetViewportSize();
 
@@ -169,6 +173,8 @@ private:
 	void SetOrtographicRender();
 	void SetPerspectiveRender();
 
+	bool InsideFrustumPlanes(const FrustumPlanes& planes, const GameObject* go) const;
+
 	void ConvertDepthPrepassTextures();
 	void ComputeSSAOTexture();
 	void BlurSSAOTexture(bool horizontal);
@@ -192,6 +198,9 @@ private:
 
 	std::vector<GameObject*> opaqueGameObjects;			 // Vector of Opaque GameObjects
 	std::map<float, GameObject*> transparentGameObjects; // Map with Transparent GameObjects
+
+	std::vector<GameObject*> staticShadowCasters;
+	std::vector<GameObject*> dynamicShadowCasters;
 
 	// ------- Kernels ------- //
 	std::vector<float> ssaoGaussKernel;

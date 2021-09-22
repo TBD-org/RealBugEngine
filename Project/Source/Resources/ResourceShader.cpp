@@ -8,7 +8,7 @@
 
 #include "Utils/Leaks.h"
 
-void ResourceShader::Load() {
+void ResourceShader::FinishLoading() {
 	// Timer to measure loading a shader
 	MSTimer timer;
 	timer.Start();
@@ -22,7 +22,8 @@ void ResourceShader::Load() {
 }
 
 void ResourceShader::Unload() {
-	App->programs->DeleteProgram(shaderProgram);
+	if (shaderProgram) App->programs->DeleteProgram(shaderProgram);
+	shaderProgram = 0;
 }
 
 unsigned ResourceShader::GetShaderProgram() {

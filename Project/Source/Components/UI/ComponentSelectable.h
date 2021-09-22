@@ -28,8 +28,8 @@ public:
 
 public:
 	REGISTER_COMPONENT(ComponentSelectable, ComponentType::SELECTABLE, false);
-
 	~ComponentSelectable();
+
 	bool IsInteractable() const;
 	void SetInteractable(bool interactable_);
 	ComponentSelectable* FindSelectableOnDir(float2 dir);

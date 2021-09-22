@@ -12,9 +12,6 @@
 
 #include "Utils/Leaks.h"
 
-void ComponentCanvas::Init() {
-}
-
 void ComponentCanvas::Save(JsonValue jComponent) const {
 }
 

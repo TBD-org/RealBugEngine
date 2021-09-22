@@ -13,20 +13,28 @@ struct aiMesh;
 class ComponentMeshRenderer : public Component {
 public:
 	REGISTER_COMPONENT(ComponentMeshRenderer, ComponentType::MESH_RENDERER, true);
+	~ComponentMeshRenderer();
+
+	void Init() override;
+	void Start() override;
+	void Update() override;
 
 	void OnEditorUpdate() override;
-	void Init() override;
-	void Update() override;
 	void Save(JsonValue jComponent) const override;
 	void Load(JsonValue jComponent) override;
-	void Start() override;
 
 	void Draw(const float4x4& modelMatrix) const;
 	void DrawDepthPrepass(const float4x4& modelMatrix) const;
 	void DrawShadow(const float4x4& modelMatrix, unsigned int i, ShadowCasterType lightFrustumType) const;
 
-	void AddRenderingModeMask();
-	void DeleteRenderingModeMask();
+	TESSERACT_ENGINE_API UID GetMeshID() const;
+	TESSERACT_ENGINE_API UID GetMaterialID() const;
+	void SetMeshID(UID meshId);
+	void SetMaterialID(UID materialId);
+	TESSERACT_ENGINE_API void ChangeMesh(UID meshId);
+	TESSERACT_ENGINE_API void ChangeMaterial(UID materialId);
+
+	void SetGameObjectBones(const std::unordered_map<std::string, GameObject*>& goBones);
 
 	// Dissolve
 	TESSERACT_ENGINE_API void PlayDissolveAnimation(bool reverse = false);	// Plays Dissolve animation. If reverse is true, it will go from transparent to material's color, else it will go from color to transparent
@@ -43,13 +51,6 @@ public:
 	TESSERACT_ENGINE_API void SetTextureTiling(float2 _tiling);
 	TESSERACT_ENGINE_API void SetTextureOffset(float2 _offset);
 
-public:
-	UID meshId = 0;
-	UID materialId = 0;
-	std::vector<float4x4> palette;
-
-	std::unordered_map<std::string, GameObject*> goBones;
-
 private:
 	void UpdateDissolveAnimation();
 	float GetDissolveValue() const;
@@ -58,6 +59,13 @@ private:
 	float2 ChooseTextureOffset(float2 value) const;
 
 private:
+	UID meshId = 0;
+	UID materialId = 0;
+
+	std::vector<float4x4> palette;
+
+	std::unordered_map<std::string, GameObject*> goBones;
+
 	bool bbActive = false;
 
 	// Dissolve variables

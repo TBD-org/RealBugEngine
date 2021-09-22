@@ -18,30 +18,25 @@
 
 ComponentEventSystem ::~ComponentEventSystem() {
 	ComponentEventSystem* eventSystem = App->userInterface->GetCurrentEventSystem();
-	if (eventSystem != nullptr) {
-		if (eventSystem->GetID() == GetID()) {
-			App->userInterface->SetCurrentEventSystem(0);
-		}
+	if (App->userInterface->GetCurrentEventSystem() == this) {
+		App->userInterface->SetCurrentEventSystem(0);
 	}
 }
 
-void ComponentEventSystem::Init() {
+void ComponentEventSystem::Start() {
 	App->userInterface->SetCurrentEventSystem(GetID());
 	LOG("established %u as CurrentEventSystem", GetID());
-	started = false;
+
+	GameObject* objectToSelect = GetOwner().scene->GetGameObject(firstSelectedId);
+	if (objectToSelect) {
+		ComponentSelectable* selectable = objectToSelect->GetComponent<ComponentSelectable>();
+
+		SetSelected(selectable->GetID());
+	}
 }
 
 void ComponentEventSystem::Update() {
 	if (App->time->HasGameStarted()) {
-		if (!started) {
-			started = true;
-			GameObject* objectToSelect = App->scene->scene->GetGameObject(firstSelectedId);
-			if (objectToSelect) {
-				ComponentSelectable* selectable = objectToSelect->GetComponent<ComponentSelectable>();
-
-				SetSelected(selectable->GetID());
-			}
-		}
 		navigationTimer = Max(0.0f, navigationTimer - App->time->GetRealTimeDeltaTime());
 	}
 
@@ -125,7 +120,9 @@ void ComponentEventSystem::Load(JsonValue jComponent) {
 }
 
 void ComponentEventSystem::OnEnable() {
-	App->userInterface->SetCurrentEventSystem(GetID());
+	if (App->userInterface->GetCurrentEventSystem() == nullptr) {
+		App->userInterface->SetCurrentEventSystem(GetID());
+	}
 }
 
 void ComponentEventSystem::OnDisable() {
@@ -166,7 +163,7 @@ void ComponentEventSystem::SetSelected(UID newSelectableComponentId) {
 
 void ComponentEventSystem::EnteredPointerOnSelectable(ComponentSelectable* newHoveredComponent) {
 	if (hoveredSelectableID != 0) {
-		ComponentSelectable* selectableToUnHover = App->scene->scene->selectableComponents.Find(hoveredSelectableID);
+		ComponentSelectable* selectableToUnHover = GetOwner().scene->selectableComponents.Find(hoveredSelectableID);
 		if (selectableToUnHover) selectableToUnHover->SetHovered(false);
 	}
 

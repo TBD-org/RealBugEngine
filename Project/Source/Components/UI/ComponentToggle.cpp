@@ -59,9 +59,9 @@ void ComponentToggle ::SetChecked(bool b) {
 }
 
 ComponentImage* ComponentToggle::GetEnabledImage() const {
-	GameObject* imageObj = App->scene->scene->GetGameObject(enabledImageObjectID);
+	GameObject* imageObj = GetOwner().scene->GetGameObject(enabledImageObjectID);
 	if (imageObj) {
-		return (ComponentImage*) App->scene->scene->GetGameObject(enabledImageObjectID)->GetComponent<ComponentImage>();
+		return (ComponentImage*) GetOwner().scene->GetGameObject(enabledImageObjectID)->GetComponent<ComponentImage>();
 	}
 	return nullptr;
 }

@@ -204,7 +204,7 @@ void ModuleCamera::CalculateFrustumNearestObject(float2 pos) {
 	LineSegment ray = engineCamera.GetFrustum()->UnProjectLineSegment(pos.x, pos.y);
 
 	// Check with AABB
-	Scene* scene = App->scene->scene;
+	Scene* scene = App->scene->GetCurrentScene();
 	for (GameObject& gameObject : scene->gameObjects) {
 		gameObject.flag = false;
 		if (gameObject.isInQuadtree) continue;
@@ -226,7 +226,7 @@ void ModuleCamera::CalculateFrustumNearestObject(float2 pos) {
 	float distance = 0;
 	for (GameObject* gameObject : intersectingObjects) {
 		for (ComponentMeshRenderer& mesh : gameObject->GetComponents<ComponentMeshRenderer>()) {
-			ResourceMesh* meshResource = App->resources->GetResource<ResourceMesh>(mesh.meshId);
+			ResourceMesh* meshResource = App->resources->GetResource<ResourceMesh>(mesh.GetMeshID());
 			if (meshResource == nullptr) continue;
 
 			const float4x4& model = gameObject->GetComponent<ComponentTransform>()->GetGlobalMatrix();
@@ -356,7 +356,7 @@ void ModuleCamera::CalculateExtremePointsRecursive(const GameObject* gameObject,
 }
 
 void ModuleCamera::ViewportResized(int width, int height) {
-	for (ComponentCamera& camera : App->scene->scene->cameraComponents) {
+	for (ComponentCamera& camera : App->scene->GetCurrentScene()->cameraComponents) {
 		// TODO: Implement button to force AspectRatio from specific camera
 		camera.frustum.SetVerticalFovAndAspectRatio(camera.frustum.VerticalFov(), width / (float) height);
 	}

@@ -5,7 +5,7 @@
 #include "Modules/ModuleFiles.h"
 #include "Modules/ModuleTime.h"
 #include "Utils/Logging.h"
-#include "Utils/FileDialog.h"
+#include "Utils/PathUtils.h"
 #include "Utils/StringBlocksParser.h"
 
 #include "GL/glew.h"
@@ -73,7 +73,7 @@ void ModulePrograms::LoadShaderBinFile() {
 	// Save all .shader from Assets/Shaders/ into one bin file
 	std::vector<std::string> files = App->files->GetFilesInFolder("Assets/Shaders/");
 	for (std::string file : files) {
-		if (FileDialog::GetFileExtension(file.c_str()) == ".shader") {
+		if (PathUtils::GetFileExtension(file.c_str()) == ".shader") {
 			Buffer<char> buffer = App->files->Load(("Assets/Shaders/" + file).c_str());
 			App->files->Save(filePath, buffer, true);
 		}

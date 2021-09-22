@@ -12,6 +12,7 @@
 #include "Utils/Logging.h"
 #include "Utils/Buffer.h"
 #include "Utils/FileDialog.h"
+#include "Utils/PathUtils.h"
 #include "Scene.h"
 
 #include <Windows.h>
@@ -404,8 +405,8 @@ bool ModuleProject::Init() {
 }
 
 UpdateStatus ModuleProject::Update() {
-	if (App->time->HasGameStarted() && App->scene->scene->sceneLoaded) {
-		for (ComponentScript& script : App->scene->scene->scriptComponents) {
+	if (App->time->HasGameStarted()) {
+		for (ComponentScript& script : App->scene->GetCurrentScene()->scriptComponents) {
 			if (script.IsActive()) {
 				Script* scriptInstance = script.GetScriptInstance();
 				if (scriptInstance != nullptr) {
@@ -426,8 +427,8 @@ bool ModuleProject::CleanUp() {
 }
 
 void ModuleProject::ReceiveEvent(TesseractEvent& e) {
-	if (App->time->HasGameStarted() && App->scene->scene->sceneLoaded) {
-		for (ComponentScript& script : App->scene->scene->scriptComponents) {
+	if (App->time->HasGameStarted()) {
+		for (ComponentScript& script : App->scene->GetCurrentScene()->scriptComponents) {
 			if (script.IsActive()) {
 				Script* scriptInstance = script.GetScriptInstance();
 				if (scriptInstance != nullptr) {
@@ -439,8 +440,8 @@ void ModuleProject::ReceiveEvent(TesseractEvent& e) {
 }
 
 void ModuleProject::LoadProject(const char* path) {
-	projectPath = FileDialog::GetFileFolder(path);
-	projectName = FileDialog::GetFileNameAndExtension(path);
+	projectPath = PathUtils::GetFileFolder(path);
+	projectName = PathUtils::GetFileNameAndExtension(path);
 	App->files->AddSearchPath(projectPath.c_str());
 
 	if (!App->files->Exists(projectName.c_str())) {
@@ -502,7 +503,7 @@ void ModuleProject::CreateMSVCProject(const char* path, const char* name, const 
 	Buffer<char> buffer = App->files->Load("Templates/MSVCProject");
 
 	std::string project = buffer.Data();
-	std::string enginePath = FileDialog::GetFileFolder(FileDialog::GetAbsolutePath("").c_str());
+	std::string enginePath = PathUtils::GetFileFolder(FileDialog::GetAbsolutePath("").c_str());
 
 #ifdef _DEBUG
 	std::string result = fmt::format(project, name, UIDProject, "../../Project/Source/", "../../Project/Libs/MathGeoLib", "../../Project/Libs/SDL/include", "../../Project/Libs/rapidjson/include", "../../Project/Libs/OpenAL-soft/include", "../../Project/Libs/Bullet/include", "../../Project/Libs/recastnavigation-1.5.1", "../../Project/Libs/imgui", "../../Project/Libs/libav/include", enginePath);
@@ -585,7 +586,7 @@ void ModuleProject::CompileProject(Configuration config) {
 	CloseHandle(sei.hProcess);
 
 	std::string buildPath = projectPath;
-	std::string name = FileDialog::GetFileName(projectName.c_str());
+	std::string name = PathUtils::GetFileName(projectName.c_str());
 
 	switch (config) {
 	case Configuration::RELEASE:
@@ -617,7 +618,7 @@ void ModuleProject::CompileProject(Configuration config) {
 		}
 		auxName[auxName.size() - 5] = '_';
 
-		dllPathAux = buildPath + FileDialog::GetFileName(auxName.c_str()) + ".dll";
+		dllPathAux = buildPath + PathUtils::GetFileName(auxName.c_str()) + ".dll";
 
 		if (!CopyFileA(dllPath.c_str(), dllPathAux.c_str(), FALSE)) {
 			std::string error = GetLastErrorStdStr().c_str();
@@ -680,7 +681,7 @@ bool ModuleProject::LoadGameCodeDLL(const char* path) {
 }
 
 bool ModuleProject::UnloadGameCodeDLL() {
-	Scene* scene = App->scene->scene;
+	Scene* scene = App->scene->GetCurrentScene();
 	if (scene != nullptr) {
 		for (ComponentScript& scriptComponent : scene->scriptComponents) {
 			scriptComponent.ReleaseScriptInstance();

@@ -4,6 +4,8 @@
 
 #include "Geometry/Triangle.h"
 #include "Math/float4x4.h"
+#include "Math/float3.h"
+#include "Math/float2.h"
 #include <string>
 #include <vector>
 
@@ -20,10 +22,20 @@ public:
 		float weights[4] = {0.0f, 0.0f, 0.0f, 0.0f};
 	};
 
+	struct Vertex {
+		float3 position = {0.0f, 0.0f, 0.0f};
+		float3 normal = {0.0f, 0.0f, 0.0f};
+		float3 tangent = {0.0f, 0.0f, 0.0f};
+		float2 uv = {0.0f, 0.0f};
+		unsigned bones[4] = {0u, 0u, 0u, 0u};
+		float weights[4] = {0.0f, 0.0f, 0.0f, 0.0f};
+	};
+
 public:
 	REGISTER_RESOURCE(ResourceMesh, ResourceType::MESH);
 
 	void Load() override;
+	void FinishLoading() override;
 	void Unload() override;
 
 	std::vector<Triangle> ExtractTriangles(const float4x4& modelMatrix) const;
@@ -32,11 +44,8 @@ public:
 	unsigned vbo = 0;
 	unsigned ebo = 0;
 	unsigned vao = 0;
-	unsigned numVertices = 0;
-	unsigned numIndices = 0;
-	unsigned numBones = 0;
-	std::vector<ResourceMesh::Bone> bones;		// The bones and it's transform from a Mesh
-	std::vector<float> meshVertices;
-	std::vector<float> meshNormals;
-	std::vector<unsigned> meshIndices;
+
+	std::vector<Bone> bones;
+	std::vector<Vertex> vertices;
+	std::vector<unsigned> indices;
 };

@@ -127,9 +127,6 @@ void PanelControlEditor::Update() {
 						App->project->CompileProject(Configuration::RELEASE_EDITOR);
 #endif // _DEBUG
 					}
-					Scene* scene = App->scene->scene;
-					App->window->SetCursor(scene->GetCursor(), scene->GetCursorWidth(), scene->GetCursorHeight());
-					App->window->ActivateCursor(true);
 					App->events->AddEvent(TesseractEvent(TesseractEventType::PRESSED_PLAY));
 				}
 			}

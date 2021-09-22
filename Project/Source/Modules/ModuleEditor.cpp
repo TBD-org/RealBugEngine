@@ -3,6 +3,7 @@
 #include "Globals.h"
 #include "Application.h"
 #include "GameObject.h"
+#include "Scene.h"
 #include "Modules/ModuleWindow.h"
 #include "Modules/ModuleRender.h"
 #include "Modules/ModuleScene.h"
@@ -11,10 +12,10 @@
 #include "Modules/ModuleEvents.h"
 #include "Modules/ModuleNavigation.h"
 #include "Modules/ModuleTime.h"
-#include "FileSystem/SceneImporter.h"
-#include "FileSystem/PrefabImporter.h"
-#include "FileSystem/MaterialImporter.h"
-#include "FileSystem/NavMeshImporter.h"
+#include "Importers/SceneImporter.h"
+#include "Importers/PrefabImporter.h"
+#include "Importers/MaterialImporter.h"
+#include "Importers/NavMeshImporter.h"
 #include "Navigation/NavMesh.h"
 #include "Utils/FileDialog.h"
 #include "TesseractEvent.h"
@@ -307,13 +308,13 @@ UpdateStatus ModuleEditor::Update() {
 
 	if (FileDialog::OpenDialog("Load scene", selectedPath)) {
 		std::string filePath = FileDialog::GetRelativePath(selectedPath.c_str());
-		SceneImporter::LoadScene(filePath.c_str());
+		App->scene->LoadScene(filePath.c_str());
 		ImGui::CloseCurrentPopup();
 	}
 
 	if (FileDialog::OpenDialog("Save scene", selectedPath)) {
 		std::string filePath = FileDialog::GetRelativePath(selectedPath.c_str());
-		SceneImporter::SaveScene(filePath.c_str());
+		App->scene->SaveScene(filePath.c_str());
 		ImGui::CloseCurrentPopup();
 	}
 
@@ -365,9 +366,9 @@ UpdateStatus ModuleEditor::Update() {
 		ImGui::NewLine();
 		ImGui::SameLine(ImGui::GetWindowWidth() - 120);
 		if (ImGui::Button("Save", ImVec2(50, 20))) {
-			NavMesh& navMesh = App->navigation->GetNavMesh();
+			NavMesh* navMesh = App->navigation->GetCurrentNavMesh();
 			std::string path = std::string(NAVMESH_PATH) + "/" + name + NAVMESH_EXTENSION;
-			NavMeshImporter::ExportNavMesh(navMesh, path.c_str());
+			NavMeshImporter::ExportNavMesh(*navMesh, path.c_str());
 			ImGui::CloseCurrentPopup();
 		}
 		ImGui::SameLine(ImGui::GetWindowWidth() - 60);

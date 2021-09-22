@@ -12,14 +12,14 @@ struct ImGradientMark;
 class ComponentBillboard : public Component {
 public:
 	REGISTER_COMPONENT(ComponentBillboard, ComponentType::BILLBOARD, false);
-
 	~ComponentBillboard();
+
+	void Init() override;
+	void Update() override;
 
 	void OnEditorUpdate() override;
 	void Load(JsonValue jComponent) override;
 	void Save(JsonValue jComponent) const override;
-	void Init() override;
-	void Update() override;
 	void Draw();
 
 	void ResetColor();

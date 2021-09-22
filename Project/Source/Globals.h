@@ -71,8 +71,9 @@ enum class UpdateStatus {
 #define SPOT_LIGHTS 8
 #define CASCADE_FRUSTUMS 10
 
-// Threads
-#define TIME_BETWEEN_RESOURCE_UPDATES_MS 300
+// Timers
+#define TIME_BETWEEN_RESOURCE_IMPORT_UPDATES_MS 300
+#define MAX_RESOURCE_LOADING_DURATION_PER_FRAME_MS 10
 #define TIME_BETWEEN_AUTOSAVES_MS 300000 // 5 minutes
 
 // Delete helpers -----------

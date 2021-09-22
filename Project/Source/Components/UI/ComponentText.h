@@ -13,7 +13,6 @@
 class ComponentText : public Component {
 public:
 	REGISTER_COMPONENT(ComponentText, ComponentType::TEXT, false);
-
 	~ComponentText();
 
 	void Init() override;			// Generates VBO and VAO of ComponentText

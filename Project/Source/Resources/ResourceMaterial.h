@@ -22,22 +22,16 @@ enum class RenderingMode {
 	TRANSPARENT
 };
 
-enum class MaskToChange {
-	RENDERING,
-	SHADOW
-};
-
 class ResourceMaterial : public Resource {
 public:
 	REGISTER_RESOURCE(ResourceMaterial, ResourceType::MATERIAL);
 
 	void Load() override;
+	void FinishLoading() override;
 	void Unload() override;
 	void OnEditorUpdate() override;
 
 	void SaveToFile(const char* filePath);
-
-	void UpdateMask(MaskToChange maskToChange, bool forceDeleteShadows = false);
 
 public:
 	// Material shader

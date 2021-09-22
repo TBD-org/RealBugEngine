@@ -7,8 +7,8 @@
 #include "Utils/UID.h"
 #include "Utils/AssetCache.h"
 #include "Resources/Resource.h"
-#include "FileSystem/JsonValue.h"
-#include "FileSystem/ImportOptions.h"
+#include "Utils/JsonValue.h"
+#include "Importers/ImportOptions.h"
 #include "TesseractEvent.h"
 
 #include <string>
@@ -31,11 +31,15 @@ public:
 
 	template<typename T> T* GetImportOptions(const char* filePath, bool forceLoad = false);
 	template<typename T> T* GetResource(UID id);
+	ResourceType GetResourceType(UID id);
+	const char* GetResourceName(UID id);
 	AssetCache* GetAssetCache() const;
 
 	void IncreaseReferenceCount(UID id);
 	void DecreaseReferenceCount(UID id);
+	void ResetReferenceCount(UID id);
 	unsigned GetReferenceCount(UID id) const;
+	bool HaveResourcesFinishedLoading();
 
 	std::string GenerateResourcePath(UID id) const;
 
@@ -43,10 +47,13 @@ public:
 	template<typename T> void SendCreateResourceEvent(std::unique_ptr<T>& resource);
 
 private:
-	void UpdateAsync();
+	void UpdateImportAsync();
+	void UpdateLoadingAsync();
 	void ImportLibrary();
 
 	void CheckForNewAssetsRecursive(const char* path, AssetCache& assetCache, AssetFolder& parentFolder);
+
+	template<typename T> T* GetResourceInternal(UID id);
 
 	void SendCreateResourceEventByType(ResourceType type, const char* resourceName, const char* assetFilePath, UID id);
 	Resource* CreateResourceByType(ResourceType type, const char* resourceName, const char* assetFilePath, UID id);
@@ -64,14 +71,22 @@ public:
 	concurrency::concurrent_queue<std::string> assetsToReimport;
 
 private:
+	std::mutex resourcesMutex;
 	std::unordered_map<std::string, std::unique_ptr<ImportOptions>> assetImportOptions;
 	std::unordered_map<UID, std::unique_ptr<Resource>> resources;
 	std::unordered_map<UID, unsigned> referenceCounts;
 	std::unique_ptr<AssetCache> assetCache;
 
+	unsigned numResourcesLoading = 0;
+
 	std::thread importThread;
 	bool stopImportThread = false;
 	std::unordered_map<UID, std::string> concurrentResourceUIDToAssetFilePath;
+
+	std::thread loadingThread;
+	bool stopLoadingThread = false;
+	concurrency::concurrent_queue<Resource*> resourcesToLoad;
+	concurrency::concurrent_queue<Resource*> resourcesToFinishLoading;
 };
 
 template<typename T>
@@ -88,8 +103,17 @@ inline T* ModuleResources::GetImportOptions(const char* filePath, bool forceLoad
 
 template<typename T>
 inline T* ModuleResources::GetResource(UID id) {
+	T* resource = GetResourceInternal<T>(id);
+	if (resource == nullptr || !resource->IsLoaded()) return nullptr;
+	return resource;
+}
+
+template<typename T>
+inline T* ModuleResources::GetResourceInternal(UID id) {
+	resourcesMutex.lock();
 	auto it = resources.find(id);
 	T* resource = it != resources.end() ? static_cast<T*>(it->second.get()) : nullptr;
+	resourcesMutex.unlock();
 	return resource;
 }
 

@@ -24,6 +24,7 @@
 #include "Modules/ModuleUserInterface.h"
 #include "Modules/ModuleNavigation.h"
 #include "Resources/ResourceMesh.h"
+#include "Resources/ResourceMaterial.h"
 #include "Utils/Logging.h"
 #include "Utils/Random.h"
 #include "TesseractEvent.h"
@@ -299,9 +300,12 @@ void ModuleRender::ClassifyGameObjects() {
 	opaqueGameObjects.clear();
 	transparentGameObjects.clear();
 
+	staticShadowCasters.clear();
+	dynamicShadowCasters.clear();
+
 	App->camera->CalculateFrustumPlanes();
 	float3 cameraPos = App->camera->GetActiveCamera()->GetFrustum()->Pos();
-	Scene* scene = App->scene->scene;
+	Scene* scene = App->scene->GetCurrentScene();
 	for (ComponentBoundingBox& boundingBox : scene->boundingBoxComponents) {
 		GameObject& gameObject = boundingBox.GetOwner();
 		gameObject.flag = false;
@@ -309,13 +313,27 @@ void ModuleRender::ClassifyGameObjects() {
 
 		const AABB& gameObjectAABB = boundingBox.GetWorldAABB();
 		const OBB& gameObjectOBB = boundingBox.GetWorldOBB();
-		if (App->camera->GetFrustumPlanes().CheckIfInsideFrustumPlanes(gameObjectAABB, gameObjectOBB)) {
-			if ((gameObject.GetMask().bitMask & static_cast<int>(MaskType::TRANSPARENT)) == 0) {
-				opaqueGameObjects.push_back(&gameObject);
+		if (!App->camera->GetFrustumPlanes().CheckIfInsideFrustumPlanes(gameObjectAABB, gameObjectOBB)) continue;
+
+		ComponentMeshRenderer* meshRenderer = gameObject.GetComponent<ComponentMeshRenderer>();
+		if (meshRenderer == nullptr) continue;
+
+		ResourceMaterial* material = App->resources->GetResource<ResourceMaterial>(meshRenderer->GetMaterialID());
+		if (material == nullptr) continue;
+
+		if (material->renderingMode == RenderingMode::OPAQUE) {
+			opaqueGameObjects.push_back(&gameObject);
+		} else {
+			ComponentTransform* transform = gameObject.GetComponent<ComponentTransform>();
+			float dist = Length(cameraPos - transform->GetGlobalPosition());
+			transparentGameObjects[dist] = &gameObject;
+		}
+
+		if (material->castShadows) {
+			if (material->shadowCasterType == ShadowCasterType::STATIC) {
+				staticShadowCasters.push_back(&gameObject);
 			} else {
-				ComponentTransform* transform = gameObject.GetComponent<ComponentTransform>();
-				float dist = Length(cameraPos - transform->GetGlobalPosition());
-				transparentGameObjects[dist] = &gameObject;
+				dynamicShadowCasters.push_back(&gameObject);
 			}
 		}
 	}
@@ -492,12 +510,6 @@ bool ModuleRender::Start() {
 UpdateStatus ModuleRender::PreUpdate() {
 	BROFILER_CATEGORY("ModuleRender - PreUpdate", Profiler::Color::Green)
 
-	lightFrustumStatic.UpdateFrustums();
-	lightFrustumStatic.ReconstructFrustum(ShadowCasterType::STATIC);
-
-	lightFrustumDynamic.UpdateFrustums();
-	lightFrustumDynamic.ReconstructFrustum(ShadowCasterType::DYNAMIC);
-
 #if GAME
 	App->camera->ViewportResized(App->window->GetWidth(), App->window->GetHeight());
 #endif
@@ -510,10 +522,16 @@ UpdateStatus ModuleRender::Update() {
 	BROFILER_CATEGORY("ModuleRender - Update", Profiler::Color::Green)
 
 	culledTriangles = 0;
-	Scene* scene = App->scene->scene;
+	Scene* scene = App->scene->GetCurrentScene();
 	float3 gammaClearColor = float3(pow(clearColor.x, 2.2f), pow(clearColor.y, 2.2f), pow(clearColor.y, 2.2f));
 
 	ClassifyGameObjects();
+
+	lightFrustumStatic.UpdateCameraFrustum();
+	lightFrustumStatic.UpdateLightFrustum(ShadowCasterType::STATIC);
+
+	lightFrustumDynamic.UpdateCameraFrustum();
+	lightFrustumDynamic.UpdateLightFrustum(ShadowCasterType::DYNAMIC);
 
 	// Shadow Pass Static
 	for (unsigned int i = 0; i < NUM_CASCADES_FRUSTUM; ++i) {
@@ -523,13 +541,12 @@ UpdateStatus ModuleRender::Update() {
 		glDepthMask(GL_TRUE);
 		glDepthFunc(GL_LESS);
 		glClear(GL_DEPTH_BUFFER_BIT);
-	
-		for (GameObject* gameObject : App->scene->scene->GetStaticShadowCasters()) {
+
+		for (GameObject* gameObject : staticShadowCasters) {
 			DrawGameObjectShadowPass(gameObject, i, ShadowCasterType::STATIC);
 		}
-	
 	}
-	
+
 	// Shadow Pass Dynamic
 	for (unsigned int i = 0; i < NUM_CASCADES_FRUSTUM; ++i) {
 		glBindFramebuffer(GL_FRAMEBUFFER, depthMapDynamicTextureBuffers[i]);
@@ -539,12 +556,10 @@ UpdateStatus ModuleRender::Update() {
 		glDepthFunc(GL_LESS);
 		glClear(GL_DEPTH_BUFFER_BIT);
 
-		for (GameObject* gameObject : App->scene->scene->GetDynamicShadowCasters()) {
+		for (GameObject* gameObject : dynamicShadowCasters) {
 			DrawGameObjectShadowPass(gameObject, i, ShadowCasterType::DYNAMIC);
 		}
-
 	}
-	
 
 	// Depth Prepass
 	glBindFramebuffer(GL_FRAMEBUFFER, depthPrepassBuffer);
@@ -639,8 +654,11 @@ UpdateStatus ModuleRender::Update() {
 	if (drawDepthMapTexture) {
 		assert(drawDepthMapTexture && indexDepthMapTexture < NUM_CASCADES_FRUSTUM);
 
-		if (shadowCasterType == ShadowCasterType::STATIC) DrawTexture(depthMapStaticTextures[indexDepthMapTexture]);
-		else DrawTexture(depthMapDynamicTextures[indexDepthMapTexture]);
+		if (shadowCasterType == ShadowCasterType::STATIC) {
+			DrawTexture(depthMapStaticTextures[indexDepthMapTexture]);
+		} else {
+			DrawTexture(depthMapDynamicTextures[indexDepthMapTexture]);
+		}
 
 		// Render to screen
 		glBindFramebuffer(GL_READ_FRAMEBUFFER, renderPassBuffer);
@@ -731,14 +749,14 @@ UpdateStatus ModuleRender::Update() {
 		}
 
 		// Draw quadtree
-		if (drawQuadtree) DrawQuadtreeRecursive(App->scene->scene->quadtree.root, App->scene->scene->quadtree.bounds);
+		if (drawQuadtree) DrawQuadtreeRecursive(scene->quadtree.root, scene->quadtree.bounds);
 
 		// Draw debug draw
 		if (drawDebugDraw) App->debugDraw->Draw(App->camera->GetViewMatrix(), App->camera->GetProjectionMatrix(), static_cast<int>(viewportSize.x), static_cast<int>(viewportSize.y));
 
 		// Draw Animations
 		if (drawAllBones) {
-			for (ComponentAnimation& animationComponent : App->scene->scene->animationComponents) {
+			for (ComponentAnimation& animationComponent : scene->animationComponents) {
 				GameObject* rootBone = animationComponent.GetOwner().GetRootBone();
 				if (rootBone) DrawAnimation(rootBone);
 			}
@@ -870,7 +888,6 @@ UpdateStatus ModuleRender::Update() {
 
 			horizontal = !horizontal;
 		}
-
 	}
 
 	// Color correction
@@ -1009,9 +1026,8 @@ void ModuleRender::UpdateFramebuffers() {
 	// Shadow buffer
 
 	for (unsigned int i = 0; i < NUM_CASCADES_FRUSTUM; ++i) {
-
 		glBindFramebuffer(GL_FRAMEBUFFER, depthMapStaticTextureBuffers[i]);
-		
+
 		glBindTexture(GL_TEXTURE_2D, depthMapStaticTextures[i]);
 		glTexImage2D(GL_TEXTURE_2D, 0, GL_DEPTH_COMPONENT16, static_cast<int>(viewportSize.x * lightFrustumStatic.GetSubFrustums()[i].multiplier), static_cast<int>(viewportSize.y * lightFrustumStatic.GetSubFrustums()[i].multiplier), 0, GL_DEPTH_COMPONENT, GL_FLOAT, 0);
 		glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_MIN_FILTER, GL_LINEAR);
@@ -1019,7 +1035,6 @@ void ModuleRender::UpdateFramebuffers() {
 		glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_WRAP_S, GL_CLAMP_TO_EDGE);
 		glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_WRAP_T, GL_CLAMP_TO_EDGE);
 		glFramebufferTexture2D(GL_FRAMEBUFFER, GL_DEPTH_ATTACHMENT, GL_TEXTURE_2D, depthMapStaticTextures[i], 0);
-
 
 		glBindFramebuffer(GL_FRAMEBUFFER, depthMapDynamicTextureBuffers[i]);
 
@@ -1030,7 +1045,6 @@ void ModuleRender::UpdateFramebuffers() {
 		glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_WRAP_S, GL_CLAMP_TO_EDGE);
 		glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_WRAP_T, GL_CLAMP_TO_EDGE);
 		glFramebufferTexture2D(GL_FRAMEBUFFER, GL_DEPTH_ATTACHMENT, GL_TEXTURE_2D, depthMapDynamicTextures[i], 0);
-
 	}
 
 	glDrawBuffer(GL_NONE);
@@ -1294,6 +1308,48 @@ float4x4 ModuleRender::GetLightProjectionMatrix(unsigned int i, ShadowCasterType
 	return (lightFrustumType == ShadowCasterType::STATIC) ? lightFrustumStatic.GetOrthographicFrustum(i).ProjectionMatrix() : lightFrustumDynamic.GetOrthographicFrustum(i).ProjectionMatrix();
 }
 
+std::vector<GameObject*> ModuleRender::GetDynamicCulledShadowCasters(const FrustumPlanes& planes) const {
+	std::vector<GameObject*> meshes;
+
+	for (GameObject* go : dynamicShadowCasters) {
+		if (InsideFrustumPlanes(planes, go)) {
+			meshes.push_back(go);
+		}
+	}
+
+	return meshes;
+}
+
+std::vector<GameObject*> ModuleRender::GetCulledMeshes(const FrustumPlanes& planes, const int mask) {
+	std::vector<GameObject*> meshes;
+
+	for (ComponentMeshRenderer componentMR : App->scene->GetCurrentScene()->meshRendererComponents) {
+		GameObject* go = &componentMR.GetOwner();
+
+		Mask& maskGo = go->GetMask();
+
+		if ((maskGo.bitMask & mask) != 0) {
+			if (InsideFrustumPlanes(planes, go)) {
+				meshes.push_back(go);
+			}
+		}
+	}
+
+	return meshes;
+}
+
+std::vector<GameObject*> ModuleRender::GetStaticCulledShadowCasters(const FrustumPlanes& planes) const {
+	std::vector<GameObject*> meshes;
+
+	for (GameObject* go : staticShadowCasters) {
+		if (InsideFrustumPlanes(planes, go)) {
+			meshes.push_back(go);
+		}
+	}
+
+	return meshes;
+}
+
 int ModuleRender::GetCulledTriangles() const {
 	return culledTriangles;
 }
@@ -1365,12 +1421,26 @@ void ModuleRender::ClassifyGameObjectsFromQuadtree(const Quadtree<GameObject>::N
 					const OBB& gameObjectOBB = boundingBox->GetWorldOBB();
 
 					if (App->camera->GetFrustumPlanes().CheckIfInsideFrustumPlanes(gameObjectAABB, gameObjectOBB)) {
-						if ((gameObject->GetMask().bitMask & static_cast<int>(MaskType::TRANSPARENT)) == 0) {
-							opaqueGameObjects.push_back(gameObject);
-						} else {
-							ComponentTransform* transform = gameObject->GetComponent<ComponentTransform>();
-							float dist = Length(cameraPos - transform->GetGlobalPosition());
-							transparentGameObjects[dist] = gameObject;
+						ComponentMeshRenderer* meshRenderer = gameObject->GetComponent<ComponentMeshRenderer>();
+						if (meshRenderer != nullptr) {
+							ResourceMaterial* material = App->resources->GetResource<ResourceMaterial>(meshRenderer->GetMaterialID());
+							if (material != nullptr) {
+								if (material->renderingMode == RenderingMode::OPAQUE) {
+									opaqueGameObjects.push_back(gameObject);
+								} else {
+									ComponentTransform* transform = gameObject->GetComponent<ComponentTransform>();
+									float dist = Length(cameraPos - transform->GetGlobalPosition());
+									transparentGameObjects[dist] = gameObject;
+								}
+
+								if (material->castShadows) {
+									if (material->shadowCasterType == ShadowCasterType::STATIC) {
+										staticShadowCasters.push_back(gameObject);
+									} else {
+										dynamicShadowCasters.push_back(gameObject);
+									}
+								}
+							}
 						}
 					}
 
@@ -1394,9 +1464,9 @@ void ModuleRender::DrawGameObject(GameObject* gameObject) {
 	for (ComponentMeshRenderer& mesh : meshes) {
 		mesh.Draw(transform->GetGlobalMatrix());
 
-		ResourceMesh* resourceMesh = App->resources->GetResource<ResourceMesh>(mesh.meshId);
+		ResourceMesh* resourceMesh = App->resources->GetResource<ResourceMesh>(mesh.GetMeshID());
 		if (resourceMesh != nullptr) {
-			culledTriangles += resourceMesh->numIndices / 3;
+			culledTriangles += resourceMesh->indices.size() / 3;
 		}
 	}
 }
@@ -1449,6 +1519,14 @@ void ModuleRender::SetPerspectiveRender() {
 	glLoadIdentity();
 	glOrtho(-1, 1, -1, 1, -1, 1);
 	glMatrixMode(GL_MODELVIEW);
+}
+
+bool ModuleRender::InsideFrustumPlanes(const FrustumPlanes& planes, const GameObject* go) const {
+	ComponentBoundingBox* boundingBox = go->GetComponent<ComponentBoundingBox>();
+	if (boundingBox && planes.CheckIfInsideFrustumPlanes(boundingBox->GetWorldAABB(), boundingBox->GetWorldOBB())) {
+		return true;
+	}
+	return false;
 }
 
 const float2 ModuleRender::GetViewportSize() {

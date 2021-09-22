@@ -3,9 +3,7 @@
 enum class MaskType {
 	NONE = 0,
 	ENEMY = 1 << 1,
-	PLAYER = 1 << 2,
-	CAST_SHADOWS = 1 << 3,
-	TRANSPARENT = 1 << 4
+	PLAYER = 1 << 2
 };
 
 struct Mask {

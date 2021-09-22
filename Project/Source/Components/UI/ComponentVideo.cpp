@@ -33,11 +33,15 @@ char av_error[AV_ERROR_MAX_STRING_SIZE] = {0};
 ComponentVideo::~ComponentVideo() {
 	CloseVideoReader();
 
+	App->resources->DecreaseReferenceCount(videoID);
+
 	// Release GL texture
 	glDeleteTextures(1, &frameTexture);
 }
 
 void ComponentVideo::Init() {
+	App->resources->IncreaseReferenceCount(videoID);
+
 	// Load shader
 	imageUIProgram = App->programs->imageUI;
 
@@ -48,11 +52,14 @@ void ComponentVideo::Init() {
 	glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_WRAP_T, GL_CLAMP_TO_EDGE);
 	glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_MIN_FILTER, GL_LINEAR);
 	glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_MAG_FILTER, GL_LINEAR);
+}
 
-	if (videoID) {
-		OpenVideoReader(App->resources->GetResource<ResourceVideo>(videoID)->GetResourceFilePath().c_str());
-		if (playOnAwake) isPlaying = true;
-	}
+void ComponentVideo::Start() {
+	Resource* videoResource = App->resources->GetResource<ResourceVideo>(videoID);
+	if (videoResource == nullptr) return;
+
+	OpenVideoReader(videoResource->GetResourceFilePath().c_str());
+	if (playOnAwake) isPlaying = true;
 }
 
 void ComponentVideo::Update() {
@@ -86,7 +93,10 @@ void ComponentVideo::OnEditorUpdate() {
 		"Video Resource",
 		&videoID,
 		[this]() { RemoveVideoResource(); },
-		[this]() { OpenVideoReader(App->resources->GetResource<ResourceVideo>(videoID)->GetAssetFilePath().c_str()); });
+		[this]() {
+			ResourceVideo* video = App->resources->GetResource<ResourceVideo>(videoID);
+			if (video) OpenVideoReader(video->GetResourceFilePath().c_str());
+		});
 
 	std::string removeButton = std::string(ICON_FA_TIMES "##") + "video";
 	if (ImGui::Button(removeButton.c_str())) {

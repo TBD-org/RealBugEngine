@@ -34,6 +34,7 @@ private:
 	float3 currentRotation = float3::zero;
 	int obstacleType = ObstacleType::DT_OBSTACLE_CYLINDER;
 	bool mustBeDrawnGizmo = true;
+	bool shouldAddObstacle = true;
 
 private:
 	void SetDrawGizmo(bool value);

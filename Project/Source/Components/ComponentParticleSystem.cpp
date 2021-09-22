@@ -14,7 +14,7 @@
 #include "Panels/PanelScene.h"
 #include "Resources/ResourceTexture.h"
 #include "Resources/ResourceShader.h"
-#include "FileSystem/JsonValue.h"
+#include "Utils/JsonValue.h"
 #include "Utils/ImGuiUtils.h"
 #include "Utils/ParticleMotionState.h"
 #include "Utils/Random.h"
@@ -213,9 +213,15 @@ ComponentParticleSystem::~ComponentParticleSystem() {
 	}
 	subEmitters.clear();
 	subEmittersGO.clear();
+
+	App->resources->DecreaseReferenceCount(textureID);
+	App->resources->DecreaseReferenceCount(textureTrailID);
 }
 
 void ComponentParticleSystem::Init() {
+	App->resources->IncreaseReferenceCount(textureID);
+	App->resources->IncreaseReferenceCount(textureTrailID);
+
 	if (!gradient) gradient = new ImGradient();
 	if (!gradientTrail) gradientTrail = new ImGradient();
 	if (!gradientLight) gradientLight = new ImGradient();
@@ -238,7 +244,7 @@ void ComponentParticleSystem::Init() {
 
 void ComponentParticleSystem::Start() {
 	for (SubEmitter* subEmitter : subEmitters) {
-		GameObject* gameObject = App->scene->scene->GetGameObject(subEmitter->gameObjectUID);
+		GameObject* gameObject = GetOwner().scene->GetGameObject(subEmitter->gameObjectUID);
 		if (gameObject != nullptr) {
 			ComponentParticleSystem* particleSystem = gameObject->GetComponent<ComponentParticleSystem>();
 			if (particleSystem != nullptr) {
@@ -254,7 +260,7 @@ void ComponentParticleSystem::Start() {
 	}
 
 	if (lightGameObjectUID != 0) {
-		GameObject* gameObject = App->scene->scene->GetGameObject(lightGameObjectUID);
+		GameObject* gameObject = GetOwner().scene->GetGameObject(lightGameObjectUID);
 		if (gameObject != nullptr) {
 			ComponentLight* light = gameObject->GetComponent<ComponentLight>();
 			if (light == nullptr || light->lightType != LightType::POINT) {
@@ -652,7 +658,7 @@ void ComponentParticleSystem::OnEditorUpdate() {
 			{
 				ImGui::GameObjectSlot("", &subEmitter->gameObjectUID);
 				if (oldUI != subEmitter->gameObjectUID) {
-					GameObject* gameObject = App->scene->scene->GetGameObject(subEmitter->gameObjectUID);
+					GameObject* gameObject = GetOwner().scene->GetGameObject(subEmitter->gameObjectUID);
 					if (gameObject != nullptr) {
 						ComponentParticleSystem* particleSystem = gameObject->GetComponent<ComponentParticleSystem>();
 						if (particleSystem == nullptr) {
@@ -715,7 +721,7 @@ void ComponentParticleSystem::OnEditorUpdate() {
 			UID oldUID = lightGameObjectUID;
 			ImGui::GameObjectSlot("Point Light", &lightGameObjectUID);
 			if (oldUID != lightGameObjectUID) {
-				GameObject* gameObject = App->scene->scene->GetGameObject(lightGameObjectUID);
+				GameObject* gameObject = GetOwner().scene->GetGameObject(lightGameObjectUID);
 				if (gameObject != nullptr) {
 					ComponentLight* light = gameObject->GetComponent<ComponentLight>();
 					if (light == nullptr || light->lightType != LightType::POINT) {
@@ -996,9 +1002,6 @@ void ComponentParticleSystem::Load(JsonValue jComponent) {
 	quadLife[1] = jQuadLife[1];
 
 	textureTrailID = jComponent[JSON_TAG_TRAIL_TEXTURE_TEXTUREID];
-	if (textureTrailID != 0) {
-		App->resources->IncreaseReferenceCount(textureTrailID);
-	}
 	JsonValue jTrailFlip = jComponent[JSON_TAG_TRAIL_FLIP_TEXTURE];
 	flipTrailTexture[0] = jTrailFlip[0];
 	flipTrailTexture[1] = jTrailFlip[1];
@@ -1057,8 +1060,6 @@ void ComponentParticleSystem::Load(JsonValue jComponent) {
 	}
 
 	maxLights = jComponent[JSON_TAG_LIGHTS_MAX_LIGHTS];
-
-	AllocateParticlesMemory();
 }
 
 void ComponentParticleSystem::Save(JsonValue jComponent) const {
@@ -1813,7 +1814,7 @@ void ComponentParticleSystem::UndertakerParticle(bool force) {
 		}
 	}
 	for (Particle* currentParticle : deadParticles) {
-		if (App->time->IsGameRunning()) App->physics->RemoveParticleRigidbody(currentParticle);
+		if (currentParticle->rigidBody) App->physics->RemoveParticleRigidbody(currentParticle);
 		if (currentParticle->motionState) {
 			RELEASE(currentParticle->motionState);
 		}

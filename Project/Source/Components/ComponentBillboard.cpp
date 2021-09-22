@@ -12,10 +12,10 @@
 #include "Components/UI/ComponentTransform2D.h"
 #include "Resources/ResourceTexture.h"
 #include "Resources/ResourceShader.h"
-#include "FileSystem/JsonValue.h"
-#include "Math/float3x3.h"
+#include "Utils/JsonValue.h"
 #include "Utils/ImGuiUtils.h"
 
+#include "Math/float3x3.h"
 #include "Math/TransformOps.h"
 #include "imgui_color_gradient.h"
 #include "GL/glew.h"
@@ -38,6 +38,32 @@
 
 ComponentBillboard::~ComponentBillboard() {
 	RELEASE(gradient);
+
+	App->resources->DecreaseReferenceCount(textureID);
+}
+
+void ComponentBillboard::Init() {
+	App->resources->IncreaseReferenceCount(textureID);
+
+	if (!gradient) gradient = new ImGradient();
+	ComponentTransform* transform = GetOwner().GetComponent<ComponentTransform>();
+	initPos = transform->GetGlobalPosition();
+	previousPos = transform->GetGlobalRotation() * float3::unitY;
+	float3x3 newRotation = float3x3::FromEulerXYZ(0.f, 0.f, -pi / 2);
+	modelStretch = transform->GetGlobalMatrix() * newRotation;
+}
+
+void ComponentBillboard::Update() {
+	ComponentTransform* transform = GetOwner().GetComponent<ComponentTransform>();
+
+	float3 position = transform->GetGlobalPosition();
+	if (!previousPos.Equals(position)) {
+		direction = (position - previousPos).Normalized();
+	}
+	previousPos = position;
+
+	colorFrame += App->time->GetDeltaTimeOrRealDeltaTime();
+	currentFrame += animationSpeed * App->time->GetDeltaTimeOrRealDeltaTime();
 }
 
 void ComponentBillboard::OnEditorUpdate() {
@@ -131,9 +157,6 @@ void ComponentBillboard::Load(JsonValue jComponent) {
 	billboardType = (BillboardType)(int) jComponent[JSON_TAG_BILLBOARD_TYPE];
 
 	textureID = jComponent[JSON_TAG_TEXTURE_TEXTUREID];
-	if (textureID != 0) {
-		App->resources->IncreaseReferenceCount(textureID);
-	}
 
 	Ytiles = jComponent[JSON_TAG_YTILES];
 	Xtiles = jComponent[JSON_TAG_XTILES];
@@ -183,28 +206,6 @@ void ComponentBillboard::Save(JsonValue jComponent) const {
 	JsonValue jFlip = jComponent[JSON_TAG_FLIP_TEXTURE];
 	jFlip[0] = flipTexture[0];
 	jFlip[1] = flipTexture[1];
-}
-
-void ComponentBillboard::Init() {
-	if (!gradient) gradient = new ImGradient();
-	ComponentTransform* transform = GetOwner().GetComponent<ComponentTransform>();
-	initPos = transform->GetGlobalPosition();
-	previousPos = transform->GetGlobalRotation() * float3::unitY;
-	float3x3 newRotation = float3x3::FromEulerXYZ(0.f, 0.f, -pi / 2);
-	modelStretch = transform->GetGlobalMatrix() * newRotation;
-}
-
-void ComponentBillboard::Update() {
-	ComponentTransform* transform = GetOwner().GetComponent<ComponentTransform>();
-
-	float3 position = transform->GetGlobalPosition();
-	if (!previousPos.Equals(position)) {
-		direction = (position - previousPos).Normalized();
-	}
-	previousPos = position;
-
-	colorFrame += App->time->GetDeltaTimeOrRealDeltaTime();
-	currentFrame += animationSpeed * App->time->GetDeltaTimeOrRealDeltaTime();
 }
 
 void ComponentBillboard::Draw() {

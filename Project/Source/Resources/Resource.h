@@ -2,9 +2,10 @@
 
 #include "Utils/UID.h"
 #include "Resources/ResourceType.h"
-#include "FileSystem/JsonValue.h"
+#include "Utils/JsonValue.h"
 
 #include <string>
+#include <mutex>
 
 class Resource {
 public:
@@ -20,7 +21,11 @@ public:
 
 	void SetName(const char* name);
 
+	bool IsLoaded();
+	void SetLoaded(bool loaded);
+
 	virtual void Load();
+	virtual void FinishLoading();
 	virtual void Unload();
 
 	virtual void LoadResourceMeta(JsonValue jResourceMeta);
@@ -34,4 +39,6 @@ private:
 	std::string name = "";
 	std::string assetFilePath = "";
 	std::string resourceFilePath = "";
+
+	bool isLoaded = false;
 };

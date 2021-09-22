@@ -20,8 +20,6 @@ public:
 	bool CleanUp() override;					   // Deletes generic image VBO (used in ComponentImage)
 	void ReceiveEvent(TesseractEvent& e) override; // Treats the events that is listening to.
 
-	Character GetCharacter(UID font, char c);																	// Returns the Character that matches the given one in the given font or null otherwise.
-	void GetCharactersInString(UID font, const std::string& sentence, std::vector<Character>& charsInSentence); // Fills the given vector with the glyphs of the given font to form the given sentence.
 	void Render();																								// Calls every ComponentCanvasRenderer Render function if the parent is active in hierarchy
 	void RecursiveRender(const GameObject* obj);
 	void SetCurrentEventSystem(UID id_);		   // Sets the new event system

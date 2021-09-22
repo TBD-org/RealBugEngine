@@ -10,7 +10,7 @@
 #include "Components/ComponentTransform.h"
 #include "Resources/ResourceTexture.h"
 #include "Resources/ResourceShader.h"
-#include "FileSystem/JsonValue.h"
+#include "Utils/JsonValue.h"
 #include "Utils/ImGuiUtils.h"
 
 #include "GL/glew.h"
@@ -35,11 +35,15 @@
 #define JSON_TAG_MAXVERTICES "MaxVertices"
 
 ComponentTrail::~ComponentTrail() {
+	App->resources->DecreaseReferenceCount(trail->textureID);
+
 	RELEASE(trail);
 	RELEASE(gradient);
 }
 
 void ComponentTrail::Init() {
+	App->resources->IncreaseReferenceCount(trail->textureID);
+
 	if (!gradient) gradient = new ImGradient();
 	if (!trail) trail = new Trail();
 	trail->Init();
@@ -80,9 +84,6 @@ void ComponentTrail::Load(JsonValue jComponent) {
 	trail->selectedGradient = selectedGradient;
 
 	trail->textureID = jComponent[JSON_TAG_TEXTURE_TEXTUREID];
-	if (trail->textureID != 0) {
-		App->resources->IncreaseReferenceCount(trail->textureID);
-	}
 	JsonValue jFlip = jComponent[JSON_TAG_FLIP_TEXTURE];
 	trail->flipTexture[0] = jFlip[0];
 	trail->flipTexture[1] = jFlip[1];

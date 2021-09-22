@@ -33,6 +33,7 @@ namespace GameplaySystems {
 	template<typename T> TESSERACT_ENGINE_API T* GetResource(UID id);
 	template<typename T> TESSERACT_ENGINE_API T GetGlobalVariable(const char* name, const T& defaultValue);
 	template<typename T> TESSERACT_ENGINE_API void SetGlobalVariable(const char* name, const T& value);
+	TESSERACT_ENGINE_API bool HaveResourcesFinishedLoading();
 	TESSERACT_ENGINE_API void SetRenderCamera(ComponentCamera* camera);
 	TESSERACT_ENGINE_API void DestroyGameObject(GameObject* gameObject);
 
@@ -504,6 +505,7 @@ namespace Screen {
 }; // namespace Screen
 
 namespace SceneManager {
+	TESSERACT_ENGINE_API void PreloadScene(UID sceneId);
 	TESSERACT_ENGINE_API void ChangeScene(UID sceneId);
 	TESSERACT_ENGINE_API void ExitGame();
 }; // namespace SceneManager

@@ -1,7 +1,6 @@
 #include "NavMesh.h"
 
 #include "Application.h"
-#include "Modules/ModuleScene.h"
 #include "Modules/ModuleDebugDraw.h"
 #include "Modules/ModuleCamera.h"
 #include "Components/ComponentMeshRenderer.h"
@@ -71,16 +70,16 @@ struct TileCacheData {
 };
 
 struct FastLZCompressor : public dtTileCacheCompressor {
-	virtual int maxCompressedSize(const int bufferSize) {
+	virtual int maxCompressedSize(const int bufferSize) override {
 		return (int) (bufferSize * 1.05f);
 	}
 
-	virtual dtStatus compress(const unsigned char* buffer, const int bufferSize, unsigned char* compressed, const int /*maxCompressedSize*/, int* compressedSize) {
+	virtual dtStatus compress(const unsigned char* buffer, const int bufferSize, unsigned char* compressed, const int /*maxCompressedSize*/, int* compressedSize) override {
 		*compressedSize = fastlz_compress((const void* const) buffer, bufferSize, compressed);
 		return DT_SUCCESS;
 	}
 
-	virtual dtStatus decompress(const unsigned char* compressed, const int compressedSize, unsigned char* buffer, const int maxBufferSize, int* bufferSize) {
+	virtual dtStatus decompress(const unsigned char* compressed, const int compressedSize, unsigned char* buffer, const int maxBufferSize, int* bufferSize) override {
 		*bufferSize = fastlz_decompress(compressed, compressedSize, buffer, maxBufferSize);
 		return *bufferSize < 0 ? DT_FAILURE : DT_SUCCESS;
 	}
@@ -100,7 +99,7 @@ struct LinearAllocator : public dtTileCacheAlloc {
 		resize(cap);
 	}
 
-	~LinearAllocator() {
+	virtual ~LinearAllocator() override {
 		dtFree(buffer);
 	}
 
@@ -110,12 +109,12 @@ struct LinearAllocator : public dtTileCacheAlloc {
 		capacity = cap;
 	}
 
-	virtual void reset() {
+	virtual void reset() override {
 		high = dtMax(high, top);
 		top = 0;
 	}
 
-	virtual void* alloc(const int size) {
+	virtual void* alloc(const size_t size) override {
 		if (!buffer)
 			return 0;
 		if (top + size > capacity)
@@ -125,7 +124,7 @@ struct LinearAllocator : public dtTileCacheAlloc {
 		return mem;
 	}
 
-	virtual void free(void* /*ptr*/) {
+	virtual void free(void* /*ptr*/) override {
 		// Empty
 	}
 };
@@ -141,7 +140,7 @@ struct MeshProcess : public dtTileCacheMeshProcess {
 		m_geom = geom;
 	}
 
-	virtual void process(struct dtNavMeshCreateParams* params, unsigned char* polyAreas, unsigned short* polyFlags) {
+	virtual void process(struct dtNavMeshCreateParams* params, unsigned char* polyAreas, unsigned short* polyFlags) override {
 		// Update poly flags from areas.
 		for (int i = 0; i < params->polyCount; ++i) {
 			if (polyAreas[i] == DT_TILECACHE_WALKABLE_AREA)
@@ -433,20 +432,19 @@ NavMesh::~NavMesh() {
 	crowd = nullptr;
 	dtFreeNavMeshQuery(navQuery);
 	navQuery = nullptr;
-	delete ctx;
-	ctx = nullptr;
+	RELEASE(ctx);
 }
 
-bool NavMesh::Build() {
+bool NavMesh::Build(Scene* scene) {
 	CleanUp();
 
-	verts = App->scene->scene->GetVertices();
-	nverts = verts.size();
-	tris = App->scene->scene->GetTriangles();
-	ntris = tris.size() / 3;
-	normals = App->scene->scene->GetNormals();
+	std::vector<float> verts = scene->GetVertices();
+	std::vector<int> tris = scene->GetTriangles();
+	std::vector<float> normals = scene->GetNormals();
 
-	if (nverts == 0) {
+	unsigned ntris = tris.size() / 3;
+
+	if (verts.size() == 0) {
 		LOG("Building navigation:");
 		LOG("There's no mesh to build");
 		return false;
@@ -458,7 +456,7 @@ bool NavMesh::Build() {
 
 	float bmin[3] = {FLT_MAX, FLT_MAX, FLT_MAX};
 	float bmax[3] = {FLT_MIN, FLT_MIN, FLT_MIN};
-	for (ComponentBoundingBox boundingBox : App->scene->scene->boundingBoxComponents) {
+	for (ComponentBoundingBox boundingBox : scene->boundingBoxComponents) {
 		AABB currentBB = boundingBox.GetWorldAABB();
 		float3 currentBBMin = currentBB.minPoint;
 		float3 currentBBMax = currentBB.maxPoint;
@@ -508,7 +506,7 @@ bool NavMesh::Build() {
 
 	LOG("Building navigation:");
 	LOG(" - %d x %d cells", cfg.width, cfg.height);
-	LOG(" - %.1fK verts, %.1fK tris", nverts / 1000.0f, ntris / 1000.0f);
+	LOG(" - %.1fK verts, %.1fK tris", verts.size() / 1000.0f, ntris / 1000.0f);
 
 	int tileBits = rcMin((int) dtIlog2(dtNextPow2(tw * th * EXPECTED_LAYERS_PER_TILE)), 14);
 	if (tileBits > 14) tileBits = 14;
@@ -586,7 +584,7 @@ bool NavMesh::Build() {
 		for (int x = 0; x < tw; ++x) {
 			TileCacheData tiles[MAX_LAYERS];
 			memset(tiles, 0, sizeof(tiles));
-			int ntiles = RasterizeTileLayers(&verts[0], nverts, ntris, ctx, chunkyMesh, x, y, cfg, tiles, MAX_LAYERS);
+			int ntiles = RasterizeTileLayers(&verts[0], verts.size(), ntris, ctx, chunkyMesh, x, y, cfg, tiles, MAX_LAYERS);
 
 			for (int i = 0; i < ntiles; ++i) {
 				TileCacheData* tile = &tiles[i];
@@ -623,13 +621,10 @@ bool NavMesh::Build() {
 
 	InitCrowd();
 
-	RescanCrowd();
-	RescanObstacles();
-
 	return true;
 }
 
-void NavMesh::DrawGizmos() {
+void NavMesh::DrawGizmos(Scene* scene) {
 	DebugDrawGL dds;
 
 	glUseProgram(0);
@@ -649,7 +644,7 @@ void NavMesh::DrawGizmos() {
 	// Draw bounds
 	float bmin[3] = {FLT_MAX, FLT_MAX, FLT_MAX};
 	float bmax[3] = {FLT_MIN, FLT_MIN, FLT_MIN};
-	for (ComponentBoundingBox boundingBox : App->scene->scene->boundingBoxComponents) {
+	for (ComponentBoundingBox boundingBox : scene->boundingBoxComponents) {
 		AABB currentBB = boundingBox.GetWorldAABB();
 		float3 currentBBMin = currentBB.minPoint;
 		float3 currentBBMax = currentBB.maxPoint;
@@ -725,12 +720,6 @@ struct TileCacheTileHeader {
 void NavMesh::Load(Buffer<char>& buffer) {
 	CleanUp();
 
-	verts = App->scene->scene->GetVertices();
-	nverts = verts.size();
-	tris = App->scene->scene->GetTriangles();
-	ntris = tris.size() / 3;
-	normals = App->scene->scene->GetNormals();
-
 	talloc = new LinearAllocator(32000);
 	tcomp = new FastLZCompressor;
 	tmproc = new MeshProcess;
@@ -792,10 +781,7 @@ void NavMesh::Load(Buffer<char>& buffer) {
 		return;
 	}
 
-
 	InitCrowd();
-	RescanCrowd();
-	RescanObstacles();
 }
 
 void NavMesh::CleanUp() {
@@ -808,11 +794,6 @@ void NavMesh::CleanUp() {
 	RELEASE(tmproc);
 	RELEASE(tcomp);
 	RELEASE(talloc);
-	nverts = 0;
-	ntris = 0;
-	verts.clear();
-	tris.clear();
-	normals.clear();
 }
 
 Buffer<char> NavMesh::Save() {
@@ -925,28 +906,4 @@ void NavMesh::InitCrowd() {
 	params.adaptiveDepth = 3;
 
 	crowd->setObstacleAvoidanceParams(3, &params);
-}
-
-void NavMesh::CleanCrowd() {
-	for (ComponentAgent& agent : App->scene->scene->agentComponents) {
-		agent.RemoveAgentFromCrowd();
-	}
-}
-
-void NavMesh::RescanCrowd() {
-	for (ComponentAgent& agent : App->scene->scene->agentComponents) {
-		agent.AddAgentToCrowd();
-	}
-}
-
-void NavMesh::CleanObstacles() {
-	for (ComponentObstacle& obstacle : App->scene->scene->obstacleComponents) {
-		obstacle.RemoveObstacle();
-	}
-}
-
-void NavMesh::RescanObstacles() {
-	for (ComponentObstacle& obstacle : App->scene->scene->obstacleComponents) {
-		obstacle.AddObstacle();
-	}
 }

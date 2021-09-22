@@ -23,80 +23,83 @@ void ResourceAudioClip::Load() {
 	std::string filePath = GetResourceFilePath();
 	LOG("Loading audio from path: \"%s\".", filePath.c_str());
 
-	ALenum err, format;
 	SNDFILE* sndfile;
-	SF_INFO sfinfo;
-	short* audioData;
 	sf_count_t numFrames;
-	ALsizei size;
 
 	// Open Audio File
-	sndfile = sf_open(filePath.c_str(), SFM_READ, &sfinfo);
+	sndfile = sf_open(filePath.c_str(), SFM_READ, &sfInfo);
 	if (!sndfile) {
 		LOG("Could not open audio in %s: %s", filePath.c_str(), sf_strerror(sndfile));
 		return;
 	}
 	DEFER {
-		free(audioData);
 		sf_close(sndfile);
 	};
 
-	if (sfinfo.frames < 1 || sfinfo.frames > (sf_count_t)(INT_MAX / sizeof(short)) / sfinfo.channels) {
-		LOG("Bad sample count in %s (%" PRId64 ")", filePath, sfinfo.frames);
+	if (sfInfo.frames < 1 || sfInfo.frames > (sf_count_t)(INT_MAX / sizeof(short)) / sfInfo.channels) {
+		LOG("Bad sample count in %s (%" PRId64 ")", filePath, sfInfo.frames);
 		return;
 	}
 
 	format = AL_NONE;
-	if (sfinfo.channels == 1) {
+	if (sfInfo.channels == 1) {
 		format = AL_FORMAT_MONO16;
-	} else if (sfinfo.channels == 2) {
+	} else if (sfInfo.channels == 2) {
 		format = AL_FORMAT_STEREO16;
 	}
 	if (!format) {
-		LOG("Unsupported channel count: %d", sfinfo.channels);
+		LOG("Unsupported channel count: %d", sfInfo.channels);
 		return;
 	}
 
 	// Decode the whole audio file to a buffer
-
-	audioData = static_cast<short*>(malloc((size_t)(sfinfo.frames * sfinfo.channels) * sizeof(short)));
-	numFrames = sf_readf_short(sndfile, audioData, sfinfo.frames);
+	audioData = static_cast<short*>(malloc((size_t)(sfInfo.frames * sfInfo.channels) * sizeof(short)));
+	numFrames = sf_readf_short(sndfile, audioData, sfInfo.frames);
 	if (numFrames < 1) {
 		LOG("Failed to read samples in %s (%" PRId64 ")", filePath, numFrames);
 		return;
 	}
-	size = (ALsizei)(numFrames * sfinfo.channels) * (ALsizei) sizeof(short);
+	size = (ALsizei)(numFrames * sfInfo.channels) * (ALsizei) sizeof(short);
 
-	ALbuffer = 0;
-	alGenBuffers(1, &ALbuffer);
-	alBufferData(ALbuffer, format, audioData, size, sfinfo.samplerate);
+	validAudio = true;
+
+	unsigned timeMs = timer.Stop();
+	LOG("Audio loaded in %ums.", timeMs);
+}
+
+void ResourceAudioClip::FinishLoading() {
+	if (!validAudio) return;
+
+	// Create AL buffer
+	alBuffer = 0;
+	alGenBuffers(1, &alBuffer);
+	alBufferData(alBuffer, format, audioData, size, sfInfo.samplerate);
+
+	// Free data
+	if (audioData != nullptr) {
+		free(audioData);
+		audioData = nullptr;
+	}
 
 	// Check if an error occured, and clean up if so.
-	err = alGetError();
+	ALenum err = alGetError();
 	if (err != AL_NO_ERROR) {
 		LOG("OpenAL Error: %s", alGetString(err));
-		if (ALbuffer && alIsBuffer(ALbuffer)) {
-			alDeleteBuffers(1, &ALbuffer);
+		if (alBuffer && alIsBuffer(alBuffer)) {
+			alDeleteBuffers(1, &alBuffer);
 		}
 		return;
 	}
-}
+};
 
 void ResourceAudioClip::Unload() {
-	while (!componentAudioSources.empty()) {
-		componentAudioSources.back()->Stop();
+	if (audioData) {
+		free(audioData);
+		audioData = nullptr;
 	}
-	alDeleteBuffers(1, &ALbuffer);
-	ALbuffer = 0;
-}
 
-void ResourceAudioClip::AddSource(ComponentAudioSource* component) {
-	componentAudioSources.push_back(component);
-}
-
-void ResourceAudioClip::RemoveSource(ComponentAudioSource* component) {
-	auto it = find(componentAudioSources.begin(), componentAudioSources.end(), component);
-	if (it != componentAudioSources.end()) {
-		componentAudioSources.erase(it);
+	if (validAudio) {
+		alDeleteBuffers(1, &alBuffer);
+		alBuffer = 0;
 	}
 }

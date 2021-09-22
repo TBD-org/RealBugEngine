@@ -45,7 +45,7 @@ UpdateStatus ModuleUserInterface::Update() {
 	float2 mousePos = App->input->GetMousePosition(true);
 
 	if (currentEvSys != 0) {
-		for (ComponentSelectable& selectable : App->scene->scene->selectableComponents) {
+		for (ComponentSelectable& selectable : App->scene->GetCurrentScene()->selectableComponents) {
 			ComponentBoundingBox2D* bb = selectable.GetOwner().GetComponent<ComponentBoundingBox2D>();
 
 			if (bb) {
@@ -194,27 +194,6 @@ void ModuleUserInterface::ReceiveEvent(TesseractEvent& e) {
 	}
 }
 
-Character ModuleUserInterface::GetCharacter(UID font, char c) {
-	ResourceFont* fontResource = App->resources->GetResource<ResourceFont>(font);
-
-	if (fontResource == nullptr) {
-		return Character();
-	}
-	return fontResource->characters[c];
-}
-
-void ModuleUserInterface::GetCharactersInString(UID font, const std::string& sentence, std::vector<Character>& charsInSentence) {
-	ResourceFont* fontResource = App->resources->GetResource<ResourceFont>(font);
-
-	if (fontResource == nullptr) {
-		return;
-	}
-
-	for (std::string::const_iterator i = sentence.begin(); i != sentence.end(); ++i) {
-		charsInSentence.push_back(fontResource->characters[*i]);
-	}
-}
-
 void ModuleUserInterface::RecursiveRender(const GameObject* obj) {
 	ComponentCanvasRenderer* renderer = obj->GetComponent<ComponentCanvasRenderer>();
 
@@ -230,7 +209,7 @@ void ModuleUserInterface::RecursiveRender(const GameObject* obj) {
 }
 
 void ModuleUserInterface::Render() {
-	Scene* scene = App->scene->scene;
+	Scene* scene = App->scene->GetCurrentScene();
 	if (scene != nullptr) {
 		RecursiveRender(scene->root);
 	}
@@ -296,12 +275,12 @@ void ModuleUserInterface::SetCurrentEventSystem(UID id_) {
 
 ComponentEventSystem* ModuleUserInterface::GetCurrentEventSystem() {
 	if (currentEvSys == 0) {
-		if (App->scene->scene->eventSystemComponents.Count() > 0) {
-			currentEvSys = (*App->scene->scene->eventSystemComponents.begin()).GetID();
+		if (App->scene->GetCurrentScene()->eventSystemComponents.Count() > 0) {
+			currentEvSys = (*App->scene->GetCurrentScene()->eventSystemComponents.begin()).GetID();
 		}
 	}
 
-	return currentEvSys == 0 ? nullptr : (ComponentEventSystem*) App->scene->scene->GetComponentByTypeAndId(ComponentType::EVENT_SYSTEM, currentEvSys);
+	return currentEvSys == 0 ? nullptr : (ComponentEventSystem*) App->scene->GetCurrentScene()->GetComponentByTypeAndId(ComponentType::EVENT_SYSTEM, currentEvSys);
 }
 
 void ModuleUserInterface::ViewportResized() {
@@ -317,15 +296,15 @@ float4 ModuleUserInterface::GetErrorColor() {
 }
 
 void ModuleUserInterface::OnViewportResized() {
-	for (ComponentCanvas& canvas : App->scene->scene->canvasComponents) {
+	for (ComponentCanvas& canvas : App->scene->GetCurrentScene()->canvasComponents) {
 		canvas.Invalidate();
 	}
 
-	for (ComponentTransform2D& transform : App->scene->scene->transform2DComponents) {
+	for (ComponentTransform2D& transform : App->scene->GetCurrentScene()->transform2DComponents) {
 		transform.Invalidate();
 	}
 
-	for (ComponentText& text : App->scene->scene->textComponents) {
+	for (ComponentText& text : App->scene->GetCurrentScene()->textComponents) {
 		text.Invalidate();
 	}
 }

@@ -21,6 +21,7 @@ public:
 	~ComponentVideo(); // Destructor
 
 	void Init() override;							// Inits the component
+	void Start() override;							// Starts the component
 	void Update() override;							// Update
 	void OnEditorUpdate() override;					// Show component info in inspector
 	void Save(JsonValue jComponent) const override; // Serializes object

@@ -50,7 +50,7 @@ public:
 
 		if (SDL_HapticRumbleInit(haptic) != 0) return;
 
-		if (SDL_HapticRumblePlay(haptic, strength, (Uint32)duration) != 0) return;
+		if (SDL_HapticRumblePlay(haptic, strength, static_cast<unsigned>(duration)) != 0) return;
 	}
 
 	float GetAxisRaw(int axisIndex) { //Returns RAW Game controller value, from 0 to 32767.0f

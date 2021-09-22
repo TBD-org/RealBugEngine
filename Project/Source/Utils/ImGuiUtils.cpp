@@ -24,7 +24,7 @@ void ImGui::GameObjectSlot(const char* label, UID* target) {
 
 		ImGui::TableNextColumn();
 
-		GameObject* targetGameObject = App->scene->scene->GetGameObject(*target);
+		GameObject* targetGameObject = App->scene->GetCurrentScene()->GetGameObject(*target);
 		std::string nameText = std::string("GameObject: ") + (targetGameObject ? targetGameObject->name : "None");
 		ImGui::Text(nameText.c_str());
 

@@ -1,6 +1,7 @@
 #include "FileDialog.h"
 
 #include "Application.h"
+#include "Utils/PathUtils.h"
 
 #include "imgui.h"
 #include "IconsForkAwesome.h"
@@ -129,7 +130,7 @@ bool FileDialog::OpenDialog(const std::string& title, std::string& selectedPath)
 				if (isDirectory) {
 					if ((fileDialogContext->selectedPath_ == absoluteFilePath)) {
 						if (file == "..") {
-							sprintf(fileDialogContext->currentSelectedPath_, GetFileFolder(fileDialogContext->currentSelectedPath_).c_str());
+							sprintf(fileDialogContext->currentSelectedPath_, PathUtils::GetFileFolder(fileDialogContext->currentSelectedPath_).c_str());
 						} else {
 							sprintf(fileDialogContext->currentSelectedPath_, absoluteFilePath.c_str());
 						}
@@ -139,7 +140,7 @@ bool FileDialog::OpenDialog(const std::string& title, std::string& selectedPath)
 					}
 				} else {
 					fileDialogContext->selectedPath_ = absoluteFilePath.c_str();
-					if (fileDialogContext->saveMode_) sprintf(fileDialogContext->fileName_, GetFileNameAndExtension(absoluteFilePath.c_str()).c_str());
+					if (fileDialogContext->saveMode_) sprintf(fileDialogContext->fileName_, PathUtils::GetFileNameAndExtension(absoluteFilePath.c_str()).c_str());
 				}
 			}
 		}
@@ -178,7 +179,7 @@ bool FileDialog::OpenDialog(const std::string& title, std::string& selectedPath)
 			return true;
 		}
 
-		OverrideAlertDialog(GetFileNameAndExtension(selectedPath.c_str()));
+		OverrideAlertDialog(PathUtils::GetFileNameAndExtension(selectedPath.c_str()));
 		ImGui::SameLine(ImGui::GetWindowWidth() - 60);
 		if (ImGui::Button("Cancel")) {
 			ImGui::CloseCurrentPopup();
@@ -227,68 +228,13 @@ std::vector<std::string> FileDialog::GetFilesInFolder(const char* folderPath, Al
 	std::vector<std::string> allowedExt = GetFileExtensions(extFilter);
 
 	while (FindNextFile(handle, &data)) {
-		if (IsDirectory((std::string(folderPath) + "\\" + data.cFileName).c_str()) || (!filter) || (std::find(allowedExt.begin(), allowedExt.end(), GetFileExtension(data.cFileName)) != allowedExt.end())) {
+		if (IsDirectory((std::string(folderPath) + "\\" + data.cFileName).c_str()) || (!filter) || (std::find(allowedExt.begin(), allowedExt.end(), PathUtils::GetFileExtension(data.cFileName)) != allowedExt.end())) {
 			filePaths.push_back(data.cFileName);
 		}
 	};
 
 	FindClose(handle);
 	return filePaths;
-}
-
-std::string FileDialog::GetFileNameAndExtension(const char* filePath) {
-	const char* lastSlash = strrchr(filePath, '/');
-	const char* lastBackslash = strrchr(filePath, '\\');
-	const char* lastSeparator = Max(lastSlash, lastBackslash);
-
-	if (lastSeparator == nullptr) {
-		return filePath;
-	}
-
-	const char* fileNameAndExtension = lastSeparator + 1;
-	return fileNameAndExtension;
-}
-
-std::string FileDialog::GetFileName(const char* filePath) {
-	const char* lastSlash = strrchr(filePath, '/');
-	const char* lastBackslash = strrchr(filePath, '\\');
-	const char* lastSeparator = Max(lastSlash, lastBackslash);
-
-	const char* fileName = lastSeparator == nullptr ? filePath : lastSeparator + 1;
-	const char* lastDot = strrchr(fileName, '.');
-
-	if (lastDot == nullptr || lastDot == fileName) {
-		return fileName;
-	}
-
-	return std::string(fileName).substr(0, lastDot - fileName);
-}
-
-std::string FileDialog::GetFileExtension(const char* filePath) {
-	const char* lastSlash = strrchr(filePath, '/');
-	const char* lastBackslash = strrchr(filePath, '\\');
-	const char* lastSeparator = Max(lastSlash, lastBackslash);
-	const char* lastDot = strrchr(filePath, '.');
-
-	if (lastDot == nullptr || lastDot == filePath || lastDot < lastSeparator || lastDot == lastSeparator + 1) {
-		return std::string();
-	}
-
-	std::string extension = std::string(lastDot);
-	std::transform(extension.begin(), extension.end(), extension.begin(), ::tolower);
-	return extension;
-}
-
-std::string FileDialog::GetFileFolder(const char* filePath) {
-	const char* lastSlash = strrchr(filePath, '/');
-	const char* lastBackslash = strrchr(filePath, '\\');
-	const char* lastSeparator = Max(lastSlash, lastBackslash);
-
-	if (lastSeparator == nullptr) {
-		return std::string();
-	}
-
-	return std::string(filePath).substr(0, lastSeparator - filePath);
 }
 
 std::string FileDialog::GetAbsolutePath(const char* filePath) {

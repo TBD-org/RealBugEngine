@@ -14,12 +14,12 @@
 #define JSON_TAG_AVOIDINGOBSTACLE "AvoidingObstacle"
 
 void ComponentAgent::SetMoveTarget(float3 newTargetPosition, bool usePathfinding) {
-	NavMesh& navMesh = App->navigation->GetNavMesh();
-	if (!navMesh.IsGenerated() || agentId == -1) return;
+	NavMesh* navMesh = GetOwner().scene->GetNavMesh();
+	if (navMesh == nullptr || !navMesh->IsGenerated() || agentId == -1) return;
 
 	// Find nearest point on navmesh and set move request to that location.
-	dtNavMeshQuery* navquery = navMesh.GetNavMeshQuery();
-	dtCrowd* crowd = navMesh.GetCrowd();
+	dtNavMeshQuery* navquery = navMesh->GetNavMeshQuery();
+	dtCrowd* crowd = navMesh->GetCrowd();
 	const dtQueryFilter* filter = crowd->getFilter(0);
 	const float* ext = crowd->getQueryExtents();
 
@@ -47,31 +47,37 @@ void ComponentAgent::SetMoveTarget(float3 newTargetPosition, bool usePathfinding
 
 void ComponentAgent::SetMaxSpeed(float newSpeed) {
 	maxSpeed = newSpeed;
-	NavMesh& navMesh = App->navigation->GetNavMesh();
-	dtCrowdAgent* ag = navMesh.GetCrowd()->getEditableAgent(agentId);
-	if (ag == nullptr) {
-		return;
-	}
+
+	NavMesh* navMesh = GetOwner().scene->GetNavMesh();
+	if (navMesh == nullptr) return;
+
+	dtCrowdAgent* ag = navMesh->GetCrowd()->getEditableAgent(agentId);
+	if (ag == nullptr) return;
+
 	ag->params.maxSpeed = maxSpeed;
 }
 
 void ComponentAgent::SetMaxAcceleration(float newAcceleration) {
 	maxAcceleration = newAcceleration;
-	NavMesh& navMesh = App->navigation->GetNavMesh();
-	dtCrowdAgent* ag = navMesh.GetCrowd()->getEditableAgent(agentId);
-	if (ag == nullptr) {
-		return;
-	}
+
+	NavMesh* navMesh = GetOwner().scene->GetNavMesh();
+	if (navMesh == nullptr) return;
+
+	dtCrowdAgent* ag = navMesh->GetCrowd()->getEditableAgent(agentId);
+	if (ag == nullptr) return;
+
 	ag->params.maxAcceleration = maxAcceleration;
 }
 
 void ComponentAgent::SetAgentObstacleAvoidance(bool avoidanceActive) {
 	avoidingObstacle = avoidanceActive;
-	NavMesh& navMesh = App->navigation->GetNavMesh();
-	dtCrowdAgent* ag = navMesh.GetCrowd()->getEditableAgent(agentId);
-	if (ag == nullptr) {
-		return;
-	}
+
+	NavMesh* navMesh = GetOwner().scene->GetNavMesh();
+	if (navMesh == nullptr) return;
+
+	dtCrowdAgent* ag = navMesh->GetCrowd()->getEditableAgent(agentId);
+	if (ag == nullptr) return;
+
 	if (avoidanceActive) {
 		ag->params.updateFlags |= DT_CROWD_OBSTACLE_AVOIDANCE;
 	} else {
@@ -96,14 +102,16 @@ bool ComponentAgent::IsAvoidingObstacle() {
 }
 
 void ComponentAgent::AddAgentToCrowd() {
-	NavMesh& navMesh = App->navigation->GetNavMesh();
-	if (!navMesh.IsGenerated() || agentId != -1) return;
+	shouldAddAgentToCrowd = true;
+
+	NavMesh* navMesh = GetOwner().scene->GetNavMesh();
+	if (navMesh == nullptr || !navMesh->IsGenerated() || agentId != -1) return;
 
 	// PARAMS INIT
 	dtCrowdAgentParams ap;
 	memset(&ap, 0, sizeof(ap));
-	ap.radius = navMesh.agentRadius;
-	ap.height = navMesh.agentHeight;
+	ap.radius = navMesh->agentRadius;
+	ap.height = navMesh->agentHeight;
 	ap.maxAcceleration = maxAcceleration;
 	ap.maxSpeed = maxSpeed;
 	ap.collisionQueryRange = ap.radius * 12.0f;
@@ -121,21 +129,25 @@ void ComponentAgent::AddAgentToCrowd() {
 	ap.obstacleAvoidanceType = 3;
 	ap.separationWeight = 2;
 
-	agentId = navMesh.GetCrowd()->addAgent(GetOwner().GetComponent<ComponentTransform>()->GetGlobalPosition().ptr(), &ap);
+	agentId = navMesh->GetCrowd()->addAgent(GetOwner().GetComponent<ComponentTransform>()->GetGlobalPosition().ptr(), &ap);
+	shouldAddAgentToCrowd = false;
 }
 
 void ComponentAgent::RemoveAgentFromCrowd() {
-	NavMesh& navMesh = App->navigation->GetNavMesh();
-	if (!navMesh.IsGenerated() || agentId == -1) return;
-	navMesh.GetCrowd()->removeAgent(agentId);
+	shouldAddAgentToCrowd = false;
+
+	NavMesh* navMesh = GetOwner().scene->GetNavMesh();
+	if (navMesh == nullptr || !navMesh->IsGenerated() || agentId == -1) return;
+
+	navMesh->GetCrowd()->removeAgent(agentId);
 	agentId = -1;
 }
 
 float3 ComponentAgent::GetVelocity() const {
-	NavMesh& navMesh = App->navigation->GetNavMesh();
-	if (!navMesh.IsGenerated() || agentId == -1) return float3::zero;
+	NavMesh* navMesh = GetOwner().scene->GetNavMesh();
+	if (navMesh == nullptr || !navMesh->IsGenerated() || agentId == -1) return float3::zero;
 
-	const dtCrowdAgent* ag = navMesh.GetCrowd()->getAgent(agentId);
+	const dtCrowdAgent* ag = navMesh->GetCrowd()->getAgent(agentId);
 
 	if (ag) {
 		return float3(ag->vel);
@@ -150,10 +162,14 @@ ComponentAgent::~ComponentAgent() {
 void ComponentAgent::Update() {
 	if (!App->time->IsGameRunning()) return;
 
-	NavMesh& navMesh = App->navigation->GetNavMesh();
-	if (!navMesh.IsGenerated() || agentId == -1) return;
-	const dtCrowdAgent* ag = navMesh.GetCrowd()->getAgent(agentId);
+	NavMesh* navMesh = GetOwner().scene->GetNavMesh();
+	if (navMesh == nullptr || !navMesh->IsGenerated()) return;
 
+	// Try to add the agent to the crowd
+	if (shouldAddAgentToCrowd) AddAgentToCrowd();
+	if (agentId == -1) return;
+
+	const dtCrowdAgent* ag = navMesh->GetCrowd()->getAgent(agentId);
 	ComponentTransform* transform = GetOwner().GetComponent<ComponentTransform>();
 	transform->SetGlobalPosition(float3(ag->npos));
 }

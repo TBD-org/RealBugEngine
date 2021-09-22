@@ -30,6 +30,9 @@ void ComponentObstacle::Update() {
 		currentRotation = newRotation;
 		AddObstacle();
 	}
+
+	// Try to add the obstacle
+	if (shouldAddObstacle) AddObstacle();
 }
 
 void ComponentObstacle::OnEditorUpdate() {
@@ -99,15 +102,13 @@ void ComponentObstacle::Load(JsonValue jComponent) {
 }
 
 void ComponentObstacle::AddObstacle() {
-	NavMesh& navMesh = App->navigation->GetNavMesh();
-	if (!navMesh.IsGenerated()) {
-		return;
-	}
+	shouldAddObstacle = true;
 
-	dtTileCache* tileCache = navMesh.GetTileCache();
-	if (!tileCache) {
-		return;
-	}
+	NavMesh* navMesh = GetOwner().scene->GetNavMesh();
+	if (navMesh == nullptr || !navMesh->IsGenerated()) return;
+
+	dtTileCache* tileCache = navMesh->GetTileCache();
+	if (!tileCache) return;
 
 	RemoveObstacle();
 
@@ -124,18 +125,18 @@ void ComponentObstacle::AddObstacle() {
 		tileCache->addBoxObstacle(&position[0], &(obstacleSize / 2)[0], transform->GetGlobalRotation().ToEulerXYZ().y, obstacleReference, mustBeDrawnGizmo);
 		break;
 	}
+
+	shouldAddObstacle = false;
 }
 
 void ComponentObstacle::RemoveObstacle() {
-	NavMesh& navMesh = App->navigation->GetNavMesh();
-	if (!navMesh.IsGenerated()) {
-		return;
-	}
+	shouldAddObstacle = false;
 
-	dtTileCache* tileCache = navMesh.GetTileCache();
-	if (!tileCache || !obstacleReference) {
-		return;
-	}
+	NavMesh* navMesh = GetOwner().scene->GetNavMesh();
+	if (navMesh == nullptr || !navMesh->IsGenerated()) return;
+
+	dtTileCache* tileCache = navMesh->GetTileCache();
+	if (!tileCache || !obstacleReference) return;
 
 	tileCache->removeObstacle(*obstacleReference);
 	RELEASE(obstacleReference);

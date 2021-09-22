@@ -9,7 +9,7 @@
 #include "Components/UI/ComponentBoundingBox2D.h"
 #include "Components/UI/ComponentEventSystem.h"
 #include "Components/UI/ComponentSelectable.h"
-#include "FileSystem/ModelImporter.h"
+#include "Importers/ModelImporter.h"
 #include "Modules/ModuleInput.h"
 #include "Modules/ModuleScene.h"
 #include "Utils/Logging.h"
@@ -34,6 +34,10 @@
 void GameObject::Init() {
 	for (Component* component : components) {
 		component->Init();
+	}
+
+	for (GameObject* child : children) {
+		child->Init();
 	}
 }
 
@@ -170,12 +174,6 @@ void GameObject::AddMask(MaskType mask_) {
 	case MaskType::PLAYER:
 		mask.bitMask |= static_cast<int>(mask_);
 		break;
-	case MaskType::CAST_SHADOWS:
-		mask.bitMask |= static_cast<int>(mask_);
-		break;
-	case MaskType::TRANSPARENT:
-		mask.bitMask |= static_cast<int>(mask_);
-		break;
 	default:
 		LOG("The solicitated mask doesn't exist");
 		break;
@@ -193,12 +191,6 @@ void GameObject::DeleteMask(MaskType mask_) {
 		mask.bitMask ^= static_cast<int>(mask_);
 		break;
 	case MaskType::PLAYER:
-		mask.bitMask ^= static_cast<int>(mask_);
-		break;
-	case MaskType::CAST_SHADOWS:
-		mask.bitMask ^= static_cast<int>(mask_);
-		break;
-	case MaskType::TRANSPARENT:
 		mask.bitMask ^= static_cast<int>(mask_);
 		break;
 	default:
@@ -331,7 +323,6 @@ void GameObject::Load(JsonValue jGameObject) {
 			}
 		} 
 	}
-	Init();
 
 	JsonValue jChildren = jGameObject[JSON_TAG_CHILDREN];
 	for (unsigned i = 0; i < jChildren.Size(); ++i) {
@@ -405,7 +396,6 @@ void GameObject::LoadPrefab(JsonValue jGameObject) {
 		components.push_back(component);
 		component->Load(jComponent);
 	}
-	Init();
 
 	JsonValue jChildren = jGameObject[JSON_TAG_CHILDREN];
 	for (unsigned i = 0; i < jChildren.Size(); ++i) {

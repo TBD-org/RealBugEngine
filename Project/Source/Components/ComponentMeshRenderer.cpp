@@ -19,7 +19,7 @@
 #include "Components/ComponentSkyBox.h"
 #include "Components/ComponentBoundingBox.h"
 #include "Components/ComponentAnimation.h"
-#include "FileSystem/TextureImporter.h"
+#include "Importers/TextureImporter.h"
 #include "Utils/ImGuiUtils.h"
 
 #include "Geometry/Sphere.h"
@@ -100,6 +100,49 @@ static const char* spotLightStrings[SPOT_LIGHTS][SPOT_LIGHT_MEMBERS] = {
 	SPOT_LIGHT_STRING("6"),
 	SPOT_LIGHT_STRING("7")};
 
+ComponentMeshRenderer::~ComponentMeshRenderer() {
+	App->resources->DecreaseReferenceCount(meshId);
+	App->resources->DecreaseReferenceCount(materialId);
+}
+
+void ComponentMeshRenderer::Init() {
+	App->resources->IncreaseReferenceCount(meshId);
+	App->resources->IncreaseReferenceCount(materialId);
+}
+
+void ComponentMeshRenderer::Start() {
+	ResetDissolveValues();
+}
+
+void ComponentMeshRenderer::Update() {
+	ResourceMesh* mesh = App->resources->GetResource<ResourceMesh>(meshId);
+	if (!mesh) return;
+
+	if (palette.empty()) {
+		palette.resize(mesh->bones.size());
+		for (unsigned i = 0; i < mesh->bones.size(); ++i) {
+			palette[i] = float4x4::identity;
+		}
+	}
+
+	UpdateDissolveAnimation();
+
+	if (App->time->GetDeltaTime() <= 0) return;
+
+	const GameObject* parent = GetOwner().GetParent();
+	const GameObject* rootBone = parent->GetRootBone();
+	if (rootBone != nullptr) {
+		const GameObject* rootBoneParent = rootBone->GetParent();
+		const float4x4& invertedRootBoneTransform = rootBoneParent ? rootBoneParent->GetComponent<ComponentTransform>()->GetGlobalMatrix().Inverted() : float4x4::identity;
+
+		const float4x4& localMatrix = GetOwner().GetComponent<ComponentTransform>()->GetLocalMatrix();
+		for (unsigned i = 0; i < mesh->bones.size(); ++i) {
+			const GameObject* bone = goBones.at(mesh->bones[i].boneName);
+			palette[i] = localMatrix * invertedRootBoneTransform * bone->GetComponent<ComponentTransform>()->GetGlobalMatrix() * mesh->bones[i].transform;
+		}
+	}
+}
+
 void ComponentMeshRenderer::OnEditorUpdate() {
 	if (ImGui::Checkbox("Active", &active)) {
 		if (GetOwner().IsActive()) {
@@ -132,10 +175,10 @@ void ComponentMeshRenderer::OnEditorUpdate() {
 			ImGui::TextColored(App->editor->titleColor, "Geometry");
 			ImGui::TextWrapped("Num Vertices: ");
 			ImGui::SameLine();
-			ImGui::TextColored(App->editor->textColor, "%d", mesh->numVertices);
+			ImGui::TextColored(App->editor->textColor, "%d", mesh->vertices.size());
 			ImGui::TextWrapped("Num Triangles: ");
 			ImGui::SameLine();
-			ImGui::TextColored(App->editor->textColor, "%d", mesh->numIndices / 3);
+			ImGui::TextColored(App->editor->textColor, "%d", mesh->indices.size() / 3);
 			ImGui::Separator();
 			ImGui::TextColored(App->editor->titleColor, "Bounding Box");
 
@@ -149,15 +192,9 @@ void ComponentMeshRenderer::OnEditorUpdate() {
 	}
 	ImGui::Separator();
 
-	ImGui::ResourceSlot<ResourceMaterial>(
-		"Material",
-		&materialId,
-		[this]() { DeleteRenderingModeMask(); },
-		[this]() { AddRenderingModeMask(); });
-
+	ImGui::ResourceSlot<ResourceMaterial>("Material", &materialId);
 	if (ImGui::Button("Remove##material")) {
 		if (materialId != 0) {
-			DeleteRenderingModeMask();
 			App->resources->DecreaseReferenceCount(materialId);
 			materialId = 0;
 		}
@@ -190,45 +227,6 @@ void ComponentMeshRenderer::OnEditorUpdate() {
 	}
 }
 
-void ComponentMeshRenderer::Init() {
-	ResourceMesh* mesh = App->resources->GetResource<ResourceMesh>(meshId);
-	if (!mesh) return;
-
-	palette.resize(mesh->numBones);
-	for (unsigned i = 0; i < mesh->numBones; ++i) {
-		palette[i] = float4x4::identity;
-	}
-}
-
-void ComponentMeshRenderer::Update() {
-	ResourceMesh* mesh = App->resources->GetResource<ResourceMesh>(meshId);
-	if (!mesh) return;
-
-	if (palette.empty()) {
-		palette.resize(mesh->numBones);
-		for (unsigned i = 0; i < mesh->numBones; ++i) {
-			palette[i] = float4x4::identity;
-		}
-	}
-
-	UpdateDissolveAnimation();
-
-	if (App->time->GetDeltaTime() <= 0) return;
-
-	const GameObject* parent = GetOwner().GetParent();
-	const GameObject* rootBone = parent->GetRootBone();
-	if (rootBone != nullptr) {
-		const GameObject* rootBoneParent = rootBone->GetParent();
-		const float4x4& invertedRootBoneTransform = rootBoneParent ? rootBoneParent->GetComponent<ComponentTransform>()->GetGlobalMatrix().Inverted() : float4x4::identity;
-
-		const float4x4& localMatrix = GetOwner().GetComponent<ComponentTransform>()->GetLocalMatrix();
-		for (unsigned i = 0; i < mesh->numBones; ++i) {
-			const GameObject* bone = goBones.at(mesh->bones[i].boneName);
-			palette[i] = localMatrix * invertedRootBoneTransform * bone->GetComponent<ComponentTransform>()->GetGlobalMatrix() * mesh->bones[i].transform;
-		}
-	}
-}
-
 void ComponentMeshRenderer::Save(JsonValue jComponent) const {
 	jComponent[JSON_TAG_MESH_ID] = meshId;
 	jComponent[JSON_TAG_MATERIAL_ID] = materialId;
@@ -236,30 +234,7 @@ void ComponentMeshRenderer::Save(JsonValue jComponent) const {
 
 void ComponentMeshRenderer::Load(JsonValue jComponent) {
 	meshId = jComponent[JSON_TAG_MESH_ID];
-	if (meshId != 0) App->resources->IncreaseReferenceCount(meshId);
 	materialId = jComponent[JSON_TAG_MATERIAL_ID];
-	if (materialId != 0) {
-		AddRenderingModeMask();
-		App->resources->IncreaseReferenceCount(materialId);
-	}
-
-	ResetDissolveValues();
-}
-
-void ComponentMeshRenderer::Start() {
-
-	ResourceMaterial* material = App->resources->GetResource<ResourceMaterial>(materialId);
-
-	if (material == nullptr) return;
-
-	if (material->castShadows) {
-		GameObject* owner = &GetOwner();
-		if (material->shadowCasterType == ShadowCasterType::STATIC) {
-			App->scene->scene->AddStaticShadowCaster(owner);
-		} else {
-			App->scene->scene->AddDynamicShadowCaster(owner);
-		}
-	}
 }
 
 void ComponentMeshRenderer::Draw(const float4x4& modelMatrix) const {
@@ -427,7 +402,7 @@ void ComponentMeshRenderer::Draw(const float4x4& modelMatrix) const {
 		glUniform2fv(unlitProgram->offsetLocation, 1, ChooseTextureOffset(material->offset).ptr());
 
 		glBindVertexArray(mesh->vao);
-		glDrawElements(GL_TRIANGLES, mesh->numIndices, GL_UNSIGNED_INT, nullptr);
+		glDrawElements(GL_TRIANGLES, mesh->indices.size(), GL_UNSIGNED_INT, nullptr);
 		glBindVertexArray(0);
 
 		break;
@@ -489,7 +464,7 @@ void ComponentMeshRenderer::Draw(const float4x4& modelMatrix) const {
 		glUniform1f(unlitProgram->edgeSizeLocation, material->dissolveEdgeSize);
 
 		glBindVertexArray(mesh->vao);
-		glDrawElements(GL_TRIANGLES, mesh->numIndices, GL_UNSIGNED_INT, nullptr);
+		glDrawElements(GL_TRIANGLES, mesh->indices.size(), GL_UNSIGNED_INT, nullptr);
 		glBindVertexArray(0);
 
 		break;
@@ -541,7 +516,7 @@ void ComponentMeshRenderer::Draw(const float4x4& modelMatrix) const {
 		glUniform1f(volumetricLightProgram->softRangeLocation, material->softRange);
 
 		glBindVertexArray(mesh->vao);
-		glDrawElements(GL_TRIANGLES, mesh->numIndices, GL_UNSIGNED_INT, nullptr);
+		glDrawElements(GL_TRIANGLES, mesh->indices.size(), GL_UNSIGNED_INT, nullptr);
 		glBindVertexArray(0);
 
 		break;
@@ -876,7 +851,7 @@ void ComponentMeshRenderer::Draw(const float4x4& modelMatrix) const {
 	glUniform1i(standardProgram->lightNumSpotsLocation, spotLightsArraySize);
 
 	glBindVertexArray(mesh->vao);
-	glDrawElements(GL_TRIANGLES, mesh->numIndices, GL_UNSIGNED_INT, nullptr);
+	glDrawElements(GL_TRIANGLES, mesh->indices.size(), GL_UNSIGNED_INT, nullptr);
 	glBindVertexArray(0);
 }
 
@@ -941,7 +916,7 @@ void ComponentMeshRenderer::DrawDepthPrepass(const float4x4& modelMatrix) const 
 	glUniform2fv(depthPrepassProgram->offsetLocation, 1, ChooseTextureOffset(material->offset).ptr());
 
 	glBindVertexArray(mesh->vao);
-	glDrawElements(GL_TRIANGLES, mesh->numIndices, GL_UNSIGNED_INT, nullptr);
+	glDrawElements(GL_TRIANGLES, mesh->indices.size(), GL_UNSIGNED_INT, nullptr);
 	glBindVertexArray(0);
 }
 
@@ -986,24 +961,40 @@ void ComponentMeshRenderer::DrawShadow(const float4x4& modelMatrix, unsigned int
 	glUniform1i(glGetUniformLocation(program, "hasBones"), goBones.size());
 
 	glBindVertexArray(mesh->vao);
-	glDrawElements(GL_TRIANGLES, mesh->numIndices, GL_UNSIGNED_INT, nullptr);
+	glDrawElements(GL_TRIANGLES, mesh->indices.size(), GL_UNSIGNED_INT, nullptr);
 	glBindVertexArray(0);
 }
 
-void ComponentMeshRenderer::AddRenderingModeMask() {
-	ResourceMaterial* material = App->resources->GetResource<ResourceMaterial>(materialId);
-	if (material && material->renderingMode == RenderingMode::TRANSPARENT) {
-		GameObject& gameObject = GetOwner();
-		gameObject.AddMask(MaskType::TRANSPARENT);
-	}
+UID ComponentMeshRenderer::GetMeshID() const {
+	return meshId;
 }
 
-void ComponentMeshRenderer::DeleteRenderingModeMask() {
-	ResourceMaterial* material = App->resources->GetResource<ResourceMaterial>(materialId);
-	if (material && material->renderingMode == RenderingMode::TRANSPARENT) {
-		GameObject& gameObject = GetOwner();
-		gameObject.DeleteMask(MaskType::TRANSPARENT);
-	}
+UID ComponentMeshRenderer::GetMaterialID() const {
+	return materialId;
+}
+
+void ComponentMeshRenderer::SetMeshID(UID meshId_) {
+	meshId = meshId_;
+}
+
+void ComponentMeshRenderer::SetMaterialID(UID materialId_) {
+	materialId = materialId_;
+}
+
+void ComponentMeshRenderer::ChangeMesh(UID meshId_) {
+	App->resources->DecreaseReferenceCount(meshId);
+	meshId = meshId_;
+	App->resources->IncreaseReferenceCount(meshId);
+}
+
+void ComponentMeshRenderer::ChangeMaterial(UID materialId_) {
+	App->resources->DecreaseReferenceCount(materialId);
+	materialId = materialId_;
+	App->resources->IncreaseReferenceCount(materialId);
+}
+
+void ComponentMeshRenderer::SetGameObjectBones(const std::unordered_map<std::string, GameObject*>& goBones_) {
+	goBones = goBones_;
 }
 
 void ComponentMeshRenderer::PlayDissolveAnimation(bool reverse) {

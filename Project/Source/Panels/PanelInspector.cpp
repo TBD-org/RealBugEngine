@@ -387,7 +387,7 @@ void PanelInspector::AddUIComponentsOptions(GameObject* selected) {
 		ComponentType typeToCreate = ComponentType::UNKNOWN;
 
 		if (ImGui::MenuItem("Event System")) {
-			if (App->scene->scene->eventSystemComponents.Count() == 0) {
+			if (App->scene->GetCurrentScene()->eventSystemComponents.Count() == 0) {
 				typeToCreate = ComponentType::EVENT_SYSTEM;
 			} else {
 				App->editor->modalToOpen = Modal::COMPONENT_EXISTS;
@@ -560,14 +560,14 @@ void PanelInspector::AddUIComponentsOptions(GameObject* selected) {
 			ComponentProgressBar* component = selected->CreateComponent<ComponentProgressBar>();
 			component->Init();
 
-			GameObject* background = App->scene->scene->CreateGameObject(selected, GenerateUID(), "Background");
+			GameObject* background = App->scene->GetCurrentScene()->CreateGameObject(selected, GenerateUID(), "Background");
 			ComponentTransform2D* transform2D = background->CreateComponent<ComponentTransform2D>();
 			ComponentCanvasRenderer* canvasRenderer = background->CreateComponent<ComponentCanvasRenderer>();
 			ComponentImage* image = background->CreateComponent<ComponentImage>();
 			background->Init();
 			transform2D->SetSize(float2(700, 80));
 
-			GameObject* fill = App->scene->scene->CreateGameObject(selected, GenerateUID(), "Fill");
+			GameObject* fill = App->scene->GetCurrentScene()->CreateGameObject(selected, GenerateUID(), "Fill");
 			ComponentTransform2D* transform2DFill = fill->CreateComponent<ComponentTransform2D>();
 			ComponentCanvasRenderer* canvasRendererFill = fill->CreateComponent<ComponentCanvasRenderer>();
 			ComponentImage* imageFill = fill->CreateComponent<ComponentImage>();
@@ -583,20 +583,20 @@ void PanelInspector::AddUIComponentsOptions(GameObject* selected) {
 				image->Init();
 			}
 
-			GameObject* background = App->scene->scene->CreateGameObject(selected, GenerateUID(), "Background");
+			GameObject* background = App->scene->GetCurrentScene()->CreateGameObject(selected, GenerateUID(), "Background");
 			ComponentTransform2D* transform2D = background->CreateComponent<ComponentTransform2D>();
 			ComponentCanvasRenderer* canvasRenderer = background->CreateComponent<ComponentCanvasRenderer>();
 			ComponentImage* image = background->CreateComponent<ComponentImage>();
 			background->Init();
 			transform2D->SetSize(float2(700, 80));
 
-			GameObject* fill = App->scene->scene->CreateGameObject(selected, GenerateUID(), "Fill");
+			GameObject* fill = App->scene->GetCurrentScene()->CreateGameObject(selected, GenerateUID(), "Fill");
 			ComponentTransform2D* transform2DFill = fill->CreateComponent<ComponentTransform2D>();
 			ComponentCanvasRenderer* canvasRendererFill = fill->CreateComponent<ComponentCanvasRenderer>();
 			ComponentImage* imageFill = fill->CreateComponent<ComponentImage>();
 			fill->Init();
 
-			GameObject* handle = App->scene->scene->CreateGameObject(selected, GenerateUID(), "Handle");
+			GameObject* handle = App->scene->GetCurrentScene()->CreateGameObject(selected, GenerateUID(), "Handle");
 			ComponentTransform2D* transform2DHandle = fill->CreateComponent<ComponentTransform2D>();
 			ComponentCanvasRenderer* canvasRendererHandle = fill->CreateComponent<ComponentCanvasRenderer>();
 			ComponentImage* imageHandle = fill->CreateComponent<ComponentImage>();

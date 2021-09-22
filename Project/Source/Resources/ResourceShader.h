@@ -6,7 +6,7 @@ class ResourceShader : public Resource {
 public:
 	REGISTER_RESOURCE(ResourceShader, ResourceType::SHADER);
 
-	void Load() override;
+	void FinishLoading() override;
 	void Unload() override;
 
 	unsigned int GetShaderProgram();
