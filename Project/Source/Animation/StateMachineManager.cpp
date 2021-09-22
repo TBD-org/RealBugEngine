@@ -129,29 +129,7 @@ bool StateMachineManager::CalculateAnimation(GameObject* gameObject, const GameO
 	}
 	int currentSample = AnimationController::GetCurrentSample(*clip, (*currentTimeStates)[currentState.id]);
 
-	//Checking for transition between states
-	if ((*animationInterpolations).size() > 1) {
-		result = AnimationController::InterpolateTransitions((*animationInterpolations).begin(), (*animationInterpolations), *owner.GetRootBone(), *gameObject, position, rotation, componentAnimation);
-
-		//Updating times
-		if (gameObject->name == (*resourceStateMachine->bones.begin())) { // Only udate currentTime for the rootBone
-			bool finishedTransition = AnimationController::UpdateTransitions((*animationInterpolations), (*currentTimeStates), App->time->GetDeltaTime());
-			//Comparing the state principal with state secondary & set variable for setting secondary state as "empty" State
-			if (finishedTransition && principalEqualSecondary) {
-				resetSecondaryStatemachine = true;
-			}
-		}
-
-	} else {
-		if (currentState.id != 0) {
-			if (principalEqualSecondary) {
-				resetSecondaryStatemachine = true;
-			}
-
-			result = AnimationController::GetTransform(*clip, (*currentTimeStates)[currentState.id], gameObject->name.c_str(), position, rotation, componentAnimation);
-		}
-	}
-
+	
 	if (gameObject->name == (*resourceStateMachine->bones.begin())) {
 		//Sending Event on Finished
 		if (!clip->loop) {
@@ -199,6 +177,30 @@ bool StateMachineManager::CalculateAnimation(GameObject* gameObject, const GameO
 			componentAnimation.listClipsCurrentEventKeyFrames[currentState.clipUid] = currentSample;
 		}
 	}
+
+	//Checking for transition between states
+	if ((*animationInterpolations).size() > 1) {
+		result = AnimationController::InterpolateTransitions((*animationInterpolations).begin(), (*animationInterpolations), *owner.GetRootBone(), *gameObject, position, rotation, componentAnimation);
+
+		//Updating times
+		if (gameObject->name == (*resourceStateMachine->bones.begin())) { // Only udate currentTime for the rootBone
+			bool finishedTransition = AnimationController::UpdateTransitions((*animationInterpolations), (*currentTimeStates), App->time->GetDeltaTime());
+			//Comparing the state principal with state secondary & set variable for setting secondary state as "empty" State
+			if (finishedTransition && principalEqualSecondary) {
+				resetSecondaryStatemachine = true;
+			}
+		}
+
+	} else {
+		if (currentState.id != 0) {
+			if (principalEqualSecondary) {
+				resetSecondaryStatemachine = true;
+			}
+
+			result = AnimationController::GetTransform(*clip, (*currentTimeStates)[currentState.id], gameObject->name.c_str(), position, rotation, componentAnimation);
+		}
+	}
+
 
 	return result;
 }
