@@ -1,0 +1,23 @@
+{
+    "Name": "EMP",
+    "AnimationUID": 5614041873872763134,
+    "BeginIndex": 692,
+    "EndIndex": 731,
+    "Loop": false,
+    "Speed": 1.0,
+    "FrameRate": 0.03329545259475708,
+    "KeyEventClip": [
+        {
+            "KeyFrame": 692,
+            "Name": "ChargeUp"
+        },
+        {
+            "KeyFrame": 715,
+            "Name": "Detonation"
+        },
+        {
+            "KeyFrame": 730,
+            "Name": "Landing"
+        }
+    ]
+}

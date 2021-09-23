@@ -1,0 +1,251 @@
+{
+    "Root": {
+        "Name": "CameraPost",
+        "Active": true,
+        "RootBoneName": "",
+        "Mask": 0,
+        "Components": [
+            {
+                "Type": "Transform",
+                "Active": true,
+                "Position": [
+                    15.463528633117676,
+                    3.008002281188965,
+                    -5.278200149536133
+                ],
+                "Rotation": [
+                    0.0,
+                    0.0,
+                    0.0,
+                    1.0
+                ],
+                "Scale": [
+                    0.33000001311302187,
+                    0.33000001311302187,
+                    0.33000001311302187
+                ],
+                "LocalEulerAngles": [
+                    -0.0,
+                    0.0,
+                    -0.0
+                ]
+            }
+        ],
+        "Children": [
+            {
+                "Name": "Post",
+                "Active": true,
+                "RootBoneName": "CameraPost1",
+                "Mask": 0,
+                "Components": [
+                    {
+                        "Type": "Transform",
+                        "Active": true,
+                        "Position": [
+                            0.0,
+                            0.0,
+                            0.0
+                        ],
+                        "Rotation": [
+                            0.0,
+                            0.0,
+                            0.0,
+                            1.0
+                        ],
+                        "Scale": [
+                            1.0,
+                            1.0,
+                            1.0
+                        ],
+                        "LocalEulerAngles": [
+                            -0.0,
+                            0.0,
+                            -0.0
+                        ]
+                    },
+                    {
+                        "Type": "Animation",
+                        "Active": true,
+                        "StateMachinePrincipalId": 11208280035110191188,
+                        "StateMachineSecondaryId": 15837089208151026496
+                    }
+                ],
+                "Children": [
+                    {
+                        "Name": "CameraPost1",
+                        "Active": true,
+                        "RootBoneName": "",
+                        "Mask": 0,
+                        "Components": [
+                            {
+                                "Type": "Transform",
+                                "Active": true,
+                                "Position": [
+                                    -0.6597214937210083,
+                                    34.44776916503906,
+                                    -0.8755030035972595
+                                ],
+                                "Rotation": [
+                                    0.0,
+                                    0.0,
+                                    0.0,
+                                    1.0
+                                ],
+                                "Scale": [
+                                    1.0,
+                                    1.0,
+                                    1.0
+                                ],
+                                "LocalEulerAngles": [
+                                    -0.0,
+                                    0.0,
+                                    -0.0
+                                ]
+                            }
+                        ],
+                        "Children": [
+                            {
+                                "Name": "CameraPost2",
+                                "Active": true,
+                                "RootBoneName": "",
+                                "Mask": 0,
+                                "Components": [
+                                    {
+                                        "Type": "Transform",
+                                        "Active": true,
+                                        "Position": [
+                                            0.0,
+                                            1.4286516904830933,
+                                            0.0
+                                        ],
+                                        "Rotation": [
+                                            0.0,
+                                            -0.3826834559440613,
+                                            0.0,
+                                            0.9238795638084412
+                                        ],
+                                        "Scale": [
+                                            0.9999999403953552,
+                                            1.0,
+                                            0.9999999403953552
+                                        ],
+                                        "LocalEulerAngles": [
+                                            0.0,
+                                            -45.000003814697269,
+                                            0.0
+                                        ]
+                                    }
+                                ],
+                                "Children": null
+                            }
+                        ]
+                    },
+                    {
+                        "Name": "CameraPost",
+                        "Active": true,
+                        "RootBoneName": "",
+                        "Mask": 0,
+                        "Components": [
+                            {
+                                "Type": "Transform",
+                                "Active": true,
+                                "Position": [
+                                    0.0,
+                                    0.0,
+                                    0.0
+                                ],
+                                "Rotation": [
+                                    0.0,
+                                    0.0,
+                                    0.0,
+                                    1.0
+                                ],
+                                "Scale": [
+                                    1.0,
+                                    1.0,
+                                    1.0
+                                ],
+                                "LocalEulerAngles": [
+                                    -0.0,
+                                    0.0,
+                                    -0.0
+                                ]
+                            },
+                            {
+                                "Type": "MeshRenderer",
+                                "Active": true,
+                                "MeshID": 11010801813671758478,
+                                "MaterialID": 11998532829174730432
+                            },
+                            {
+                                "Type": "BoundingBox",
+                                "Active": true,
+                                "LocalBoundingBox": [
+                                    -4.47787618637085,
+                                    0.0033815503120422365,
+                                    -4.178812026977539,
+                                    3.6689510345458986,
+                                    41.1612434387207,
+                                    3.0676660537719728
+                                ]
+                            }
+                        ],
+                        "Children": null
+                    }
+                ]
+            },
+            {
+                "Name": "Camera",
+                "Active": true,
+                "RootBoneName": "",
+                "Mask": 0,
+                "Components": [
+                    {
+                        "Type": "Transform",
+                        "Active": true,
+                        "Position": [
+                            0.0,
+                            0.0,
+                            0.0
+                        ],
+                        "Rotation": [
+                            0.0,
+                            0.0,
+                            0.0,
+                            1.0
+                        ],
+                        "Scale": [
+                            1.0,
+                            1.0,
+                            1.0
+                        ],
+                        "LocalEulerAngles": [
+                            -0.0,
+                            0.0,
+                            -0.0
+                        ]
+                    },
+                    {
+                        "Type": "MeshRenderer",
+                        "Active": true,
+                        "MeshID": 16201888186956736187,
+                        "MaterialID": 11998532829174730432
+                    },
+                    {
+                        "Type": "BoundingBox",
+                        "Active": true,
+                        "LocalBoundingBox": [
+                            2.3984906673431398,
+                            27.875791549682618,
+                            -1.6579675674438477,
+                            4.47787618637085,
+                            32.312828063964847,
+                            4.178811550140381
+                        ]
+                    }
+                ],
+                "Children": null
+            }
+        ]
+    }
+}

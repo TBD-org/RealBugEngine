@@ -1,0 +1,10 @@
+{
+    "Name": "Start",
+    "AnimationUID": 17180514647000583777,
+    "BeginIndex": 120,
+    "EndIndex": 120,
+    "Loop": true,
+    "Speed": 1.0,
+    "FrameRate": 0.033259425312280658,
+    "KeyEventClip": null
+}

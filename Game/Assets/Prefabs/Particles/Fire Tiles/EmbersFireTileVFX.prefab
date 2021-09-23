@@ -1,0 +1,696 @@
+{
+    "Root": {
+        "Name": "EmberParticleSystem",
+        "Active": true,
+        "RootBoneName": "",
+        "Mask": 0,
+        "Components": [
+            {
+                "Type": "Transform",
+                "Active": true,
+                "Position": [
+                    0.0,
+                    1.7999999523162842,
+                    0.0
+                ],
+                "Rotation": [
+                    0.0,
+                    0.0,
+                    0.0,
+                    1.0
+                ],
+                "Scale": [
+                    1.0,
+                    1.0,
+                    1.0
+                ],
+                "LocalEulerAngles": [
+                    -0.0,
+                    0.0,
+                    -0.0
+                ]
+            },
+            {
+                "Type": "Particle",
+                "Active": true,
+                "DrawGizmo": true,
+                "Duration": 5.0,
+                "Looping": true,
+                "StartDelay": [
+                    0.0,
+                    0.0
+                ],
+                "LifeRM": 1,
+                "Life": [
+                    1.0,
+                    2.5
+                ],
+                "LifeCurve": [
+                    [
+                        -1.0,
+                        0.0
+                    ],
+                    [
+                        0.0,
+                        0.0
+                    ],
+                    [
+                        0.0,
+                        0.0
+                    ],
+                    [
+                        0.0,
+                        0.0
+                    ],
+                    [
+                        0.0,
+                        0.0
+                    ],
+                    [
+                        0.0,
+                        0.0
+                    ],
+                    [
+                        0.0,
+                        0.0
+                    ],
+                    [
+                        0.0,
+                        0.0
+                    ],
+                    [
+                        0.0,
+                        0.0
+                    ],
+                    [
+                        0.0,
+                        0.0
+                    ],
+                    [
+                        0.0,
+                        0.0
+                    ]
+                ],
+                "SpeedRM": 1,
+                "Speed": [
+                    2.0,
+                    5.0
+                ],
+                "SpeedCurve": [
+                    [
+                        -1.0,
+                        0.0
+                    ],
+                    [
+                        0.0,
+                        0.0
+                    ],
+                    [
+                        0.0,
+                        0.0
+                    ],
+                    [
+                        0.0,
+                        0.0
+                    ],
+                    [
+                        0.0,
+                        0.0
+                    ],
+                    [
+                        0.0,
+                        0.0
+                    ],
+                    [
+                        0.0,
+                        0.0
+                    ],
+                    [
+                        0.0,
+                        0.0
+                    ],
+                    [
+                        0.0,
+                        0.0
+                    ],
+                    [
+                        0.0,
+                        0.0
+                    ],
+                    [
+                        0.0,
+                        0.0
+                    ]
+                ],
+                "RotationRM": 0,
+                "Rotation": [
+                    0.0,
+                    0.0
+                ],
+                "RotationCurve": [
+                    [
+                        -1.0,
+                        0.0
+                    ],
+                    [
+                        0.0,
+                        0.0
+                    ],
+                    [
+                        0.0,
+                        0.0
+                    ],
+                    [
+                        0.0,
+                        0.0
+                    ],
+                    [
+                        0.0,
+                        0.0
+                    ],
+                    [
+                        0.0,
+                        0.0
+                    ],
+                    [
+                        0.0,
+                        0.0
+                    ],
+                    [
+                        0.0,
+                        0.0
+                    ],
+                    [
+                        0.0,
+                        0.0
+                    ],
+                    [
+                        0.0,
+                        0.0
+                    ],
+                    [
+                        0.0,
+                        0.0
+                    ]
+                ],
+                "ScaleRM": 1,
+                "Scale": [
+                    2.0,
+                    5.0
+                ],
+                "ScaleCurve": [
+                    [
+                        -1.0,
+                        0.0
+                    ],
+                    [
+                        0.0,
+                        0.0
+                    ],
+                    [
+                        0.0,
+                        0.0
+                    ],
+                    [
+                        0.0,
+                        0.0
+                    ],
+                    [
+                        0.0,
+                        0.0
+                    ],
+                    [
+                        0.0,
+                        0.0
+                    ],
+                    [
+                        0.0,
+                        0.0
+                    ],
+                    [
+                        0.0,
+                        0.0
+                    ],
+                    [
+                        0.0,
+                        0.0
+                    ],
+                    [
+                        0.0,
+                        0.0
+                    ],
+                    [
+                        0.0,
+                        0.0
+                    ]
+                ],
+                "ReverseEffect": false,
+                "ReverseDistanceRM": 0,
+                "ReverseDistance": [
+                    5.0,
+                    5.0
+                ],
+                "ReverseDistanceCurve": [
+                    [
+                        -1.0,
+                        0.0
+                    ],
+                    [
+                        0.0,
+                        0.0
+                    ],
+                    [
+                        0.0,
+                        0.0
+                    ],
+                    [
+                        0.0,
+                        0.0
+                    ],
+                    [
+                        0.0,
+                        0.0
+                    ],
+                    [
+                        0.0,
+                        0.0
+                    ],
+                    [
+                        0.0,
+                        0.0
+                    ],
+                    [
+                        0.0,
+                        0.0
+                    ],
+                    [
+                        0.0,
+                        0.0
+                    ],
+                    [
+                        0.0,
+                        0.0
+                    ],
+                    [
+                        0.0,
+                        0.0
+                    ]
+                ],
+                "MaxParticle": 100,
+                "PlayOnAwake": true,
+                "AttachEmitter": true,
+                "ParticlesPerSecondRM": 0,
+                "ParticlesPerSecond": [
+                    6.0,
+                    10.0
+                ],
+                "GravityEffect": false,
+                "GravityFactorRM": 0,
+                "GravityFactor": [
+                    0.0,
+                    0.0
+                ],
+                "GravityFactorCurve": [
+                    [
+                        -1.0,
+                        0.0
+                    ],
+                    [
+                        0.0,
+                        0.0
+                    ],
+                    [
+                        0.0,
+                        0.0
+                    ],
+                    [
+                        0.0,
+                        0.0
+                    ],
+                    [
+                        0.0,
+                        0.0
+                    ],
+                    [
+                        0.0,
+                        0.0
+                    ],
+                    [
+                        0.0,
+                        0.0
+                    ],
+                    [
+                        0.0,
+                        0.0
+                    ],
+                    [
+                        0.0,
+                        0.0
+                    ],
+                    [
+                        0.0,
+                        0.0
+                    ],
+                    [
+                        0.0,
+                        0.0
+                    ]
+                ],
+                "ParticleEmitterType": 0,
+                "ShapeRadius": 2.700000047683716,
+                "ShapeRadiusThickness": 1.0,
+                "ShapeArc": 6.2831854820251469,
+                "EmitterPosition": [
+                    0.0,
+                    0.0,
+                    0.0
+                ],
+                "EmitterRotation": [
+                    -0.0,
+                    0.0,
+                    -0.0
+                ],
+                "EmitterScale": [
+                    1.0,
+                    1.0,
+                    1.0
+                ],
+                "ConeRadiusUp": 2.700000047683716,
+                "RandomConeRadiusUp": false,
+                "BoxEmitterFrom": 0,
+                "RotationOverLifetime": true,
+                "RotationFactorRM": 1,
+                "RotationFactor": [
+                    0.0,
+                    -6.2831854820251469
+                ],
+                "RotationFactorCurve": [
+                    [
+                        -1.0,
+                        0.0
+                    ],
+                    [
+                        0.0,
+                        0.0
+                    ],
+                    [
+                        0.0,
+                        0.0
+                    ],
+                    [
+                        0.0,
+                        0.0
+                    ],
+                    [
+                        0.0,
+                        0.0
+                    ],
+                    [
+                        0.0,
+                        0.0
+                    ],
+                    [
+                        0.0,
+                        0.0
+                    ],
+                    [
+                        0.0,
+                        0.0
+                    ],
+                    [
+                        0.0,
+                        0.0
+                    ],
+                    [
+                        0.0,
+                        0.0
+                    ],
+                    [
+                        0.0,
+                        0.0
+                    ]
+                ],
+                "SizeOverLifetime": true,
+                "ScaleFactorRM": 0,
+                "ScaleFactor": [
+                    -0.30000001192092898,
+                    0.0
+                ],
+                "ScaleFactorCurve": [
+                    [
+                        -1.0,
+                        0.0
+                    ],
+                    [
+                        0.0,
+                        0.0
+                    ],
+                    [
+                        0.0,
+                        0.0
+                    ],
+                    [
+                        0.0,
+                        0.0
+                    ],
+                    [
+                        0.0,
+                        0.0
+                    ],
+                    [
+                        0.0,
+                        0.0
+                    ],
+                    [
+                        0.0,
+                        0.0
+                    ],
+                    [
+                        0.0,
+                        0.0
+                    ],
+                    [
+                        0.0,
+                        0.0
+                    ],
+                    [
+                        0.0,
+                        0.0
+                    ],
+                    [
+                        0.0,
+                        0.0
+                    ]
+                ],
+                "ColorOverLifetime": true,
+                "GradientColors": [
+                    [
+                        9.999999974752428e-7,
+                        9.999971553042997e-7,
+                        9.999899930335233e-7,
+                        1.0,
+                        0.009615384973585606
+                    ],
+                    [
+                        1.0,
+                        0.8079158067703247,
+                        0.3238636255264282,
+                        1.0,
+                        0.05288459733128548
+                    ],
+                    [
+                        1.0,
+                        0.4992896318435669,
+                        0.19886362552642823,
+                        1.0,
+                        0.14423082768917085
+                    ],
+                    [
+                        0.41477274894714358,
+                        0.0,
+                        0.0,
+                        1.0,
+                        0.6851206421852112
+                    ],
+                    [
+                        9.999999974752428e-7,
+                        9.999899930335233e-7,
+                        9.999899930335233e-7,
+                        1.0,
+                        1.0
+                    ]
+                ],
+                "NumberColors": 5,
+                "Ytiles": 2,
+                "Xtiles": 2,
+                "AnimationSpeed": 0.0,
+                "IsRandomFrame": true,
+                "LoopAnimation": false,
+                "NCycles": 1.0,
+                "TextureId": 18444131569059378007,
+                "TextureItensity": [
+                    2.0,
+                    2.0,
+                    2.0
+                ],
+                "BillboardType": 0,
+                "IsHorizontalOrientation": false,
+                "ParticleRenderMode": 0,
+                "ParticleRenderAlignment": 0,
+                "FlipTexture": [
+                    false,
+                    false
+                ],
+                "IsSoft": false,
+                "SoftRange": 0.0,
+                "HasCollision": false,
+                "LayerIndex": 5,
+                "CollRadius": 0.25,
+                "HasTrail": false,
+                "TrailRatio": 0.0,
+                "WidthRM": 0,
+                "Width": [
+                    0.0,
+                    0.0
+                ],
+                "TrailQuadsRM": 0,
+                "TrailQuads": [
+                    0.0,
+                    0.0
+                ],
+                "QuadLifeRM": 0,
+                "QuadLife": [
+                    0.0,
+                    0.0
+                ],
+                "TextureTrailID": 0,
+                "FlipTrailTexture": [
+                    false,
+                    false
+                ],
+                "TextureRepeats": 0,
+                "HasColorOverTrail": false,
+                "GradientColorsTrail": null,
+                "NumberColorsTrail": 0,
+                "SubEmitters": null,
+                "SubEmittersNumber": 0,
+                "HasLights": false,
+                "LightGameObjectUID": 0,
+                "LightsRatio": 0.0,
+                "LightsOffset": [
+                    0.0,
+                    0.0,
+                    0.0
+                ],
+                "IntensityMultiplierRM": 0,
+                "IntensityMultiplier": [
+                    0.0,
+                    0.0
+                ],
+                "IntensityMultiplierCurve": [
+                    [
+                        -1.0,
+                        0.0
+                    ],
+                    [
+                        0.0,
+                        0.0
+                    ],
+                    [
+                        0.0,
+                        0.0
+                    ],
+                    [
+                        0.0,
+                        0.0
+                    ],
+                    [
+                        0.0,
+                        0.0
+                    ],
+                    [
+                        0.0,
+                        0.0
+                    ],
+                    [
+                        0.0,
+                        0.0
+                    ],
+                    [
+                        0.0,
+                        0.0
+                    ],
+                    [
+                        0.0,
+                        0.0
+                    ],
+                    [
+                        0.0,
+                        0.0
+                    ],
+                    [
+                        0.0,
+                        0.0
+                    ]
+                ],
+                "RangeMultiplierRM": 0,
+                "RangeMultiplier": [
+                    0.0,
+                    0.0
+                ],
+                "RangeMultiplierCurve": [
+                    [
+                        -1.0,
+                        0.0
+                    ],
+                    [
+                        0.0,
+                        0.0
+                    ],
+                    [
+                        0.0,
+                        0.0
+                    ],
+                    [
+                        0.0,
+                        0.0
+                    ],
+                    [
+                        0.0,
+                        0.0
+                    ],
+                    [
+                        0.0,
+                        0.0
+                    ],
+                    [
+                        0.0,
+                        0.0
+                    ],
+                    [
+                        0.0,
+                        0.0
+                    ],
+                    [
+                        0.0,
+                        0.0
+                    ],
+                    [
+                        0.0,
+                        0.0
+                    ],
+                    [
+                        0.0,
+                        0.0
+                    ]
+                ],
+                "UseParticleColor": false,
+                "UseCustomColor": false,
+                "GradientColorsLights": null,
+                "NumberColorsLights": 0,
+                "MaxLights": 0
+            }
+        ],
+        "Children": null
+    }
+}

@@ -1,0 +1,186 @@
+{
+    "Root": {
+        "Name": "VehicleLine",
+        "Active": true,
+        "RootBoneName": "",
+        "Mask": 0,
+        "Components": [
+            {
+                "Type": "Transform",
+                "Active": true,
+                "Position": [
+                    -250.0,
+                    -30.0,
+                    50.0
+                ],
+                "Rotation": [
+                    0.0,
+                    0.0,
+                    0.0,
+                    1.0
+                ],
+                "Scale": [
+                    1.0,
+                    1.0,
+                    1.0
+                ],
+                "LocalEulerAngles": [
+                    -0.0,
+                    0.0,
+                    -0.0
+                ]
+            },
+            {
+                "Type": "Script",
+                "Active": true,
+                "Script": 8875705943454853362,
+                "Values": [
+                    {
+                        "Name": "vehicle1",
+                        "Type": "PrefabResourceUID",
+                        "Value": 3237657694678883048
+                    },
+                    {
+                        "Name": "vehicle2",
+                        "Type": "PrefabResourceUID",
+                        "Value": 15333757708392388598
+                    },
+                    {
+                        "Name": "vehicle3",
+                        "Type": "PrefabResourceUID",
+                        "Value": 13738238535149178674
+                    },
+                    {
+                        "Name": "vehicle4",
+                        "Type": "PrefabResourceUID",
+                        "Value": 5239366216338372788
+                    },
+                    {
+                        "Name": "vehicle5",
+                        "Type": "PrefabResourceUID",
+                        "Value": 15475846715600996094
+                    },
+                    {
+                        "Name": "vehicle6",
+                        "Type": "PrefabResourceUID",
+                        "Value": 12437573046888991855
+                    },
+                    {
+                        "Name": "vehicle7",
+                        "Type": "PrefabResourceUID",
+                        "Value": 2729676839092542239
+                    },
+                    {
+                        "Name": "vehicle8",
+                        "Type": "PrefabResourceUID",
+                        "Value": 5037941105854918181
+                    },
+                    {
+                        "Name": "vehicle9",
+                        "Type": "PrefabResourceUID",
+                        "Value": 12737384454152834022
+                    },
+                    {
+                        "Name": "speed",
+                        "Type": "Float",
+                        "Value": 10.0
+                    },
+                    {
+                        "Name": "timeBetweenSpawns",
+                        "Type": "Float",
+                        "Value": 5.0
+                    }
+                ]
+            }
+        ],
+        "Children": [
+            {
+                "Name": "Vehicle05",
+                "Active": true,
+                "RootBoneName": "",
+                "Mask": 0,
+                "Components": [
+                    {
+                        "Type": "Transform",
+                        "Active": true,
+                        "Position": [
+                            250.0,
+                            30.0,
+                            -50.0
+                        ],
+                        "Rotation": [
+                            0.0,
+                            0.0,
+                            0.0,
+                            1.0
+                        ],
+                        "Scale": [
+                            0.5,
+                            0.5,
+                            0.5
+                        ],
+                        "LocalEulerAngles": [
+                            -0.0,
+                            0.0,
+                            -0.0
+                        ]
+                    }
+                ],
+                "Children": [
+                    {
+                        "Name": "Vehicle_005",
+                        "Active": true,
+                        "RootBoneName": "",
+                        "Mask": 0,
+                        "Components": [
+                            {
+                                "Type": "Transform",
+                                "Active": true,
+                                "Position": [
+                                    0.0,
+                                    0.0,
+                                    0.0
+                                ],
+                                "Rotation": [
+                                    -0.7071068286895752,
+                                    0.0,
+                                    0.0,
+                                    0.7071068286895752
+                                ],
+                                "Scale": [
+                                    1.0,
+                                    1.0,
+                                    1.0
+                                ],
+                                "LocalEulerAngles": [
+                                    -90.00000762939453,
+                                    0.0,
+                                    0.0
+                                ]
+                            },
+                            {
+                                "Type": "MeshRenderer",
+                                "Active": true,
+                                "MeshID": 7828512166382560049,
+                                "MaterialID": 16013720053952078208
+                            },
+                            {
+                                "Type": "BoundingBox",
+                                "Active": true,
+                                "LocalBoundingBox": [
+                                    -11.858428955078125,
+                                    -7.624393463134766,
+                                    0.0,
+                                    11.134050369262696,
+                                    8.898481369018555,
+                                    4.113058567047119
+                                ]
+                            }
+                        ],
+                        "Children": null
+                    }
+                ]
+            }
+        ]
+    }
+}

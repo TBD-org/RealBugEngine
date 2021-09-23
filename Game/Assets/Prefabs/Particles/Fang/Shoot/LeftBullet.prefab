@@ -1,0 +1,137 @@
+{
+    "Root": {
+        "Name": "LeftBullet",
+        "Active": true,
+        "RootBoneName": "",
+        "Mask": 0,
+        "Components": [
+            {
+                "Type": "Transform",
+                "Active": true,
+                "Position": [
+                    4.467521667480469,
+                    115.27362060546875,
+                    -185.60498046875
+                ],
+                "Rotation": [
+                    0.7071068286895752,
+                    3.3900153795229927e-9,
+                    1.4143820559198162e-9,
+                    0.7071067094802856
+                ],
+                "Scale": [
+                    1.0000001192092896,
+                    1.0000001192092896,
+                    1.0000001192092896
+                ],
+                "LocalEulerAngles": [
+                    90.00000762939453,
+                    3.892929214543983e-7,
+                    -1.6008257830435469e-7
+                ]
+            },
+            {
+                "Type": "Particle",
+                "Active": true,
+                "DrawGizmo": true,
+                "Duration": 0.5,
+                "Looping": false,
+                "StartDelay": [
+                    0.0,
+                    0.0
+                ],
+                "LifeRM": 0,
+                "Life": [
+                    1.0,
+                    10.0
+                ],
+                "SpeedRM": 0,
+                "Speed": [
+                    50.0,
+                    50.0
+                ],
+                "RotationRM": 0,
+                "Rotation": [
+                    0.0,
+                    0.0
+                ],
+                "ScaleRM": 0,
+                "Scale": [
+                    25.0,
+                    25.0
+                ],
+                "ReverseEffect": false,
+                "ReverseDistanceRM": 0,
+                "ReverseDistance": [
+                    5.0,
+                    5.0
+                ],
+                "MaxParticle": 1,
+                "AttachEmitter": false,
+                "ParticlesPerSecondRM": 0,
+                "ParticlesPerSecond": [
+                    10.0,
+                    10.0
+                ],
+                "GravityEffect": false,
+                "GravityFactorRM": 0,
+                "GravityFactor": [
+                    0.0,
+                    0.0
+                ],
+                "ParticleEmitterType": 0,
+                "ConeRadiusUp": 0.0,
+                "ConeRadiusDown": 0.0,
+                "RandomConeRadiusUp": false,
+                "RandomConeRadiusDown": false,
+                "RotationOverLifetime": false,
+                "RotationFactorRM": 0,
+                "RotationFactor": [
+                    0.0,
+                    0.0
+                ],
+                "SizeOverLifetime": false,
+                "ScaleFactorRM": 0,
+                "ScaleFactor": [
+                    0.0,
+                    0.0
+                ],
+                "ColorOverLifetime": true,
+                "GradientColors": [
+                    [
+                        1.0,
+                        0.815476655960083,
+                        0.0,
+                        1.0,
+                        0.0
+                    ],
+                    [
+                        1.0,
+                        1.0,
+                        1.0,
+                        1.0,
+                        1.0
+                    ]
+                ],
+                "NumberColors": 2,
+                "Ytiles": 1,
+                "Xtiles": 1,
+                "AnimationSpeed": 0.0,
+                "IsRandomFrame": false,
+                "LoopAnimation": true,
+                "NCycles": 1.0,
+                "TextureId": 465905571273810051,
+                "BillboardType": 1,
+                "ParticleRenderMode": 0,
+                "ParticleRenderAlignment": 0,
+                "FlipTexture": [
+                    false,
+                    false
+                ],
+                "HasCollision": true,
+                "LayerIndex": 5
+            }
+        ],
+        "Children": null
+    }
+}

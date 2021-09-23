@@ -1,0 +1,19 @@
+{
+    "Name": "Sprint",
+    "AnimationUID": 5614041873872763134,
+    "BeginIndex": 627,
+    "EndIndex": 646,
+    "Loop": true,
+    "Speed": 1.0,
+    "FrameRate": 0.03329545259475708,
+    "KeyEventClip": [
+        {
+            "KeyFrame": 627,
+            "Name": "FootstepLeft"
+        },
+        {
+            "KeyFrame": 637,
+            "Name": "FootstepRight"
+        }
+    ]
+}

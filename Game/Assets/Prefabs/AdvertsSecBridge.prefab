@@ -1,0 +1,182 @@
+{
+    "Root": {
+        "Name": "Advertisements",
+        "Active": true,
+        "RootBoneName": "",
+        "Mask": 0,
+        "Components": [
+            {
+                "Type": "Transform",
+                "Active": true,
+                "Position": [
+                    0.0,
+                    0.0,
+                    0.0
+                ],
+                "Rotation": [
+                    0.0,
+                    0.0,
+                    0.0,
+                    1.0
+                ],
+                "Scale": [
+                    1.0,
+                    1.0,
+                    1.0
+                ],
+                "LocalEulerAngles": [
+                    -0.0,
+                    0.0,
+                    -0.0
+                ]
+            }
+        ],
+        "Children": [
+            {
+                "Name": "AdvertBigGroup3",
+                "Active": true,
+                "RootBoneName": "",
+                "Mask": 0,
+                "Components": [
+                    {
+                        "Type": "Transform",
+                        "Active": true,
+                        "Position": [
+                            102.89099884033203,
+                            7.1519999504089359,
+                            -9.043000221252442
+                        ],
+                        "Rotation": [
+                            -0.7071068286895752,
+                            -2.1073320866094037e-8,
+                            2.1073345735089789e-8,
+                            0.7071067094802856
+                        ],
+                        "Scale": [
+                            1.0,
+                            1.0,
+                            1.0
+                        ],
+                        "LocalEulerAngles": [
+                            -90.00000762939453,
+                            -0.000003415080072954879,
+                            1.73022176013643e-12
+                        ]
+                    },
+                    {
+                        "Type": "Script",
+                        "Active": true,
+                        "Script": 0,
+                        "Values": null
+                    }
+                ],
+                "Children": [
+                    {
+                        "Name": "AdvertScreenBig",
+                        "Active": true,
+                        "RootBoneName": "",
+                        "Mask": 0,
+                        "Components": [
+                            {
+                                "Type": "Transform",
+                                "Active": true,
+                                "Position": [
+                                    0.002765655517578125,
+                                    -0.05736541748046875,
+                                    -0.000885009765625
+                                ],
+                                "Rotation": [
+                                    0.0,
+                                    0.0,
+                                    0.0,
+                                    1.0
+                                ],
+                                "Scale": [
+                                    1.0,
+                                    1.0,
+                                    1.0
+                                ],
+                                "LocalEulerAngles": [
+                                    -0.0,
+                                    0.0,
+                                    -0.0
+                                ]
+                            },
+                            {
+                                "Type": "MeshRenderer",
+                                "Active": true,
+                                "MeshID": 12715898510692136714,
+                                "MaterialID": 2920386521556173476
+                            },
+                            {
+                                "Type": "BoundingBox",
+                                "Active": true,
+                                "LocalBoundingBox": [
+                                    -4.395300388336182,
+                                    -3.104245536178496e-7,
+                                    -1.9053723812103272,
+                                    4.395300388336182,
+                                    3.104245536178496e-7,
+                                    1.9053723812103272
+                                ]
+                            }
+                        ],
+                        "Children": null
+                    },
+                    {
+                        "Name": "AdvertFrameBig",
+                        "Active": true,
+                        "RootBoneName": "",
+                        "Mask": 0,
+                        "Components": [
+                            {
+                                "Type": "Transform",
+                                "Active": true,
+                                "Position": [
+                                    -6.986896514892578,
+                                    0.032680511474609378,
+                                    0.00072479248046875
+                                ],
+                                "Rotation": [
+                                    0.0,
+                                    0.0,
+                                    -0.7071068286895752,
+                                    0.7071067094802856
+                                ],
+                                "Scale": [
+                                    1.0,
+                                    1.0,
+                                    1.0
+                                ],
+                                "LocalEulerAngles": [
+                                    0.0,
+                                    0.0,
+                                    -90.00000762939453
+                                ]
+                            },
+                            {
+                                "Type": "MeshRenderer",
+                                "Active": true,
+                                "MeshID": 995343750288165275,
+                                "MaterialID": 13740054556380489337
+                            },
+                            {
+                                "Type": "BoundingBox",
+                                "Active": true,
+                                "LocalBoundingBox": [
+                                    -0.23169025778770448,
+                                    2.4979934692382814,
+                                    -1.9955108165740967,
+                                    0.2970474660396576,
+                                    11.475801467895508,
+                                    1.9940623044967652
+                                ]
+                            }
+                        ],
+                        "Children": null
+                    }
+                ]
+            }
+        ]
+    }
+}

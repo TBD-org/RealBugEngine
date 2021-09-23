@@ -1,0 +1,312 @@
+{
+    "Root": {
+        "Name": "Bullet",
+        "Active": true,
+        "RootBoneName": "",
+        "Mask": 0,
+        "Components": [
+            {
+                "Type": "Transform",
+                "Active": true,
+                "Position": [
+                    0.0,
+                    0.0,
+                    0.0
+                ],
+                "Rotation": [
+                    0.0,
+                    0.0,
+                    0.0,
+                    1.0
+                ],
+                "Scale": [
+                    1.0,
+                    1.0,
+                    1.0
+                ],
+                "LocalEulerAngles": [
+                    -0.0,
+                    0.0,
+                    -0.0
+                ]
+            },
+            {
+                "Type": "SphereCollider",
+                "Active": true,
+                "colliderType": 2,
+                "layerType": 5,
+                "mass": 1.0,
+                "radius": 0.10000000149011612,
+                "centerOffset": [
+                    0.0,
+                    0.0,
+                    0.0
+                ],
+                "freezeRotation": false
+            },
+            {
+                "Type": "Script",
+                "Active": true,
+                "Script": 709869534139279052,
+                "Values": null
+            }
+        ],
+        "Children": [
+            {
+                "Name": "BasicTrail",
+                "Active": true,
+                "RootBoneName": "",
+                "Mask": 0,
+                "Components": [
+                    {
+                        "Type": "Transform",
+                        "Active": true,
+                        "Position": [
+                            0.0,
+                            0.0,
+                            0.0
+                        ],
+                        "Rotation": [
+                            0.0,
+                            0.0,
+                            0.0,
+                            1.0
+                        ],
+                        "Scale": [
+                            1.0,
+                            1.0,
+                            1.0
+                        ],
+                        "LocalEulerAngles": [
+                            -0.0,
+                            0.0,
+                            -0.0
+                        ]
+                    },
+                    {
+                        "Type": "Trail",
+                        "Active": true,
+                        "TextureId": 6070033773294191873,
+                        "MaxVertices": 1500,
+                        "TrailQuads": 50,
+                        "Width": 0.5,
+                        "TextureRepeats": 1,
+                        "QuadLife": 10.0,
+                        "IsRendering": true,
+                        "HasColorOverTrail": false,
+                        "GradientColor": null,
+                        "NumColors": 0
+                    },
+                    {
+                        "Type": "Script",
+                        "Active": false,
+                        "Script": 709869534139279052,
+                        "Values": [
+                            {
+                                "Name": "speed",
+                                "Type": "Int",
+                                "Value": 50
+                            }
+                        ]
+                    }
+                ],
+                "Children": null
+            },
+            {
+                "Name": "BasicTrail",
+                "Active": true,
+                "RootBoneName": "",
+                "Mask": 0,
+                "Components": [
+                    {
+                        "Type": "Transform",
+                        "Active": true,
+                        "Position": [
+                            0.0,
+                            0.0,
+                            0.0
+                        ],
+                        "Rotation": [
+                            0.0,
+                            0.0,
+                            0.7071068286895752,
+                            0.7071068286895752
+                        ],
+                        "Scale": [
+                            1.0,
+                            1.0,
+                            1.0
+                        ],
+                        "LocalEulerAngles": [
+                            -0.0,
+                            0.0,
+                            90.0
+                        ]
+                    },
+                    {
+                        "Type": "Trail",
+                        "Active": true,
+                        "TextureId": 6070033773294191873,
+                        "MaxVertices": 1500,
+                        "TrailQuads": 50,
+                        "Width": 0.5,
+                        "TextureRepeats": 1,
+                        "QuadLife": 10.0,
+                        "IsRendering": true,
+                        "HasColorOverTrail": false,
+                        "GradientColor": null,
+                        "NumColors": 0
+                    },
+                    {
+                        "Type": "Script",
+                        "Active": false,
+                        "Script": 709869534139279052,
+                        "Values": [
+                            {
+                                "Name": "speed",
+                                "Type": "Int",
+                                "Value": 50
+                            }
+                        ]
+                    }
+                ],
+                "Children": null
+            },
+            {
+                "Name": "ParticleSystem",
+                "Active": true,
+                "RootBoneName": "",
+                "Mask": 0,
+                "Components": [
+                    {
+                        "Type": "Transform",
+                        "Active": true,
+                        "Position": [
+                            -0.08529603481292725,
+                            9.22774600982666,
+                            0.0
+                        ],
+                        "Rotation": [
+                            0.0,
+                            0.0,
+                            0.0,
+                            1.0
+                        ],
+                        "Scale": [
+                            1.0,
+                            1.0,
+                            1.0
+                        ],
+                        "LocalEulerAngles": [
+                            -0.0,
+                            0.0,
+                            -0.0
+                        ]
+                    },
+                    {
+                        "Type": "Particle",
+                        "Active": true,
+                        "DrawGizmo": true,
+                        "Duration": 5.0,
+                        "Looping": false,
+                        "StartDelay": [
+                            0.0,
+                            0.0
+                        ],
+                        "LifeRM": 0,
+                        "Life": [
+                            5.0,
+                            5.0
+                        ],
+                        "SpeedRM": 0,
+                        "Speed": [
+                            0.0,
+                            1.2999999523162842
+                        ],
+                        "RotationRM": 0,
+                        "Rotation": [
+                            0.0,
+                            0.0
+                        ],
+                        "ScaleRM": 0,
+                        "Scale": [
+                            50.0,
+                            50.0
+                        ],
+                        "ReverseEffect": false,
+                        "ReverseDistanceRM": 0,
+                        "ReverseDistance": [
+                            5.0,
+                            5.0
+                        ],
+                        "MaxParticle": 1,
+                        "AttachEmitter": true,
+                        "ParticlesPerSecondRM": 0,
+                        "ParticlesPerSecond": [
+                            10.0,
+                            10.0
+                        ],
+                        "GravityEffect": false,
+                        "GravityFactorRM": 0,
+                        "GravityFactor": [
+                            0.0,
+                            0.0
+                        ],
+                        "ParticleEmitterType": 0,
+                        "ConeRadiusUp": 0.0,
+                        "ConeRadiusDown": 0.0,
+                        "RandomConeRadiusUp": false,
+                        "RandomConeRadiusDown": false,
+                        "RotationOverLifetime": false,
+                        "RotationFactorRM": 0,
+                        "RotationFactor": [
+                            0.0,
+                            0.0
+                        ],
+                        "SizeOverLifetime": false,
+                        "ScaleFactorRM": 0,
+                        "ScaleFactor": [
+                            0.0,
+                            0.0
+                        ],
+                        "ColorOverLifetime": false,
+                        "GradientColors": [
+                            [
+                                0.0,
+                                0.0,
+                                0.0,
+                                1.0,
+                                0.0
+                            ],
+                            [
+                                1.0,
+                                1.0,
+                                1.0,
+                                1.0,
+                                1.0
+                            ]
+                        ],
+                        "NumberColors": 2,
+                        "Ytiles": 1,
+                        "Xtiles": 1,
+                        "AnimationSpeed": 0.0,
+                        "IsRandomFrame": false,
+                        "LoopAnimation": true,
+                        "NCycles": 1.0,
+                        "TextureId": 465905571273810051,
+                        "BillboardType": 0,
+                        "ParticleRenderMode": 0,
+                        "ParticleRenderAlignment": 0,
+                        "FlipTexture": [
+                            false,
+                            false
+                        ],
+                        "HasCollision": true,
+                        "LayerIndex": 5
+                    }
+                ],
+                "Children": null
+            }
+        ]
+    }
+}

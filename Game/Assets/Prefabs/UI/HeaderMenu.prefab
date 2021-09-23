@@ -1,0 +1,285 @@
+{
+    "Root": {
+        "Name": "HeaderMenu",
+        "Active": true,
+        "RootBoneName": "",
+        "Components": [
+            {
+                "Type": "Transform",
+                "Active": true,
+                "Position": [
+                    0.0,
+                    0.0,
+                    0.0
+                ],
+                "Rotation": [
+                    0.0,
+                    0.0,
+                    0.0,
+                    1.0
+                ],
+                "Scale": [
+                    1.0,
+                    1.0,
+                    1.0
+                ],
+                "LocalEulerAngles": [
+                    0.0,
+                    0.0,
+                    0.0
+                ]
+            },
+            {
+                "Type": "Transform2D",
+                "Active": true,
+                "Position": [
+                    0.0,
+                    0.0,
+                    0.0
+                ],
+                "Rotation": [
+                    0.0,
+                    0.0,
+                    0.0,
+                    1.0
+                ],
+                "Scale": [
+                    1.0,
+                    1.0,
+                    1.0
+                ],
+                "LocalEulerAngles": [
+                    0.0,
+                    0.0,
+                    0.0
+                ],
+                "Pivot": [
+                    0.5,
+                    0.5
+                ],
+                "PivotPosition": [
+                    0.0,
+                    0.0,
+                    0.0
+                ],
+                "Size": [
+                    200.0,
+                    200.0
+                ],
+                "AnchorMin": [
+                    0.5,
+                    0.5
+                ],
+                "AnchorMax": [
+                    0.5,
+                    0.5
+                ],
+                "AnchorSelected": 5,
+                "IsCustomAnchor": false
+            },
+            {
+                "Type": "Canvas",
+                "Active": true
+            }
+        ],
+        "Children": [
+            {
+                "Name": "HeaderTitle",
+                "Active": true,
+                "RootBoneName": "",
+                "Components": [
+                    {
+                        "Type": "Transform",
+                        "Active": true,
+                        "Position": [
+                            0.0,
+                            0.0,
+                            0.0
+                        ],
+                        "Rotation": [
+                            0.0,
+                            0.0,
+                            0.0,
+                            1.0
+                        ],
+                        "Scale": [
+                            1.0,
+                            1.0,
+                            1.0
+                        ],
+                        "LocalEulerAngles": [
+                            -0.0,
+                            0.0,
+                            -0.0
+                        ]
+                    },
+                    {
+                        "Type": "Transform2D",
+                        "Active": true,
+                        "Position": [
+                            -100.0,
+                            420.0,
+                            0.0
+                        ],
+                        "Rotation": [
+                            0.0,
+                            0.0,
+                            0.0,
+                            1.0
+                        ],
+                        "Scale": [
+                            1.0,
+                            1.0,
+                            1.0
+                        ],
+                        "LocalEulerAngles": [
+                            0.0,
+                            0.0,
+                            0.0
+                        ],
+                        "Pivot": [
+                            0.5,
+                            0.5
+                        ],
+                        "PivotPosition": [
+                            -100.0,
+                            420.0,
+                            0.0
+                        ],
+                        "Size": [
+                            200.0,
+                            200.0
+                        ],
+                        "AnchorMin": [
+                            0.5,
+                            0.5
+                        ],
+                        "AnchorMax": [
+                            0.5,
+                            0.5
+                        ],
+                        "AnchorSelected": 5,
+                        "IsCustomAnchor": false
+                    },
+                    {
+                        "Type": "CanvasRenderer",
+                        "Active": true
+                    },
+                    {
+                        "Type": "Text",
+                        "Active": true,
+                        "FontID": 6705794873532878889,
+                        "FontSize": 52.0,
+                        "LineHeight": 16.0,
+                        "Alignment": 1,
+                        "Value": "SETTINGS\n",
+                        "Color": [
+                            0.9254902005195618,
+                            0.23529411852359773,
+                            0.5372549295425415,
+                            1.0
+                        ]
+                    }
+                ],
+                "Children": null
+            },
+            {
+                "Name": "HeaderStroke",
+                "Active": true,
+                "RootBoneName": "",
+                "Components": [
+                    {
+                        "Type": "Transform",
+                        "Active": true,
+                        "Position": [
+                            0.0,
+                            0.0,
+                            0.0
+                        ],
+                        "Rotation": [
+                            0.0,
+                            0.0,
+                            0.0,
+                            1.0
+                        ],
+                        "Scale": [
+                            1.0,
+                            1.0,
+                            1.0
+                        ],
+                        "LocalEulerAngles": [
+                            -0.0,
+                            0.0,
+                            -0.0
+                        ]
+                    },
+                    {
+                        "Type": "Transform2D",
+                        "Active": true,
+                        "Position": [
+                            0.0,
+                            355.0,
+                            0.0
+                        ],
+                        "Rotation": [
+                            0.0,
+                            0.0,
+                            0.0,
+                            1.0
+                        ],
+                        "Scale": [
+                            1.0,
+                            1.0,
+                            1.0
+                        ],
+                        "LocalEulerAngles": [
+                            0.0,
+                            0.0,
+                            0.0
+                        ],
+                        "Pivot": [
+                            0.5,
+                            0.5
+                        ],
+                        "PivotPosition": [
+                            0.0,
+                            355.0,
+                            0.0
+                        ],
+                        "Size": [
+                            1920.0,
+                            14.0
+                        ],
+                        "AnchorMin": [
+                            0.5,
+                            0.5
+                        ],
+                        "AnchorMax": [
+                            0.5,
+                            0.5
+                        ],
+                        "AnchorSelected": 5,
+                        "IsCustomAnchor": false
+                    },
+                    {
+                        "Type": "CanvasRenderer",
+                        "Active": true
+                    },
+                    {
+                        "Type": "Image",
+                        "Active": true,
+                        "TextureId": 7274770586266354261,
+                        "Color": [
+                            1.0,
+                            1.0,
+                            1.0,
+                            1.0
+                        ],
+                        "AlphaTransparency": true
+                    }
+                ],
+                "Children": null
+            }
+        ]
+    }
+}

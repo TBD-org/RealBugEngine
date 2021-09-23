@@ -1,0 +1,379 @@
+{
+    "Root": {
+        "Name": "PopupHint",
+        "Active": true,
+        "RootBoneName": "",
+        "Mask": 0,
+        "Components": [
+            {
+                "Type": "Transform2D",
+                "Active": true,
+                "Position": [
+                    0.0,
+                    300.0,
+                    0.0
+                ],
+                "Rotation": [
+                    0.0,
+                    0.0,
+                    0.0,
+                    1.0
+                ],
+                "Scale": [
+                    1.0,
+                    1.0,
+                    1.0
+                ],
+                "LocalEulerAngles": [
+                    0.0,
+                    0.0,
+                    0.0
+                ],
+                "Pivot": [
+                    0.5,
+                    0.5
+                ],
+                "PivotPosition": [
+                    0.0,
+                    300.0,
+                    0.0
+                ],
+                "Size": [
+                    200.0,
+                    200.0
+                ],
+                "AnchorMin": [
+                    0.5,
+                    0.5
+                ],
+                "AnchorMax": [
+                    0.5,
+                    0.5
+                ],
+                "AnchorSelected": 5,
+                "IsCustomAnchor": false
+            },
+            {
+                "Type": "Canvas",
+                "Active": true
+            },
+            {
+                "Type": "Script",
+                "Active": true,
+                "Script": 1850093179158141424,
+                "Values": [
+                    {
+                        "Name": "startPosition",
+                        "Type": "Float3",
+                        "Value": [
+                            0.0,
+                            300.0,
+                            0.0
+                        ]
+                    },
+                    {
+                        "Name": "appearAnimationTime",
+                        "Type": "Float",
+                        "Value": 0.30000001192092898
+                    },
+                    {
+                        "Name": "disappearAnimationTime",
+                        "Type": "Float",
+                        "Value": 0.30000001192092898
+                    }
+                ]
+            }
+        ],
+        "Children": [
+            {
+                "Name": "Dialog",
+                "Active": true,
+                "RootBoneName": "",
+                "Mask": 0,
+                "Components": [
+                    {
+                        "Type": "Transform2D",
+                        "Active": true,
+                        "Position": [
+                            0.0,
+                            -155.0,
+                            0.0
+                        ],
+                        "Rotation": [
+                            0.0,
+                            0.0,
+                            0.0,
+                            1.0
+                        ],
+                        "Scale": [
+                            1.0,
+                            1.0,
+                            1.0
+                        ],
+                        "LocalEulerAngles": [
+                            0.0,
+                            0.0,
+                            0.0
+                        ],
+                        "Pivot": [
+                            0.5,
+                            0.5
+                        ],
+                        "PivotPosition": [
+                            0.0,
+                            -155.0,
+                            0.0
+                        ],
+                        "Size": [
+                            200.0,
+                            200.0
+                        ],
+                        "AnchorMin": [
+                            0.5,
+                            1.0
+                        ],
+                        "AnchorMax": [
+                            0.5,
+                            1.0
+                        ],
+                        "AnchorSelected": 1,
+                        "IsCustomAnchor": false
+                    },
+                    {
+                        "Type": "Canvas",
+                        "Active": true
+                    }
+                ],
+                "Children": [
+                    {
+                        "Name": "DialogBackground",
+                        "Active": true,
+                        "RootBoneName": "",
+                        "Mask": 0,
+                        "Components": [
+                            {
+                                "Type": "Transform2D",
+                                "Active": true,
+                                "Position": [
+                                    0.0,
+                                    0.0,
+                                    0.0
+                                ],
+                                "Rotation": [
+                                    0.0,
+                                    0.0,
+                                    0.0,
+                                    1.0
+                                ],
+                                "Scale": [
+                                    1.0,
+                                    1.0,
+                                    1.0
+                                ],
+                                "LocalEulerAngles": [
+                                    0.0,
+                                    0.0,
+                                    0.0
+                                ],
+                                "Pivot": [
+                                    0.5,
+                                    0.5
+                                ],
+                                "PivotPosition": [
+                                    0.0,
+                                    0.0,
+                                    0.0
+                                ],
+                                "Size": [
+                                    652.0,
+                                    202.0
+                                ],
+                                "AnchorMin": [
+                                    0.5,
+                                    0.5
+                                ],
+                                "AnchorMax": [
+                                    0.5,
+                                    0.5
+                                ],
+                                "AnchorSelected": 5,
+                                "IsCustomAnchor": false
+                            },
+                            {
+                                "Type": "CanvasRenderer",
+                                "Active": true
+                            },
+                            {
+                                "Type": "Image",
+                                "Active": true,
+                                "TextureId": 6453818169544032100,
+                                "Color": [
+                                    0.0,
+                                    0.3450980484485626,
+                                    0.4588235318660736,
+                                    0.7019608020782471
+                                ],
+                                "AlphaTransparency": true,
+                                "IsFill": false,
+                                "FillValue": 1.0
+                            }
+                        ],
+                        "Children": [
+                            {
+                                "Name": "DialogStroke",
+                                "Active": true,
+                                "RootBoneName": "",
+                                "Mask": 0,
+                                "Components": [
+                                    {
+                                        "Type": "Transform2D",
+                                        "Active": true,
+                                        "Position": [
+                                            0.0,
+                                            0.0,
+                                            0.0
+                                        ],
+                                        "Rotation": [
+                                            0.0,
+                                            0.0,
+                                            0.0,
+                                            1.0
+                                        ],
+                                        "Scale": [
+                                            1.0,
+                                            1.0,
+                                            1.0
+                                        ],
+                                        "LocalEulerAngles": [
+                                            0.0,
+                                            0.0,
+                                            0.0
+                                        ],
+                                        "Pivot": [
+                                            0.5,
+                                            0.5
+                                        ],
+                                        "PivotPosition": [
+                                            0.0,
+                                            0.0,
+                                            0.0
+                                        ],
+                                        "Size": [
+                                            652.0,
+                                            202.0
+                                        ],
+                                        "AnchorMin": [
+                                            0.5,
+                                            0.5
+                                        ],
+                                        "AnchorMax": [
+                                            0.5,
+                                            0.5
+                                        ],
+                                        "AnchorSelected": 5,
+                                        "IsCustomAnchor": false
+                                    },
+                                    {
+                                        "Type": "CanvasRenderer",
+                                        "Active": true
+                                    },
+                                    {
+                                        "Type": "Image",
+                                        "Active": true,
+                                        "TextureId": 2654143147643981992,
+                                        "Color": [
+                                            1.0,
+                                            1.0,
+                                            1.0,
+                                            1.0
+                                        ],
+                                        "AlphaTransparency": true,
+                                        "IsFill": false,
+                                        "FillValue": 1.0
+                                    }
+                                ],
+                                "Children": null
+                            }
+                        ]
+                    },
+                    {
+                        "Name": "DialogText",
+                        "Active": true,
+                        "RootBoneName": "",
+                        "Mask": 0,
+                        "Components": [
+                            {
+                                "Type": "Transform2D",
+                                "Active": true,
+                                "Position": [
+                                    0.0,
+                                    42.0,
+                                    0.0
+                                ],
+                                "Rotation": [
+                                    0.0,
+                                    0.0,
+                                    0.0,
+                                    1.0
+                                ],
+                                "Scale": [
+                                    1.0,
+                                    1.0,
+                                    1.0
+                                ],
+                                "LocalEulerAngles": [
+                                    0.0,
+                                    0.0,
+                                    0.0
+                                ],
+                                "Pivot": [
+                                    0.5,
+                                    0.5
+                                ],
+                                "PivotPosition": [
+                                    0.0,
+                                    42.0,
+                                    0.0
+                                ],
+                                "Size": [
+                                    200.0,
+                                    200.0
+                                ],
+                                "AnchorMin": [
+                                    0.5,
+                                    0.5
+                                ],
+                                "AnchorMax": [
+                                    0.5,
+                                    0.5
+                                ],
+                                "AnchorSelected": 5,
+                                "IsCustomAnchor": false
+                            },
+                            {
+                                "Type": "CanvasRenderer",
+                                "Active": true
+                            },
+                            {
+                                "Type": "Text",
+                                "Active": true,
+                                "FontID": 9939030777484332345,
+                                "FontSize": 20.0,
+                                "LineHeight": 35.0,
+                                "Alignment": 1,
+                                "Value": "Texto que te explica que tienes que apretar\nun boton o que has completado un upgrade\no algo. Tutorial basicamente. Mas texto,\nhasta que ocupe 4 lineas.",
+                                "Color": [
+                                    1.0,
+                                    1.0,
+                                    1.0,
+                                    1.0
+                                ]
+                            }
+                        ],
+                        "Children": null
+                    }
+                ]
+            }
+        ]
+    }
+}

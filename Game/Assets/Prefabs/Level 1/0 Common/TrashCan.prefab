@@ -1,0 +1,54 @@
+{
+    "Root": {
+        "Name": "TrashCanLP",
+        "Active": true,
+        "RootBoneName": "",
+        "Mask": 0,
+        "Components": [
+            {
+                "Type": "Transform",
+                "Active": true,
+                "Position": [
+                    3.874140501022339,
+                    3.925863742828369,
+                    0.0
+                ],
+                "Rotation": [
+                    -0.7071068286895752,
+                    0.0,
+                    0.0,
+                    0.7071067094802856
+                ],
+                "Scale": [
+                    1.0,
+                    1.0000001192092896,
+                    1.0000001192092896
+                ],
+                "LocalEulerAngles": [
+                    -90.00000762939453,
+                    0.0,
+                    0.0
+                ]
+            },
+            {
+                "Type": "MeshRenderer",
+                "Active": true,
+                "MeshID": 1130117656427206250,
+                "MaterialID": 2402937197275389572
+            },
+            {
+                "Type": "BoundingBox",
+                "Active": true,
+                "LocalBoundingBox": [
+                    -0.4440031945705414,
+                    -0.5922859907150269,
+                    -0.7312150001525879,
+                    0.4440000355243683,
+                    0.592285692691803,
+                    0.7312148809432983
+                ]
+            }
+        ],
+        "Children": null
+    }
+}

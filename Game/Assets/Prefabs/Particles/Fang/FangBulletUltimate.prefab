@@ -1,0 +1,296 @@
+{
+    "Root": {
+        "Name": "FangBullet",
+        "Active": true,
+        "RootBoneName": "",
+        "Mask": 0,
+        "Components": [
+            {
+                "Type": "Transform",
+                "Active": true,
+                "Position": [
+                    -0.08529603481292725,
+                    9.22774600982666,
+                    0.0
+                ],
+                "Rotation": [
+                    0.0,
+                    0.0,
+                    0.0,
+                    1.0
+                ],
+                "Scale": [
+                    1.0,
+                    1.0,
+                    1.0
+                ],
+                "LocalEulerAngles": [
+                    0.0,
+                    0.0,
+                    -0.0
+                ]
+            },
+            {
+                "Type": "Particle",
+                "Active": true,
+                "DrawGizmo": true,
+                "Duration": 50.0,
+                "Looping": false,
+                "StartDelay": [
+                    0.0,
+                    0.5
+                ],
+                "LifeRM": 0,
+                "Life": [
+                    1.0,
+                    5.0
+                ],
+                "SpeedRM": 0,
+                "Speed": [
+                    0.0,
+                    100.0
+                ],
+                "RotationRM": 0,
+                "Rotation": [
+                    0.0,
+                    0.0
+                ],
+                "ScaleRM": 0,
+                "Scale": [
+                    65.0,
+                    65.0
+                ],
+                "ReverseEffect": false,
+                "ReverseDistanceRM": 0,
+                "ReverseDistance": [
+                    5.0,
+                    5.0
+                ],
+                "MaxParticle": 1,
+                "AttachEmitter": true,
+                "ParticlesPerSecondRM": 0,
+                "ParticlesPerSecond": [
+                    10.0,
+                    10.0
+                ],
+                "GravityEffect": false,
+                "GravityFactorRM": 0,
+                "GravityFactor": [
+                    0.0,
+                    0.0
+                ],
+                "ParticleEmitterType": 0,
+                "ConeRadiusUp": 0.0,
+                "ConeRadiusDown": 0.0,
+                "RandomConeRadiusUp": false,
+                "RandomConeRadiusDown": false,
+                "RotationOverLifetime": false,
+                "RotationFactorRM": 0,
+                "RotationFactor": [
+                    0.0,
+                    0.0
+                ],
+                "SizeOverLifetime": false,
+                "ScaleFactorRM": 0,
+                "ScaleFactor": [
+                    0.0,
+                    0.0
+                ],
+                "ColorOverLifetime": false,
+                "GradientColors": [
+                    [
+                        0.0,
+                        0.0,
+                        0.0,
+                        1.0,
+                        0.0
+                    ],
+                    [
+                        1.0,
+                        1.0,
+                        1.0,
+                        1.0,
+                        1.0
+                    ]
+                ],
+                "NumberColors": 2,
+                "Ytiles": 1,
+                "Xtiles": 1,
+                "AnimationSpeed": 0.0,
+                "IsRandomFrame": false,
+                "LoopAnimation": true,
+                "NCycles": 1.0,
+                "TextureId": 14833856789335581370,
+                "BillboardType": 1,
+                "ParticleRenderMode": 0,
+                "ParticleRenderAlignment": 0,
+                "FlipTexture": [
+                    false,
+                    false
+                ],
+                "HasCollision": true,
+                "LayerIndex": 5,
+                "CollRadius": 1.5
+            },
+            {
+                "Type": "Script",
+                "Active": true,
+                "Script": 709869534139279052,
+                "Values": [
+                    {
+                        "Name": "speed",
+                        "Type": "Int",
+                        "Value": 20
+                    },
+                    {
+                        "Name": "life",
+                        "Type": "Float",
+                        "Value": 1.0
+                    }
+                ]
+            }
+        ],
+        "Children": [
+            {
+                "Name": "BasicTrail",
+                "Active": false,
+                "RootBoneName": "",
+                "Mask": 0,
+                "Components": [
+                    {
+                        "Type": "Transform",
+                        "Active": false,
+                        "Position": [
+                            0.0,
+                            0.0,
+                            0.0
+                        ],
+                        "Rotation": [
+                            0.0,
+                            0.0,
+                            0.7071068286895752,
+                            0.7071067094802856
+                        ],
+                        "Scale": [
+                            1.0000001192092896,
+                            1.0000001192092896,
+                            1.0
+                        ],
+                        "LocalEulerAngles": [
+                            -0.0,
+                            0.0,
+                            90.00000762939453
+                        ]
+                    },
+                    {
+                        "Type": "Trail",
+                        "Active": false,
+                        "TextureId": 6070033773294191873,
+                        "MaxVertices": 1500,
+                        "TrailQuads": 50,
+                        "Width": 0.5,
+                        "TextureRepeats": 1,
+                        "QuadLife": 10.0,
+                        "IsRendering": true,
+                        "HasColorOverTrail": true,
+                        "GradientColor": [
+                            [
+                                0.13725490868091584,
+                                0.13725490868091584,
+                                0.13725490868091584,
+                                1.0,
+                                0.10379243642091751
+                            ],
+                            [
+                                1.0,
+                                0.9999899864196777,
+                                0.9999899864196777,
+                                1.0,
+                                0.4670659005641937
+                            ],
+                            [
+                                9.999999974752428e-7,
+                                9.999899930335233e-7,
+                                9.999899930335233e-7,
+                                1.0,
+                                0.8423153162002564
+                            ]
+                        ],
+                        "NumColors": 3
+                    }
+                ],
+                "Children": null
+            },
+            {
+                "Name": "BasicTrail",
+                "Active": false,
+                "RootBoneName": "",
+                "Mask": 0,
+                "Components": [
+                    {
+                        "Type": "Transform",
+                        "Active": false,
+                        "Position": [
+                            0.0,
+                            0.0,
+                            0.0
+                        ],
+                        "Rotation": [
+                            0.0,
+                            0.0,
+                            0.0,
+                            1.0
+                        ],
+                        "Scale": [
+                            1.0,
+                            1.0,
+                            1.0
+                        ],
+                        "LocalEulerAngles": [
+                            -0.0,
+                            0.0,
+                            -0.0
+                        ]
+                    },
+                    {
+                        "Type": "Trail",
+                        "Active": false,
+                        "TextureId": 6070033773294191873,
+                        "MaxVertices": 1500,
+                        "TrailQuads": 50,
+                        "Width": 0.5,
+                        "TextureRepeats": 1,
+                        "QuadLife": 10.0,
+                        "IsRendering": true,
+                        "HasColorOverTrail": true,
+                        "GradientColor": [
+                            [
+                                0.04313725605607033,
+                                0.04313725605607033,
+                                0.04313725605607033,
+                                1.0,
+                                0.045908182859420779
+                            ],
+                            [
+                                1.0,
+                                0.9999899864196777,
+                                0.9999899864196777,
+                                1.0,
+                                0.47904208302497866
+                            ],
+                            [
+                                9.999999974752428e-7,
+                                9.999899930335233e-7,
+                                9.999899930335233e-7,
+                                1.0,
+                                0.8722554445266724
+                            ]
+                        ],
+                        "NumColors": 3
+                    }
+                ],
+                "Children": null
+            }
+        ]
+    }
+}

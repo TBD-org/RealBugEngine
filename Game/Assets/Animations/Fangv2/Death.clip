@@ -1,0 +1,23 @@
+{
+    "Name": "Death",
+    "AnimationUID": 5614041873872763134,
+    "BeginIndex": 199,
+    "EndIndex": 273,
+    "Loop": false,
+    "Speed": 1.0,
+    "FrameRate": 0.03329545259475708,
+    "KeyEventClip": [
+        {
+            "KeyFrame": 200,
+            "Name": "Scream"
+        },
+        {
+            "KeyFrame": 230,
+            "Name": "Kneel"
+        },
+        {
+            "KeyFrame": 268,
+            "Name": "Faceplant"
+        }
+    ]
+}

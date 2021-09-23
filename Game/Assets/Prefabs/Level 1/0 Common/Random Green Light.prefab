@@ -1,0 +1,51 @@
+{
+    "Root": {
+        "Name": "Random Green Light",
+        "Active": true,
+        "RootBoneName": "",
+        "Mask": 0,
+        "Components": [
+            {
+                "Type": "Transform",
+                "Active": true,
+                "Position": [
+                    -141.42051696777345,
+                    7.583808898925781,
+                    -3.7246291637420656
+                ],
+                "Rotation": [
+                    0.0,
+                    0.0,
+                    0.0,
+                    1.0
+                ],
+                "Scale": [
+                    1.0,
+                    1.0,
+                    1.0
+                ],
+                "LocalEulerAngles": [
+                    -0.0,
+                    0.0,
+                    -0.0
+                ]
+            },
+            {
+                "Type": "Light",
+                "Active": true,
+                "LightType": 1,
+                "Color": [
+                    0.3927335739135742,
+                    1.0,
+                    0.20588237047195435
+                ],
+                "Intensity": 10.0,
+                "Kl": 0.04500000178813934,
+                "Kq": 0.03500000014901161,
+                "InnerAngle": 0.2617993950843811,
+                "OuterAngle": 0.5235987901687622
+            }
+        ],
+        "Children": null
+    }
+}

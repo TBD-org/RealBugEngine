@@ -1,0 +1,60 @@
+{
+    "Root": {
+        "Name": "Basic_Enemy_Robot_BACK",
+        "Active": true,
+        "RootBoneName": "",
+        "Mask": 0,
+        "Components": [
+            {
+                "Type": "Transform",
+                "Active": true,
+                "Position": [
+                    -9.399803161621094,
+                    -151.17288208007813,
+                    31.093896865844728
+                ],
+                "Rotation": [
+                    -2.117582368135751e-22,
+                    -1.1920926112907182e-7,
+                    1.0,
+                    -4.371138118131057e-8
+                ],
+                "Scale": [
+                    0.06114201620221138,
+                    0.04696200042963028,
+                    0.05532599985599518
+                ],
+                "LocalEulerAngles": [
+                    0.000013660374861501623,
+                    5.971138297353185e-13,
+                    -180.0
+                ]
+            },
+            {
+                "Type": "MeshRenderer",
+                "Active": true,
+                "MeshID": 2582520154438189510,
+                "MaterialID": 7680388105646881983
+            },
+            {
+                "Type": "MeshRenderer",
+                "Active": false,
+                "MeshID": 0,
+                "MaterialID": 7680388105646881983
+            },
+            {
+                "Type": "BoundingBox",
+                "Active": true,
+                "LocalBoundingBox": [
+                    -21.180160522460939,
+                    -18.94955062866211,
+                    -65.4778823852539,
+                    21.180267333984376,
+                    15.315740585327149,
+                    107.01914978027344
+                ]
+            }
+        ],
+        "Children": null
+    }
+}

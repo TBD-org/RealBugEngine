@@ -1,0 +1,269 @@
+{
+    "Root": {
+        "Name": "Laser Turret",
+        "Active": true,
+        "RootBoneName": "LaserTurret0",
+        "Mask": 0,
+        "Components": [
+            {
+                "Type": "Transform",
+                "Active": true,
+                "Position": [
+                    133.19932556152345,
+                    2.97094464302063,
+                    9.869871139526368
+                ],
+                "Rotation": [
+                    0.0,
+                    0.0,
+                    0.0,
+                    1.0
+                ],
+                "Scale": [
+                    0.6000000238418579,
+                    0.6000000238418579,
+                    0.6000000238418579
+                ],
+                "LocalEulerAngles": [
+                    -0.0,
+                    0.0,
+                    -0.0
+                ]
+            },
+            {
+                "Type": "Animation",
+                "Active": true,
+                "StateMachinePrincipalId": 0,
+                "StateMachineSecondaryId": 0
+            }
+        ],
+        "Children": [
+            {
+                "Name": "LaserTurret0",
+                "Active": true,
+                "RootBoneName": "",
+                "Mask": 0,
+                "Components": [
+                    {
+                        "Type": "Transform",
+                        "Active": true,
+                        "Position": [
+                            0.09688520431518555,
+                            -1.5290663242340088,
+                            -2.9396309852600099
+                        ],
+                        "Rotation": [
+                            0.0,
+                            0.0,
+                            0.0,
+                            1.0
+                        ],
+                        "Scale": [
+                            1.0,
+                            1.0,
+                            1.0
+                        ],
+                        "LocalEulerAngles": [
+                            -0.0,
+                            0.0,
+                            -0.0
+                        ]
+                    }
+                ],
+                "Children": [
+                    {
+                        "Name": "LaserTurret1",
+                        "Active": true,
+                        "RootBoneName": "",
+                        "Mask": 0,
+                        "Components": [
+                            {
+                                "Type": "Transform",
+                                "Active": true,
+                                "Position": [
+                                    -0.0038582193665206434,
+                                    0.0021790803875774147,
+                                    1.456048846244812
+                                ],
+                                "Rotation": [
+                                    0.10315351188182831,
+                                    -0.6995422840118408,
+                                    -0.10315351188182831,
+                                    0.6995422840118408
+                                ],
+                                "Scale": [
+                                    1.0,
+                                    1.0,
+                                    1.0
+                                ],
+                                "LocalEulerAngles": [
+                                    16.776611328125,
+                                    -90.0,
+                                    0.0
+                                ]
+                            }
+                        ],
+                        "Children": [
+                            {
+                                "Name": "LaserTurret2",
+                                "Active": true,
+                                "RootBoneName": "",
+                                "Mask": 0,
+                                "Components": [
+                                    {
+                                        "Type": "Transform",
+                                        "Active": true,
+                                        "Position": [
+                                            1.4195005893707276,
+                                            2.726823568344116,
+                                            1.1418560821540217e-17
+                                        ],
+                                        "Rotation": [
+                                            0.0,
+                                            0.0,
+                                            0.8794888854026794,
+                                            0.4759195148944855
+                                        ],
+                                        "Scale": [
+                                            1.0,
+                                            1.0,
+                                            1.0
+                                        ],
+                                        "LocalEulerAngles": [
+                                            -0.0,
+                                            0.0,
+                                            123.16153717041016
+                                        ]
+                                    }
+                                ],
+                                "Children": [
+                                    {
+                                        "Name": "LaserTurret3",
+                                        "Active": true,
+                                        "RootBoneName": "",
+                                        "Mask": 0,
+                                        "Components": [
+                                            {
+                                                "Type": "Transform",
+                                                "Active": true,
+                                                "Position": [
+                                                    4.727581977844238,
+                                                    0.6280792355537415,
+                                                    -8.803835460634584e-18
+                                                ],
+                                                "Rotation": [
+                                                    0.8121297359466553,
+                                                    0.5834769606590271,
+                                                    -3.278216809121659e-8,
+                                                    -2.89139236997471e-8
+                                                ],
+                                                "Scale": [
+                                                    1.0,
+                                                    1.0,
+                                                    1.0
+                                                ],
+                                                "LocalEulerAngles": [
+                                                    -180.0,
+                                                    -0.000004984043243894121,
+                                                    -71.39093780517578
+                                                ]
+                                            }
+                                        ],
+                                        "Children": [
+                                            {
+                                                "Name": "LaserTurret4",
+                                                "Active": true,
+                                                "RootBoneName": "",
+                                                "Mask": 0,
+                                                "Components": [
+                                                    {
+                                                        "Type": "Transform",
+                                                        "Active": true,
+                                                        "Position": [
+                                                            1.7440741062164307,
+                                                            -0.08188353478908539,
+                                                            2.2641458024881427e-16
+                                                        ],
+                                                        "Rotation": [
+                                                            -0.15346534550189973,
+                                                            -0.690252423286438,
+                                                            -0.15346534550189973,
+                                                            0.690252423286438
+                                                        ],
+                                                        "Scale": [
+                                                            1.0,
+                                                            0.9999999403953552,
+                                                            0.9999999403953552
+                                                        ],
+                                                        "LocalEulerAngles": [
+                                                            -90.0,
+                                                            -64.93038177490235,
+                                                            -90.0
+                                                        ]
+                                                    }
+                                                ],
+                                                "Children": null
+                                            }
+                                        ]
+                                    }
+                                ]
+                            }
+                        ]
+                    }
+                ]
+            },
+            {
+                "Name": "LaserTurret",
+                "Active": true,
+                "RootBoneName": "",
+                "Mask": 0,
+                "Components": [
+                    {
+                        "Type": "Transform",
+                        "Active": true,
+                        "Position": [
+                            0.0,
+                            0.0,
+                            0.0
+                        ],
+                        "Rotation": [
+                            0.0,
+                            0.0,
+                            0.0,
+                            1.0
+                        ],
+                        "Scale": [
+                            1.0,
+                            1.0,
+                            1.0
+                        ],
+                        "LocalEulerAngles": [
+                            -0.0,
+                            0.0,
+                            -0.0
+                        ]
+                    },
+                    {
+                        "Type": "MeshRenderer",
+                        "Active": true,
+                        "MeshID": 1074734580908252736,
+                        "MaterialID": 16489778883464609460
+                    },
+                    {
+                        "Type": "BoundingBox",
+                        "Active": true,
+                        "LocalBoundingBox": [
+                            -2.0555999279022219,
+                            -3.1215693950653078,
+                            -3.425575017929077,
+                            2.0556092262268068,
+                            3.1215693950653078,
+                            3.4255733489990236
+                        ]
+                    }
+                ],
+                "Children": null
+            }
+        ]
+    }
+}

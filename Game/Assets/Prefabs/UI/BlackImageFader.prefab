@@ -1,0 +1,387 @@
+{
+    "Root": {
+        "Name": "BlackImage (Fader)",
+        "Active": true,
+        "RootBoneName": "",
+        "Mask": 0,
+        "Components": [
+            {
+                "Type": "Transform2D",
+                "Active": true,
+                "Position": [
+                    0.0,
+                    0.0,
+                    0.0
+                ],
+                "Rotation": [
+                    0.0,
+                    0.0,
+                    0.0,
+                    1.0
+                ],
+                "Scale": [
+                    1.0,
+                    1.0,
+                    1.0
+                ],
+                "LocalEulerAngles": [
+                    0.0,
+                    0.0,
+                    0.0
+                ],
+                "Pivot": [
+                    0.5,
+                    0.5
+                ],
+                "Size": [
+                    4000.0,
+                    4000.0
+                ],
+                "AnchorMin": [
+                    0.5,
+                    0.5
+                ],
+                "AnchorMax": [
+                    0.5,
+                    0.5
+                ],
+                "AnchorSelected": 5,
+                "IsCustomAnchor": false
+            },
+            {
+                "Type": "CanvasRenderer",
+                "Active": true
+            },
+            {
+                "Type": "Image",
+                "Active": true,
+                "TextureId": 0,
+                "Color": [
+                    0.0,
+                    0.0,
+                    0.0,
+                    1.0
+                ],
+                "AlphaTransparency": true,
+                "IsFill": false,
+                "FillValue": 1.0,
+                "Offset": [
+                    0.0,
+                    0.0
+                ],
+                "Tiling": [
+                    1.0,
+                    1.0
+                ]
+            }
+        ],
+        "Children": [
+            {
+                "Name": "CanvasFadeInObject",
+                "Active": true,
+                "RootBoneName": "",
+                "Mask": 0,
+                "Components": [
+                    {
+                        "Type": "Transform2D",
+                        "Active": true,
+                        "Position": [
+                            0.0,
+                            0.0,
+                            0.0
+                        ],
+                        "Rotation": [
+                            0.0,
+                            0.0,
+                            0.0,
+                            1.0
+                        ],
+                        "Scale": [
+                            1.0,
+                            1.0,
+                            1.0
+                        ],
+                        "LocalEulerAngles": [
+                            0.0,
+                            0.0,
+                            0.0
+                        ],
+                        "Pivot": [
+                            0.5,
+                            0.5
+                        ],
+                        "Size": [
+                            200.0,
+                            200.0
+                        ],
+                        "AnchorMin": [
+                            0.5,
+                            0.5
+                        ],
+                        "AnchorMax": [
+                            0.5,
+                            0.5
+                        ],
+                        "AnchorSelected": 5,
+                        "IsCustomAnchor": false
+                    },
+                    {
+                        "Type": "Script",
+                        "Active": true,
+                        "Script": 2718730059581919394,
+                        "Values": [
+                            {
+                                "Name": "blackImageObjUID",
+                                "Type": "GameObjectUID",
+                                "Value": 12913078911473342687
+                            },
+                            {
+                                "Name": "fadeInOnStart",
+                                "Type": "Bool",
+                                "Value": true
+                            }
+                        ]
+                    }
+                ],
+                "Children": null
+            },
+            {
+                "Name": "FadeOutToMainMenuTransition",
+                "Active": true,
+                "RootBoneName": "",
+                "Mask": 0,
+                "Components": [
+                    {
+                        "Type": "Transform2D",
+                        "Active": true,
+                        "Position": [
+                            0.0,
+                            0.0,
+                            0.0
+                        ],
+                        "Rotation": [
+                            0.0,
+                            0.0,
+                            0.0,
+                            1.0
+                        ],
+                        "Scale": [
+                            1.0,
+                            1.0,
+                            1.0
+                        ],
+                        "LocalEulerAngles": [
+                            0.0,
+                            0.0,
+                            0.0
+                        ],
+                        "Pivot": [
+                            0.5,
+                            0.5
+                        ],
+                        "Size": [
+                            200.0,
+                            200.0
+                        ],
+                        "AnchorMin": [
+                            0.5,
+                            0.5
+                        ],
+                        "AnchorMax": [
+                            0.5,
+                            0.5
+                        ],
+                        "AnchorSelected": 5,
+                        "IsCustomAnchor": false
+                    },
+                    {
+                        "Type": "Script",
+                        "Active": true,
+                        "Script": 6262597350794648683,
+                        "Values": [
+                            {
+                                "Name": "transitionUID",
+                                "Type": "GameObjectUID",
+                                "Value": 12913078911473342687
+                            },
+                            {
+                                "Name": "levelNum",
+                                "Type": "Int",
+                                "Value": 0
+                            },
+                            {
+                                "Name": "sceneUID",
+                                "Type": "SceneResourceUID",
+                                "Value": 2968379164312150788
+                            },
+                            {
+                                "Name": "transitionMove",
+                                "Type": "Int",
+                                "Value": 5
+                            }
+                        ]
+                    }
+                ],
+                "Children": null
+            },
+            {
+                "Name": "FadeOutToPlayAgainTransition",
+                "Active": true,
+                "RootBoneName": "",
+                "Mask": 0,
+                "Components": [
+                    {
+                        "Type": "Transform2D",
+                        "Active": true,
+                        "Position": [
+                            0.0,
+                            0.0,
+                            0.0
+                        ],
+                        "Rotation": [
+                            0.0,
+                            0.0,
+                            0.0,
+                            1.0
+                        ],
+                        "Scale": [
+                            1.0,
+                            1.0,
+                            1.0
+                        ],
+                        "LocalEulerAngles": [
+                            0.0,
+                            0.0,
+                            0.0
+                        ],
+                        "Pivot": [
+                            0.5,
+                            0.5
+                        ],
+                        "Size": [
+                            200.0,
+                            200.0
+                        ],
+                        "AnchorMin": [
+                            0.5,
+                            0.5
+                        ],
+                        "AnchorMax": [
+                            0.5,
+                            0.5
+                        ],
+                        "AnchorSelected": 5,
+                        "IsCustomAnchor": false
+                    },
+                    {
+                        "Type": "Script",
+                        "Active": true,
+                        "Script": 6262597350794648683,
+                        "Values": [
+                            {
+                                "Name": "transitionUID",
+                                "Type": "GameObjectUID",
+                                "Value": 12913078911473342687
+                            },
+                            {
+                                "Name": "levelNum",
+                                "Type": "Int",
+                                "Value": 0
+                            },
+                            {
+                                "Name": "sceneUID",
+                                "Type": "SceneResourceUID",
+                                "Value": 16750748729404978056
+                            },
+                            {
+                                "Name": "transitionMove",
+                                "Type": "Int",
+                                "Value": 5
+                            }
+                        ]
+                    }
+                ],
+                "Children": null
+            },
+            {
+                "Name": "FadeOutToLevel2Transition",
+                "Active": true,
+                "RootBoneName": "",
+                "Mask": 0,
+                "Components": [
+                    {
+                        "Type": "Transform2D",
+                        "Active": true,
+                        "Position": [
+                            0.0,
+                            0.0,
+                            0.0
+                        ],
+                        "Rotation": [
+                            0.0,
+                            0.0,
+                            0.0,
+                            1.0
+                        ],
+                        "Scale": [
+                            1.0,
+                            1.0,
+                            1.0
+                        ],
+                        "LocalEulerAngles": [
+                            0.0,
+                            0.0,
+                            0.0
+                        ],
+                        "Pivot": [
+                            0.5,
+                            0.5
+                        ],
+                        "Size": [
+                            200.0,
+                            200.0
+                        ],
+                        "AnchorMin": [
+                            0.5,
+                            0.5
+                        ],
+                        "AnchorMax": [
+                            0.5,
+                            0.5
+                        ],
+                        "AnchorSelected": 5,
+                        "IsCustomAnchor": false
+                    },
+                    {
+                        "Type": "Script",
+                        "Active": true,
+                        "Script": 6262597350794648683,
+                        "Values": [
+                            {
+                                "Name": "sceneUID",
+                                "Type": "SceneResourceUID",
+                                "Value": 16673328961097328620
+                            },
+                            {
+                                "Name": "transitionMove",
+                                "Type": "Int",
+                                "Value": 5
+                            },
+                            {
+                                "Name": "transitionUID",
+                                "Type": "GameObjectUID",
+                                "Value": 12913078911473342687
+                            },
+                            {
+                                "Name": "levelNum",
+                                "Type": "Int",
+                                "Value": 2
+                            }
+                        ]
+                    }
+                ],
+                "Children": null
+            }
+        ]
+    }
+}

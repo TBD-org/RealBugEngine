@@ -1,0 +1,53 @@
+{
+    "Root": {
+        "Name": "LowHP Sound",
+        "Active": true,
+        "RootBoneName": "",
+        "Mask": 0,
+        "Components": [
+            {
+                "Type": "Transform",
+                "Active": true,
+                "Position": [
+                    0.0,
+                    0.0,
+                    0.0
+                ],
+                "Rotation": [
+                    0.0,
+                    0.0,
+                    0.0,
+                    1.0
+                ],
+                "Scale": [
+                    1.0,
+                    1.0,
+                    1.0
+                ],
+                "LocalEulerAngles": [
+                    -0.0,
+                    0.0,
+                    -0.0
+                ]
+            },
+            {
+                "Type": "AudioSource",
+                "Active": true,
+                "Pitch": 1.0,
+                "Gain": 0.4000000059604645,
+                "Mute": false,
+                "Looping": true,
+                "AudioClipId": 13770827620777933400,
+                "SpatialBlend": 0,
+                "SourceType": 0,
+                "InnerAngle": 90.0,
+                "OuterAngle": 180.0,
+                "OuterGain": 0.0,
+                "RolloffFactor": 1.0,
+                "ReferenceDistance": 10.0,
+                "MaxDistance": 30.0
+            }
+        ],
+        "Children": null
+    }
+}

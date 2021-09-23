@@ -1,0 +1,130 @@
+{
+    "Root": {
+        "Name": "WindParticles",
+        "Active": true,
+        "RootBoneName": "",
+        "Mask": 0,
+        "Components": [
+            {
+                "Type": "Transform",
+                "Active": true,
+                "Position": [
+                    229.9444580078125,
+                    16.009294509887697,
+                    -3.4952114986996907e-12
+                ],
+                "Rotation": [
+                    5.989427811285725e-22,
+                    1.0048591563601838e-14,
+                    0.7071068286895752,
+                    0.7071067094802856
+                ],
+                "Scale": [
+                    1.0000001192092896,
+                    1.0000001192092896,
+                    1.0
+                ],
+                "LocalEulerAngles": [
+                    -8.14221953748806e-13,
+                    8.14221953748806e-13,
+                    90.00000762939453
+                ]
+            },
+            {
+                "Type": "Particle",
+                "Active": true,
+                "DrawGizmo": true,
+                "Duration": 5.0,
+                "Looping": true,
+                "StartDelay": [
+                    0.0,
+                    0.0
+                ],
+                "LifeRM": 0,
+                "Life": [
+                    30.0,
+                    30.0
+                ],
+                "SpeedRM": 0,
+                "Speed": [
+                    15.0,
+                    15.0
+                ],
+                "RotationRM": 1,
+                "Rotation": [
+                    6.2831854820251469,
+                    -6.2831854820251469
+                ],
+                "ScaleRM": 0,
+                "Scale": [
+                    1500.0,
+                    1550.0
+                ],
+                "ReverseEffect": false,
+                "ReverseDistanceRM": 0,
+                "ReverseDistance": [
+                    5.0,
+                    5.0
+                ],
+                "MaxParticle": 100,
+                "AttachEmitter": true,
+                "ParticlesPerSecondRM": 0,
+                "ParticlesPerSecond": [
+                    0.30000001192092898,
+                    10.0
+                ],
+                "GravityEffect": false,
+                "GravityFactorRM": 0,
+                "GravityFactor": [
+                    0.0,
+                    0.0
+                ],
+                "ParticleEmitterType": 0,
+                "ConeRadiusUp": 1.0,
+                "ConeRadiusDown": 1.0,
+                "RandomConeRadiusUp": false,
+                "RandomConeRadiusDown": false,
+                "RotationOverLifetime": false,
+                "RotationFactorRM": 0,
+                "RotationFactor": [
+                    0.0,
+                    0.0
+                ],
+                "SizeOverLifetime": false,
+                "ScaleFactorRM": 0,
+                "ScaleFactor": [
+                    0.0,
+                    0.0
+                ],
+                "ColorOverLifetime": true,
+                "GradientColors": [
+                    [
+                        0.7960784435272217,
+                        0.7960784435272217,
+                        0.7960784435272217,
+                        0.1568627506494522,
+                        0.27213114500045779
+                    ]
+                ],
+                "NumberColors": 1,
+                "Ytiles": 1,
+                "Xtiles": 1,
+                "AnimationSpeed": 0.0,
+                "IsRandomFrame": false,
+                "LoopAnimation": true,
+                "NCycles": 1.0,
+                "TextureId": 4791890127668400584,
+                "BillboardType": 0,
+                "ParticleRenderMode": 1,
+                "ParticleRenderAlignment": 0,
+                "FlipTexture": [
+                    false,
+                    false
+                ],
+                "HasCollision": false,
+                "LayerIndex": 5
+            }
+        ],
+        "Children": null
+    }
+}

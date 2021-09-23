@@ -1,0 +1,2544 @@
+{
+    "InitialState": 0,
+    "Clips": [
+        6596084817977919873,
+        17560830967340955361,
+        7426381447337204257,
+        16865958830276976099,
+        15496718435214868538,
+        11011365760343018401,
+        10567638536609552179,
+        9663623605309558785,
+        3552394736634583869,
+        9698418308699706092,
+        12606005703814406907,
+        11046764071716188253,
+        12394941174622432509,
+        4783932511664094233,
+        2310740505728689232,
+        18090363126884804128,
+        4385816480137610121,
+        4985436882696195802,
+        15569992378228430561
+    ],
+    "States": [
+        {
+            "Id": 8598017987142044379,
+            "Name": "Death",
+            "ClipId": 6596084817977919873
+        },
+        {
+            "Id": 6948801451410805534,
+            "Name": "RunForward",
+            "ClipId": 17560830967340955361
+        },
+        {
+            "Id": 1638938587667713099,
+            "Name": "RunLeft",
+            "ClipId": 7426381447337204257
+        },
+        {
+            "Id": 13596117587985697169,
+            "Name": "EnergyBlast",
+            "ClipId": 16865958830276976099
+        },
+        {
+            "Id": 8508529589838149165,
+            "Name": "RunBackwardRight",
+            "ClipId": 15496718435214868538
+        },
+        {
+            "Id": 5103231915897851823,
+            "Name": "Idle",
+            "ClipId": 11011365760343018401
+        },
+        {
+            "Id": 3869689853014485125,
+            "Name": "RunForwardLeft",
+            "ClipId": 10567638536609552179
+        },
+        {
+            "Id": 10285600828931603905,
+            "Name": "RunBackward",
+            "ClipId": 9663623605309558785
+        },
+        {
+            "Id": 9431290502876273480,
+            "Name": "UltiLoop",
+            "ClipId": 3552394736634583869
+        },
+        {
+            "Id": 9382344242650045229,
+            "Name": "RunBackwardLeft",
+            "ClipId": 9698418308699706092
+        },
+        {
+            "Id": 15472456517811950115,
+            "Name": "Switch",
+            "ClipId": 12606005703814406907
+        },
+        {
+            "Id": 16730477142458022846,
+            "Name": "RunForwardRight",
+            "ClipId": 11046764071716188253
+        },
+        {
+            "Id": 3249992169299185477,
+            "Name": "RunRight",
+            "ClipId": 12394941174622432509
+        },
+        {
+            "Id": 14842078960545120864,
+            "Name": "Shield",
+            "ClipId": 4783932511664094233
+        },
+        {
+            "Id": 6884327452410582609,
+            "Name": "Shooting",
+            "ClipId": 2310740505728689232
+        },
+        {
+            "Id": 14623845741805147319,
+            "Name": "ShootingBlast",
+            "ClipId": 18090363126884804128
+        },
+        {
+            "Id": 12810921034723524839,
+            "Name": "ShootingShield",
+            "ClipId": 4385816480137610121
+        },
+        {
+            "Id": 11829832492291328304,
+            "Name": "UltiIntro",
+            "ClipId": 4985436882696195802
+        },
+        {
+            "Id": 18228115006919872701,
+            "Name": "UltiLoopWalking",
+            "ClipId": 15569992378228430561
+        }
+    ],
+    "Transitions": [
+        {
+            "Trigger": "EnergyBlastUltiLoopWalking",
+            "Id": 10437427412888995877,
+            "Source": 13596117587985697169,
+            "Target": 18228115006919872701,
+            "Interpolation": 0.3
+        },
+        {
+            "Trigger": "EnergyBlastDeath",
+            "Id": 8393396594719976873,
+            "Source": 13596117587985697169,
+            "Target": 8598017987142044379,
+            "Interpolation": 0.3
+        },
+        {
+            "Trigger": "EnergyBlastRunBackwardRight",
+            "Id": 18169218514555020496,
+            "Source": 13596117587985697169,
+            "Target": 8508529589838149165,
+            "Interpolation": 0.3
+        },
+        {
+            "Trigger": "EnergyBlastShootingShield",
+            "Id": 1001510547748224468,
+            "Source": 13596117587985697169,
+            "Target": 12810921034723524839,
+            "Interpolation": 0.3
+        },
+        {
+            "Trigger": "EnergyBlastRunForward",
+            "Id": 10479708435972981901,
+            "Source": 13596117587985697169,
+            "Target": 6948801451410805534,
+            "Interpolation": 0.3
+        },
+        {
+            "Trigger": "EnergyBlastRunForwardLeft",
+            "Id": 9425116973347965242,
+            "Source": 13596117587985697169,
+            "Target": 3869689853014485125,
+            "Interpolation": 0.3
+        },
+        {
+            "Trigger": "EnergyBlastRunLeft",
+            "Id": 10594011232838023062,
+            "Source": 13596117587985697169,
+            "Target": 1638938587667713099,
+            "Interpolation": 0.3
+        },
+        {
+            "Trigger": "EnergyBlastIdle",
+            "Id": 18433128590924611083,
+            "Source": 13596117587985697169,
+            "Target": 5103231915897851823,
+            "Interpolation": 0.3
+        },
+        {
+            "Trigger": "EnergyBlastRunBackward",
+            "Id": 3738677878688120909,
+            "Source": 13596117587985697169,
+            "Target": 10285600828931603905,
+            "Interpolation": 0.3
+        },
+        {
+            "Trigger": "EnergyBlastUltiLoop",
+            "Id": 14999925054705944595,
+            "Source": 13596117587985697169,
+            "Target": 9431290502876273480,
+            "Interpolation": 0.3
+        },
+        {
+            "Trigger": "EnergyBlastRunBackwardLeft",
+            "Id": 18282346796970466698,
+            "Source": 13596117587985697169,
+            "Target": 9382344242650045229,
+            "Interpolation": 0.3
+        },
+        {
+            "Trigger": "EnergyBlastSwitch",
+            "Id": 2844936501958919091,
+            "Source": 13596117587985697169,
+            "Target": 15472456517811950115,
+            "Interpolation": 0.3
+        },
+        {
+            "Trigger": "EnergyBlastRunForwardRight",
+            "Id": 13804770765557717555,
+            "Source": 13596117587985697169,
+            "Target": 16730477142458022846,
+            "Interpolation": 0.3
+        },
+        {
+            "Trigger": "EnergyBlastRunRight",
+            "Id": 12524261703612532099,
+            "Source": 13596117587985697169,
+            "Target": 3249992169299185477,
+            "Interpolation": 0.3
+        },
+        {
+            "Trigger": "EnergyBlastShield",
+            "Id": 17635750605920275914,
+            "Source": 13596117587985697169,
+            "Target": 14842078960545120864,
+            "Interpolation": 0.3
+        },
+        {
+            "Trigger": "EnergyBlastShooting",
+            "Id": 11433579438231547390,
+            "Source": 13596117587985697169,
+            "Target": 6884327452410582609,
+            "Interpolation": 0.3
+        },
+        {
+            "Trigger": "EnergyBlastShootingBlast",
+            "Id": 2131414296578720320,
+            "Source": 13596117587985697169,
+            "Target": 14623845741805147319,
+            "Interpolation": 0.3
+        },
+        {
+            "Trigger": "EnergyBlastUltiIntro",
+            "Id": 1714651740597807446,
+            "Source": 13596117587985697169,
+            "Target": 11829832492291328304,
+            "Interpolation": 0.3
+        },
+        {
+            "Trigger": "UltiLoopWalkingEnergyBlast",
+            "Id": 1286834076039216118,
+            "Source": 18228115006919872701,
+            "Target": 13596117587985697169,
+            "Interpolation": 0.3
+        },
+        {
+            "Trigger": "UltiLoopWalkingDeath",
+            "Id": 11960966418019219266,
+            "Source": 18228115006919872701,
+            "Target": 8598017987142044379,
+            "Interpolation": 0.3
+        },
+        {
+            "Trigger": "UltiLoopWalkingRunBackwardRight",
+            "Id": 17052932950392799517,
+            "Source": 18228115006919872701,
+            "Target": 8508529589838149165,
+            "Interpolation": 0.3
+        },
+        {
+            "Trigger": "UltiLoopWalkingShootingShield",
+            "Id": 2753720141074230726,
+            "Source": 18228115006919872701,
+            "Target": 12810921034723524839,
+            "Interpolation": 0.3
+        },
+        {
+            "Trigger": "UltiLoopWalkingRunForward",
+            "Id": 1067848304429137772,
+            "Source": 18228115006919872701,
+            "Target": 6948801451410805534,
+            "Interpolation": 0.3
+        },
+        {
+            "Trigger": "UltiLoopWalkingRunForwardLeft",
+            "Id": 9077311106909440941,
+            "Source": 18228115006919872701,
+            "Target": 3869689853014485125,
+            "Interpolation": 0.3
+        },
+        {
+            "Trigger": "UltiLoopWalkingRunLeft",
+            "Id": 2062123841347010993,
+            "Source": 18228115006919872701,
+            "Target": 1638938587667713099,
+            "Interpolation": 0.3
+        },
+        {
+            "Trigger": "UltiLoopWalkingIdle",
+            "Id": 15916983513309139728,
+            "Source": 18228115006919872701,
+            "Target": 5103231915897851823,
+            "Interpolation": 0.3
+        },
+        {
+            "Trigger": "UltiLoopWalkingRunBackward",
+            "Id": 1143007024538762762,
+            "Source": 18228115006919872701,
+            "Target": 10285600828931603905,
+            "Interpolation": 0.3
+        },
+        {
+            "Trigger": "UltiLoopWalkingUltiLoop",
+            "Id": 5193954094277477073,
+            "Source": 18228115006919872701,
+            "Target": 9431290502876273480,
+            "Interpolation": 0.3
+        },
+        {
+            "Trigger": "UltiLoopWalkingRunBackwardLeft",
+            "Id": 15513843285402766723,
+            "Source": 18228115006919872701,
+            "Target": 9382344242650045229,
+            "Interpolation": 0.3
+        },
+        {
+            "Trigger": "UltiLoopWalkingSwitch",
+            "Id": 3293175639936444667,
+            "Source": 18228115006919872701,
+            "Target": 15472456517811950115,
+            "Interpolation": 0.3
+        },
+        {
+            "Trigger": "UltiLoopWalkingRunForwardRight",
+            "Id": 14534937766264764929,
+            "Source": 18228115006919872701,
+            "Target": 16730477142458022846,
+            "Interpolation": 0.3
+        },
+        {
+            "Trigger": "UltiLoopWalkingRunRight",
+            "Id": 4884365822155723951,
+            "Source": 18228115006919872701,
+            "Target": 3249992169299185477,
+            "Interpolation": 0.3
+        },
+        {
+            "Trigger": "UltiLoopWalkingShield",
+            "Id": 9851694609192125393,
+            "Source": 18228115006919872701,
+            "Target": 14842078960545120864,
+            "Interpolation": 0.3
+        },
+        {
+            "Trigger": "UltiLoopWalkingShooting",
+            "Id": 8566422072852904607,
+            "Source": 18228115006919872701,
+            "Target": 6884327452410582609,
+            "Interpolation": 0.3
+        },
+        {
+            "Trigger": "UltiLoopWalkingShootingBlast",
+            "Id": 2306460415478367151,
+            "Source": 18228115006919872701,
+            "Target": 14623845741805147319,
+            "Interpolation": 0.3
+        },
+        {
+            "Trigger": "UltiLoopWalkingUltiIntro",
+            "Id": 5894870567599415645,
+            "Source": 18228115006919872701,
+            "Target": 11829832492291328304,
+            "Interpolation": 0.3
+        },
+        {
+            "Trigger": "DeathEnergyBlast",
+            "Id": 4906086632554131106,
+            "Source": 8598017987142044379,
+            "Target": 13596117587985697169,
+            "Interpolation": 0.3
+        },
+        {
+            "Trigger": "DeathUltiLoopWalking",
+            "Id": 17571042317274572277,
+            "Source": 8598017987142044379,
+            "Target": 18228115006919872701,
+            "Interpolation": 0.3
+        },
+        {
+            "Trigger": "DeathRunBackwardRight",
+            "Id": 4121982157197089348,
+            "Source": 8598017987142044379,
+            "Target": 8508529589838149165,
+            "Interpolation": 0.3
+        },
+        {
+            "Trigger": "DeathShootingShield",
+            "Id": 2800265063024136237,
+            "Source": 8598017987142044379,
+            "Target": 12810921034723524839,
+            "Interpolation": 0.3
+        },
+        {
+            "Trigger": "DeathRunForward",
+            "Id": 17694493262490478311,
+            "Source": 8598017987142044379,
+            "Target": 6948801451410805534,
+            "Interpolation": 0.3
+        },
+        {
+            "Trigger": "DeathRunForwardLeft",
+            "Id": 12839188058062687740,
+            "Source": 8598017987142044379,
+            "Target": 3869689853014485125,
+            "Interpolation": 0.3
+        },
+        {
+            "Trigger": "DeathRunLeft",
+            "Id": 10077347927869871800,
+            "Source": 8598017987142044379,
+            "Target": 1638938587667713099,
+            "Interpolation": 0.3
+        },
+        {
+            "Trigger": "DeathIdle",
+            "Id": 2203789261523938919,
+            "Source": 8598017987142044379,
+            "Target": 5103231915897851823,
+            "Interpolation": 0.3
+        },
+        {
+            "Trigger": "DeathRunBackward",
+            "Id": 13044337650626916098,
+            "Source": 8598017987142044379,
+            "Target": 10285600828931603905,
+            "Interpolation": 0.3
+        },
+        {
+            "Trigger": "DeathUltiLoop",
+            "Id": 15339387614372345108,
+            "Source": 8598017987142044379,
+            "Target": 9431290502876273480,
+            "Interpolation": 0.3
+        },
+        {
+            "Trigger": "DeathRunBackwardLeft",
+            "Id": 9893151421359491564,
+            "Source": 8598017987142044379,
+            "Target": 9382344242650045229,
+            "Interpolation": 0.3
+        },
+        {
+            "Trigger": "DeathSwitch",
+            "Id": 872540627314849006,
+            "Source": 8598017987142044379,
+            "Target": 15472456517811950115,
+            "Interpolation": 0.3
+        },
+        {
+            "Trigger": "DeathRunForwardRight",
+            "Id": 5973205094274112878,
+            "Source": 8598017987142044379,
+            "Target": 16730477142458022846,
+            "Interpolation": 0.3
+        },
+        {
+            "Trigger": "DeathRunRight",
+            "Id": 15776350329068186106,
+            "Source": 8598017987142044379,
+            "Target": 3249992169299185477,
+            "Interpolation": 0.3
+        },
+        {
+            "Trigger": "DeathShield",
+            "Id": 8927041065331595933,
+            "Source": 8598017987142044379,
+            "Target": 14842078960545120864,
+            "Interpolation": 0.3
+        },
+        {
+            "Trigger": "DeathShooting",
+            "Id": 14815411341781981012,
+            "Source": 8598017987142044379,
+            "Target": 6884327452410582609,
+            "Interpolation": 0.3
+        },
+        {
+            "Trigger": "DeathShootingBlast",
+            "Id": 9012310296305262187,
+            "Source": 8598017987142044379,
+            "Target": 14623845741805147319,
+            "Interpolation": 0.3
+        },
+        {
+            "Trigger": "DeathUltiIntro",
+            "Id": 14283205524371342832,
+            "Source": 8598017987142044379,
+            "Target": 11829832492291328304,
+            "Interpolation": 0.3
+        },
+        {
+            "Trigger": "RunBackwardRightEnergyBlast",
+            "Id": 14245378684799364614,
+            "Source": 8508529589838149165,
+            "Target": 13596117587985697169,
+            "Interpolation": 0.3
+        },
+        {
+            "Trigger": "RunBackwardRightUltiLoopWalking",
+            "Id": 14710380206951199813,
+            "Source": 8508529589838149165,
+            "Target": 18228115006919872701,
+            "Interpolation": 0.3
+        },
+        {
+            "Trigger": "RunBackwardRightDeath",
+            "Id": 10275759035657586834,
+            "Source": 8508529589838149165,
+            "Target": 8598017987142044379,
+            "Interpolation": 0.3
+        },
+        {
+            "Trigger": "RunBackwardRightShootingShield",
+            "Id": 4065451731757456359,
+            "Source": 8508529589838149165,
+            "Target": 12810921034723524839,
+            "Interpolation": 0.3
+        },
+        {
+            "Trigger": "RunBackwardRightRunForward",
+            "Id": 4308912452304743238,
+            "Source": 8508529589838149165,
+            "Target": 6948801451410805534,
+            "Interpolation": 0.3
+        },
+        {
+            "Trigger": "RunBackwardRightRunForwardLeft",
+            "Id": 11988180813457881767,
+            "Source": 8508529589838149165,
+            "Target": 3869689853014485125,
+            "Interpolation": 0.3
+        },
+        {
+            "Trigger": "RunBackwardRightRunLeft",
+            "Id": 11806500062510648185,
+            "Source": 8508529589838149165,
+            "Target": 1638938587667713099,
+            "Interpolation": 0.3
+        },
+        {
+            "Trigger": "RunBackwardRightIdle",
+            "Id": 7552786906346808538,
+            "Source": 8508529589838149165,
+            "Target": 5103231915897851823,
+            "Interpolation": 0.3
+        },
+        {
+            "Trigger": "RunBackwardRightRunBackward",
+            "Id": 14995737122052650801,
+            "Source": 8508529589838149165,
+            "Target": 10285600828931603905,
+            "Interpolation": 0.3
+        },
+        {
+            "Trigger": "RunBackwardRightUltiLoop",
+            "Id": 3638207162723222286,
+            "Source": 8508529589838149165,
+            "Target": 9431290502876273480,
+            "Interpolation": 0.3
+        },
+        {
+            "Trigger": "RunBackwardRightRunBackwardLeft",
+            "Id": 5360458956718040709,
+            "Source": 8508529589838149165,
+            "Target": 9382344242650045229,
+            "Interpolation": 0.3
+        },
+        {
+            "Trigger": "RunBackwardRightSwitch",
+            "Id": 17959975786197597842,
+            "Source": 8508529589838149165,
+            "Target": 15472456517811950115,
+            "Interpolation": 0.3
+        },
+        {
+            "Trigger": "RunBackwardRightRunForwardRight",
+            "Id": 15145949159794650159,
+            "Source": 8508529589838149165,
+            "Target": 16730477142458022846,
+            "Interpolation": 0.3
+        },
+        {
+            "Trigger": "RunBackwardRightRunRight",
+            "Id": 11145940869211272856,
+            "Source": 8508529589838149165,
+            "Target": 3249992169299185477,
+            "Interpolation": 0.3
+        },
+        {
+            "Trigger": "RunBackwardRightShield",
+            "Id": 5940573216432459098,
+            "Source": 8508529589838149165,
+            "Target": 14842078960545120864,
+            "Interpolation": 0.3
+        },
+        {
+            "Trigger": "RunBackwardRightShooting",
+            "Id": 7417445868194447302,
+            "Source": 8508529589838149165,
+            "Target": 6884327452410582609,
+            "Interpolation": 0.3
+        },
+        {
+            "Trigger": "RunBackwardRightShootingBlast",
+            "Id": 12856772485640725923,
+            "Source": 8508529589838149165,
+            "Target": 14623845741805147319,
+            "Interpolation": 0.3
+        },
+        {
+            "Trigger": "RunBackwardRightUltiIntro",
+            "Id": 12053739872864362121,
+            "Source": 8508529589838149165,
+            "Target": 11829832492291328304,
+            "Interpolation": 0.3
+        },
+        {
+            "Trigger": "ShootingShieldEnergyBlast",
+            "Id": 6878943638016040414,
+            "Source": 12810921034723524839,
+            "Target": 13596117587985697169,
+            "Interpolation": 0.3
+        },
+        {
+            "Trigger": "ShootingShieldUltiLoopWalking",
+            "Id": 6314754176079295674,
+            "Source": 12810921034723524839,
+            "Target": 18228115006919872701,
+            "Interpolation": 0.3
+        },
+        {
+            "Trigger": "ShootingShieldDeath",
+            "Id": 14099303478580252688,
+            "Source": 12810921034723524839,
+            "Target": 8598017987142044379,
+            "Interpolation": 0.3
+        },
+        {
+            "Trigger": "ShootingShieldRunBackwardRight",
+            "Id": 5591883596253914056,
+            "Source": 12810921034723524839,
+            "Target": 8508529589838149165,
+            "Interpolation": 0.3
+        },
+        {
+            "Trigger": "ShootingShieldRunForward",
+            "Id": 18340412179907314763,
+            "Source": 12810921034723524839,
+            "Target": 6948801451410805534,
+            "Interpolation": 0.3
+        },
+        {
+            "Trigger": "ShootingShieldRunForwardLeft",
+            "Id": 7489467136142684828,
+            "Source": 12810921034723524839,
+            "Target": 3869689853014485125,
+            "Interpolation": 0.3
+        },
+        {
+            "Trigger": "ShootingShieldRunLeft",
+            "Id": 9582055284366849149,
+            "Source": 12810921034723524839,
+            "Target": 1638938587667713099,
+            "Interpolation": 0.3
+        },
+        {
+            "Trigger": "ShootingShieldIdle",
+            "Id": 637438592163179646,
+            "Source": 12810921034723524839,
+            "Target": 5103231915897851823,
+            "Interpolation": 0.3
+        },
+        {
+            "Trigger": "ShootingShieldRunBackward",
+            "Id": 3948738832959502228,
+            "Source": 12810921034723524839,
+            "Target": 10285600828931603905,
+            "Interpolation": 0.3
+        },
+        {
+            "Trigger": "ShootingShieldUltiLoop",
+            "Id": 7910928396575963910,
+            "Source": 12810921034723524839,
+            "Target": 9431290502876273480,
+            "Interpolation": 0.3
+        },
+        {
+            "Trigger": "ShootingShieldRunBackwardLeft",
+            "Id": 11074069465852119370,
+            "Source": 12810921034723524839,
+            "Target": 9382344242650045229,
+            "Interpolation": 0.3
+        },
+        {
+            "Trigger": "ShootingShieldSwitch",
+            "Id": 7525865273403566857,
+            "Source": 12810921034723524839,
+            "Target": 15472456517811950115,
+            "Interpolation": 0.3
+        },
+        {
+            "Trigger": "ShootingShieldRunForwardRight",
+            "Id": 2034613076177243935,
+            "Source": 12810921034723524839,
+            "Target": 16730477142458022846,
+            "Interpolation": 0.3
+        },
+        {
+            "Trigger": "ShootingShieldRunRight",
+            "Id": 2398822967246679632,
+            "Source": 12810921034723524839,
+            "Target": 3249992169299185477,
+            "Interpolation": 0.3
+        },
+        {
+            "Trigger": "ShootingShieldShield",
+            "Id": 2339687677735946853,
+            "Source": 12810921034723524839,
+            "Target": 14842078960545120864,
+            "Interpolation": 0.3
+        },
+        {
+            "Trigger": "ShootingShieldShooting",
+            "Id": 10406840322136155308,
+            "Source": 12810921034723524839,
+            "Target": 6884327452410582609,
+            "Interpolation": 0.3
+        },
+        {
+            "Trigger": "ShootingShieldShootingBlast",
+            "Id": 9203829735873942905,
+            "Source": 12810921034723524839,
+            "Target": 14623845741805147319,
+            "Interpolation": 0.3
+        },
+        {
+            "Trigger": "ShootingShieldUltiIntro",
+            "Id": 1880914914206125439,
+            "Source": 12810921034723524839,
+            "Target": 11829832492291328304,
+            "Interpolation": 0.3
+        },
+        {
+            "Trigger": "RunForwardEnergyBlast",
+            "Id": 15571862712506966365,
+            "Source": 6948801451410805534,
+            "Target": 13596117587985697169,
+            "Interpolation": 0.3
+        },
+        {
+            "Trigger": "RunForwardUltiLoopWalking",
+            "Id": 14437149972898408172,
+            "Source": 6948801451410805534,
+            "Target": 18228115006919872701,
+            "Interpolation": 0.3
+        },
+        {
+            "Trigger": "RunForwardDeath",
+            "Id": 472545511889085305,
+            "Source": 6948801451410805534,
+            "Target": 8598017987142044379,
+            "Interpolation": 0.3
+        },
+        {
+            "Trigger": "RunForwardRunBackwardRight",
+            "Id": 3441330994045144213,
+            "Source": 6948801451410805534,
+            "Target": 8508529589838149165,
+            "Interpolation": 0.3
+        },
+        {
+            "Trigger": "RunForwardShootingShield",
+            "Id": 10570977825076529420,
+            "Source": 6948801451410805534,
+            "Target": 12810921034723524839,
+            "Interpolation": 0.3
+        },
+        {
+            "Trigger": "RunForwardRunForwardLeft",
+            "Id": 12486320860809828017,
+            "Source": 6948801451410805534,
+            "Target": 3869689853014485125,
+            "Interpolation": 0.3
+        },
+        {
+            "Trigger": "RunForwardRunLeft",
+            "Id": 10776698957454539533,
+            "Source": 6948801451410805534,
+            "Target": 1638938587667713099,
+            "Interpolation": 0.3
+        },
+        {
+            "Trigger": "RunForwardIdle",
+            "Id": 3904267776236091750,
+            "Source": 6948801451410805534,
+            "Target": 5103231915897851823,
+            "Interpolation": 0.3
+        },
+        {
+            "Trigger": "RunForwardRunBackward",
+            "Id": 5649420273957080870,
+            "Source": 6948801451410805534,
+            "Target": 10285600828931603905,
+            "Interpolation": 0.3
+        },
+        {
+            "Trigger": "RunForwardUltiLoop",
+            "Id": 9664851464325471997,
+            "Source": 6948801451410805534,
+            "Target": 9431290502876273480,
+            "Interpolation": 0.3
+        },
+        {
+            "Trigger": "RunForwardRunBackwardLeft",
+            "Id": 3031069777224876360,
+            "Source": 6948801451410805534,
+            "Target": 9382344242650045229,
+            "Interpolation": 0.3
+        },
+        {
+            "Trigger": "RunForwardSwitch",
+            "Id": 509709221231303476,
+            "Source": 6948801451410805534,
+            "Target": 15472456517811950115,
+            "Interpolation": 0.3
+        },
+        {
+            "Trigger": "RunForwardRunForwardRight",
+            "Id": 8426709769450721398,
+            "Source": 6948801451410805534,
+            "Target": 16730477142458022846,
+            "Interpolation": 0.3
+        },
+        {
+            "Trigger": "RunForwardRunRight",
+            "Id": 1144034587541651514,
+            "Source": 6948801451410805534,
+            "Target": 3249992169299185477,
+            "Interpolation": 0.3
+        },
+        {
+            "Trigger": "RunForwardShield",
+            "Id": 5502406579915017882,
+            "Source": 6948801451410805534,
+            "Target": 14842078960545120864,
+            "Interpolation": 0.3
+        },
+        {
+            "Trigger": "RunForwardShooting",
+            "Id": 9587965216533126720,
+            "Source": 6948801451410805534,
+            "Target": 6884327452410582609,
+            "Interpolation": 0.3
+        },
+        {
+            "Trigger": "RunForwardShootingBlast",
+            "Id": 14458473246823178729,
+            "Source": 6948801451410805534,
+            "Target": 14623845741805147319,
+            "Interpolation": 0.3
+        },
+        {
+            "Trigger": "RunForwardUltiIntro",
+            "Id": 3472892745852393502,
+            "Source": 6948801451410805534,
+            "Target": 11829832492291328304,
+            "Interpolation": 0.3
+        },
+        {
+            "Trigger": "RunForwardLeftEnergyBlast",
+            "Id": 16836543161415868058,
+            "Source": 3869689853014485125,
+            "Target": 13596117587985697169,
+            "Interpolation": 0.3
+        },
+        {
+            "Trigger": "RunForwardLeftUltiLoopWalking",
+            "Id": 10976076549771428858,
+            "Source": 3869689853014485125,
+            "Target": 18228115006919872701,
+            "Interpolation": 0.3
+        },
+        {
+            "Trigger": "RunForwardLeftDeath",
+            "Id": 10904267398480644965,
+            "Source": 3869689853014485125,
+            "Target": 8598017987142044379,
+            "Interpolation": 0.3
+        },
+        {
+            "Trigger": "RunForwardLeftRunBackwardRight",
+            "Id": 5100826468797977521,
+            "Source": 3869689853014485125,
+            "Target": 8508529589838149165,
+            "Interpolation": 0.3
+        },
+        {
+            "Trigger": "RunForwardLeftShootingShield",
+            "Id": 11497179006312830578,
+            "Source": 3869689853014485125,
+            "Target": 12810921034723524839,
+            "Interpolation": 0.3
+        },
+        {
+            "Trigger": "RunForwardLeftRunForward",
+            "Id": 6548567775218895316,
+            "Source": 3869689853014485125,
+            "Target": 6948801451410805534,
+            "Interpolation": 0.3
+        },
+        {
+            "Trigger": "RunForwardLeftRunLeft",
+            "Id": 2614220904460395638,
+            "Source": 3869689853014485125,
+            "Target": 1638938587667713099,
+            "Interpolation": 0.3
+        },
+        {
+            "Trigger": "RunForwardLeftIdle",
+            "Id": 13772755915086406834,
+            "Source": 3869689853014485125,
+            "Target": 5103231915897851823,
+            "Interpolation": 0.3
+        },
+        {
+            "Trigger": "RunForwardLeftRunBackward",
+            "Id": 6801325906919056119,
+            "Source": 3869689853014485125,
+            "Target": 10285600828931603905,
+            "Interpolation": 0.3
+        },
+        {
+            "Trigger": "RunForwardLeftUltiLoop",
+            "Id": 8602286223540309122,
+            "Source": 3869689853014485125,
+            "Target": 9431290502876273480,
+            "Interpolation": 0.3
+        },
+        {
+            "Trigger": "RunForwardLeftRunBackwardLeft",
+            "Id": 12485405125613411677,
+            "Source": 3869689853014485125,
+            "Target": 9382344242650045229,
+            "Interpolation": 0.3
+        },
+        {
+            "Trigger": "RunForwardLeftSwitch",
+            "Id": 799138918441698539,
+            "Source": 3869689853014485125,
+            "Target": 15472456517811950115,
+            "Interpolation": 0.3
+        },
+        {
+            "Trigger": "RunForwardLeftRunForwardRight",
+            "Id": 14887606389044759780,
+            "Source": 3869689853014485125,
+            "Target": 16730477142458022846,
+            "Interpolation": 0.3
+        },
+        {
+            "Trigger": "RunForwardLeftRunRight",
+            "Id": 10348344930974268210,
+            "Source": 3869689853014485125,
+            "Target": 3249992169299185477,
+            "Interpolation": 0.3
+        },
+        {
+            "Trigger": "RunForwardLeftShield",
+            "Id": 17646565019524962635,
+            "Source": 3869689853014485125,
+            "Target": 14842078960545120864,
+            "Interpolation": 0.3
+        },
+        {
+            "Trigger": "RunForwardLeftShooting",
+            "Id": 13476657463453671975,
+            "Source": 3869689853014485125,
+            "Target": 6884327452410582609,
+            "Interpolation": 0.3
+        },
+        {
+            "Trigger": "RunForwardLeftShootingBlast",
+            "Id": 16705214978486492783,
+            "Source": 3869689853014485125,
+            "Target": 14623845741805147319,
+            "Interpolation": 0.3
+        },
+        {
+            "Trigger": "RunForwardLeftUltiIntro",
+            "Id": 14861160029362549095,
+            "Source": 3869689853014485125,
+            "Target": 11829832492291328304,
+            "Interpolation": 0.3
+        },
+        {
+            "Trigger": "RunLeftEnergyBlast",
+            "Id": 4251587453494188873,
+            "Source": 1638938587667713099,
+            "Target": 13596117587985697169,
+            "Interpolation": 0.3
+        },
+        {
+            "Trigger": "RunLeftUltiLoopWalking",
+            "Id": 1524392439844913657,
+            "Source": 1638938587667713099,
+            "Target": 18228115006919872701,
+            "Interpolation": 0.3
+        },
+        {
+            "Trigger": "RunLeftDeath",
+            "Id": 17001558671140084402,
+            "Source": 1638938587667713099,
+            "Target": 8598017987142044379,
+            "Interpolation": 0.3
+        },
+        {
+            "Trigger": "RunLeftRunBackwardRight",
+            "Id": 11154562809227092758,
+            "Source": 1638938587667713099,
+            "Target": 8508529589838149165,
+            "Interpolation": 0.3
+        },
+        {
+            "Trigger": "RunLeftShootingShield",
+            "Id": 5108984819962569967,
+            "Source": 1638938587667713099,
+            "Target": 12810921034723524839,
+            "Interpolation": 0.3
+        },
+        {
+            "Trigger": "RunLeftRunForward",
+            "Id": 9403643047963392272,
+            "Source": 1638938587667713099,
+            "Target": 6948801451410805534,
+            "Interpolation": 0.3
+        },
+        {
+            "Trigger": "RunLeftRunForwardLeft",
+            "Id": 8028020718690605757,
+            "Source": 1638938587667713099,
+            "Target": 3869689853014485125,
+            "Interpolation": 0.3
+        },
+        {
+            "Trigger": "RunLeftIdle",
+            "Id": 12011100412614814927,
+            "Source": 1638938587667713099,
+            "Target": 5103231915897851823,
+            "Interpolation": 0.3
+        },
+        {
+            "Trigger": "RunLeftRunBackward",
+            "Id": 12222169608875892389,
+            "Source": 1638938587667713099,
+            "Target": 10285600828931603905,
+            "Interpolation": 0.3
+        },
+        {
+            "Trigger": "RunLeftUltiLoop",
+            "Id": 15177286493748479436,
+            "Source": 1638938587667713099,
+            "Target": 9431290502876273480,
+            "Interpolation": 0.3
+        },
+        {
+            "Trigger": "RunLeftRunBackwardLeft",
+            "Id": 10058944708782390475,
+            "Source": 1638938587667713099,
+            "Target": 9382344242650045229,
+            "Interpolation": 0.3
+        },
+        {
+            "Trigger": "RunLeftSwitch",
+            "Id": 1195801046476436591,
+            "Source": 1638938587667713099,
+            "Target": 15472456517811950115,
+            "Interpolation": 0.3
+        },
+        {
+            "Trigger": "RunLeftRunForwardRight",
+            "Id": 13378624825775559254,
+            "Source": 1638938587667713099,
+            "Target": 16730477142458022846,
+            "Interpolation": 0.3
+        },
+        {
+            "Trigger": "RunLeftRunRight",
+            "Id": 2749244062687418478,
+            "Source": 1638938587667713099,
+            "Target": 3249992169299185477,
+            "Interpolation": 0.3
+        },
+        {
+            "Trigger": "RunLeftShield",
+            "Id": 18020937441623355150,
+            "Source": 1638938587667713099,
+            "Target": 14842078960545120864,
+            "Interpolation": 0.3
+        },
+        {
+            "Trigger": "RunLeftShooting",
+            "Id": 1267786963554382211,
+            "Source": 1638938587667713099,
+            "Target": 6884327452410582609,
+            "Interpolation": 0.3
+        },
+        {
+            "Trigger": "RunLeftShootingBlast",
+            "Id": 4831692137320636986,
+            "Source": 1638938587667713099,
+            "Target": 14623845741805147319,
+            "Interpolation": 0.3
+        },
+        {
+            "Trigger": "RunLeftUltiIntro",
+            "Id": 13225059881266977035,
+            "Source": 1638938587667713099,
+            "Target": 11829832492291328304,
+            "Interpolation": 0.3
+        },
+        {
+            "Trigger": "IdleEnergyBlast",
+            "Id": 7319428961597312661,
+            "Source": 5103231915897851823,
+            "Target": 13596117587985697169,
+            "Interpolation": 0.3
+        },
+        {
+            "Trigger": "IdleUltiLoopWalking",
+            "Id": 14560923207135205830,
+            "Source": 5103231915897851823,
+            "Target": 18228115006919872701,
+            "Interpolation": 0.3
+        },
+        {
+            "Trigger": "IdleDeath",
+            "Id": 11936126380229705496,
+            "Source": 5103231915897851823,
+            "Target": 8598017987142044379,
+            "Interpolation": 0.3
+        },
+        {
+            "Trigger": "IdleRunBackwardRight",
+            "Id": 8701086781879940982,
+            "Source": 5103231915897851823,
+            "Target": 8508529589838149165,
+            "Interpolation": 0.3
+        },
+        {
+            "Trigger": "IdleShootingShield",
+            "Id": 3987102740132610152,
+            "Source": 5103231915897851823,
+            "Target": 12810921034723524839,
+            "Interpolation": 0.3
+        },
+        {
+            "Trigger": "IdleRunForward",
+            "Id": 16594132051026819145,
+            "Source": 5103231915897851823,
+            "Target": 6948801451410805534,
+            "Interpolation": 0.3
+        },
+        {
+            "Trigger": "IdleRunForwardLeft",
+            "Id": 5779015091569573276,
+            "Source": 5103231915897851823,
+            "Target": 3869689853014485125,
+            "Interpolation": 0.3
+        },
+        {
+            "Trigger": "IdleRunLeft",
+            "Id": 4589073013899347040,
+            "Source": 5103231915897851823,
+            "Target": 1638938587667713099,
+            "Interpolation": 0.3
+        },
+        {
+            "Trigger": "IdleRunBackward",
+            "Id": 7200490773980557450,
+            "Source": 5103231915897851823,
+            "Target": 10285600828931603905,
+            "Interpolation": 0.3
+        },
+        {
+            "Trigger": "IdleUltiLoop",
+            "Id": 14530449799776660365,
+            "Source": 5103231915897851823,
+            "Target": 9431290502876273480,
+            "Interpolation": 0.3
+        },
+        {
+            "Trigger": "IdleRunBackwardLeft",
+            "Id": 2661725550103786694,
+            "Source": 5103231915897851823,
+            "Target": 9382344242650045229,
+            "Interpolation": 0.3
+        },
+        {
+            "Trigger": "IdleSwitch",
+            "Id": 13211917896139137244,
+            "Source": 5103231915897851823,
+            "Target": 15472456517811950115,
+            "Interpolation": 0.3
+        },
+        {
+            "Trigger": "IdleRunForwardRight",
+            "Id": 14471686140666425574,
+            "Source": 5103231915897851823,
+            "Target": 16730477142458022846,
+            "Interpolation": 0.3
+        },
+        {
+            "Trigger": "IdleRunRight",
+            "Id": 2353038478771233416,
+            "Source": 5103231915897851823,
+            "Target": 3249992169299185477,
+            "Interpolation": 0.3
+        },
+        {
+            "Trigger": "IdleShield",
+            "Id": 12561333223698067777,
+            "Source": 5103231915897851823,
+            "Target": 14842078960545120864,
+            "Interpolation": 0.3
+        },
+        {
+            "Trigger": "IdleShooting",
+            "Id": 10611264326604788173,
+            "Source": 5103231915897851823,
+            "Target": 6884327452410582609,
+            "Interpolation": 0.3
+        },
+        {
+            "Trigger": "IdleShootingBlast",
+            "Id": 15308253309517386581,
+            "Source": 5103231915897851823,
+            "Target": 14623845741805147319,
+            "Interpolation": 0.3
+        },
+        {
+            "Trigger": "IdleUltiIntro",
+            "Id": 8757723755063852510,
+            "Source": 5103231915897851823,
+            "Target": 11829832492291328304,
+            "Interpolation": 0.3
+        },
+        {
+            "Trigger": "RunBackwardEnergyBlast",
+            "Id": 17750590320832408985,
+            "Source": 10285600828931603905,
+            "Target": 13596117587985697169,
+            "Interpolation": 0.3
+        },
+        {
+            "Trigger": "RunBackwardUltiLoopWalking",
+            "Id": 16076877497230880085,
+            "Source": 10285600828931603905,
+            "Target": 18228115006919872701,
+            "Interpolation": 0.3
+        },
+        {
+            "Trigger": "RunBackwardDeath",
+            "Id": 4933938075098902869,
+            "Source": 10285600828931603905,
+            "Target": 8598017987142044379,
+            "Interpolation": 0.3
+        },
+        {
+            "Trigger": "RunBackwardRunBackwardRight",
+            "Id": 16445720539450091759,
+            "Source": 10285600828931603905,
+            "Target": 8508529589838149165,
+            "Interpolation": 0.3
+        },
+        {
+            "Trigger": "RunBackwardShootingShield",
+            "Id": 3511169483811191306,
+            "Source": 10285600828931603905,
+            "Target": 12810921034723524839,
+            "Interpolation": 0.3
+        },
+        {
+            "Trigger": "RunBackwardRunForward",
+            "Id": 8740741402808509264,
+            "Source": 10285600828931603905,
+            "Target": 6948801451410805534,
+            "Interpolation": 0.3
+        },
+        {
+            "Trigger": "RunBackwardRunForwardLeft",
+            "Id": 12191559494475380417,
+            "Source": 10285600828931603905,
+            "Target": 3869689853014485125,
+            "Interpolation": 0.3
+        },
+        {
+            "Trigger": "RunBackwardRunLeft",
+            "Id": 10203091792822648852,
+            "Source": 10285600828931603905,
+            "Target": 1638938587667713099,
+            "Interpolation": 0.3
+        },
+        {
+            "Trigger": "RunBackwardIdle",
+            "Id": 15393915158216117442,
+            "Source": 10285600828931603905,
+            "Target": 5103231915897851823,
+            "Interpolation": 0.3
+        },
+        {
+            "Trigger": "RunBackwardUltiLoop",
+            "Id": 4901508902102481283,
+            "Source": 10285600828931603905,
+            "Target": 9431290502876273480,
+            "Interpolation": 0.3
+        },
+        {
+            "Trigger": "RunBackwardRunBackwardLeft",
+            "Id": 12011541494848910448,
+            "Source": 10285600828931603905,
+            "Target": 9382344242650045229,
+            "Interpolation": 0.3
+        },
+        {
+            "Trigger": "RunBackwardSwitch",
+            "Id": 2933189549709798120,
+            "Source": 10285600828931603905,
+            "Target": 15472456517811950115,
+            "Interpolation": 0.3
+        },
+        {
+            "Trigger": "RunBackwardRunForwardRight",
+            "Id": 11207110587584778020,
+            "Source": 10285600828931603905,
+            "Target": 16730477142458022846,
+            "Interpolation": 0.3
+        },
+        {
+            "Trigger": "RunBackwardRunRight",
+            "Id": 1543584075182050531,
+            "Source": 10285600828931603905,
+            "Target": 3249992169299185477,
+            "Interpolation": 0.3
+        },
+        {
+            "Trigger": "RunBackwardShield",
+            "Id": 9842275981740346122,
+            "Source": 10285600828931603905,
+            "Target": 14842078960545120864,
+            "Interpolation": 0.3
+        },
+        {
+            "Trigger": "RunBackwardShooting",
+            "Id": 4246017130049123771,
+            "Source": 10285600828931603905,
+            "Target": 6884327452410582609,
+            "Interpolation": 0.3
+        },
+        {
+            "Trigger": "RunBackwardShootingBlast",
+            "Id": 4549634354527193933,
+            "Source": 10285600828931603905,
+            "Target": 14623845741805147319,
+            "Interpolation": 0.3
+        },
+        {
+            "Trigger": "RunBackwardUltiIntro",
+            "Id": 1866235323885044434,
+            "Source": 10285600828931603905,
+            "Target": 11829832492291328304,
+            "Interpolation": 0.3
+        },
+        {
+            "Trigger": "UltiLoopEnergyBlast",
+            "Id": 90492315322143237,
+            "Source": 9431290502876273480,
+            "Target": 13596117587985697169,
+            "Interpolation": 0.3
+        },
+        {
+            "Trigger": "UltiLoopUltiLoopWalking",
+            "Id": 13024726103918786019,
+            "Source": 9431290502876273480,
+            "Target": 18228115006919872701,
+            "Interpolation": 0.3
+        },
+        {
+            "Trigger": "UltiLoopDeath",
+            "Id": 16712849061518161369,
+            "Source": 9431290502876273480,
+            "Target": 8598017987142044379,
+            "Interpolation": 0.3
+        },
+        {
+            "Trigger": "UltiLoopRunBackwardRight",
+            "Id": 6932001793050930636,
+            "Source": 9431290502876273480,
+            "Target": 8508529589838149165,
+            "Interpolation": 0.3
+        },
+        {
+            "Trigger": "UltiLoopShootingShield",
+            "Id": 12782872441659429410,
+            "Source": 9431290502876273480,
+            "Target": 12810921034723524839,
+            "Interpolation": 0.3
+        },
+        {
+            "Trigger": "UltiLoopRunForward",
+            "Id": 15140405668063318340,
+            "Source": 9431290502876273480,
+            "Target": 6948801451410805534,
+            "Interpolation": 0.3
+        },
+        {
+            "Trigger": "UltiLoopRunForwardLeft",
+            "Id": 18159155396695831258,
+            "Source": 9431290502876273480,
+            "Target": 3869689853014485125,
+            "Interpolation": 0.3
+        },
+        {
+            "Trigger": "UltiLoopRunLeft",
+            "Id": 13720446960416211646,
+            "Source": 9431290502876273480,
+            "Target": 1638938587667713099,
+            "Interpolation": 0.3
+        },
+        {
+            "Trigger": "UltiLoopIdle",
+            "Id": 7672284169001111357,
+            "Source": 9431290502876273480,
+            "Target": 5103231915897851823,
+            "Interpolation": 0.3
+        },
+        {
+            "Trigger": "UltiLoopRunBackward",
+            "Id": 15654199543282435815,
+            "Source": 9431290502876273480,
+            "Target": 10285600828931603905,
+            "Interpolation": 0.3
+        },
+        {
+            "Trigger": "UltiLoopRunBackwardLeft",
+            "Id": 12737577625776924545,
+            "Source": 9431290502876273480,
+            "Target": 9382344242650045229,
+            "Interpolation": 0.3
+        },
+        {
+            "Trigger": "UltiLoopSwitch",
+            "Id": 1113927868170071902,
+            "Source": 9431290502876273480,
+            "Target": 15472456517811950115,
+            "Interpolation": 0.3
+        },
+        {
+            "Trigger": "UltiLoopRunForwardRight",
+            "Id": 8876091289050338243,
+            "Source": 9431290502876273480,
+            "Target": 16730477142458022846,
+            "Interpolation": 0.3
+        },
+        {
+            "Trigger": "UltiLoopRunRight",
+            "Id": 4903336554207904353,
+            "Source": 9431290502876273480,
+            "Target": 3249992169299185477,
+            "Interpolation": 0.3
+        },
+        {
+            "Trigger": "UltiLoopShield",
+            "Id": 5897852213395889765,
+            "Source": 9431290502876273480,
+            "Target": 14842078960545120864,
+            "Interpolation": 0.3
+        },
+        {
+            "Trigger": "UltiLoopShooting",
+            "Id": 8796998677243627440,
+            "Source": 9431290502876273480,
+            "Target": 6884327452410582609,
+            "Interpolation": 0.3
+        },
+        {
+            "Trigger": "UltiLoopShootingBlast",
+            "Id": 2994037887055793155,
+            "Source": 9431290502876273480,
+            "Target": 14623845741805147319,
+            "Interpolation": 0.3
+        },
+        {
+            "Trigger": "UltiLoopUltiIntro",
+            "Id": 17121640480927284154,
+            "Source": 9431290502876273480,
+            "Target": 11829832492291328304,
+            "Interpolation": 0.3
+        },
+        {
+            "Trigger": "RunBackwardLeftEnergyBlast",
+            "Id": 2637204750278391016,
+            "Source": 9382344242650045229,
+            "Target": 13596117587985697169,
+            "Interpolation": 0.3
+        },
+        {
+            "Trigger": "RunBackwardLeftUltiLoopWalking",
+            "Id": 8145020783342773728,
+            "Source": 9382344242650045229,
+            "Target": 18228115006919872701,
+            "Interpolation": 0.3
+        },
+        {
+            "Trigger": "RunBackwardLeftDeath",
+            "Id": 16069883680831774467,
+            "Source": 9382344242650045229,
+            "Target": 8598017987142044379,
+            "Interpolation": 0.3
+        },
+        {
+            "Trigger": "RunBackwardLeftRunBackwardRight",
+            "Id": 18278310396946223950,
+            "Source": 9382344242650045229,
+            "Target": 8508529589838149165,
+            "Interpolation": 0.3
+        },
+        {
+            "Trigger": "RunBackwardLeftShootingShield",
+            "Id": 5222842848678497424,
+            "Source": 9382344242650045229,
+            "Target": 12810921034723524839,
+            "Interpolation": 0.3
+        },
+        {
+            "Trigger": "RunBackwardLeftRunForward",
+            "Id": 3990153380781529050,
+            "Source": 9382344242650045229,
+            "Target": 6948801451410805534,
+            "Interpolation": 0.3
+        },
+        {
+            "Trigger": "RunBackwardLeftRunForwardLeft",
+            "Id": 7712555298077293453,
+            "Source": 9382344242650045229,
+            "Target": 3869689853014485125,
+            "Interpolation": 0.3
+        },
+        {
+            "Trigger": "RunBackwardLeftRunLeft",
+            "Id": 441901738997852158,
+            "Source": 9382344242650045229,
+            "Target": 1638938587667713099,
+            "Interpolation": 0.3
+        },
+        {
+            "Trigger": "RunBackwardLeftIdle",
+            "Id": 10544565996851519696,
+            "Source": 9382344242650045229,
+            "Target": 5103231915897851823,
+            "Interpolation": 0.3
+        },
+        {
+            "Trigger": "RunBackwardLeftRunBackward",
+            "Id": 16398024293229462488,
+            "Source": 9382344242650045229,
+            "Target": 10285600828931603905,
+            "Interpolation": 0.3
+        },
+        {
+            "Trigger": "RunBackwardLeftUltiLoop",
+            "Id": 11219584060492192303,
+            "Source": 9382344242650045229,
+            "Target": 9431290502876273480,
+            "Interpolation": 0.3
+        },
+        {
+            "Trigger": "RunBackwardLeftSwitch",
+            "Id": 16035045683895229952,
+            "Source": 9382344242650045229,
+            "Target": 15472456517811950115,
+            "Interpolation": 0.3
+        },
+        {
+            "Trigger": "RunBackwardLeftRunForwardRight",
+            "Id": 9930133381394654568,
+            "Source": 9382344242650045229,
+            "Target": 16730477142458022846,
+            "Interpolation": 0.3
+        },
+        {
+            "Trigger": "RunBackwardLeftRunRight",
+            "Id": 10609426790290968297,
+            "Source": 9382344242650045229,
+            "Target": 3249992169299185477,
+            "Interpolation": 0.3
+        },
+        {
+            "Trigger": "RunBackwardLeftShield",
+            "Id": 514986324773863830,
+            "Source": 9382344242650045229,
+            "Target": 14842078960545120864,
+            "Interpolation": 0.3
+        },
+        {
+            "Trigger": "RunBackwardLeftShooting",
+            "Id": 5008010273456978601,
+            "Source": 9382344242650045229,
+            "Target": 6884327452410582609,
+            "Interpolation": 0.3
+        },
+        {
+            "Trigger": "RunBackwardLeftShootingBlast",
+            "Id": 15885820754262671636,
+            "Source": 9382344242650045229,
+            "Target": 14623845741805147319,
+            "Interpolation": 0.3
+        },
+        {
+            "Trigger": "RunBackwardLeftUltiIntro",
+            "Id": 2342503646157483062,
+            "Source": 9382344242650045229,
+            "Target": 11829832492291328304,
+            "Interpolation": 0.3
+        },
+        {
+            "Trigger": "SwitchEnergyBlast",
+            "Id": 2750717967112472101,
+            "Source": 15472456517811950115,
+            "Target": 13596117587985697169,
+            "Interpolation": 0.3
+        },
+        {
+            "Trigger": "SwitchUltiLoopWalking",
+            "Id": 11056628500814527859,
+            "Source": 15472456517811950115,
+            "Target": 18228115006919872701,
+            "Interpolation": 0.3
+        },
+        {
+            "Trigger": "SwitchDeath",
+            "Id": 8471949905080669329,
+            "Source": 15472456517811950115,
+            "Target": 8598017987142044379,
+            "Interpolation": 0.3
+        },
+        {
+            "Trigger": "SwitchRunBackwardRight",
+            "Id": 6678595529173981152,
+            "Source": 15472456517811950115,
+            "Target": 8508529589838149165,
+            "Interpolation": 0.3
+        },
+        {
+            "Trigger": "SwitchShootingShield",
+            "Id": 17358020489116939245,
+            "Source": 15472456517811950115,
+            "Target": 12810921034723524839,
+            "Interpolation": 0.3
+        },
+        {
+            "Trigger": "SwitchRunForward",
+            "Id": 16087473859669094435,
+            "Source": 15472456517811950115,
+            "Target": 6948801451410805534,
+            "Interpolation": 0.3
+        },
+        {
+            "Trigger": "SwitchRunForwardLeft",
+            "Id": 15245278783233689334,
+            "Source": 15472456517811950115,
+            "Target": 3869689853014485125,
+            "Interpolation": 0.3
+        },
+        {
+            "Trigger": "SwitchRunLeft",
+            "Id": 13975623198676810288,
+            "Source": 15472456517811950115,
+            "Target": 1638938587667713099,
+            "Interpolation": 0.3
+        },
+        {
+            "Trigger": "SwitchIdle",
+            "Id": 16041599236911482661,
+            "Source": 15472456517811950115,
+            "Target": 5103231915897851823,
+            "Interpolation": 0.3
+        },
+        {
+            "Trigger": "SwitchRunBackward",
+            "Id": 14327139052462458102,
+            "Source": 15472456517811950115,
+            "Target": 10285600828931603905,
+            "Interpolation": 0.3
+        },
+        {
+            "Trigger": "SwitchUltiLoop",
+            "Id": 8479543018931501991,
+            "Source": 15472456517811950115,
+            "Target": 9431290502876273480,
+            "Interpolation": 0.3
+        },
+        {
+            "Trigger": "SwitchRunBackwardLeft",
+            "Id": 361654383599421662,
+            "Source": 15472456517811950115,
+            "Target": 9382344242650045229,
+            "Interpolation": 0.3
+        },
+        {
+            "Trigger": "SwitchRunForwardRight",
+            "Id": 11975204510219350480,
+            "Source": 15472456517811950115,
+            "Target": 16730477142458022846,
+            "Interpolation": 0.3
+        },
+        {
+            "Trigger": "SwitchRunRight",
+            "Id": 17440225818119816724,
+            "Source": 15472456517811950115,
+            "Target": 3249992169299185477,
+            "Interpolation": 0.3
+        },
+        {
+            "Trigger": "SwitchShield",
+            "Id": 10940409032736131134,
+            "Source": 15472456517811950115,
+            "Target": 14842078960545120864,
+            "Interpolation": 0.3
+        },
+        {
+            "Trigger": "SwitchShooting",
+            "Id": 15265891142578207289,
+            "Source": 15472456517811950115,
+            "Target": 6884327452410582609,
+            "Interpolation": 0.3
+        },
+        {
+            "Trigger": "SwitchShootingBlast",
+            "Id": 6389425138111804865,
+            "Source": 15472456517811950115,
+            "Target": 14623845741805147319,
+            "Interpolation": 0.3
+        },
+        {
+            "Trigger": "SwitchUltiIntro",
+            "Id": 833893290800019326,
+            "Source": 15472456517811950115,
+            "Target": 11829832492291328304,
+            "Interpolation": 0.3
+        },
+        {
+            "Trigger": "RunForwardRightEnergyBlast",
+            "Id": 1658653772259571763,
+            "Source": 16730477142458022846,
+            "Target": 13596117587985697169,
+            "Interpolation": 0.3
+        },
+        {
+            "Trigger": "RunForwardRightUltiLoopWalking",
+            "Id": 3990344979427580937,
+            "Source": 16730477142458022846,
+            "Target": 18228115006919872701,
+            "Interpolation": 0.3
+        },
+        {
+            "Trigger": "RunForwardRightDeath",
+            "Id": 12359614195269037491,
+            "Source": 16730477142458022846,
+            "Target": 8598017987142044379,
+            "Interpolation": 0.3
+        },
+        {
+            "Trigger": "RunForwardRightRunBackwardRight",
+            "Id": 3002317011959673595,
+            "Source": 16730477142458022846,
+            "Target": 8508529589838149165,
+            "Interpolation": 0.3
+        },
+        {
+            "Trigger": "RunForwardRightShootingShield",
+            "Id": 942277345030067749,
+            "Source": 16730477142458022846,
+            "Target": 12810921034723524839,
+            "Interpolation": 0.3
+        },
+        {
+            "Trigger": "RunForwardRightRunForward",
+            "Id": 440339917145901992,
+            "Source": 16730477142458022846,
+            "Target": 6948801451410805534,
+            "Interpolation": 0.3
+        },
+        {
+            "Trigger": "RunForwardRightRunForwardLeft",
+            "Id": 16649350253910223107,
+            "Source": 16730477142458022846,
+            "Target": 3869689853014485125,
+            "Interpolation": 0.3
+        },
+        {
+            "Trigger": "RunForwardRightRunLeft",
+            "Id": 15093160982570067880,
+            "Source": 16730477142458022846,
+            "Target": 1638938587667713099,
+            "Interpolation": 0.3
+        },
+        {
+            "Trigger": "RunForwardRightIdle",
+            "Id": 8667161587785822106,
+            "Source": 16730477142458022846,
+            "Target": 5103231915897851823,
+            "Interpolation": 0.3
+        },
+        {
+            "Trigger": "RunForwardRightRunBackward",
+            "Id": 9257309673568276450,
+            "Source": 16730477142458022846,
+            "Target": 10285600828931603905,
+            "Interpolation": 0.3
+        },
+        {
+            "Trigger": "RunForwardRightUltiLoop",
+            "Id": 4935751671664277221,
+            "Source": 16730477142458022846,
+            "Target": 9431290502876273480,
+            "Interpolation": 0.3
+        },
+        {
+            "Trigger": "RunForwardRightRunBackwardLeft",
+            "Id": 17643202098424741464,
+            "Source": 16730477142458022846,
+            "Target": 9382344242650045229,
+            "Interpolation": 0.3
+        },
+        {
+            "Trigger": "RunForwardRightSwitch",
+            "Id": 744733340788493908,
+            "Source": 16730477142458022846,
+            "Target": 15472456517811950115,
+            "Interpolation": 0.3
+        },
+        {
+            "Trigger": "RunForwardRightRunRight",
+            "Id": 942049493160743692,
+            "Source": 16730477142458022846,
+            "Target": 3249992169299185477,
+            "Interpolation": 0.3
+        },
+        {
+            "Trigger": "RunForwardRightShield",
+            "Id": 11847457732160066336,
+            "Source": 16730477142458022846,
+            "Target": 14842078960545120864,
+            "Interpolation": 0.3
+        },
+        {
+            "Trigger": "RunForwardRightShooting",
+            "Id": 2727610906084052366,
+            "Source": 16730477142458022846,
+            "Target": 6884327452410582609,
+            "Interpolation": 0.3
+        },
+        {
+            "Trigger": "RunForwardRightShootingBlast",
+            "Id": 7008012107286460473,
+            "Source": 16730477142458022846,
+            "Target": 14623845741805147319,
+            "Interpolation": 0.3
+        },
+        {
+            "Trigger": "RunForwardRightUltiIntro",
+            "Id": 15657551542870090160,
+            "Source": 16730477142458022846,
+            "Target": 11829832492291328304,
+            "Interpolation": 0.3
+        },
+        {
+            "Trigger": "RunRightEnergyBlast",
+            "Id": 11130173636072078412,
+            "Source": 3249992169299185477,
+            "Target": 13596117587985697169,
+            "Interpolation": 0.3
+        },
+        {
+            "Trigger": "RunRightUltiLoopWalking",
+            "Id": 4425207009456778055,
+            "Source": 3249992169299185477,
+            "Target": 18228115006919872701,
+            "Interpolation": 0.3
+        },
+        {
+            "Trigger": "RunRightDeath",
+            "Id": 18356928384912678389,
+            "Source": 3249992169299185477,
+            "Target": 8598017987142044379,
+            "Interpolation": 0.3
+        },
+        {
+            "Trigger": "RunRightRunBackwardRight",
+            "Id": 1360395796924509257,
+            "Source": 3249992169299185477,
+            "Target": 8508529589838149165,
+            "Interpolation": 0.3
+        },
+        {
+            "Trigger": "RunRightShootingShield",
+            "Id": 15109043333116376672,
+            "Source": 3249992169299185477,
+            "Target": 12810921034723524839,
+            "Interpolation": 0.3
+        },
+        {
+            "Trigger": "RunRightRunForward",
+            "Id": 11351399076281094453,
+            "Source": 3249992169299185477,
+            "Target": 6948801451410805534,
+            "Interpolation": 0.3
+        },
+        {
+            "Trigger": "RunRightRunForwardLeft",
+            "Id": 13303509056126691728,
+            "Source": 3249992169299185477,
+            "Target": 3869689853014485125,
+            "Interpolation": 0.3
+        },
+        {
+            "Trigger": "RunRightRunLeft",
+            "Id": 8401512296170075095,
+            "Source": 3249992169299185477,
+            "Target": 1638938587667713099,
+            "Interpolation": 0.3
+        },
+        {
+            "Trigger": "RunRightIdle",
+            "Id": 6550698826455566859,
+            "Source": 3249992169299185477,
+            "Target": 5103231915897851823,
+            "Interpolation": 0.3
+        },
+        {
+            "Trigger": "RunRightRunBackward",
+            "Id": 1046493211420492796,
+            "Source": 3249992169299185477,
+            "Target": 10285600828931603905,
+            "Interpolation": 0.3
+        },
+        {
+            "Trigger": "RunRightUltiLoop",
+            "Id": 11121227656641171292,
+            "Source": 3249992169299185477,
+            "Target": 9431290502876273480,
+            "Interpolation": 0.3
+        },
+        {
+            "Trigger": "RunRightRunBackwardLeft",
+            "Id": 15830452288624849612,
+            "Source": 3249992169299185477,
+            "Target": 9382344242650045229,
+            "Interpolation": 0.3
+        },
+        {
+            "Trigger": "RunRightSwitch",
+            "Id": 17884871673867408606,
+            "Source": 3249992169299185477,
+            "Target": 15472456517811950115,
+            "Interpolation": 0.3
+        },
+        {
+            "Trigger": "RunRightRunForwardRight",
+            "Id": 6637221822614852546,
+            "Source": 3249992169299185477,
+            "Target": 16730477142458022846,
+            "Interpolation": 0.3
+        },
+        {
+            "Trigger": "RunRightShield",
+            "Id": 1603534132014287523,
+            "Source": 3249992169299185477,
+            "Target": 14842078960545120864,
+            "Interpolation": 0.3
+        },
+        {
+            "Trigger": "RunRightShooting",
+            "Id": 4793416010261436158,
+            "Source": 3249992169299185477,
+            "Target": 6884327452410582609,
+            "Interpolation": 0.3
+        },
+        {
+            "Trigger": "RunRightShootingBlast",
+            "Id": 14287602323988502152,
+            "Source": 3249992169299185477,
+            "Target": 14623845741805147319,
+            "Interpolation": 0.3
+        },
+        {
+            "Trigger": "RunRightUltiIntro",
+            "Id": 7690568550395770689,
+            "Source": 3249992169299185477,
+            "Target": 11829832492291328304,
+            "Interpolation": 0.3
+        },
+        {
+            "Trigger": "ShieldEnergyBlast",
+            "Id": 7433612974275147877,
+            "Source": 14842078960545120864,
+            "Target": 13596117587985697169,
+            "Interpolation": 0.3
+        },
+        {
+            "Trigger": "ShieldUltiLoopWalking",
+            "Id": 7534767481111609819,
+            "Source": 14842078960545120864,
+            "Target": 18228115006919872701,
+            "Interpolation": 0.3
+        },
+        {
+            "Trigger": "ShieldDeath",
+            "Id": 12577183725867011751,
+            "Source": 14842078960545120864,
+            "Target": 8598017987142044379,
+            "Interpolation": 0.3
+        },
+        {
+            "Trigger": "ShieldRunBackwardRight",
+            "Id": 2887274625494891611,
+            "Source": 14842078960545120864,
+            "Target": 8508529589838149165,
+            "Interpolation": 0.3
+        },
+        {
+            "Trigger": "ShieldShootingShield",
+            "Id": 7917868799179344241,
+            "Source": 14842078960545120864,
+            "Target": 12810921034723524839,
+            "Interpolation": 0.3
+        },
+        {
+            "Trigger": "ShieldRunForward",
+            "Id": 15013988081120558660,
+            "Source": 14842078960545120864,
+            "Target": 6948801451410805534,
+            "Interpolation": 0.3
+        },
+        {
+            "Trigger": "ShieldRunForwardLeft",
+            "Id": 4997350765177480530,
+            "Source": 14842078960545120864,
+            "Target": 3869689853014485125,
+            "Interpolation": 0.3
+        },
+        {
+            "Trigger": "ShieldRunLeft",
+            "Id": 8460536643693287200,
+            "Source": 14842078960545120864,
+            "Target": 1638938587667713099,
+            "Interpolation": 0.3
+        },
+        {
+            "Trigger": "ShieldIdle",
+            "Id": 1133920513219533429,
+            "Source": 14842078960545120864,
+            "Target": 5103231915897851823,
+            "Interpolation": 0.3
+        },
+        {
+            "Trigger": "ShieldRunBackward",
+            "Id": 16716021020596697893,
+            "Source": 14842078960545120864,
+            "Target": 10285600828931603905,
+            "Interpolation": 0.3
+        },
+        {
+            "Trigger": "ShieldUltiLoop",
+            "Id": 13213509044620002509,
+            "Source": 14842078960545120864,
+            "Target": 9431290502876273480,
+            "Interpolation": 0.3
+        },
+        {
+            "Trigger": "ShieldRunBackwardLeft",
+            "Id": 6433579168462089853,
+            "Source": 14842078960545120864,
+            "Target": 9382344242650045229,
+            "Interpolation": 0.3
+        },
+        {
+            "Trigger": "ShieldSwitch",
+            "Id": 4565545719328097715,
+            "Source": 14842078960545120864,
+            "Target": 15472456517811950115,
+            "Interpolation": 0.3
+        },
+        {
+            "Trigger": "ShieldRunForwardRight",
+            "Id": 8751137397605840393,
+            "Source": 14842078960545120864,
+            "Target": 16730477142458022846,
+            "Interpolation": 0.3
+        },
+        {
+            "Trigger": "ShieldRunRight",
+            "Id": 1089081404583696076,
+            "Source": 14842078960545120864,
+            "Target": 3249992169299185477,
+            "Interpolation": 0.3
+        },
+        {
+            "Trigger": "ShieldShooting",
+            "Id": 1902132626393337212,
+            "Source": 14842078960545120864,
+            "Target": 6884327452410582609,
+            "Interpolation": 0.3
+        },
+        {
+            "Trigger": "ShieldShootingBlast",
+            "Id": 6255519883185243334,
+            "Source": 14842078960545120864,
+            "Target": 14623845741805147319,
+            "Interpolation": 0.3
+        },
+        {
+            "Trigger": "ShieldUltiIntro",
+            "Id": 16297078118182520863,
+            "Source": 14842078960545120864,
+            "Target": 11829832492291328304,
+            "Interpolation": 0.3
+        },
+        {
+            "Trigger": "ShootingEnergyBlast",
+            "Id": 8281914992435227726,
+            "Source": 6884327452410582609,
+            "Target": 13596117587985697169,
+            "Interpolation": 0.3
+        },
+        {
+            "Trigger": "ShootingUltiLoopWalking",
+            "Id": 2860965619939100547,
+            "Source": 6884327452410582609,
+            "Target": 18228115006919872701,
+            "Interpolation": 0.3
+        },
+        {
+            "Trigger": "ShootingDeath",
+            "Id": 4413808848001359912,
+            "Source": 6884327452410582609,
+            "Target": 8598017987142044379,
+            "Interpolation": 0.3
+        },
+        {
+            "Trigger": "ShootingRunBackwardRight",
+            "Id": 6181200205671138323,
+            "Source": 6884327452410582609,
+            "Target": 8508529589838149165,
+            "Interpolation": 0.3
+        },
+        {
+            "Trigger": "ShootingShootingShield",
+            "Id": 3383615249046530674,
+            "Source": 6884327452410582609,
+            "Target": 12810921034723524839,
+            "Interpolation": 0.3
+        },
+        {
+            "Trigger": "ShootingRunForward",
+            "Id": 13433787816720337459,
+            "Source": 6884327452410582609,
+            "Target": 6948801451410805534,
+            "Interpolation": 0.3
+        },
+        {
+            "Trigger": "ShootingRunForwardLeft",
+            "Id": 17838847344381932595,
+            "Source": 6884327452410582609,
+            "Target": 3869689853014485125,
+            "Interpolation": 0.3
+        },
+        {
+            "Trigger": "ShootingRunLeft",
+            "Id": 9539275891159791465,
+            "Source": 6884327452410582609,
+            "Target": 1638938587667713099,
+            "Interpolation": 0.3
+        },
+        {
+            "Trigger": "ShootingIdle",
+            "Id": 11806672000160637203,
+            "Source": 6884327452410582609,
+            "Target": 5103231915897851823,
+            "Interpolation": 0.3
+        },
+        {
+            "Trigger": "ShootingRunBackward",
+            "Id": 17591190223895502833,
+            "Source": 6884327452410582609,
+            "Target": 10285600828931603905,
+            "Interpolation": 0.3
+        },
+        {
+            "Trigger": "ShootingUltiLoop",
+            "Id": 366216471178892293,
+            "Source": 6884327452410582609,
+            "Target": 9431290502876273480,
+            "Interpolation": 0.3
+        },
+        {
+            "Trigger": "ShootingRunBackwardLeft",
+            "Id": 1976528285105425045,
+            "Source": 6884327452410582609,
+            "Target": 9382344242650045229,
+            "Interpolation": 0.3
+        },
+        {
+            "Trigger": "ShootingSwitch",
+            "Id": 2101509145581421718,
+            "Source": 6884327452410582609,
+            "Target": 15472456517811950115,
+            "Interpolation": 0.3
+        },
+        {
+            "Trigger": "ShootingRunForwardRight",
+            "Id": 15775241464187043,
+            "Source": 6884327452410582609,
+            "Target": 16730477142458022846,
+            "Interpolation": 0.3
+        },
+        {
+            "Trigger": "ShootingRunRight",
+            "Id": 1310796360385710860,
+            "Source": 6884327452410582609,
+            "Target": 3249992169299185477,
+            "Interpolation": 0.3
+        },
+        {
+            "Trigger": "ShootingShield",
+            "Id": 4296454500313040799,
+            "Source": 6884327452410582609,
+            "Target": 14842078960545120864,
+            "Interpolation": 0.3
+        },
+        {
+            "Trigger": "ShootingShootingBlast",
+            "Id": 6917789803881542397,
+            "Source": 6884327452410582609,
+            "Target": 14623845741805147319,
+            "Interpolation": 0.3
+        },
+        {
+            "Trigger": "ShootingUltiIntro",
+            "Id": 14875382732194284874,
+            "Source": 6884327452410582609,
+            "Target": 11829832492291328304,
+            "Interpolation": 0.3
+        },
+        {
+            "Trigger": "ShootingBlastEnergyBlast",
+            "Id": 11354752551659817368,
+            "Source": 14623845741805147319,
+            "Target": 13596117587985697169,
+            "Interpolation": 0.3
+        },
+        {
+            "Trigger": "ShootingBlastUltiLoopWalking",
+            "Id": 719050357112946564,
+            "Source": 14623845741805147319,
+            "Target": 18228115006919872701,
+            "Interpolation": 0.3
+        },
+        {
+            "Trigger": "ShootingBlastDeath",
+            "Id": 16153810905357454166,
+            "Source": 14623845741805147319,
+            "Target": 8598017987142044379,
+            "Interpolation": 0.3
+        },
+        {
+            "Trigger": "ShootingBlastRunBackwardRight",
+            "Id": 10901157850028119183,
+            "Source": 14623845741805147319,
+            "Target": 8508529589838149165,
+            "Interpolation": 0.3
+        },
+        {
+            "Trigger": "ShootingBlastShootingShield",
+            "Id": 16299319841528737519,
+            "Source": 14623845741805147319,
+            "Target": 12810921034723524839,
+            "Interpolation": 0.3
+        },
+        {
+            "Trigger": "ShootingBlastRunForward",
+            "Id": 14167662560991628988,
+            "Source": 14623845741805147319,
+            "Target": 6948801451410805534,
+            "Interpolation": 0.3
+        },
+        {
+            "Trigger": "ShootingBlastRunForwardLeft",
+            "Id": 1042377231864786191,
+            "Source": 14623845741805147319,
+            "Target": 3869689853014485125,
+            "Interpolation": 0.3
+        },
+        {
+            "Trigger": "ShootingBlastRunLeft",
+            "Id": 2604236886063056979,
+            "Source": 14623845741805147319,
+            "Target": 1638938587667713099,
+            "Interpolation": 0.3
+        },
+        {
+            "Trigger": "ShootingBlastIdle",
+            "Id": 17281407574486436591,
+            "Source": 14623845741805147319,
+            "Target": 5103231915897851823,
+            "Interpolation": 0.3
+        },
+        {
+            "Trigger": "ShootingBlastRunBackward",
+            "Id": 1498697968968812071,
+            "Source": 14623845741805147319,
+            "Target": 10285600828931603905,
+            "Interpolation": 0.3
+        },
+        {
+            "Trigger": "ShootingBlastUltiLoop",
+            "Id": 3677818123884421696,
+            "Source": 14623845741805147319,
+            "Target": 9431290502876273480,
+            "Interpolation": 0.3
+        },
+        {
+            "Trigger": "ShootingBlastRunBackwardLeft",
+            "Id": 7628463079454279505,
+            "Source": 14623845741805147319,
+            "Target": 9382344242650045229,
+            "Interpolation": 0.3
+        },
+        {
+            "Trigger": "ShootingBlastSwitch",
+            "Id": 2542135227764151665,
+            "Source": 14623845741805147319,
+            "Target": 15472456517811950115,
+            "Interpolation": 0.3
+        },
+        {
+            "Trigger": "ShootingBlastRunForwardRight",
+            "Id": 3908298387195093602,
+            "Source": 14623845741805147319,
+            "Target": 16730477142458022846,
+            "Interpolation": 0.3
+        },
+        {
+            "Trigger": "ShootingBlastRunRight",
+            "Id": 9589491166345034132,
+            "Source": 14623845741805147319,
+            "Target": 3249992169299185477,
+            "Interpolation": 0.3
+        },
+        {
+            "Trigger": "ShootingBlastShield",
+            "Id": 17350156116106165595,
+            "Source": 14623845741805147319,
+            "Target": 14842078960545120864,
+            "Interpolation": 0.3
+        },
+        {
+            "Trigger": "ShootingBlastShooting",
+            "Id": 2786094091859480948,
+            "Source": 14623845741805147319,
+            "Target": 6884327452410582609,
+            "Interpolation": 0.3
+        },
+        {
+            "Trigger": "ShootingBlastUltiIntro",
+            "Id": 9973762209079130447,
+            "Source": 14623845741805147319,
+            "Target": 11829832492291328304,
+            "Interpolation": 0.3
+        },
+        {
+            "Trigger": "UltiIntroEnergyBlast",
+            "Id": 2623103210139778041,
+            "Source": 11829832492291328304,
+            "Target": 13596117587985697169,
+            "Interpolation": 0.3
+        },
+        {
+            "Trigger": "UltiIntroUltiLoopWalking",
+            "Id": 13455322040328465703,
+            "Source": 11829832492291328304,
+            "Target": 18228115006919872701,
+            "Interpolation": 0.3
+        },
+        {
+            "Trigger": "UltiIntroDeath",
+            "Id": 8029915836977035251,
+            "Source": 11829832492291328304,
+            "Target": 8598017987142044379,
+            "Interpolation": 0.3
+        },
+        {
+            "Trigger": "UltiIntroRunBackwardRight",
+            "Id": 6273826594944664062,
+            "Source": 11829832492291328304,
+            "Target": 8508529589838149165,
+            "Interpolation": 0.3
+        },
+        {
+            "Trigger": "UltiIntroShootingShield",
+            "Id": 8725932349273411656,
+            "Source": 11829832492291328304,
+            "Target": 12810921034723524839,
+            "Interpolation": 0.3
+        },
+        {
+            "Trigger": "UltiIntroRunForward",
+            "Id": 6000120756524496910,
+            "Source": 11829832492291328304,
+            "Target": 6948801451410805534,
+            "Interpolation": 0.3
+        },
+        {
+            "Trigger": "UltiIntroRunForwardLeft",
+            "Id": 3475005318052382533,
+            "Source": 11829832492291328304,
+            "Target": 3869689853014485125,
+            "Interpolation": 0.3
+        },
+        {
+            "Trigger": "UltiIntroRunLeft",
+            "Id": 13321523663770290559,
+            "Source": 11829832492291328304,
+            "Target": 1638938587667713099,
+            "Interpolation": 0.3
+        },
+        {
+            "Trigger": "UltiIntroIdle",
+            "Id": 15177655908286826419,
+            "Source": 11829832492291328304,
+            "Target": 5103231915897851823,
+            "Interpolation": 0.3
+        },
+        {
+            "Trigger": "UltiIntroRunBackward",
+            "Id": 15352731096399520234,
+            "Source": 11829832492291328304,
+            "Target": 10285600828931603905,
+            "Interpolation": 0.3
+        },
+        {
+            "Trigger": "UltiIntroUltiLoop",
+            "Id": 2559460600878012109,
+            "Source": 11829832492291328304,
+            "Target": 9431290502876273480,
+            "Interpolation": 0.3
+        },
+        {
+            "Trigger": "UltiIntroRunBackwardLeft",
+            "Id": 11242609673062315341,
+            "Source": 11829832492291328304,
+            "Target": 9382344242650045229,
+            "Interpolation": 0.3
+        },
+        {
+            "Trigger": "UltiIntroSwitch",
+            "Id": 3297608788787036689,
+            "Source": 11829832492291328304,
+            "Target": 15472456517811950115,
+            "Interpolation": 0.3
+        },
+        {
+            "Trigger": "UltiIntroRunForwardRight",
+            "Id": 8956297869998263290,
+            "Source": 11829832492291328304,
+            "Target": 16730477142458022846,
+            "Interpolation": 0.3
+        },
+        {
+            "Trigger": "UltiIntroRunRight",
+            "Id": 18122420567044669261,
+            "Source": 11829832492291328304,
+            "Target": 3249992169299185477,
+            "Interpolation": 0.3
+        },
+        {
+            "Trigger": "UltiIntroShield",
+            "Id": 15623672685869803653,
+            "Source": 11829832492291328304,
+            "Target": 14842078960545120864,
+            "Interpolation": 0.3
+        },
+        {
+            "Trigger": "UltiIntroShooting",
+            "Id": 18309083419561942374,
+            "Source": 11829832492291328304,
+            "Target": 6884327452410582609,
+            "Interpolation": 0.3
+        },
+        {
+            "Trigger": "UltiIntroShootingBlast",
+            "Id": 17614047754022274615,
+            "Source": 11829832492291328304,
+            "Target": 14623845741805147319,
+            "Interpolation": 0.3
+        }
+    ],
+    "Bones": [
+      "RightHandLeftFinger2",
+      "RightThruster",
+      "RightWrist",
+      "LeftArm",
+      "LeftShoulderPad",
+      "RightHandLeftFinger1",
+      "Bullet1",
+      "RightShoulderpad",
+      "Minigun",
+      "MinigunPlates",
+      "RightHandBottom",
+      "RightHandBottomFinger1",
+      "RightHandBottomFinger2",
+      "RightHandRightFinger1",
+      "RightHandRightFinger2",
+      "ShieldArm_$AssimpFbx$_Translation",
+      "Bullet2",
+      "Bullet3",
+      "Bullet4",
+      "Bullet5",
+      "Bullet6",
+      "LeftShoulder",
+      "RightArm",
+      "RightShoulder",
+	  "OuterCore"
+    ]
+}

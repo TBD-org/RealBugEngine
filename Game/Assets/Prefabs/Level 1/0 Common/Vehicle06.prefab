@@ -1,0 +1,89 @@
+{
+    "Root": {
+        "Name": "Vehicle06",
+        "Active": true,
+        "RootBoneName": "",
+        "Mask": 0,
+        "Components": [
+            {
+                "Type": "Transform",
+                "Active": true,
+                "Position": [
+                    0.0,
+                    0.0,
+                    0.0
+                ],
+                "Rotation": [
+                    0.0,
+                    0.0,
+                    0.0,
+                    1.0
+                ],
+                "Scale": [
+                    0.5,
+                    0.5,
+                    0.5
+                ],
+                "LocalEulerAngles": [
+                    -0.0,
+                    0.0,
+                    -0.0
+                ]
+            }
+        ],
+        "Children": [
+            {
+                "Name": "Vehicle_006",
+                "Active": true,
+                "RootBoneName": "",
+                "Mask": 0,
+                "Components": [
+                    {
+                        "Type": "Transform",
+                        "Active": true,
+                        "Position": [
+                            6.759008407592773,
+                            -1.0357824563980103,
+                            4.5275488247398246e-8
+                        ],
+                        "Rotation": [
+                            -0.7071068286895752,
+                            0.0,
+                            0.0,
+                            0.7071068286895752
+                        ],
+                        "Scale": [
+                            0.35613998770713808,
+                            0.35613998770713808,
+                            0.48282501101493838
+                        ],
+                        "LocalEulerAngles": [
+                            -90.00000762939453,
+                            0.0,
+                            0.0
+                        ]
+                    },
+                    {
+                        "Type": "MeshRenderer",
+                        "Active": true,
+                        "MeshID": 17004213257504532099,
+                        "MaterialID": 15862207874269245920
+                    },
+                    {
+                        "Type": "BoundingBox",
+                        "Active": true,
+                        "LocalBoundingBox": [
+                            -56.22383117675781,
+                            -34.325279235839847,
+                            -1.2384417057037354,
+                            18.266815185546876,
+                            34.325279235839847,
+                            5.528951168060303
+                        ]
+                    }
+                ],
+                "Children": null
+            }
+        ]
+    }
+}

@@ -1,0 +1,9 @@
+{
+    "Name": "DashBackward",
+    "AnimationUID": 5614041873872763134,
+    "BeginIndex": 84,
+    "EndIndex": 84,
+    "Loop": true,
+    "Speed": 1.0,
+    "FrameRate": 0.03329545259475708
+}

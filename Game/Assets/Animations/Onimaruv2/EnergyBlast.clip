@@ -1,0 +1,9 @@
+{
+    "Name": "EnergyBlast",
+    "AnimationUID": 10018071370470098956,
+    "BeginIndex": 562,
+    "EndIndex": 604,
+    "Loop": false,
+    "Speed": 1.0,
+    "FrameRate": 0.041615165770053866
+}

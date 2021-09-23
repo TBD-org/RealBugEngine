@@ -1,0 +1,18 @@
+{
+    "InitialState": 16714486553825934180,
+    "Clips": [
+        3278153640785812784
+    ],
+    "States": [
+        {
+            "Id": 16714486553825934180,
+            "Name": "Idle",
+            "ClipId": 3278153640785812784
+        }
+    ],
+    "Transitions": null,
+    "Bones": [
+        "CameraPost1",
+        "CameraPost2"
+    ]
+}

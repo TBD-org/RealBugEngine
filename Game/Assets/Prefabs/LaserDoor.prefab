@@ -1,0 +1,54 @@
+{
+    "Root": {
+        "Name": "LaserDoor",
+        "Active": true,
+        "RootBoneName": "",
+        "Mask": 16,
+        "Components": [
+            {
+                "Type": "Transform",
+                "Active": true,
+                "Position": [
+                    0.0,
+                    3.0,
+                    0.47502970695495608
+                ],
+                "Rotation": [
+                    -0.7071068286895752,
+                    0.0,
+                    0.0,
+                    0.7071068286895752
+                ],
+                "Scale": [
+                    0.0000010000001111620805,
+                    0.8999999761581421,
+                    0.8400003910064697
+                ],
+                "LocalEulerAngles": [
+                    -90.00000762939453,
+                    0.0,
+                    0.0
+                ]
+            },
+            {
+                "Type": "MeshRenderer",
+                "Active": true,
+                "MeshID": 8252650381444670239,
+                "MaterialID": 15539835063166905004
+            },
+            {
+                "Type": "BoundingBox",
+                "Active": true,
+                "LocalBoundingBox": [
+                    -0.02503901720046997,
+                    -6.693376541137695,
+                    0.0,
+                    0.1390889286994934,
+                    6.675260543823242,
+                    8.031973838806153
+                ]
+            }
+        ],
+        "Children": null
+    }
+}

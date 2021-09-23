@@ -1,0 +1,12 @@
+#pragma once
+
+enum class PlayerStates {
+	IDLE,
+	RUNNING,
+	SHOOTING,
+	DEATH,
+	FIRST_ABILITY,
+	SECOND_ABILITY,
+	THIRD_ABILITY,
+	LENGTH
+};

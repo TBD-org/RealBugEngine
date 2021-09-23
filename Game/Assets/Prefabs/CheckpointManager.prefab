@@ -1,0 +1,102 @@
+{
+    "Root": {
+        "Name": "CheckpointManager",
+        "Active": true,
+        "RootBoneName": "",
+        "Components": [
+            {
+                "Type": "Transform",
+                "Active": true,
+                "Position": [
+                    0.0,
+                    0.0,
+                    0.0
+                ],
+                "Rotation": [
+                    0.0,
+                    0.0,
+                    0.0,
+                    1.0
+                ],
+                "Scale": [
+                    1.0,
+                    1.0,
+                    1.0
+                ],
+                "LocalEulerAngles": [
+                    -0.0,
+                    0.0,
+                    -0.0
+                ]
+            },
+            {
+                "Type": "Script",
+                "Active": true,
+                "Script": 18407489125590636893,
+                "Values": [
+                    {
+                        "Name": "avatarUID",
+                        "Type": "GameObjectUID",
+                        "Value": 12292558531237398137
+                    },
+                    {
+                        "Name": "checkpointPosition3",
+                        "Type": "Float3",
+                        "Value": [
+                            -17.0,
+                            2.8499999046325685,
+                            -0.20000000298023225
+                        ]
+                    },
+                    {
+                        "Name": "timeBetweenChecks",
+                        "Type": "Float",
+                        "Value": 0.20000000298023225
+                    },
+                    {
+                        "Name": "distanceThreshold",
+                        "Type": "Float",
+                        "Value": 3.0
+                    },
+                    {
+                        "Name": "checkpointPosition1",
+                        "Type": "Float3",
+                        "Value": [
+                            -164.0,
+                            2.8499999046325685,
+                            -34.0
+                        ]
+                    },
+                    {
+                        "Name": "checkpointPosition2",
+                        "Type": "Float3",
+                        "Value": [
+                            -115.0,
+                            2.8499999046325685,
+                            -0.20000000298023225
+                        ]
+                    },
+                    {
+                        "Name": "checkpointPosition4",
+                        "Type": "Float3",
+                        "Value": [
+                            43.0,
+                            2.8499999046325685,
+                            -0.20000000298023225
+                        ]
+                    },
+                    {
+                        "Name": "checkpointPosition5",
+                        "Type": "Float3",
+                        "Value": [
+                            140.0,
+                            2.8499999046325685,
+                            -0.20000000298023225
+                        ]
+                    }
+                ]
+            }
+        ],
+        "Children": null
+    }
+}

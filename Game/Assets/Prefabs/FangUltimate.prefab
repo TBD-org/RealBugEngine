@@ -1,0 +1,67 @@
+{
+    "Root": {
+        "Name": "FangUltimate",
+        "Active": true,
+        "RootBoneName": "",
+        "Mask": 0,
+        "Components": [
+            {
+                "Type": "Transform",
+                "Active": false,
+                "Position": [
+                    0.0,
+                    0.0,
+                    0.0
+                ],
+                "Rotation": [
+                    0.0,
+                    0.0,
+                    0.0,
+                    1.0
+                ],
+                "Scale": [
+                    1.0,
+                    1.0,
+                    1.0
+                ],
+                "LocalEulerAngles": [
+                    -0.0,
+                    0.0,
+                    -0.0
+                ]
+            },
+            {
+                "Type": "SphereCollider",
+                "Active": true,
+                "colliderType": 2,
+                "layerType": 5,
+                "mass": 1.0,
+                "radius": 5.0,
+                "centerOffset": [
+                    0.0,
+                    0.0,
+                    0.0
+                ],
+                "freezeRotation": false
+            },
+            {
+                "Type": "Script",
+                "Active": true,
+                "Script": 9240105700021193804,
+                "Values": [
+                    {
+                        "Name": "fangTrailUID",
+                        "Type": "PrefabResourceUID",
+                        "Value": 14078621650633903226
+                    },
+                    {
+                        "Name": "fangBulletUID",
+                        "Type": "PrefabResourceUID",
+                        "Value": 12611034100292589666
+                    }
+                ]
+            }
+        ],
+        "Children": null
+    }
+}

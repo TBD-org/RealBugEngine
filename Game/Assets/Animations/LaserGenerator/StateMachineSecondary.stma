@@ -1,0 +1,40 @@
+{
+    "InitialState": 0,
+    "Clips": [
+        8214590886205051120,
+        9344188806353399489
+    ],
+    "States": [
+        {
+            "Id": 2479749893128253690,
+            "Name": "Idle",
+            "ClipId": 8214590886205051120
+        },
+        {
+            "Id": 14307123812367254086,
+            "Name": "Shooting",
+            "ClipId": 9344188806353399489
+        }
+    ],
+    "Transitions": [
+        {
+            "Trigger": "IdleShooting",
+            "Id": 3222206430245545415,
+            "Source": 2479749893128253690,
+            "Target": 14307123812367254086,
+            "Interpolation": 0.3
+        },
+        {
+            "Trigger": "ShootingIdle",
+            "Id": 8489409532921802451,
+            "Source": 14307123812367254086,
+            "Target": 2479749893128253690,
+            "Interpolation": 0.3
+        }
+    ],
+    "Bones": [
+        "LaserPilon1",
+	"LaserPilon2",
+	"LaserPilon3"
+    ]
+}

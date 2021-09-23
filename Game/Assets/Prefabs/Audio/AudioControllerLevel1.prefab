@@ -1,0 +1,207 @@
+{
+    "Root": {
+        "Name": "AudioControllerLevel1",
+        "Active": true,
+        "RootBoneName": "",
+        "Mask": 0,
+        "Components": [
+            {
+                "Type": "Transform",
+                "Active": true,
+                "Position": [
+                    0.0,
+                    0.0,
+                    0.0
+                ],
+                "Rotation": [
+                    0.0,
+                    0.0,
+                    0.0,
+                    1.0
+                ],
+                "Scale": [
+                    1.0,
+                    1.0,
+                    1.0
+                ],
+                "LocalEulerAngles": [
+                    -0.0,
+                    0.0,
+                    -0.0
+                ]
+            },
+            {
+                "Type": "AudioSource",
+                "Active": true,
+                "Pitch": 1.0,
+                "Gain": 0.75,
+                "Mute": false,
+                "Looping": true,
+                "PlayOnAwake": true,
+                "AudioClipId": 17581635693156465492,
+                "SpatialBlend": 0,
+                "SourceType": 0,
+                "InnerAngle": 90.0,
+                "OuterAngle": 180.0,
+                "OuterGain": 0.0,
+                "RolloffFactor": 1.0,
+                "ReferenceDistance": 10.0,
+                "MaxDistance": 30.0
+            }
+        ],
+        "Children": [
+            {
+                "Name": "PauseController",
+                "Active": true,
+                "RootBoneName": "",
+                "Mask": 0,
+                "Components": [
+                    {
+                        "Type": "Transform",
+                        "Active": true,
+                        "Position": [
+                            0.0,
+                            0.0,
+                            0.0
+                        ],
+                        "Rotation": [
+                            0.0,
+                            0.0,
+                            0.0,
+                            1.0
+                        ],
+                        "Scale": [
+                            1.0,
+                            1.0,
+                            1.0
+                        ],
+                        "LocalEulerAngles": [
+                            -0.0,
+                            0.0,
+                            -0.0
+                        ]
+                    },
+                    {
+                        "Type": "AudioSource",
+                        "Active": true,
+                        "Pitch": 1.0,
+                        "Gain": 0.25,
+                        "Mute": false,
+                        "Looping": false,
+                        "PlayOnAwake": false,
+                        "AudioClipId": 14669723821457207248,
+                        "SpatialBlend": 0,
+                        "SourceType": 0,
+                        "InnerAngle": 90.0,
+                        "OuterAngle": 180.0,
+                        "OuterGain": 0.0,
+                        "RolloffFactor": 1.0,
+                        "ReferenceDistance": 10.0,
+                        "MaxDistance": 30.0
+                    },
+                    {
+                        "Type": "AudioSource",
+                        "Active": true,
+                        "Pitch": 1.0,
+                        "Gain": 0.25,
+                        "Mute": false,
+                        "Looping": false,
+                        "PlayOnAwake": false,
+                        "AudioClipId": 9936858215729922947,
+                        "SpatialBlend": 0,
+                        "SourceType": 0,
+                        "InnerAngle": 90.0,
+                        "OuterAngle": 180.0,
+                        "OuterGain": 0.0,
+                        "RolloffFactor": 1.0,
+                        "ReferenceDistance": 10.0,
+                        "MaxDistance": 30.0
+                    },
+                    {
+                        "Type": "AudioSource",
+                        "Active": true,
+                        "Pitch": 1.0,
+                        "Gain": 0.15000000596046449,
+                        "Mute": false,
+                        "Looping": true,
+                        "PlayOnAwake": false,
+                        "AudioClipId": 9739304253324649107,
+                        "SpatialBlend": 0,
+                        "SourceType": 0,
+                        "InnerAngle": 90.0,
+                        "OuterAngle": 180.0,
+                        "OuterGain": 0.0,
+                        "RolloffFactor": 1.0,
+                        "ReferenceDistance": 10.0,
+                        "MaxDistance": 30.0
+                    },
+                    {
+                        "Type": "Script",
+                        "Active": true,
+                        "Script": 7841855527186595200,
+                        "Values": null
+                    }
+                ],
+                "Children": null
+            },
+            {
+                "Name": "GameOverController",
+                "Active": true,
+                "RootBoneName": "",
+                "Mask": 0,
+                "Components": [
+                    {
+                        "Type": "Transform",
+                        "Active": true,
+                        "Position": [
+                            0.0,
+                            0.0,
+                            0.0
+                        ],
+                        "Rotation": [
+                            0.0,
+                            0.0,
+                            0.0,
+                            1.0
+                        ],
+                        "Scale": [
+                            1.0,
+                            1.0,
+                            1.0
+                        ],
+                        "LocalEulerAngles": [
+                            -0.0,
+                            0.0,
+                            -0.0
+                        ]
+                    },
+                    {
+                        "Type": "AudioSource",
+                        "Active": true,
+                        "Pitch": 1.0,
+                        "Gain": 0.75,
+                        "Mute": false,
+                        "Looping": false,
+                        "PlayOnAwake": false,
+                        "AudioClipId": 366878093901639193,
+                        "SpatialBlend": 0,
+                        "SourceType": 0,
+                        "InnerAngle": 90.0,
+                        "OuterAngle": 180.0,
+                        "OuterGain": 0.0,
+                        "RolloffFactor": 1.0,
+                        "ReferenceDistance": 10.0,
+                        "MaxDistance": 30.0
+                    },
+                    {
+                        "Type": "Script",
+                        "Active": true,
+                        "Script": 10499609378428226968,
+                        "Values": null
+                    }
+                ],
+                "Children": null
+            }
+        ]
+    }
+}

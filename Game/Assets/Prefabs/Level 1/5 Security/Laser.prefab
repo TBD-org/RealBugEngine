@@ -1,0 +1,72 @@
+{
+    "Root": {
+        "Name": "LaserBeam",
+        "Active": true,
+        "RootBoneName": "",
+        "Mask": 16,
+        "Components": [
+            {
+                "Type": "Transform",
+                "Active": false,
+                "Position": [
+                    17.97900390625,
+                    6.672736644744873,
+                    0.5
+                ],
+                "Rotation": [
+                    -0.7071068286895752,
+                    0.0,
+                    0.0,
+                    0.7071067094802856
+                ],
+                "Scale": [
+                    2.0,
+                    1.9700000286102296,
+                    2.0
+                ],
+                "LocalEulerAngles": [
+                    -90.00000762939453,
+                    0.0,
+                    0.0
+                ]
+            },
+            {
+                "Type": "MeshRenderer",
+                "Active": true,
+                "MeshID": 7038944248903619060,
+                "MaterialID": 14968097780833281546
+            },
+            {
+                "Type": "BoundingBox",
+                "Active": true,
+                "LocalBoundingBox": [
+                    -0.5,
+                    -10.0,
+                    -0.5,
+                    0.5,
+                    10.0,
+                    0.5
+                ]
+            },
+            {
+                "Type": "BoxCollider",
+                "Active": true,
+                "colliderType": 2,
+                "layerType": 6,
+                "mass": 1.0,
+                "size": [
+                    0.25,
+                    20.0,
+                    0.25
+                ],
+                "centerOffset": [
+                    0.0,
+                    0.0,
+                    0.0
+                ],
+                "freezeRotation": false
+            }
+        ],
+        "Children": null
+    }
+}

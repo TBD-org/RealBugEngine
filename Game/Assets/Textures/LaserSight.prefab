@@ -1,0 +1,337 @@
+{
+    "Root": {
+        "Name": "LaserSight",
+        "Active": true,
+        "RootBoneName": "",
+        "Mask": 0,
+        "Components": [
+            {
+                "Type": "Transform",
+                "Active": true,
+                "Position": [
+                    -119.05390167236328,
+                    5.711370468139648,
+                    0.5173754692077637
+                ],
+                "Rotation": [
+                    3.0908619663705397e-8,
+                    0.7071068286895752,
+                    0.7071067094802856,
+                    -3.0908616110991718e-8
+                ],
+                "Scale": [
+                    0.10000000149011612,
+                    0.10000000149011612,
+                    0.10000000149011612
+                ],
+                "LocalEulerAngles": [
+                    -90.00000762939453,
+                    0.0,
+                    180.0
+                ]
+            }
+        ],
+        "Children": [
+            {
+                "Name": "LaserSightBase",
+                "Active": true,
+                "RootBoneName": "",
+                "Mask": 16,
+                "Components": [
+                    {
+                        "Type": "Transform",
+                        "Active": true,
+                        "Position": [
+                            0.0,
+                            0.0,
+                            0.0
+                        ],
+                        "Rotation": [
+                            1.4901162614933129e-7,
+                            6.833059508840056e-14,
+                            8.742279078433057e-8,
+                            1.0
+                        ],
+                        "Scale": [
+                            0.3499999940395355,
+                            0.3499999940395355,
+                            0.3499999940395355
+                        ],
+                        "LocalEulerAngles": [
+                            0.000017075475625460969,
+                            9.3228957540048e-12,
+                            0.000010017914064519573
+                        ]
+                    },
+                    {
+                        "Type": "MeshRenderer",
+                        "Active": true,
+                        "MeshID": 18425991843475669265,
+                        "MaterialID": 2101467328581857237
+                    },
+                    {
+                        "Type": "BoundingBox",
+                        "Active": true,
+                        "LocalBoundingBox": [
+                            -50.0,
+                            -50.0,
+                            0.0,
+                            50.0,
+                            50.0,
+                            0.0
+                        ]
+                    }
+                ],
+                "Children": null
+            },
+            {
+                "Name": "LaserSightBeam",
+                "Active": true,
+                "RootBoneName": "",
+                "Mask": 16,
+                "Components": [
+                    {
+                        "Type": "Transform",
+                        "Active": true,
+                        "Position": [
+                            37.84521484375,
+                            0.4000000059604645,
+                            0.0
+                        ],
+                        "Rotation": [
+                            3.5527141023169749e-15,
+                            -5.3290739063325408e-15,
+                            1.8932676771631975e-29,
+                            1.0
+                        ],
+                        "Scale": [
+                            1.0,
+                            1.0,
+                            1.0
+                        ],
+                        "LocalEulerAngles": [
+                            4.0711105818956596e-13,
+                            -6.106668989924735e-13,
+                            4.339050060854467e-27
+                        ]
+                    },
+                    {
+                        "Type": "MeshRenderer",
+                        "Active": true,
+                        "MeshID": 18425991843475669265,
+                        "MaterialID": 16256130947941345781
+                    },
+                    {
+                        "Type": "BoundingBox",
+                        "Active": true,
+                        "LocalBoundingBox": [
+                            -50.0,
+                            -50.0,
+                            0.0,
+                            50.0,
+                            50.0,
+                            0.0
+                        ]
+                    }
+                ],
+                "Children": null
+            },
+            {
+                "Name": "LaserSightParticles",
+                "Active": true,
+                "RootBoneName": "",
+                "Mask": 0,
+                "Components": [
+                    {
+                        "Type": "Transform",
+                        "Active": true,
+                        "Position": [
+                            -3.0025634765625,
+                            0.0002589225769042969,
+                            0.0
+                        ],
+                        "Rotation": [
+                            -1.053671283557378e-7,
+                            -2.107342567114756e-8,
+                            -0.7071066498756409,
+                            0.70710688829422
+                        ],
+                        "Scale": [
+                            1.0000003576278687,
+                            1.0000003576278687,
+                            1.0000003576278687
+                        ],
+                        "LocalEulerAngles": [
+                            -0.000010245285920973402,
+                            0.000006830187885498162,
+                            -89.99998474121094
+                        ]
+                    },
+                    {
+                        "Type": "Particle",
+                        "Active": true,
+                        "DrawGizmo": true,
+                        "Duration": 1.0,
+                        "Looping": true,
+                        "StartDelay": [
+                            0.0,
+                            0.0
+                        ],
+                        "LifeRM": 0,
+                        "Life": [
+                            5.0,
+                            30.0
+                        ],
+                        "SpeedRM": 0,
+                        "Speed": [
+                            0.6499999761581421,
+                            3.0
+                        ],
+                        "RotationRM": 1,
+                        "Rotation": [
+                            6.2831854820251469,
+                            -6.2831854820251469
+                        ],
+                        "ScaleRM": 0,
+                        "Scale": [
+                            12.0,
+                            14.0
+                        ],
+                        "ReverseEffect": false,
+                        "ReverseDistanceRM": 0,
+                        "ReverseDistance": [
+                            5.0,
+                            5.0
+                        ],
+                        "MaxParticle": 100,
+                        "PlayOnAwake": true,
+                        "AttachEmitter": true,
+                        "ParticlesPerSecondRM": 0,
+                        "ParticlesPerSecond": [
+                            2.299999952316284,
+                            10.0
+                        ],
+                        "GravityEffect": false,
+                        "GravityFactorRM": 0,
+                        "GravityFactor": [
+                            0.0,
+                            0.0
+                        ],
+                        "ParticleEmitterType": 0,
+                        "ConeRadiusUp": 0.0,
+                        "ConeRadiusDown": 0.0,
+                        "RandomConeRadiusUp": false,
+                        "RandomConeRadiusDown": false,
+                        "RotationOverLifetime": false,
+                        "RotationFactorRM": 0,
+                        "RotationFactor": [
+                            0.0,
+                            0.0
+                        ],
+                        "SizeOverLifetime": true,
+                        "ScaleFactorRM": 0,
+                        "ScaleFactor": [
+                            -0.05999999865889549,
+                            0.5
+                        ],
+                        "ColorOverLifetime": true,
+                        "GradientColors": [
+                            [
+                                9.999899930335233e-7,
+                                9.999999974752428e-7,
+                                9.99994540507032e-7,
+                                1.0,
+                                0.0
+                            ],
+                            [
+                                0.3331611156463623,
+                                0.610297441482544,
+                                0.7329545021057129,
+                                1.0,
+                                0.17579247057437898
+                            ],
+                            [
+                                0.18478822708129884,
+                                0.48206281661987307,
+                                0.6136363744735718,
+                                1.0,
+                                0.28064724802970889
+                            ],
+                            [
+                                9.999999974752428e-7,
+                                9.999899930335233e-7,
+                                9.999899930335233e-7,
+                                1.0,
+                                0.9781136512756348
+                            ]
+                        ],
+                        "NumberColors": 4,
+                        "Ytiles": 1,
+                        "Xtiles": 1,
+                        "AnimationSpeed": 0.0,
+                        "IsRandomFrame": false,
+                        "LoopAnimation": true,
+                        "NCycles": 1.0,
+                        "TextureId": 4791890127668400584,
+                        "BillboardType": 2,
+                        "ParticleRenderMode": 0,
+                        "ParticleRenderAlignment": 0,
+                        "FlipTexture": [
+                            false,
+                            false
+                        ],
+                        "IsSoft": false,
+                        "SoftRange": 1.0,
+                        "HasCollision": false,
+                        "LayerIndex": 5,
+                        "CollRadius": 0.25,
+                        "HasTrail": false,
+                        "TrailRatio": 1.0,
+                        "WidthRM": 0,
+                        "Width": [
+                            0.10000000149011612,
+                            0.10000000149011612
+                        ],
+                        "TrailQuadsRM": 0,
+                        "TrailQuads": [
+                            50.0,
+                            50.0
+                        ],
+                        "QuadLifeRM": 0,
+                        "QuadLife": [
+                            10.0,
+                            10.0
+                        ],
+                        "TextureTrailID": 0,
+                        "FlipTrailTexture": [
+                            false,
+                            false
+                        ],
+                        "TextureRepeats": 1,
+                        "HasColorOverTrail": false,
+                        "GradientColorsTrail": [
+                            [
+                                0.0,
+                                0.0,
+                                0.0,
+                                1.0,
+                                0.0
+                            ],
+                            [
+                                1.0,
+                                1.0,
+                                1.0,
+                                1.0,
+                                1.0
+                            ]
+                        ],
+                        "NumberColorsTrail": 2,
+                        "SubEmitters": null,
+                        "SubEmittersNumber": 0
+                    }
+                ],
+                "Children": null
+            }
+        ]
+    }
+}

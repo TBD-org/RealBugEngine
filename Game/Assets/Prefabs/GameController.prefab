@@ -1,0 +1,98 @@
+{
+    "Root": {
+        "Name": "Game Controler",
+        "Active": true,
+        "RootBoneName": "",
+        "Mask": 0,
+        "Components": [
+            {
+                "Type": "Transform",
+                "Active": true,
+                "Position": [
+                    0.0,
+                    0.0,
+                    0.0
+                ],
+                "Rotation": [
+                    0.0,
+                    0.0,
+                    0.0,
+                    1.0
+                ],
+                "Scale": [
+                    1.0,
+                    1.0,
+                    1.0
+                ],
+                "LocalEulerAngles": [
+                    -0.0,
+                    0.0,
+                    -0.0
+                ]
+            },
+            {
+                "Type": "Script",
+                "Active": true,
+                "Script": 992608944476897018,
+                "Values": [
+                    {
+                        "Name": "staticCamera3UID",
+                        "Type": "GameObjectUID",
+                        "Value": 16730460715818442581
+                    },
+                    {
+                        "Name": "pauseUID",
+                        "Type": "GameObjectUID",
+                        "Value": 5141403920143620279
+                    },
+                    {
+                        "Name": "staticCamera1UID",
+                        "Type": "GameObjectUID",
+                        "Value": 12105576063853642556
+                    },
+                    {
+                        "Name": "staticCamera2UID",
+                        "Type": "GameObjectUID",
+                        "Value": 3685415630762953669
+                    },
+                    {
+                        "Name": "playerUID",
+                        "Type": "GameObjectUID",
+                        "Value": 12693373114323491508
+                    },
+                    {
+                        "Name": "gameCameraUID",
+                        "Type": "GameObjectUID",
+                        "Value": 680618938873982628
+                    },
+                    {
+                        "Name": "staticCamera4UID",
+                        "Type": "GameObjectUID",
+                        "Value": 2655070040425404295
+                    },
+                    {
+                        "Name": "godCameraUID",
+                        "Type": "GameObjectUID",
+                        "Value": 5035480018265416016
+                    },
+                    {
+                        "Name": "hudUID",
+                        "Type": "GameObjectUID",
+                        "Value": 3805133938998418157
+                    },
+                    {
+                        "Name": "enemySpawnPointsUID",
+                        "Type": "GameObjectUID",
+                        "Value": 9424093591244721738
+                    },
+                    {
+                        "Name": "godModeControllerUID",
+                        "Type": "GameObjectUID",
+                        "Value": 2104300630684251741
+                    }
+                ]
+            }
+        ],
+        "Children": null
+    }
+}

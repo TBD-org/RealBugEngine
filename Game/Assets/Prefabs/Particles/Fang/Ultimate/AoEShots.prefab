@@ -1,0 +1,1649 @@
+{
+    "Root": {
+        "Name": "AoEShots",
+        "Active": true,
+        "RootBoneName": "",
+        "Mask": 0,
+        "Components": [
+            {
+                "Type": "Transform",
+                "Active": true,
+                "Position": [
+                    0.0,
+                    104.32502746582031,
+                    0.0
+                ],
+                "Rotation": [
+                    0.0,
+                    0.712986946105957,
+                    0.0,
+                    0.7011772990226746
+                ],
+                "Scale": [
+                    39.21568298339844,
+                    39.21569061279297,
+                    39.21568298339844
+                ],
+                "LocalEulerAngles": [
+                    -180.0,
+                    89.04304504394531,
+                    -180.0
+                ]
+            },
+            {
+                "Type": "Particle",
+                "Active": true,
+                "DrawGizmo": true,
+                "Duration": 4.0,
+                "Looping": false,
+                "StartDelay": [
+                    0.5,
+                    0.5
+                ],
+                "LifeRM": 0,
+                "Life": [
+                    0.3499999940395355,
+                    5.0
+                ],
+                "SpeedRM": 0,
+                "Speed": [
+                    -1.0,
+                    1.2999999523162842
+                ],
+                "RotationRM": 0,
+                "Rotation": [
+                    0.0,
+                    0.0
+                ],
+                "ScaleRM": 0,
+                "Scale": [
+                    20.0,
+                    30.0
+                ],
+                "ReverseEffect": true,
+                "ReverseDistanceRM": 0,
+                "ReverseDistance": [
+                    3.0,
+                    5.0
+                ],
+                "MaxParticle": 100,
+                "AttachEmitter": true,
+                "ParticlesPerSecondRM": 0,
+                "ParticlesPerSecond": [
+                    25.0,
+                    25.0
+                ],
+                "GravityEffect": false,
+                "GravityFactorRM": 0,
+                "GravityFactor": [
+                    0.0,
+                    0.0
+                ],
+                "ParticleEmitterType": 1,
+                "ConeRadiusUp": 1.0,
+                "ConeRadiusDown": 0.5,
+                "RandomConeRadiusUp": false,
+                "RandomConeRadiusDown": false,
+                "RotationOverLifetime": false,
+                "RotationFactorRM": 0,
+                "RotationFactor": [
+                    0.0,
+                    0.0
+                ],
+                "SizeOverLifetime": true,
+                "ScaleFactorRM": 0,
+                "ScaleFactor": [
+                    4.0,
+                    4.0
+                ],
+                "ColorOverLifetime": true,
+                "GradientColors": [
+                    [
+                        0.17447173595428468,
+                        0.17447173595428468,
+                        0.17447173595428468,
+                        1.0,
+                        0.009685246273875237
+                    ],
+                    [
+                        1.0,
+                        0.996350109577179,
+                        0.9739413857460022,
+                        1.0,
+                        0.029055669903755189
+                    ],
+                    [
+                        0.9153094291687012,
+                        0.7573686838150024,
+                        0.5664781928062439,
+                        1.0,
+                        0.2832930088043213
+                    ],
+                    [
+                        0.6840391159057617,
+                        0.40106526017189028,
+                        0.40106526017189028,
+                        1.0,
+                        0.6852306127548218
+                    ],
+                    [
+                        9.999999974752428e-7,
+                        9.999899930335233e-7,
+                        9.999899930335233e-7,
+                        1.0,
+                        0.9806295037269592
+                    ]
+                ],
+                "NumberColors": 5,
+                "Ytiles": 1,
+                "Xtiles": 5,
+                "AnimationSpeed": 14.0,
+                "IsRandomFrame": false,
+                "LoopAnimation": false,
+                "NCycles": 1.0,
+                "TextureId": 15036306069100918142,
+                "BillboardType": 1,
+                "ParticleRenderMode": 0,
+                "ParticleRenderAlignment": 0,
+                "FlipTexture": [
+                    false,
+                    false
+                ],
+                "HasCollision": false,
+                "LayerIndex": 5
+            }
+        ],
+        "Children": [
+            {
+                "Name": "Swirl1",
+                "Active": true,
+                "RootBoneName": "",
+                "Mask": 0,
+                "Components": [
+                    {
+                        "Type": "Transform",
+                        "Active": true,
+                        "Position": [
+                            0.0,
+                            -2.4999592304229738,
+                            0.0
+                        ],
+                        "Rotation": [
+                            0.0,
+                            0.0,
+                            0.0,
+                            1.0
+                        ],
+                        "Scale": [
+                            1.0,
+                            1.0,
+                            1.0
+                        ],
+                        "LocalEulerAngles": [
+                            -0.0,
+                            0.0,
+                            -0.0
+                        ]
+                    },
+                    {
+                        "Type": "Particle",
+                        "Active": true,
+                        "DrawGizmo": true,
+                        "Duration": 4.0,
+                        "Looping": false,
+                        "StartDelay": [
+                            0.5,
+                            0.5
+                        ],
+                        "LifeRM": 0,
+                        "Life": [
+                            4.0,
+                            5.0
+                        ],
+                        "SpeedRM": 0,
+                        "Speed": [
+                            0.0,
+                            1.2999999523162842
+                        ],
+                        "RotationRM": 1,
+                        "Rotation": [
+                            6.2831854820251469,
+                            -6.2831854820251469
+                        ],
+                        "ScaleRM": 0,
+                        "Scale": [
+                            72.0,
+                            80.0
+                        ],
+                        "ReverseEffect": false,
+                        "ReverseDistanceRM": 0,
+                        "ReverseDistance": [
+                            5.0,
+                            5.0
+                        ],
+                        "MaxParticle": 1,
+                        "AttachEmitter": true,
+                        "ParticlesPerSecondRM": 0,
+                        "ParticlesPerSecond": [
+                            100.0,
+                            100.0
+                        ],
+                        "GravityEffect": false,
+                        "GravityFactorRM": 0,
+                        "GravityFactor": [
+                            0.0,
+                            0.0
+                        ],
+                        "ParticleEmitterType": 0,
+                        "ConeRadiusUp": 0.0,
+                        "ConeRadiusDown": 0.0,
+                        "RandomConeRadiusUp": false,
+                        "RandomConeRadiusDown": false,
+                        "RotationOverLifetime": true,
+                        "RotationFactorRM": 0,
+                        "RotationFactor": [
+                            -6.981317043304443,
+                            -6.981317043304443
+                        ],
+                        "SizeOverLifetime": false,
+                        "ScaleFactorRM": 0,
+                        "ScaleFactor": [
+                            0.0,
+                            0.0
+                        ],
+                        "ColorOverLifetime": true,
+                        "GradientColors": [
+                            [
+                                0.19218242168426515,
+                                0.17297257483005525,
+                                0.08012817800045014,
+                                1.0,
+                                0.014527845196425915
+                            ],
+                            [
+                                0.42019546031951907,
+                                0.3796025514602661,
+                                0.18340778350830079,
+                                1.0,
+                                0.09200971573591232
+                            ],
+                            [
+                                0.44625407457351687,
+                                0.3821348249912262,
+                                0.12355569750070572,
+                                1.0,
+                                0.719128429889679
+                            ],
+                            [
+                                0.10097718238830567,
+                                0.04341688007116318,
+                                0.0,
+                                1.0,
+                                0.9878934621810913
+                            ]
+                        ],
+                        "NumberColors": 4,
+                        "Ytiles": 1,
+                        "Xtiles": 1,
+                        "AnimationSpeed": 0.0,
+                        "IsRandomFrame": false,
+                        "LoopAnimation": true,
+                        "NCycles": 1.0,
+                        "TextureId": 11206482742703356727,
+                        "BillboardType": 2,
+                        "ParticleRenderMode": 0,
+                        "ParticleRenderAlignment": 0,
+                        "FlipTexture": [
+                            false,
+                            false
+                        ],
+                        "HasCollision": false,
+                        "LayerIndex": 5
+                    }
+                ],
+                "Children": null
+            },
+            {
+                "Name": "Swirl2",
+                "Active": true,
+                "RootBoneName": "",
+                "Mask": 0,
+                "Components": [
+                    {
+                        "Type": "Transform",
+                        "Active": true,
+                        "Position": [
+                            0.0,
+                            -2.4999592304229738,
+                            0.0
+                        ],
+                        "Rotation": [
+                            0.0,
+                            0.0,
+                            0.0,
+                            1.0
+                        ],
+                        "Scale": [
+                            1.0,
+                            1.0,
+                            1.0
+                        ],
+                        "LocalEulerAngles": [
+                            -0.0,
+                            0.0,
+                            -0.0
+                        ]
+                    },
+                    {
+                        "Type": "Particle",
+                        "Active": true,
+                        "DrawGizmo": true,
+                        "Duration": 4.0,
+                        "Looping": false,
+                        "StartDelay": [
+                            0.5,
+                            0.5
+                        ],
+                        "LifeRM": 0,
+                        "Life": [
+                            4.0,
+                            5.0
+                        ],
+                        "SpeedRM": 0,
+                        "Speed": [
+                            0.0,
+                            1.2999999523162842
+                        ],
+                        "RotationRM": 1,
+                        "Rotation": [
+                            6.2831854820251469,
+                            -6.2831854820251469
+                        ],
+                        "ScaleRM": 0,
+                        "Scale": [
+                            90.0,
+                            100.0
+                        ],
+                        "ReverseEffect": false,
+                        "ReverseDistanceRM": 0,
+                        "ReverseDistance": [
+                            5.0,
+                            5.0
+                        ],
+                        "MaxParticle": 1,
+                        "AttachEmitter": true,
+                        "ParticlesPerSecondRM": 0,
+                        "ParticlesPerSecond": [
+                            100.0,
+                            100.0
+                        ],
+                        "GravityEffect": false,
+                        "GravityFactorRM": 0,
+                        "GravityFactor": [
+                            0.0,
+                            0.0
+                        ],
+                        "ParticleEmitterType": 0,
+                        "ConeRadiusUp": 0.0,
+                        "ConeRadiusDown": 0.0,
+                        "RandomConeRadiusUp": false,
+                        "RandomConeRadiusDown": false,
+                        "RotationOverLifetime": true,
+                        "RotationFactorRM": 0,
+                        "RotationFactor": [
+                            6.981317043304443,
+                            -6.981317043304443
+                        ],
+                        "SizeOverLifetime": false,
+                        "ScaleFactorRM": 0,
+                        "ScaleFactor": [
+                            0.0,
+                            0.0
+                        ],
+                        "ColorOverLifetime": true,
+                        "GradientColors": [
+                            [
+                                0.27687299251556399,
+                                0.20785203576087953,
+                                0.11002770066261292,
+                                1.0,
+                                0.019370457157492639
+                            ],
+                            [
+                                0.48859935998916628,
+                                0.37799039483070376,
+                                0.22122251987457276,
+                                1.0,
+                                0.08474578708410263
+                            ],
+                            [
+                                0.33876222372055056,
+                                0.2123025357723236,
+                                0.08165603131055832,
+                                1.0,
+                                0.719128429889679
+                            ],
+                            [
+                                0.19218242168426515,
+                                0.0826321542263031,
+                                0.0,
+                                1.0,
+                                0.9878934621810913
+                            ]
+                        ],
+                        "NumberColors": 4,
+                        "Ytiles": 1,
+                        "Xtiles": 1,
+                        "AnimationSpeed": 0.0,
+                        "IsRandomFrame": false,
+                        "LoopAnimation": true,
+                        "NCycles": 1.0,
+                        "TextureId": 11206482742703356727,
+                        "BillboardType": 2,
+                        "ParticleRenderMode": 0,
+                        "ParticleRenderAlignment": 0,
+                        "FlipTexture": [
+                            false,
+                            false
+                        ],
+                        "HasCollision": false,
+                        "LayerIndex": 5
+                    }
+                ],
+                "Children": null
+            },
+            {
+                "Name": "GroundBurn",
+                "Active": true,
+                "RootBoneName": "",
+                "Mask": 0,
+                "Components": [
+                    {
+                        "Type": "Transform",
+                        "Active": true,
+                        "Position": [
+                            0.0,
+                            -2.4999592304229738,
+                            0.0
+                        ],
+                        "Rotation": [
+                            0.0,
+                            0.0,
+                            0.0,
+                            1.0
+                        ],
+                        "Scale": [
+                            1.0,
+                            1.0,
+                            1.0
+                        ],
+                        "LocalEulerAngles": [
+                            -0.0,
+                            0.0,
+                            -0.0
+                        ]
+                    },
+                    {
+                        "Type": "Particle",
+                        "Active": true,
+                        "DrawGizmo": true,
+                        "Duration": 4.0,
+                        "Looping": false,
+                        "StartDelay": [
+                            0.30000001192092898,
+                            0.5
+                        ],
+                        "LifeRM": 0,
+                        "Life": [
+                            4.0,
+                            10.0
+                        ],
+                        "SpeedRM": 0,
+                        "Speed": [
+                            0.0,
+                            1.2999999523162842
+                        ],
+                        "RotationRM": 0,
+                        "Rotation": [
+                            -0.0,
+                            -6.2831854820251469
+                        ],
+                        "ScaleRM": 0,
+                        "Scale": [
+                            250.0,
+                            2020.0
+                        ],
+                        "ReverseEffect": false,
+                        "ReverseDistanceRM": 0,
+                        "ReverseDistance": [
+                            5.0,
+                            5.0
+                        ],
+                        "MaxParticle": 1,
+                        "AttachEmitter": true,
+                        "ParticlesPerSecondRM": 0,
+                        "ParticlesPerSecond": [
+                            100.0,
+                            100.0
+                        ],
+                        "GravityEffect": false,
+                        "GravityFactorRM": 0,
+                        "GravityFactor": [
+                            0.0,
+                            0.0
+                        ],
+                        "ParticleEmitterType": 0,
+                        "ConeRadiusUp": 0.0,
+                        "ConeRadiusDown": 0.0,
+                        "RandomConeRadiusUp": false,
+                        "RandomConeRadiusDown": false,
+                        "RotationOverLifetime": false,
+                        "RotationFactorRM": 0,
+                        "RotationFactor": [
+                            6.981317043304443,
+                            -6.981317043304443
+                        ],
+                        "SizeOverLifetime": false,
+                        "ScaleFactorRM": 0,
+                        "ScaleFactor": [
+                            0.0,
+                            0.0
+                        ],
+                        "ColorOverLifetime": true,
+                        "GradientColors": [
+                            [
+                                0.04313725605607033,
+                                0.04313725605607033,
+                                0.04313725605607033,
+                                0.0,
+                                0.0
+                            ],
+                            [
+                                0.03921568766236305,
+                                0.03921568766236305,
+                                0.03921568766236305,
+                                0.7058823704719544,
+                                0.05326875299215317
+                            ],
+                            [
+                                0.019607843831181527,
+                                0.019607843831181527,
+                                0.019607843831181527,
+                                0.7058823704719544,
+                                0.9418888092041016
+                            ],
+                            [
+                                0.01568627543747425,
+                                0.01568627543747425,
+                                0.01568627543747425,
+                                0.0,
+                                0.9975787997245789
+                            ]
+                        ],
+                        "NumberColors": 4,
+                        "Ytiles": 1,
+                        "Xtiles": 1,
+                        "AnimationSpeed": 0.0,
+                        "IsRandomFrame": false,
+                        "LoopAnimation": true,
+                        "NCycles": 1.0,
+                        "TextureId": 11251334445267388412,
+                        "BillboardType": 2,
+                        "ParticleRenderMode": 1,
+                        "ParticleRenderAlignment": 0,
+                        "FlipTexture": [
+                            false,
+                            false
+                        ],
+                        "HasCollision": false,
+                        "LayerIndex": 5
+                    }
+                ],
+                "Children": null
+            },
+            {
+                "Name": "GroundFire1",
+                "Active": true,
+                "RootBoneName": "",
+                "Mask": 0,
+                "Components": [
+                    {
+                        "Type": "Transform",
+                        "Active": true,
+                        "Position": [
+                            0.0,
+                            -2.4999592304229738,
+                            0.0
+                        ],
+                        "Rotation": [
+                            0.0,
+                            0.0,
+                            0.0,
+                            1.0
+                        ],
+                        "Scale": [
+                            1.0,
+                            1.0,
+                            1.0
+                        ],
+                        "LocalEulerAngles": [
+                            -0.0,
+                            0.0,
+                            -0.0
+                        ]
+                    },
+                    {
+                        "Type": "Particle",
+                        "Active": true,
+                        "DrawGizmo": true,
+                        "Duration": 4.0,
+                        "Looping": false,
+                        "StartDelay": [
+                            0.30000001192092898,
+                            0.5
+                        ],
+                        "LifeRM": 0,
+                        "Life": [
+                            4.0,
+                            10.0
+                        ],
+                        "SpeedRM": 0,
+                        "Speed": [
+                            0.0,
+                            1.2999999523162842
+                        ],
+                        "RotationRM": 1,
+                        "Rotation": [
+                            6.2831854820251469,
+                            -6.2831854820251469
+                        ],
+                        "ScaleRM": 0,
+                        "Scale": [
+                            268.0,
+                            270.0
+                        ],
+                        "ReverseEffect": false,
+                        "ReverseDistanceRM": 0,
+                        "ReverseDistance": [
+                            5.0,
+                            5.0
+                        ],
+                        "MaxParticle": 1,
+                        "AttachEmitter": true,
+                        "ParticlesPerSecondRM": 0,
+                        "ParticlesPerSecond": [
+                            100.0,
+                            100.0
+                        ],
+                        "GravityEffect": false,
+                        "GravityFactorRM": 0,
+                        "GravityFactor": [
+                            0.0,
+                            0.0
+                        ],
+                        "ParticleEmitterType": 0,
+                        "ConeRadiusUp": 0.0,
+                        "ConeRadiusDown": 0.0,
+                        "RandomConeRadiusUp": false,
+                        "RandomConeRadiusDown": false,
+                        "RotationOverLifetime": true,
+                        "RotationFactorRM": 0,
+                        "RotationFactor": [
+                            -0.3490658402442932,
+                            -6.981317043304443
+                        ],
+                        "SizeOverLifetime": false,
+                        "ScaleFactorRM": 0,
+                        "ScaleFactor": [
+                            0.0,
+                            0.0
+                        ],
+                        "ColorOverLifetime": true,
+                        "GradientColors": [
+                            [
+                                0.11074918508529663,
+                                0.09322702139616013,
+                                0.01875881664454937,
+                                1.0,
+                                0.007263922598212957
+                            ],
+                            [
+                                0.6540084481239319,
+                                0.5799862742424011,
+                                0.28147199749946597,
+                                1.0,
+                                0.03874092176556587
+                            ],
+                            [
+                                0.3206751346588135,
+                                0.21818599104881288,
+                                0.1123039498925209,
+                                1.0,
+                                0.845035970211029
+                            ],
+                            [
+                                0.01568627543747425,
+                                0.01568627543747425,
+                                0.01568627543747425,
+                                0.0,
+                                0.9975787997245789
+                            ]
+                        ],
+                        "NumberColors": 4,
+                        "Ytiles": 1,
+                        "Xtiles": 1,
+                        "AnimationSpeed": 0.0,
+                        "IsRandomFrame": false,
+                        "LoopAnimation": true,
+                        "NCycles": 1.0,
+                        "TextureId": 3950195899821114799,
+                        "BillboardType": 2,
+                        "ParticleRenderMode": 0,
+                        "ParticleRenderAlignment": 0,
+                        "FlipTexture": [
+                            false,
+                            false
+                        ],
+                        "HasCollision": false,
+                        "LayerIndex": 5
+                    }
+                ],
+                "Children": null
+            },
+            {
+                "Name": "GroundFire2",
+                "Active": false,
+                "RootBoneName": "",
+                "Mask": 0,
+                "Components": [
+                    {
+                        "Type": "Transform",
+                        "Active": false,
+                        "Position": [
+                            0.0,
+                            -2.4999592304229738,
+                            0.0
+                        ],
+                        "Rotation": [
+                            0.0,
+                            0.0,
+                            0.0,
+                            1.0
+                        ],
+                        "Scale": [
+                            1.0,
+                            1.0,
+                            1.0
+                        ],
+                        "LocalEulerAngles": [
+                            -0.0,
+                            0.0,
+                            -0.0
+                        ]
+                    },
+                    {
+                        "Type": "Particle",
+                        "Active": false,
+                        "DrawGizmo": true,
+                        "Duration": 4.0,
+                        "Looping": false,
+                        "StartDelay": [
+                            0.30000001192092898,
+                            0.5
+                        ],
+                        "LifeRM": 0,
+                        "Life": [
+                            4.0,
+                            10.0
+                        ],
+                        "SpeedRM": 0,
+                        "Speed": [
+                            0.0,
+                            1.2999999523162842
+                        ],
+                        "RotationRM": 1,
+                        "Rotation": [
+                            6.2831854820251469,
+                            -6.2831854820251469
+                        ],
+                        "ScaleRM": 0,
+                        "Scale": [
+                            268.0,
+                            268.0
+                        ],
+                        "ReverseEffect": false,
+                        "ReverseDistanceRM": 0,
+                        "ReverseDistance": [
+                            5.0,
+                            5.0
+                        ],
+                        "MaxParticle": 1,
+                        "AttachEmitter": true,
+                        "ParticlesPerSecondRM": 0,
+                        "ParticlesPerSecond": [
+                            100.0,
+                            100.0
+                        ],
+                        "GravityEffect": false,
+                        "GravityFactorRM": 0,
+                        "GravityFactor": [
+                            0.0,
+                            0.0
+                        ],
+                        "ParticleEmitterType": 0,
+                        "ConeRadiusUp": 0.0,
+                        "ConeRadiusDown": 0.0,
+                        "RandomConeRadiusUp": false,
+                        "RandomConeRadiusDown": false,
+                        "RotationOverLifetime": true,
+                        "RotationFactorRM": 0,
+                        "RotationFactor": [
+                            0.5235987901687622,
+                            -6.981317043304443
+                        ],
+                        "SizeOverLifetime": false,
+                        "ScaleFactorRM": 0,
+                        "ScaleFactor": [
+                            0.0,
+                            0.0
+                        ],
+                        "ColorOverLifetime": true,
+                        "GradientColors": [
+                            [
+                                0.08469057083129883,
+                                0.02813819982111454,
+                                0.0,
+                                1.0,
+                                0.004842615220695734
+                            ],
+                            [
+                                0.5696202516555786,
+                                0.3476245403289795,
+                                0.0793142095208168,
+                                1.0,
+                                0.04358352720737457
+                            ],
+                            [
+                                0.2899022698402405,
+                                0.1225353255867958,
+                                0.05949133634567261,
+                                1.0,
+                                0.8401936292648315
+                            ],
+                            [
+                                0.01568627543747425,
+                                0.01568627543747425,
+                                0.01568627543747425,
+                                0.0,
+                                0.9975787997245789
+                            ]
+                        ],
+                        "NumberColors": 4,
+                        "Ytiles": 1,
+                        "Xtiles": 1,
+                        "AnimationSpeed": 0.0,
+                        "IsRandomFrame": false,
+                        "LoopAnimation": true,
+                        "NCycles": 1.0,
+                        "TextureId": 3950195899821114799,
+                        "BillboardType": 2,
+                        "ParticleRenderMode": 0,
+                        "ParticleRenderAlignment": 0,
+                        "FlipTexture": [
+                            false,
+                            false
+                        ],
+                        "HasCollision": false,
+                        "LayerIndex": 5
+                    }
+                ],
+                "Children": null
+            },
+            {
+                "Name": "GroundLight",
+                "Active": true,
+                "RootBoneName": "",
+                "Mask": 0,
+                "Components": [
+                    {
+                        "Type": "Transform",
+                        "Active": true,
+                        "Position": [
+                            0.0,
+                            -2.4999592304229738,
+                            0.0
+                        ],
+                        "Rotation": [
+                            0.0,
+                            0.0,
+                            0.0,
+                            1.0
+                        ],
+                        "Scale": [
+                            1.0,
+                            1.0,
+                            1.0
+                        ],
+                        "LocalEulerAngles": [
+                            -0.0,
+                            0.0,
+                            -0.0
+                        ]
+                    },
+                    {
+                        "Type": "Particle",
+                        "Active": true,
+                        "DrawGizmo": true,
+                        "Duration": 4.0,
+                        "Looping": false,
+                        "StartDelay": [
+                            0.30000001192092898,
+                            0.5
+                        ],
+                        "LifeRM": 0,
+                        "Life": [
+                            4.0,
+                            10.0
+                        ],
+                        "SpeedRM": 0,
+                        "Speed": [
+                            0.0,
+                            1.2999999523162842
+                        ],
+                        "RotationRM": 0,
+                        "Rotation": [
+                            -0.0,
+                            -6.2831854820251469
+                        ],
+                        "ScaleRM": 0,
+                        "Scale": [
+                            70.0,
+                            2020.0
+                        ],
+                        "ReverseEffect": false,
+                        "ReverseDistanceRM": 0,
+                        "ReverseDistance": [
+                            5.0,
+                            5.0
+                        ],
+                        "MaxParticle": 1,
+                        "AttachEmitter": true,
+                        "ParticlesPerSecondRM": 0,
+                        "ParticlesPerSecond": [
+                            100.0,
+                            100.0
+                        ],
+                        "GravityEffect": false,
+                        "GravityFactorRM": 0,
+                        "GravityFactor": [
+                            0.0,
+                            0.0
+                        ],
+                        "ParticleEmitterType": 0,
+                        "ConeRadiusUp": 0.0,
+                        "ConeRadiusDown": 0.0,
+                        "RandomConeRadiusUp": false,
+                        "RandomConeRadiusDown": false,
+                        "RotationOverLifetime": false,
+                        "RotationFactorRM": 0,
+                        "RotationFactor": [
+                            6.981317043304443,
+                            -6.981317043304443
+                        ],
+                        "SizeOverLifetime": false,
+                        "ScaleFactorRM": 0,
+                        "ScaleFactor": [
+                            0.0,
+                            0.0
+                        ],
+                        "ColorOverLifetime": true,
+                        "GradientColors": [
+                            [
+                                0.04313725605607033,
+                                0.04313725605607033,
+                                0.04313725605607033,
+                                0.0,
+                                0.0
+                            ],
+                            [
+                                1.0,
+                                0.8704145550727844,
+                                0.40390878915786745,
+                                1.0,
+                                0.12590797245502473
+                            ],
+                            [
+                                0.9022801518440247,
+                                0.335048645734787,
+                                0.0,
+                                1.0,
+                                0.8789346218109131
+                            ],
+                            [
+                                0.01568627543747425,
+                                0.01568627543747425,
+                                0.01568627543747425,
+                                0.0,
+                                0.9975787997245789
+                            ]
+                        ],
+                        "NumberColors": 4,
+                        "Ytiles": 1,
+                        "Xtiles": 1,
+                        "AnimationSpeed": 0.0,
+                        "IsRandomFrame": false,
+                        "LoopAnimation": true,
+                        "NCycles": 1.0,
+                        "TextureId": 18076704291587492614,
+                        "BillboardType": 2,
+                        "ParticleRenderMode": 0,
+                        "ParticleRenderAlignment": 0,
+                        "FlipTexture": [
+                            false,
+                            false
+                        ],
+                        "HasCollision": false,
+                        "LayerIndex": 5
+                    }
+                ],
+                "Children": null
+            },
+            {
+                "Name": "GroundLight2",
+                "Active": true,
+                "RootBoneName": "",
+                "Mask": 0,
+                "Components": [
+                    {
+                        "Type": "Transform",
+                        "Active": true,
+                        "Position": [
+                            0.0,
+                            -2.4999592304229738,
+                            0.0
+                        ],
+                        "Rotation": [
+                            0.0,
+                            0.0,
+                            0.0,
+                            1.0
+                        ],
+                        "Scale": [
+                            1.0,
+                            1.0,
+                            1.0
+                        ],
+                        "LocalEulerAngles": [
+                            -0.0,
+                            0.0,
+                            -0.0
+                        ]
+                    },
+                    {
+                        "Type": "Particle",
+                        "Active": true,
+                        "DrawGizmo": true,
+                        "Duration": 4.0,
+                        "Looping": false,
+                        "StartDelay": [
+                            0.30000001192092898,
+                            0.5
+                        ],
+                        "LifeRM": 0,
+                        "Life": [
+                            4.0,
+                            10.0
+                        ],
+                        "SpeedRM": 0,
+                        "Speed": [
+                            0.0,
+                            1.2999999523162842
+                        ],
+                        "RotationRM": 0,
+                        "Rotation": [
+                            -0.0,
+                            -6.2831854820251469
+                        ],
+                        "ScaleRM": 0,
+                        "Scale": [
+                            620.0,
+                            2020.0
+                        ],
+                        "ReverseEffect": false,
+                        "ReverseDistanceRM": 0,
+                        "ReverseDistance": [
+                            5.0,
+                            5.0
+                        ],
+                        "MaxParticle": 1,
+                        "AttachEmitter": true,
+                        "ParticlesPerSecondRM": 0,
+                        "ParticlesPerSecond": [
+                            100.0,
+                            100.0
+                        ],
+                        "GravityEffect": false,
+                        "GravityFactorRM": 0,
+                        "GravityFactor": [
+                            0.0,
+                            0.0
+                        ],
+                        "ParticleEmitterType": 0,
+                        "ConeRadiusUp": 0.0,
+                        "ConeRadiusDown": 0.0,
+                        "RandomConeRadiusUp": false,
+                        "RandomConeRadiusDown": false,
+                        "RotationOverLifetime": false,
+                        "RotationFactorRM": 0,
+                        "RotationFactor": [
+                            6.981317043304443,
+                            -6.981317043304443
+                        ],
+                        "SizeOverLifetime": false,
+                        "ScaleFactorRM": 0,
+                        "ScaleFactor": [
+                            0.0,
+                            0.0
+                        ],
+                        "ColorOverLifetime": true,
+                        "GradientColors": [
+                            [
+                                0.04313725605607033,
+                                0.04313725605607033,
+                                0.04313725605607033,
+                                0.0,
+                                0.0
+                            ],
+                            [
+                                0.3629032373428345,
+                                0.16096505522727967,
+                                0.12730880081653596,
+                                1.0,
+                                0.12590797245502473
+                            ],
+                            [
+                                0.364705890417099,
+                                0.16078431904315949,
+                                0.125490203499794,
+                                1.0,
+                                0.8789346218109131
+                            ],
+                            [
+                                0.01568627543747425,
+                                0.01568627543747425,
+                                0.01568627543747425,
+                                0.0,
+                                0.9975787997245789
+                            ]
+                        ],
+                        "NumberColors": 4,
+                        "Ytiles": 1,
+                        "Xtiles": 1,
+                        "AnimationSpeed": 0.0,
+                        "IsRandomFrame": false,
+                        "LoopAnimation": true,
+                        "NCycles": 1.0,
+                        "TextureId": 18076704291587492614,
+                        "BillboardType": 2,
+                        "ParticleRenderMode": 0,
+                        "ParticleRenderAlignment": 0,
+                        "FlipTexture": [
+                            false,
+                            false
+                        ],
+                        "HasCollision": false,
+                        "LayerIndex": 5
+                    }
+                ],
+                "Children": null
+            },
+            {
+                "Name": "DirectionalSwirl2",
+                "Active": true,
+                "RootBoneName": "",
+                "Mask": 0,
+                "Components": [
+                    {
+                        "Type": "Transform",
+                        "Active": true,
+                        "Position": [
+                            0.0,
+                            -2.4999592304229738,
+                            0.0
+                        ],
+                        "Rotation": [
+                            0.0,
+                            0.0,
+                            0.0,
+                            1.0
+                        ],
+                        "Scale": [
+                            1.0,
+                            1.0,
+                            1.0
+                        ],
+                        "LocalEulerAngles": [
+                            -0.0,
+                            0.0,
+                            -0.0
+                        ]
+                    },
+                    {
+                        "Type": "Particle",
+                        "Active": true,
+                        "DrawGizmo": true,
+                        "Duration": 4.0,
+                        "Looping": false,
+                        "StartDelay": [
+                            0.5,
+                            0.5
+                        ],
+                        "LifeRM": 0,
+                        "Life": [
+                            4.0,
+                            5.0
+                        ],
+                        "SpeedRM": 0,
+                        "Speed": [
+                            0.0,
+                            1.2999999523162842
+                        ],
+                        "RotationRM": 1,
+                        "Rotation": [
+                            6.2831854820251469,
+                            -6.2831854820251469
+                        ],
+                        "ScaleRM": 0,
+                        "Scale": [
+                            45.0,
+                            70.0
+                        ],
+                        "ReverseEffect": false,
+                        "ReverseDistanceRM": 0,
+                        "ReverseDistance": [
+                            5.0,
+                            5.0
+                        ],
+                        "MaxParticle": 1,
+                        "AttachEmitter": true,
+                        "ParticlesPerSecondRM": 0,
+                        "ParticlesPerSecond": [
+                            100.0,
+                            100.0
+                        ],
+                        "GravityEffect": false,
+                        "GravityFactorRM": 0,
+                        "GravityFactor": [
+                            0.0,
+                            0.0
+                        ],
+                        "ParticleEmitterType": 0,
+                        "ConeRadiusUp": 0.0,
+                        "ConeRadiusDown": 0.0,
+                        "RandomConeRadiusUp": false,
+                        "RandomConeRadiusDown": false,
+                        "RotationOverLifetime": true,
+                        "RotationFactorRM": 0,
+                        "RotationFactor": [
+                            12.217304229736329,
+                            -6.981317043304443
+                        ],
+                        "SizeOverLifetime": false,
+                        "ScaleFactorRM": 0,
+                        "ScaleFactor": [
+                            0.0,
+                            0.0
+                        ],
+                        "ColorOverLifetime": true,
+                        "GradientColors": [
+                            [
+                                0.27687299251556399,
+                                0.20785203576087953,
+                                0.11002770066261292,
+                                1.0,
+                                0.019370457157492639
+                            ],
+                            [
+                                0.9739413857460022,
+                                0.7613347768783569,
+                                0.46000486612319949,
+                                1.0,
+                                0.08474578708410263
+                            ],
+                            [
+                                1.0,
+                                0.6571412086486816,
+                                0.30293160676956179,
+                                1.0,
+                                0.719128429889679
+                            ],
+                            [
+                                0.19218242168426515,
+                                0.0826321542263031,
+                                0.0,
+                                1.0,
+                                0.9878934621810913
+                            ]
+                        ],
+                        "NumberColors": 4,
+                        "Ytiles": 1,
+                        "Xtiles": 1,
+                        "AnimationSpeed": 0.0,
+                        "IsRandomFrame": false,
+                        "LoopAnimation": true,
+                        "NCycles": 1.0,
+                        "TextureId": 15730731409512593016,
+                        "BillboardType": 2,
+                        "ParticleRenderMode": 0,
+                        "ParticleRenderAlignment": 0,
+                        "FlipTexture": [
+                            false,
+                            false
+                        ],
+                        "HasCollision": false,
+                        "LayerIndex": 5
+                    }
+                ],
+                "Children": null
+            },
+            {
+                "Name": "DirectionalSwirl2",
+                "Active": true,
+                "RootBoneName": "",
+                "Mask": 0,
+                "Components": [
+                    {
+                        "Type": "Transform",
+                        "Active": true,
+                        "Position": [
+                            0.0,
+                            -2.4999592304229738,
+                            0.0
+                        ],
+                        "Rotation": [
+                            0.0,
+                            0.0,
+                            0.0,
+                            1.0
+                        ],
+                        "Scale": [
+                            1.0,
+                            1.0,
+                            1.0
+                        ],
+                        "LocalEulerAngles": [
+                            -0.0,
+                            0.0,
+                            -0.0
+                        ]
+                    },
+                    {
+                        "Type": "Particle",
+                        "Active": true,
+                        "DrawGizmo": true,
+                        "Duration": 4.0,
+                        "Looping": false,
+                        "StartDelay": [
+                            0.5,
+                            0.5
+                        ],
+                        "LifeRM": 0,
+                        "Life": [
+                            4.0,
+                            5.0
+                        ],
+                        "SpeedRM": 0,
+                        "Speed": [
+                            0.0,
+                            1.2999999523162842
+                        ],
+                        "RotationRM": 1,
+                        "Rotation": [
+                            6.2831854820251469,
+                            -6.2831854820251469
+                        ],
+                        "ScaleRM": 0,
+                        "Scale": [
+                            30.0,
+                            70.0
+                        ],
+                        "ReverseEffect": false,
+                        "ReverseDistanceRM": 0,
+                        "ReverseDistance": [
+                            5.0,
+                            5.0
+                        ],
+                        "MaxParticle": 1,
+                        "AttachEmitter": true,
+                        "ParticlesPerSecondRM": 0,
+                        "ParticlesPerSecond": [
+                            100.0,
+                            100.0
+                        ],
+                        "GravityEffect": false,
+                        "GravityFactorRM": 0,
+                        "GravityFactor": [
+                            0.0,
+                            0.0
+                        ],
+                        "ParticleEmitterType": 0,
+                        "ConeRadiusUp": 0.0,
+                        "ConeRadiusDown": 0.0,
+                        "RandomConeRadiusUp": false,
+                        "RandomConeRadiusDown": false,
+                        "RotationOverLifetime": true,
+                        "RotationFactorRM": 0,
+                        "RotationFactor": [
+                            -13.962634086608887,
+                            -13.962634086608887
+                        ],
+                        "SizeOverLifetime": false,
+                        "ScaleFactorRM": 0,
+                        "ScaleFactor": [
+                            0.0,
+                            0.0
+                        ],
+                        "ColorOverLifetime": true,
+                        "GradientColors": [
+                            [
+                                0.27687299251556399,
+                                0.20785203576087953,
+                                0.11002770066261292,
+                                1.0,
+                                0.019370457157492639
+                            ],
+                            [
+                                0.9739413857460022,
+                                0.7613347768783569,
+                                0.46000486612319949,
+                                1.0,
+                                0.08474578708410263
+                            ],
+                            [
+                                1.0,
+                                0.6571412086486816,
+                                0.30293160676956179,
+                                1.0,
+                                0.719128429889679
+                            ],
+                            [
+                                0.19218242168426515,
+                                0.0826321542263031,
+                                0.0,
+                                1.0,
+                                0.9878934621810913
+                            ]
+                        ],
+                        "NumberColors": 4,
+                        "Ytiles": 1,
+                        "Xtiles": 1,
+                        "AnimationSpeed": 0.0,
+                        "IsRandomFrame": false,
+                        "LoopAnimation": true,
+                        "NCycles": 1.0,
+                        "TextureId": 15730731409512593016,
+                        "BillboardType": 2,
+                        "ParticleRenderMode": 0,
+                        "ParticleRenderAlignment": 0,
+                        "FlipTexture": [
+                            true,
+                            false
+                        ],
+                        "HasCollision": false,
+                        "LayerIndex": 5
+                    }
+                ],
+                "Children": null
+            },
+            {
+                "Name": "BulletsReference",
+                "Active": false,
+                "RootBoneName": "",
+                "Mask": 0,
+                "Components": [
+                    {
+                        "Type": "Transform",
+                        "Active": false,
+                        "Position": [
+                            0.0,
+                            0.0,
+                            -0.000003814697265625
+                        ],
+                        "Rotation": [
+                            0.7071068286895752,
+                            0.0,
+                            0.0,
+                            0.7071068286895752
+                        ],
+                        "Scale": [
+                            1.0,
+                            1.0,
+                            1.0
+                        ],
+                        "LocalEulerAngles": [
+                            90.0,
+                            0.0,
+                            -0.0
+                        ]
+                    },
+                    {
+                        "Type": "Particle",
+                        "Active": false,
+                        "DrawGizmo": true,
+                        "Duration": 5.0,
+                        "Looping": false,
+                        "StartDelay": [
+                            0.0,
+                            0.0
+                        ],
+                        "LifeRM": 0,
+                        "Life": [
+                            1.0,
+                            5.0
+                        ],
+                        "SpeedRM": 0,
+                        "Speed": [
+                            -50.0,
+                            50.0
+                        ],
+                        "RotationRM": 0,
+                        "Rotation": [
+                            0.0,
+                            0.0
+                        ],
+                        "ScaleRM": 0,
+                        "Scale": [
+                            50.0,
+                            80.0
+                        ],
+                        "ReverseEffect": true,
+                        "ReverseDistanceRM": 0,
+                        "ReverseDistance": [
+                            2.0,
+                            5.0
+                        ],
+                        "MaxParticle": 100,
+                        "AttachEmitter": true,
+                        "ParticlesPerSecondRM": 0,
+                        "ParticlesPerSecond": [
+                            10.0,
+                            100.0
+                        ],
+                        "GravityEffect": false,
+                        "GravityFactorRM": 0,
+                        "GravityFactor": [
+                            0.0,
+                            0.0
+                        ],
+                        "ParticleEmitterType": 0,
+                        "ConeRadiusUp": 0.0,
+                        "ConeRadiusDown": 0.0,
+                        "RandomConeRadiusUp": false,
+                        "RandomConeRadiusDown": false,
+                        "RotationOverLifetime": false,
+                        "RotationFactorRM": 0,
+                        "RotationFactor": [
+                            0.0,
+                            0.0
+                        ],
+                        "SizeOverLifetime": false,
+                        "ScaleFactorRM": 0,
+                        "ScaleFactor": [
+                            0.0,
+                            0.0
+                        ],
+                        "ColorOverLifetime": true,
+                        "GradientColors": [
+                            [
+                                0.0,
+                                0.0,
+                                0.0,
+                                1.0,
+                                0.0
+                            ],
+                            [
+                                1.0,
+                                0.9999923706054688,
+                                0.9999899864196777,
+                                1.0,
+                                0.05811138451099396
+                            ],
+                            [
+                                1.0,
+                                0.9999995827674866,
+                                0.9999899864196777,
+                                1.0,
+                                0.6368040442466736
+                            ],
+                            [
+                                9.999999974752428e-7,
+                                0.0,
+                                0.0,
+                                1.0,
+                                1.0
+                            ]
+                        ],
+                        "NumberColors": 4,
+                        "Ytiles": 1,
+                        "Xtiles": 1,
+                        "AnimationSpeed": 0.0,
+                        "IsRandomFrame": false,
+                        "LoopAnimation": true,
+                        "NCycles": 1.0,
+                        "TextureId": 14833856789335581370,
+                        "BillboardType": 1,
+                        "ParticleRenderMode": 0,
+                        "ParticleRenderAlignment": 0,
+                        "FlipTexture": [
+                            false,
+                            false
+                        ],
+                        "HasCollision": false,
+                        "LayerIndex": 5
+                    }
+                ],
+                "Children": null
+            }
+        ]
+    }
+}

@@ -1,0 +1,243 @@
+{
+    "Root": {
+        "Name": "CanvasTransition",
+        "Active": true,
+        "RootBoneName": "",
+        "Mask": 0,
+        "Components": [
+            {
+                "Type": "Transform2D",
+                "Active": true,
+                "Position": [
+                    0.0,
+                    0.0,
+                    0.0
+                ],
+                "Rotation": [
+                    0.0,
+                    0.0,
+                    0.0,
+                    1.0
+                ],
+                "Scale": [
+                    1.0,
+                    1.0,
+                    1.0
+                ],
+                "LocalEulerAngles": [
+                    0.0,
+                    0.0,
+                    0.0
+                ],
+                "Pivot": [
+                    0.5,
+                    0.5
+                ],
+                "Size": [
+                    200.0,
+                    200.0
+                ],
+                "AnchorMin": [
+                    0.5,
+                    0.5
+                ],
+                "AnchorMax": [
+                    0.5,
+                    0.5
+                ],
+                "AnchorSelected": 5,
+                "IsCustomAnchor": false
+            },
+            {
+                "Type": "Canvas",
+                "Active": true
+            }
+        ],
+        "Children": [
+            {
+                "Name": "ImagePlay",
+                "Active": true,
+                "RootBoneName": "",
+                "Mask": 0,
+                "Components": [
+                    {
+                        "Type": "Transform2D",
+                        "Active": true,
+                        "Position": [
+                            -1920.0,
+                            0.0,
+                            0.0
+                        ],
+                        "Rotation": [
+                            0.0,
+                            0.0,
+                            0.0,
+                            1.0
+                        ],
+                        "Scale": [
+                            1.0,
+                            1.0,
+                            1.0
+                        ],
+                        "LocalEulerAngles": [
+                            0.0,
+                            0.0,
+                            0.0
+                        ],
+                        "Pivot": [
+                            0.5,
+                            0.5
+                        ],
+                        "Size": [
+                            1920.0,
+                            1080.0
+                        ],
+                        "AnchorMin": [
+                            0.5,
+                            0.5
+                        ],
+                        "AnchorMax": [
+                            0.5,
+                            0.5
+                        ],
+                        "AnchorSelected": 5,
+                        "IsCustomAnchor": false
+                    },
+                    {
+                        "Type": "CanvasRenderer",
+                        "Active": true
+                    },
+                    {
+                        "Type": "Image",
+                        "Active": true,
+                        "TextureId": 0,
+                        "Color": [
+                            0.0,
+                            0.0,
+                            0.0,
+                            0.7411764860153198
+                        ],
+                        "AlphaTransparency": true,
+                        "IsFill": false,
+                        "FillValue": 1.0
+                    },
+                    {
+                        "Type": "Script",
+                        "Active": true,
+                        "Script": 11031084851222569244,
+                        "Values": [
+                            {
+                                "Name": "transitionUID",
+                                "Type": "GameObjectUID",
+                                "Value": 6995581975511945313
+                            },
+                            {
+                                "Name": "sceneUID",
+                                "Type": "SceneResourceUID",
+                                "Value": 14394003145697928579
+                            }
+                        ]
+                    }
+                ],
+                "Children": null
+            },
+            {
+                "Name": "ImageFadeIn_Exit",
+                "Active": true,
+                "RootBoneName": "",
+                "Mask": 0,
+                "Components": [
+                    {
+                        "Type": "Transform2D",
+                        "Active": true,
+                        "Position": [
+                            0.0,
+                            0.0,
+                            0.0
+                        ],
+                        "Rotation": [
+                            0.0,
+                            0.0,
+                            0.0,
+                            1.0
+                        ],
+                        "Scale": [
+                            1.0,
+                            1.0,
+                            1.0
+                        ],
+                        "LocalEulerAngles": [
+                            0.0,
+                            0.0,
+                            0.0
+                        ],
+                        "Pivot": [
+                            0.5,
+                            0.5
+                        ],
+                        "Size": [
+                            1920.0,
+                            1080.0
+                        ],
+                        "AnchorMin": [
+                            0.5,
+                            0.5
+                        ],
+                        "AnchorMax": [
+                            0.5,
+                            0.5
+                        ],
+                        "AnchorSelected": 5,
+                        "IsCustomAnchor": false
+                    },
+                    {
+                        "Type": "CanvasRenderer",
+                        "Active": true
+                    },
+                    {
+                        "Type": "Image",
+                        "Active": true,
+                        "TextureId": 0,
+                        "Color": [
+                            0.0,
+                            0.0,
+                            0.0,
+                            0.0
+                        ],
+                        "AlphaTransparency": true,
+                        "IsFill": false,
+                        "FillValue": 1.0
+                    },
+                    {
+                        "Type": "Script",
+                        "Active": true,
+                        "Script": 11031084851222569244,
+                        "Values": [
+                            {
+                                "Name": "transitionUID",
+                                "Type": "GameObjectUID",
+                                "Value": 2024180298796212051
+                            },
+                            {
+                                "Name": "sceneUID",
+                                "Type": "SceneResourceUID",
+                                "Value": 14394003145697928579
+                            },
+                            {
+                                "Name": "transitionMove",
+                                "Type": "Int",
+                                "Value": 4
+                            },
+                            {
+                                "Name": "speedTransition",
+                                "Type": "Float",
+                                "Value": 10.0
+                            }
+                        ]
+                    }
+                ],
+                "Children": null
+            }
+        ]
+    }
+}

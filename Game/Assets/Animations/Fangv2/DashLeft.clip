@@ -1,0 +1,9 @@
+{
+    "Name": "DashLeft",
+    "AnimationUID": 5614041873872763134,
+    "BeginIndex": 106,
+    "EndIndex": 106,
+    "Loop": true,
+    "Speed": 1.0,
+    "FrameRate": 0.03329545259475708
+}

@@ -1,0 +1,10 @@
+{
+    "Name": "StunStart",
+    "AnimationUID": 380165032061128578,
+    "BeginIndex": 309,
+    "EndIndex": 329,
+    "Loop": false,
+    "Speed": 1.0,
+    "FrameRate": 0.033270321786403659,
+    "KeyEventClip": null
+}

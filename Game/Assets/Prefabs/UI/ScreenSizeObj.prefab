@@ -1,0 +1,755 @@
+{
+    "Root": {
+        "Name": "ScreenSizeObj",
+        "Active": true,
+        "RootBoneName": "",
+        "Components": [
+            {
+                "Type": "Transform",
+                "Active": true,
+                "Position": [
+                    0.0,
+                    0.0,
+                    0.0
+                ],
+                "Rotation": [
+                    0.0,
+                    0.0,
+                    0.0,
+                    1.0
+                ],
+                "Scale": [
+                    1.0,
+                    1.0,
+                    1.0
+                ],
+                "LocalEulerAngles": [
+                    0.0,
+                    0.0,
+                    0.0
+                ]
+            },
+            {
+                "Type": "Transform2D",
+                "Active": true,
+                "Position": [
+                    0.0,
+                    0.0,
+                    0.0
+                ],
+                "Rotation": [
+                    0.0,
+                    0.0,
+                    0.0,
+                    1.0
+                ],
+                "Scale": [
+                    1.0,
+                    1.0,
+                    1.0
+                ],
+                "LocalEulerAngles": [
+                    0.0,
+                    0.0,
+                    0.0
+                ],
+                "Pivot": [
+                    0.5,
+                    0.5
+                ],
+                "PivotPosition": [
+                    0.0,
+                    0.0,
+                    0.0
+                ],
+                "Size": [
+                    200.0,
+                    200.0
+                ],
+                "AnchorMin": [
+                    0.5,
+                    0.5
+                ],
+                "AnchorMax": [
+                    0.5,
+                    0.5
+                ],
+                "AnchorSelected": 5,
+                "IsCustomAnchor": false
+            },
+            {
+                "Type": "Canvas",
+                "Active": true
+            }
+        ],
+        "Children": [
+            {
+                "Name": "ResolutionTitleText",
+                "Active": true,
+                "RootBoneName": "",
+                "Components": [
+                    {
+                        "Type": "Transform",
+                        "Active": true,
+                        "Position": [
+                            0.0,
+                            0.0,
+                            0.0
+                        ],
+                        "Rotation": [
+                            0.0,
+                            0.0,
+                            0.0,
+                            1.0
+                        ],
+                        "Scale": [
+                            1.0,
+                            1.0,
+                            1.0
+                        ],
+                        "LocalEulerAngles": [
+                            0.0,
+                            0.0,
+                            0.0
+                        ]
+                    },
+                    {
+                        "Type": "Transform2D",
+                        "Active": true,
+                        "Position": [
+                            -225.0,
+                            0.0,
+                            0.0
+                        ],
+                        "Rotation": [
+                            0.0,
+                            0.0,
+                            0.0,
+                            1.0
+                        ],
+                        "Scale": [
+                            1.0,
+                            1.0,
+                            1.0
+                        ],
+                        "LocalEulerAngles": [
+                            0.0,
+                            0.0,
+                            0.0
+                        ],
+                        "Pivot": [
+                            0.5,
+                            0.5
+                        ],
+                        "PivotPosition": [
+                            -225.0,
+                            0.0,
+                            0.0
+                        ],
+                        "Size": [
+                            200.0,
+                            200.0
+                        ],
+                        "AnchorMin": [
+                            0.5,
+                            0.5
+                        ],
+                        "AnchorMax": [
+                            0.5,
+                            0.5
+                        ],
+                        "AnchorSelected": 5,
+                        "IsCustomAnchor": false
+                    },
+                    {
+                        "Type": "CanvasRenderer",
+                        "Active": true
+                    },
+                    {
+                        "Type": "Text",
+                        "Active": true,
+                        "FontID": 6705794873532878889,
+                        "FontSize": 72.0,
+                        "LineHeight": 16.0,
+                        "Alignment": 0,
+                        "Value": "Resolution",
+                        "Color": [
+                            1.0,
+                            1.0,
+                            1.0,
+                            1.0
+                        ]
+                    }
+                ],
+                "Children": null
+            },
+            {
+                "Name": "ResolutionText",
+                "Active": true,
+                "RootBoneName": "",
+                "Components": [
+                    {
+                        "Type": "Transform",
+                        "Active": true,
+                        "Position": [
+                            0.0,
+                            0.0,
+                            0.0
+                        ],
+                        "Rotation": [
+                            0.0,
+                            0.0,
+                            0.0,
+                            1.0
+                        ],
+                        "Scale": [
+                            1.0,
+                            1.0,
+                            1.0
+                        ],
+                        "LocalEulerAngles": [
+                            0.0,
+                            0.0,
+                            0.0
+                        ]
+                    },
+                    {
+                        "Type": "Transform2D",
+                        "Active": true,
+                        "Position": [
+                            -150.0,
+                            -100.0,
+                            0.0
+                        ],
+                        "Rotation": [
+                            0.0,
+                            0.0,
+                            0.0,
+                            1.0
+                        ],
+                        "Scale": [
+                            1.0,
+                            1.0,
+                            1.0
+                        ],
+                        "LocalEulerAngles": [
+                            0.0,
+                            0.0,
+                            0.0
+                        ],
+                        "Pivot": [
+                            0.5,
+                            0.5
+                        ],
+                        "PivotPosition": [
+                            -150.0,
+                            -100.0,
+                            0.0
+                        ],
+                        "Size": [
+                            200.0,
+                            200.0
+                        ],
+                        "AnchorMin": [
+                            0.5,
+                            0.5
+                        ],
+                        "AnchorMax": [
+                            0.5,
+                            0.5
+                        ],
+                        "AnchorSelected": 5,
+                        "IsCustomAnchor": false
+                    },
+                    {
+                        "Type": "CanvasRenderer",
+                        "Active": true
+                    },
+                    {
+                        "Type": "Text",
+                        "Active": true,
+                        "FontID": 6705794873532878889,
+                        "FontSize": 64.0,
+                        "LineHeight": 16.0,
+                        "Alignment": 0,
+                        "Value": "1920x1080\n",
+                        "Color": [
+                            1.0,
+                            1.0,
+                            1.0,
+                            1.0
+                        ]
+                    }
+                ],
+                "Children": null
+            },
+            {
+                "Name": "IncreaseButton",
+                "Active": true,
+                "RootBoneName": "",
+                "Components": [
+                    {
+                        "Type": "Transform",
+                        "Active": true,
+                        "Position": [
+                            0.0,
+                            0.0,
+                            0.0
+                        ],
+                        "Rotation": [
+                            0.0,
+                            0.0,
+                            0.0,
+                            1.0
+                        ],
+                        "Scale": [
+                            1.0,
+                            1.0,
+                            1.0
+                        ],
+                        "LocalEulerAngles": [
+                            0.0,
+                            0.0,
+                            0.0
+                        ]
+                    },
+                    {
+                        "Type": "Transform2D",
+                        "Active": true,
+                        "Position": [
+                            450.0,
+                            0.0,
+                            0.0
+                        ],
+                        "Rotation": [
+                            0.0,
+                            0.0,
+                            0.0,
+                            1.0
+                        ],
+                        "Scale": [
+                            1.0,
+                            1.0,
+                            1.0
+                        ],
+                        "LocalEulerAngles": [
+                            0.0,
+                            0.0,
+                            0.0
+                        ],
+                        "Pivot": [
+                            0.5,
+                            0.5
+                        ],
+                        "PivotPosition": [
+                            450.0,
+                            0.0,
+                            0.0
+                        ],
+                        "Size": [
+                            200.0,
+                            200.0
+                        ],
+                        "AnchorMin": [
+                            0.5,
+                            0.5
+                        ],
+                        "AnchorMax": [
+                            0.5,
+                            0.5
+                        ],
+                        "AnchorSelected": 5,
+                        "IsCustomAnchor": false
+                    },
+                    {
+                        "Type": "CanvasRenderer",
+                        "Active": true
+                    },
+                    {
+                        "Type": "BoundingBox2D",
+                        "Active": true,
+                        "LocalBoundingBox2D": [
+                            -0.5,
+                            -0.5,
+                            0.5,
+                            0.5
+                        ]
+                    },
+                    {
+                        "Type": "Selectable",
+                        "Active": true,
+                        "ColorHover": [
+                            0.8399999737739563,
+                            0.8399999737739563,
+                            0.8399999737739563,
+                            1.0
+                        ],
+                        "ColorDisable": [
+                            0.5,
+                            0.5,
+                            0.5,
+                            1.0
+                        ],
+                        "Interactable": true,
+                        "NavigationType": 1,
+                        "TransitionType": 1,
+                        "SelectableType": 10,
+                        "OnAxisDown": 0,
+                        "OnAxisUp": 0,
+                        "OnAxisRight": 0,
+                        "OnAxisLeft": 0
+                    },
+                    {
+                        "Type": "Button",
+                        "Active": true,
+                        "Clicked": false,
+                        "ColorClick": [
+                            0.6399999856948853,
+                            0.6399999856948853,
+                            0.6399999856948853,
+                            1.0
+                        ]
+                    },
+                    {
+                        "Type": "Image",
+                        "Active": true,
+                        "TextureId": 0,
+                        "Color": [
+                            1.0,
+                            1.0,
+                            1.0,
+                            1.0
+                        ],
+                        "AlphaTransparency": false,
+                        "IsFill": false,
+                        "FillValue": 1.0
+                    },
+                    {
+                        "Type": "Script",
+                        "Active": true,
+                        "Script": 8904931518213825893,
+                        "Values": [
+                            {
+                                "Name": "increasing",
+                                "Type": "Bool",
+                                "Value": true
+                            },
+                            {
+                                "Name": "textObjectID",
+                                "Type": "GameObjectUID",
+                                "Value": 8764592121182624181
+                            }
+                        ]
+                    }
+                ],
+                "Children": null
+            },
+            {
+                "Name": "DecreaseButton",
+                "Active": true,
+                "RootBoneName": "",
+                "Components": [
+                    {
+                        "Type": "Transform",
+                        "Active": true,
+                        "Position": [
+                            0.0,
+                            0.0,
+                            0.0
+                        ],
+                        "Rotation": [
+                            0.0,
+                            0.0,
+                            0.0,
+                            1.0
+                        ],
+                        "Scale": [
+                            1.0,
+                            1.0,
+                            1.0
+                        ],
+                        "LocalEulerAngles": [
+                            0.0,
+                            0.0,
+                            0.0
+                        ]
+                    },
+                    {
+                        "Type": "Transform2D",
+                        "Active": true,
+                        "Position": [
+                            -450.0,
+                            0.0,
+                            0.0
+                        ],
+                        "Rotation": [
+                            0.0,
+                            0.0,
+                            0.0,
+                            1.0
+                        ],
+                        "Scale": [
+                            1.0,
+                            1.0,
+                            1.0
+                        ],
+                        "LocalEulerAngles": [
+                            0.0,
+                            0.0,
+                            0.0
+                        ],
+                        "Pivot": [
+                            0.5,
+                            0.5
+                        ],
+                        "PivotPosition": [
+                            -450.0,
+                            0.0,
+                            0.0
+                        ],
+                        "Size": [
+                            200.0,
+                            200.0
+                        ],
+                        "AnchorMin": [
+                            0.5,
+                            0.5
+                        ],
+                        "AnchorMax": [
+                            0.5,
+                            0.5
+                        ],
+                        "AnchorSelected": 5,
+                        "IsCustomAnchor": false
+                    },
+                    {
+                        "Type": "CanvasRenderer",
+                        "Active": true
+                    },
+                    {
+                        "Type": "BoundingBox2D",
+                        "Active": true,
+                        "LocalBoundingBox2D": [
+                            -0.5,
+                            -0.5,
+                            0.5,
+                            0.5
+                        ]
+                    },
+                    {
+                        "Type": "Selectable",
+                        "Active": true,
+                        "ColorHover": [
+                            0.8399999737739563,
+                            0.8399999737739563,
+                            0.8399999737739563,
+                            1.0
+                        ],
+                        "ColorDisable": [
+                            0.5,
+                            0.5,
+                            0.5,
+                            1.0
+                        ],
+                        "Interactable": true,
+                        "NavigationType": 1,
+                        "TransitionType": 1,
+                        "SelectableType": 10,
+                        "OnAxisDown": 0,
+                        "OnAxisUp": 0,
+                        "OnAxisRight": 0,
+                        "OnAxisLeft": 0
+                    },
+                    {
+                        "Type": "Button",
+                        "Active": true,
+                        "Clicked": false,
+                        "ColorClick": [
+                            0.6399999856948853,
+                            0.6399999856948853,
+                            0.6399999856948853,
+                            1.0
+                        ]
+                    },
+                    {
+                        "Type": "Image",
+                        "Active": true,
+                        "TextureId": 0,
+                        "Color": [
+                            1.0,
+                            1.0,
+                            1.0,
+                            1.0
+                        ],
+                        "AlphaTransparency": false,
+                        "IsFill": false,
+                        "FillValue": 1.0
+                    },
+                    {
+                        "Type": "Script",
+                        "Active": true,
+                        "Script": 8904931518213825893,
+                        "Values": [
+                            {
+                                "Name": "textObjectID",
+                                "Type": "GameObjectUID",
+                                "Value": 8764592121182624181
+                            }
+                        ]
+                    }
+                ],
+                "Children": null
+            },
+            {
+                "Name": "ConfirmButton",
+                "Active": true,
+                "RootBoneName": "",
+                "Components": [
+                    {
+                        "Type": "Transform",
+                        "Active": true,
+                        "Position": [
+                            0.0,
+                            0.0,
+                            0.0
+                        ],
+                        "Rotation": [
+                            0.0,
+                            0.0,
+                            0.0,
+                            1.0
+                        ],
+                        "Scale": [
+                            1.0,
+                            1.0,
+                            1.0
+                        ],
+                        "LocalEulerAngles": [
+                            0.0,
+                            0.0,
+                            0.0
+                        ]
+                    },
+                    {
+                        "Type": "Transform2D",
+                        "Active": true,
+                        "Position": [
+                            0.0,
+                            -250.0,
+                            0.0
+                        ],
+                        "Rotation": [
+                            0.0,
+                            0.0,
+                            0.0,
+                            1.0
+                        ],
+                        "Scale": [
+                            1.0,
+                            1.0,
+                            1.0
+                        ],
+                        "LocalEulerAngles": [
+                            0.0,
+                            0.0,
+                            0.0
+                        ],
+                        "Pivot": [
+                            0.5,
+                            0.5
+                        ],
+                        "PivotPosition": [
+                            0.0,
+                            -250.0,
+                            0.0
+                        ],
+                        "Size": [
+                            200.0,
+                            200.0
+                        ],
+                        "AnchorMin": [
+                            0.5,
+                            0.5
+                        ],
+                        "AnchorMax": [
+                            0.5,
+                            0.5
+                        ],
+                        "AnchorSelected": 5,
+                        "IsCustomAnchor": false
+                    },
+                    {
+                        "Type": "CanvasRenderer",
+                        "Active": true
+                    },
+                    {
+                        "Type": "BoundingBox2D",
+                        "Active": true,
+                        "LocalBoundingBox2D": [
+                            -0.5,
+                            -0.5,
+                            0.5,
+                            0.5
+                        ]
+                    },
+                    {
+                        "Type": "Selectable",
+                        "Active": true,
+                        "ColorHover": [
+                            0.8399999737739563,
+                            0.8399999737739563,
+                            0.8399999737739563,
+                            1.0
+                        ],
+                        "ColorDisable": [
+                            0.5,
+                            0.5,
+                            0.5,
+                            1.0
+                        ],
+                        "Interactable": true,
+                        "NavigationType": 1,
+                        "TransitionType": 1,
+                        "SelectableType": 10,
+                        "OnAxisDown": 0,
+                        "OnAxisUp": 0,
+                        "OnAxisRight": 0,
+                        "OnAxisLeft": 0
+                    },
+                    {
+                        "Type": "Button",
+                        "Active": true,
+                        "Clicked": false,
+                        "ColorClick": [
+                            0.6399999856948853,
+                            0.6399999856948853,
+                            0.6399999856948853,
+                            1.0
+                        ]
+                    },
+                    {
+                        "Type": "Image",
+                        "Active": true,
+                        "TextureId": 0,
+                        "Color": [
+                            1.0,
+                            1.0,
+                            1.0,
+                            1.0
+                        ],
+                        "AlphaTransparency": false,
+                        "IsFill": false,
+                        "FillValue": 1.0
+                    },
+                    {
+                        "Type": "Script",
+                        "Active": true,
+                        "Script": 13941812136895811843,
+                        "Values": null
+                    }
+                ],
+                "Children": null
+            }
+        ]
+    }
+}

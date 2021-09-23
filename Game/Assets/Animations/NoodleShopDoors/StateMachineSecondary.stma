@@ -1,0 +1,74 @@
+{
+    "InitialState": 0,
+    "Clips": [
+        6758840075632769788,
+        4283269469216044216,
+        8185533219059189366
+    ],
+    "States": [
+        {
+            "Id": 4826306930773210196,
+            "Name": "Closed",
+            "ClipId": 6758840075632769788
+        },
+        {
+            "Id": 1628172949176559760,
+            "Name": "Open",
+            "ClipId": 4283269469216044216
+        },
+        {
+            "Id": 12215723308810920687,
+            "Name": "Opening",
+            "ClipId": 8185533219059189366
+        }
+    ],
+    "Transitions": [
+        {
+            "Trigger": "ClosedOpen",
+            "Id": 15183147058229002259,
+            "Source": 4826306930773210196,
+            "Target": 1628172949176559760,
+            "Interpolation": 0.3
+        },
+        {
+            "Trigger": "ClosedOpening",
+            "Id": 6855909520382637756,
+            "Source": 4826306930773210196,
+            "Target": 12215723308810920687,
+            "Interpolation": 0.3
+        },
+        {
+            "Trigger": "OpenClosed",
+            "Id": 2747877446038586877,
+            "Source": 1628172949176559760,
+            "Target": 4826306930773210196,
+            "Interpolation": 0.3
+        },
+        {
+            "Trigger": "OpenOpening",
+            "Id": 14136251549348687081,
+            "Source": 1628172949176559760,
+            "Target": 12215723308810920687,
+            "Interpolation": 0.3
+        },
+        {
+            "Trigger": "OpeningClosed",
+            "Id": 4974117227404639888,
+            "Source": 12215723308810920687,
+            "Target": 4826306930773210196,
+            "Interpolation": 0.3
+        },
+        {
+            "Trigger": "OpeningOpen",
+            "Id": 2494813470560710787,
+            "Source": 12215723308810920687,
+            "Target": 1628172949176559760,
+            "Interpolation": 0.3
+        }
+    ],
+    "Bones": [
+        "joint1",
+        "joint2",
+        "joint3"
+    ]
+}

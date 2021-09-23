@@ -1,0 +1,72 @@
+{
+    "Root": {
+        "Name": "BasicTrail",
+        "Active": true,
+        "RootBoneName": "",
+        "Mask": 0,
+        "Components": [
+            {
+                "Type": "Transform",
+                "Active": true,
+                "Position": [
+                    0.0,
+                    0.0,
+                    0.0
+                ],
+                "Rotation": [
+                    0.0,
+                    0.0,
+                    0.7071068286895752,
+                    0.7071067094802856
+                ],
+                "Scale": [
+                    1.0000001192092896,
+                    1.0000001192092896,
+                    1.0
+                ],
+                "LocalEulerAngles": [
+                    -0.0,
+                    0.0,
+                    90.00000762939453
+                ]
+            },
+            {
+                "Type": "Trail",
+                "Active": true,
+                "TextureId": 6070033773294191873,
+                "MaxVertices": 1500,
+                "TrailQuads": 50,
+                "Width": 0.5,
+                "TextureRepeats": 1,
+                "QuadLife": 10.0,
+                "IsRendering": true,
+                "HasColorOverTrail": true,
+                "GradientColor": [
+                    [
+                        0.13725490868091584,
+                        0.13725490868091584,
+                        0.13725490868091584,
+                        1.0,
+                        0.10379243642091751
+                    ],
+                    [
+                        1.0,
+                        0.9999899864196777,
+                        0.9999899864196777,
+                        1.0,
+                        0.4670659005641937
+                    ],
+                    [
+                        9.999999974752428e-7,
+                        9.999899930335233e-7,
+                        9.999899930335233e-7,
+                        1.0,
+                        0.8423153162002564
+                    ]
+                ],
+                "NumColors": 3
+            }
+        ],
+        "Children": null
+    }
+}

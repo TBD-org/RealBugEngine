@@ -1,0 +1,245 @@
+{
+    "Root": {
+        "Name": "Game Controler",
+        "Active": true,
+        "RootBoneName": "",
+        "Mask": 0,
+        "Components": [
+            {
+                "Type": "Transform",
+                "Active": true,
+                "Position": [
+                    0.0,
+                    0.0,
+                    0.0
+                ],
+                "Rotation": [
+                    0.0,
+                    0.0,
+                    0.0,
+                    1.0
+                ],
+                "Scale": [
+                    1.0,
+                    1.0,
+                    1.0
+                ],
+                "LocalEulerAngles": [
+                    -0.0,
+                    0.0,
+                    -0.0
+                ]
+            },
+            {
+                "Type": "Script",
+                "Active": true,
+                "Script": 992608944476897018,
+                "Values": [
+                    {
+                        "Name": "staticCamera3UID",
+                        "Type": "GameObjectUID",
+                        "Value": 16730460715818442581
+                    },
+                    {
+                        "Name": "pauseUID",
+                        "Type": "GameObjectUID",
+                        "Value": 4885611460459346707
+                    },
+                    {
+                        "Name": "staticCamera1UID",
+                        "Type": "GameObjectUID",
+                        "Value": 12105576063853642556
+                    },
+                    {
+                        "Name": "staticCamera2UID",
+                        "Type": "GameObjectUID",
+                        "Value": 3685415630762953669
+                    },
+                    {
+                        "Name": "playerUID",
+                        "Type": "GameObjectUID",
+                        "Value": 9349791306028942696
+                    },
+                    {
+                        "Name": "gameCameraUID",
+                        "Type": "GameObjectUID",
+                        "Value": 680618938873982628
+                    },
+                    {
+                        "Name": "staticCamera4UID",
+                        "Type": "GameObjectUID",
+                        "Value": 2655070040425404295
+                    },
+                    {
+                        "Name": "godCameraUID",
+                        "Type": "GameObjectUID",
+                        "Value": 5035480018265416016
+                    },
+                    {
+                        "Name": "hudUID",
+                        "Type": "GameObjectUID",
+                        "Value": 16974590636199060467
+                    },
+                    {
+                        "Name": "enemySpawnPointsUID",
+                        "Type": "GameObjectUID",
+                        "Value": 9424093591244721738
+                    },
+                    {
+                        "Name": "godModeControllerUID",
+                        "Type": "GameObjectUID",
+                        "Value": 2104300630684251741
+                    },
+                    {
+                        "Name": "settingsPlusUID",
+                        "Type": "GameObjectUID",
+                        "Value": 8498713913345673430
+                    },
+                    {
+                        "Name": "dialoguesUID",
+                        "Type": "GameObjectUID",
+                        "Value": 16964242166581396651
+                    },
+                    {
+                        "Name": "statsDisplayerUID",
+                        "Type": "GameObjectUID",
+                        "Value": 7834613292204427630
+                    }
+                ]
+            },
+            {
+                "Type": "Script",
+                "Active": true,
+                "Script": 17299505783383595864,
+                "Values": [
+                    {
+                        "Name": "fangTextObjectUID",
+                        "Type": "GameObjectUID",
+                        "Value": 4955111482999500652
+                    },
+                    {
+                        "Name": "onimaruTextObjectUID",
+                        "Type": "GameObjectUID",
+                        "Value": 2476564618368387416
+                    },
+                    {
+                        "Name": "tutorialStartPosition",
+                        "Type": "Float3",
+                        "Value": [
+                            0.0,
+                            0.0,
+                            0.0
+                        ]
+                    },
+                    {
+                        "Name": "tutorialSwapUID",
+                        "Type": "GameObjectUID",
+                        "Value": 14412836707636789181
+                    },
+                    {
+                        "Name": "gameCameraUID",
+                        "Type": "GameObjectUID",
+                        "Value": 680618938873982628
+                    },
+                    {
+                        "Name": "tutorialUpgrades2UID",
+                        "Type": "GameObjectUID",
+                        "Value": 4193124651211087159
+                    },
+                    {
+                        "Name": "tutorialFangUID",
+                        "Type": "GameObjectUID",
+                        "Value": 13303229428894366753
+                    },
+                    {
+                        "Name": "dukeTextObjectUID",
+                        "Type": "GameObjectUID",
+                        "Value": 3828921581099282321
+                    },
+                    {
+                        "Name": "tutorialOnimaruUID",
+                        "Type": "GameObjectUID",
+                        "Value": 14661989220229467718
+                    },
+                    {
+                        "Name": "doorTextObjectUID",
+                        "Type": "GameObjectUID",
+                        "Value": 4552811015028909582
+                    },
+                    {
+                        "Name": "tutorialUpgrades1UID",
+                        "Type": "GameObjectUID",
+                        "Value": 6631798536709443510
+                    },
+                    {
+                        "Name": "tutorialUpgrades3UID",
+                        "Type": "GameObjectUID",
+                        "Value": 4010721516337624144
+                    },
+                    {
+                        "Name": "dialogueStartPosition",
+                        "Type": "Float3",
+                        "Value": [
+                            179.0,
+                            220.0,
+                            0.0
+                        ]
+                    },
+                    {
+                        "Name": "dialogueEndPosition",
+                        "Type": "Float3",
+                        "Value": [
+                            -390.0,
+                            220.0,
+                            0.0
+                        ]
+                    },
+                    {
+                        "Name": "tutorialEndPosition",
+                        "Type": "Float3",
+                        "Value": [
+                            0.0,
+                            -165.0,
+                            0.0
+                        ]
+                    },
+                    {
+                        "Name": "playerUID",
+                        "Type": "GameObjectUID",
+                        "Value": 9835691270176894595
+                    },
+                    {
+                        "Name": "tutorialFangUltimateUID",
+                        "Type": "GameObjectUID",
+                        "Value": 4431722975252246207
+                    },
+                    {
+                        "Name": "tutorialOnimaruUltimateUID",
+                        "Type": "GameObjectUID",
+                        "Value": 7865306440000709682
+                    },
+                    {
+                        "Name": "appearAnimationTime",
+                        "Type": "Float",
+                        "Value": 0.699999988079071
+                    },
+                    {
+                        "Name": "disappearAnimationTime",
+                        "Type": "Float",
+                        "Value": 0.699999988079071
+                    },
+                    {
+                        "Name": "newCameraPosition",
+                        "Type": "Float3",
+                        "Value": [
+                            -2.0,
+                            10.0,
+                            6.0
+                        ]
+                    }
+                ]
+            }
+        ],
+        "Children": null
+    }
+}

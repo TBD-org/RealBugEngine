@@ -1,0 +1,60 @@
+{
+    "Root": {
+        "Name": "MeleePunch",
+        "Active": true,
+        "RootBoneName": "",
+        "Mask": 0,
+        "Components": [
+            {
+                "Type": "Transform",
+                "Active": true,
+                "Position": [
+                    -0.6576488018035889,
+                    5.016214370727539,
+                    0.49407047033309939
+                ],
+                "Rotation": [
+                    0.01283513754606247,
+                    -0.01838739961385727,
+                    0.03770046308636665,
+                    0.999037504196167
+                ],
+                "Scale": [
+                    1.8594554662704468,
+                    1.0,
+                    2.7681057453155519
+                ],
+                "LocalEulerAngles": [
+                    1.5499999523162842,
+                    -2.049999952316284,
+                    4.349999904632568
+                ]
+            },
+            {
+                "Type": "Script",
+                "Active": true,
+                "Script": 6164434189831620833,
+                "Values": null
+            },
+            {
+                "Type": "BoxCollider",
+                "Active": true,
+                "colliderType": 2,
+                "layerType": 6,
+                "mass": 1.0,
+                "size": [
+                    1.0,
+                    2.0,
+                    1.0
+                ],
+                "centerOffset": [
+                    0.0,
+                    0.0,
+                    0.0
+                ],
+                "freezeRotation": false
+            }
+        ],
+        "Children": null
+    }
+}

@@ -1,0 +1,19 @@
+{
+    "Name": "RunBackward",
+    "AnimationUID": 5614041873872763134,
+    "BeginIndex": 83,
+    "EndIndex": 103,
+    "Loop": true,
+    "Speed": 1.0,
+    "FrameRate": 0.03329545259475708,
+    "KeyEventClip": [
+        {
+            "KeyFrame": 87,
+            "Name": "FootstepLeft"
+        },
+        {
+            "KeyFrame": 97,
+            "Name": "FootstepRight"
+        }
+    ]
+}

@@ -1,0 +1,9 @@
+{
+    "Name": "Shield",
+    "AnimationUID": 10018071370470098956,
+    "BeginIndex": 518,
+    "EndIndex": 560,
+    "Loop": true,
+    "Speed": 1.0,
+    "FrameRate": 0.041615165770053866
+}

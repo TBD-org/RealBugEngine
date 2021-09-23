@@ -1,0 +1,84 @@
+{
+    "Root": {
+        "Name": "RangerProjectile",
+        "Active": true,
+        "RootBoneName": "",
+        "Mask": 0,
+        "Components": [
+            {
+                "Type": "Transform",
+                "Active": true,
+                "Position": [
+                    0.0,
+                    0.0,
+                    0.0
+                ],
+                "Rotation": [
+                    0.0,
+                    0.0,
+                    0.0,
+                    1.0
+                ],
+                "Scale": [
+                    1.5,
+                    1.5,
+                    1.5
+                ],
+                "LocalEulerAngles": [
+                    -0.0,
+                    0.0,
+                    -0.0
+                ]
+            },
+            {
+                "Type": "Script",
+                "Active": true,
+                "Script": 8962533977559074741,
+                "Values": [
+                    {
+                        "Name": "speed",
+                        "Type": "Int",
+                        "Value": 15
+                    },
+                    {
+                        "Name": "life",
+                        "Type": "Float",
+                        "Value": 2.0
+                    }
+                ]
+            },
+            {
+                "Type": "SphereCollider",
+                "Active": true,
+                "colliderType": 2,
+                "layerType": 6,
+                "mass": 1.0,
+                "radius": 0.6499999761581421,
+                "centerOffset": [
+                    0.0,
+                    0.0,
+                    0.0
+                ],
+                "freezeRotation": false
+            },
+            {
+                "Type": "Billboard",
+                "Active": true,
+                "BillboardType": 0,
+                "TextureId": 14731612415524228216,
+                "Ytiles": 2,
+                "Xtiles": 5,
+                "AnimationSpeed": 10.0,
+                "ColorOverLifetime": false,
+                "ColorLifeTime": 0.0,
+                "GradientColors": null,
+                "NumberColors": 0,
+                "FlipTexture": [
+                    false,
+                    false
+                ]
+            }
+        ],
+        "Children": null
+    }
+}

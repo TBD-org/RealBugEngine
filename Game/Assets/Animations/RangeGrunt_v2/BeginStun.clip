@@ -1,0 +1,10 @@
+{
+    "Name": "BeginStun",
+    "AnimationUID": 17180514647000583777,
+    "BeginIndex": 280,
+    "EndIndex": 300,
+    "Loop": false,
+    "Speed": 1.0,
+    "FrameRate": 0.033259425312280658,
+    "KeyEventClip": null
+}

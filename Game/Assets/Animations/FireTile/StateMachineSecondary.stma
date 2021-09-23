@@ -1,0 +1,118 @@
+{
+    "InitialState": 0,
+    "Clips": [
+        17374167588431536655,
+        2568473081486745976,
+        6555286624270758887,
+        8582268787596812917
+    ],
+    "States": [
+        {
+            "Id": 15696483904489996030,
+            "Name": "Closed",
+            "ClipId": 17374167588431536655
+        },
+        {
+            "Id": 14111178461533162895,
+            "Name": "Closing",
+            "ClipId": 2568473081486745976
+        },
+        {
+            "Id": 14036371760200958593,
+            "Name": "Opened",
+            "ClipId": 6555286624270758887
+        },
+        {
+            "Id": 13424061514566076911,
+            "Name": "Opening",
+            "ClipId": 8582268787596812917
+        }
+    ],
+    "Transitions": [
+        {
+            "Trigger": "ClosedClosing",
+            "Id": 15110763571448029283,
+            "Source": 15696483904489996030,
+            "Target": 14111178461533162895,
+            "Interpolation": 0.3
+        },
+        {
+            "Trigger": "ClosedOpened",
+            "Id": 3231877104345812039,
+            "Source": 15696483904489996030,
+            "Target": 14036371760200958593,
+            "Interpolation": 0.3
+        },
+        {
+            "Trigger": "ClosedOpening",
+            "Id": 10992059017562415000,
+            "Source": 15696483904489996030,
+            "Target": 13424061514566076911,
+            "Interpolation": 0.3
+        },
+        {
+            "Trigger": "ClosingClosed",
+            "Id": 5980199394295266603,
+            "Source": 14111178461533162895,
+            "Target": 15696483904489996030,
+            "Interpolation": 0.3
+        },
+        {
+            "Trigger": "ClosingOpened",
+            "Id": 15247748947347738912,
+            "Source": 14111178461533162895,
+            "Target": 14036371760200958593,
+            "Interpolation": 0.3
+        },
+        {
+            "Trigger": "ClosingOpening",
+            "Id": 9240035409173666586,
+            "Source": 14111178461533162895,
+            "Target": 13424061514566076911,
+            "Interpolation": 0.3
+        },
+        {
+            "Trigger": "OpenedClosed",
+            "Id": 12304868604417204291,
+            "Source": 14036371760200958593,
+            "Target": 15696483904489996030,
+            "Interpolation": 0.3
+        },
+        {
+            "Trigger": "OpenedClosing",
+            "Id": 18276797240175426631,
+            "Source": 14036371760200958593,
+            "Target": 14111178461533162895,
+            "Interpolation": 0.3
+        },
+        {
+            "Trigger": "OpenedOpening",
+            "Id": 8824836668902868430,
+            "Source": 14036371760200958593,
+            "Target": 13424061514566076911,
+            "Interpolation": 0.3
+        },
+        {
+            "Trigger": "OpeningClosed",
+            "Id": 1872897722367543779,
+            "Source": 13424061514566076911,
+            "Target": 15696483904489996030,
+            "Interpolation": 0.3
+        },
+        {
+            "Trigger": "OpeningClosing",
+            "Id": 5364641946837641888,
+            "Source": 13424061514566076911,
+            "Target": 14111178461533162895,
+            "Interpolation": 0.3
+        },
+        {
+            "Trigger": "OpeningOpened",
+            "Id": 13223597347336672370,
+            "Source": 13424061514566076911,
+            "Target": 14036371760200958593,
+            "Interpolation": 0.3
+        }
+    ],
+    "Bones": []
+}

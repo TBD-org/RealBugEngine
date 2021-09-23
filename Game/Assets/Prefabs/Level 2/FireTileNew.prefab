@@ -1,0 +1,1370 @@
+{
+    "Root": {
+        "Name": "FireTile",
+        "Active": true,
+        "RootBoneName": "root",
+        "Mask": 0,
+        "Components": [
+            {
+                "Type": "Transform",
+                "Active": true,
+                "Position": [
+                    0.0,
+                    0.0,
+                    0.0
+                ],
+                "Rotation": [
+                    0.0,
+                    0.0,
+                    0.0,
+                    1.0
+                ],
+                "Scale": [
+                    1.0,
+                    1.0,
+                    1.0
+                ],
+                "LocalEulerAngles": [
+                    0.0,
+                    0.0,
+                    0.0
+                ]
+            },
+            {
+                "Type": "Animation",
+                "Active": true,
+                "StateMachinePrincipalId": 4695086388709578586,
+                "StateMachineSecondaryId": 5183087358754698438
+            },
+            {
+                "Type": "BoxCollider",
+                "Active": true,
+                "colliderType": 1,
+                "layerType": 1,
+                "mass": 1.0,
+                "size": [
+                    5.75,
+                    1.0,
+                    5.75
+                ],
+                "centerOffset": [
+                    0.0,
+                    2.25,
+                    0.0
+                ],
+                "freezeRotation": false
+            },
+            {
+                "Type": "Script",
+                "Active": true,
+                "Script": 7080751021702186133,
+                "Values": null
+            }
+        ],
+        "Children": [
+            {
+                "Name": "FireTile",
+                "Active": true,
+                "RootBoneName": "",
+                "Mask": 0,
+                "Components": [
+                    {
+                        "Type": "Transform",
+                        "Active": true,
+                        "Position": [
+                            -9.5367431640625e-7,
+                            0.000041961669921875,
+                            0.0
+                        ],
+                        "Rotation": [
+                            0.0,
+                            0.0,
+                            0.0,
+                            1.0
+                        ],
+                        "Scale": [
+                            1.0,
+                            1.0,
+                            1.0
+                        ],
+                        "LocalEulerAngles": [
+                            -0.0,
+                            0.0,
+                            -0.0
+                        ]
+                    },
+                    {
+                        "Type": "MeshRenderer",
+                        "Active": true,
+                        "MeshID": 4375606243435179921,
+                        "MaterialID": 6271360919698976729
+                    },
+                    {
+                        "Type": "MeshRenderer",
+                        "Active": true,
+                        "MeshID": 13835665862521622155,
+                        "MaterialID": 3783220772484584640
+                    },
+                    {
+                        "Type": "BoundingBox",
+                        "Active": true,
+                        "LocalBoundingBox": [
+                            -3.0,
+                            0.0,
+                            -3.0,
+                            3.0,
+                            2.0,
+                            3.0
+                        ]
+                    }
+                ],
+                "Children": null
+            },
+            {
+                "Name": "root",
+                "Active": true,
+                "RootBoneName": "",
+                "Mask": 0,
+                "Components": [
+                    {
+                        "Type": "Transform",
+                        "Active": true,
+                        "Position": [
+                            0.0,
+                            0.0,
+                            0.0
+                        ],
+                        "Rotation": [
+                            0.0,
+                            0.0,
+                            0.0,
+                            1.0
+                        ],
+                        "Scale": [
+                            1.0,
+                            1.0,
+                            1.0
+                        ],
+                        "LocalEulerAngles": [
+                            -0.0,
+                            0.0,
+                            -0.0
+                        ]
+                    }
+                ],
+                "Children": [
+                    {
+                        "Name": "joint01",
+                        "Active": true,
+                        "RootBoneName": "",
+                        "Mask": 0,
+                        "Components": [
+                            {
+                                "Type": "Transform",
+                                "Active": true,
+                                "Position": [
+                                    2.123237371444702,
+                                    1.9358367919921876,
+                                    -2.742929697036743
+                                ],
+                                "Rotation": [
+                                    3.090862321641907e-8,
+                                    0.7071068286895752,
+                                    0.7071068286895752,
+                                    -3.090862321641907e-8
+                                ],
+                                "Scale": [
+                                    1.0,
+                                    1.0,
+                                    1.0
+                                ],
+                                "LocalEulerAngles": [
+                                    -90.00000762939453,
+                                    0.0,
+                                    -180.0
+                                ]
+                            }
+                        ],
+                        "Children": null
+                    },
+                    {
+                        "Name": "joint02",
+                        "Active": true,
+                        "RootBoneName": "",
+                        "Mask": 0,
+                        "Components": [
+                            {
+                                "Type": "Transform",
+                                "Active": true,
+                                "Position": [
+                                    1.5395078659057618,
+                                    1.935836911201477,
+                                    -2.7429299354553224
+                                ],
+                                "Rotation": [
+                                    3.090862321641907e-8,
+                                    0.7071068286895752,
+                                    0.7071068286895752,
+                                    -3.090862321641907e-8
+                                ],
+                                "Scale": [
+                                    1.0,
+                                    1.0,
+                                    1.0
+                                ],
+                                "LocalEulerAngles": [
+                                    -90.00000762939453,
+                                    0.0,
+                                    -180.0
+                                ]
+                            }
+                        ],
+                        "Children": null
+                    },
+                    {
+                        "Name": "joint03",
+                        "Active": true,
+                        "RootBoneName": "",
+                        "Mask": 0,
+                        "Components": [
+                            {
+                                "Type": "Transform",
+                                "Active": true,
+                                "Position": [
+                                    0.9323464632034302,
+                                    1.9358370304107667,
+                                    -2.7429301738739015
+                                ],
+                                "Rotation": [
+                                    3.090862321641907e-8,
+                                    0.7071068286895752,
+                                    0.7071068286895752,
+                                    -3.090862321641907e-8
+                                ],
+                                "Scale": [
+                                    1.0,
+                                    1.0,
+                                    1.0
+                                ],
+                                "LocalEulerAngles": [
+                                    -90.00000762939453,
+                                    0.0,
+                                    -180.0
+                                ]
+                            }
+                        ],
+                        "Children": null
+                    },
+                    {
+                        "Name": "joint04",
+                        "Active": true,
+                        "RootBoneName": "",
+                        "Mask": 0,
+                        "Components": [
+                            {
+                                "Type": "Transform",
+                                "Active": true,
+                                "Position": [
+                                    0.3251849114894867,
+                                    1.9358371496200562,
+                                    -2.7429304122924806
+                                ],
+                                "Rotation": [
+                                    3.090862321641907e-8,
+                                    0.7071068286895752,
+                                    0.7071068286895752,
+                                    -3.090862321641907e-8
+                                ],
+                                "Scale": [
+                                    1.0,
+                                    1.0,
+                                    1.0
+                                ],
+                                "LocalEulerAngles": [
+                                    -90.00000762939453,
+                                    0.0,
+                                    -180.0
+                                ]
+                            }
+                        ],
+                        "Children": null
+                    },
+                    {
+                        "Name": "joint05",
+                        "Active": true,
+                        "RootBoneName": "",
+                        "Mask": 0,
+                        "Components": [
+                            {
+                                "Type": "Transform",
+                                "Active": true,
+                                "Position": [
+                                    -2.749600648880005,
+                                    1.9358371496200562,
+                                    -0.3217112720012665
+                                ],
+                                "Rotation": [
+                                    0.5,
+                                    0.5,
+                                    0.5,
+                                    -0.5
+                                ],
+                                "Scale": [
+                                    1.0,
+                                    1.0,
+                                    1.0
+                                ],
+                                "LocalEulerAngles": [
+                                    -90.0,
+                                    0.0,
+                                    -90.0
+                                ]
+                            }
+                        ],
+                        "Children": null
+                    },
+                    {
+                        "Name": "joint06",
+                        "Active": true,
+                        "RootBoneName": "",
+                        "Mask": 0,
+                        "Components": [
+                            {
+                                "Type": "Transform",
+                                "Active": true,
+                                "Position": [
+                                    -2.7324514389038088,
+                                    1.9358370304107667,
+                                    -0.9164355993270874
+                                ],
+                                "Rotation": [
+                                    0.5,
+                                    0.5,
+                                    0.5,
+                                    -0.5
+                                ],
+                                "Scale": [
+                                    1.0,
+                                    1.0,
+                                    1.0
+                                ],
+                                "LocalEulerAngles": [
+                                    -90.0,
+                                    0.0,
+                                    -90.0
+                                ]
+                            }
+                        ],
+                        "Children": null
+                    },
+                    {
+                        "Name": "joint07",
+                        "Active": true,
+                        "RootBoneName": "",
+                        "Mask": 0,
+                        "Components": [
+                            {
+                                "Type": "Transform",
+                                "Active": true,
+                                "Position": [
+                                    -2.7324512004852297,
+                                    1.935836911201477,
+                                    -1.516730546951294
+                                ],
+                                "Rotation": [
+                                    0.5,
+                                    0.5,
+                                    0.5,
+                                    -0.5
+                                ],
+                                "Scale": [
+                                    1.0,
+                                    1.0,
+                                    1.0
+                                ],
+                                "LocalEulerAngles": [
+                                    -90.0,
+                                    0.0,
+                                    -90.0
+                                ]
+                            }
+                        ],
+                        "Children": null
+                    },
+                    {
+                        "Name": "joint08",
+                        "Active": true,
+                        "RootBoneName": "",
+                        "Mask": 0,
+                        "Components": [
+                            {
+                                "Type": "Transform",
+                                "Active": true,
+                                "Position": [
+                                    -2.7324509620666506,
+                                    1.9358367919921876,
+                                    -2.123892307281494
+                                ],
+                                "Rotation": [
+                                    0.5,
+                                    0.5,
+                                    0.5,
+                                    -0.5
+                                ],
+                                "Scale": [
+                                    1.0,
+                                    1.0,
+                                    1.0
+                                ],
+                                "LocalEulerAngles": [
+                                    -90.0,
+                                    0.0,
+                                    -90.0
+                                ]
+                            }
+                        ],
+                        "Children": null
+                    },
+                    {
+                        "Name": "joint09",
+                        "Active": true,
+                        "RootBoneName": "",
+                        "Mask": 0,
+                        "Components": [
+                            {
+                                "Type": "Transform",
+                                "Active": true,
+                                "Position": [
+                                    2.741548776626587,
+                                    1.9358371496200562,
+                                    0.32558152079582217
+                                ],
+                                "Rotation": [
+                                    -0.5,
+                                    0.5,
+                                    0.5,
+                                    0.5
+                                ],
+                                "Scale": [
+                                    1.0,
+                                    1.0,
+                                    1.0
+                                ],
+                                "LocalEulerAngles": [
+                                    -90.0,
+                                    0.0,
+                                    90.0
+                                ]
+                            }
+                        ],
+                        "Children": null
+                    },
+                    {
+                        "Name": "joint10",
+                        "Active": true,
+                        "RootBoneName": "",
+                        "Mask": 0,
+                        "Components": [
+                            {
+                                "Type": "Transform",
+                                "Active": true,
+                                "Position": [
+                                    2.741548538208008,
+                                    1.9358370304107667,
+                                    0.9178765416145325
+                                ],
+                                "Rotation": [
+                                    -0.5,
+                                    0.5,
+                                    0.5,
+                                    0.5
+                                ],
+                                "Scale": [
+                                    1.0,
+                                    1.0,
+                                    1.0
+                                ],
+                                "LocalEulerAngles": [
+                                    -90.0,
+                                    0.0,
+                                    90.0
+                                ]
+                            }
+                        ],
+                        "Children": null
+                    },
+                    {
+                        "Name": "joint11",
+                        "Active": true,
+                        "RootBoneName": "",
+                        "Mask": 0,
+                        "Components": [
+                            {
+                                "Type": "Transform",
+                                "Active": true,
+                                "Position": [
+                                    2.7415482997894289,
+                                    1.935836911201477,
+                                    1.5200825929641724
+                                ],
+                                "Rotation": [
+                                    -0.5,
+                                    0.5,
+                                    0.5,
+                                    0.5
+                                ],
+                                "Scale": [
+                                    1.0,
+                                    1.0,
+                                    1.0
+                                ],
+                                "LocalEulerAngles": [
+                                    -90.0,
+                                    0.0,
+                                    90.0
+                                ]
+                            }
+                        ],
+                        "Children": null
+                    },
+                    {
+                        "Name": "joint12",
+                        "Active": true,
+                        "RootBoneName": "",
+                        "Mask": 0,
+                        "Components": [
+                            {
+                                "Type": "Transform",
+                                "Active": true,
+                                "Position": [
+                                    2.7415480613708498,
+                                    1.9358367919921876,
+                                    2.112377643585205
+                                ],
+                                "Rotation": [
+                                    -0.5,
+                                    0.5,
+                                    0.5,
+                                    0.5
+                                ],
+                                "Scale": [
+                                    1.0,
+                                    1.0,
+                                    1.0
+                                ],
+                                "LocalEulerAngles": [
+                                    -90.0,
+                                    0.0,
+                                    90.0
+                                ]
+                            }
+                        ],
+                        "Children": null
+                    },
+                    {
+                        "Name": "joint13",
+                        "Active": true,
+                        "RootBoneName": "",
+                        "Mask": 0,
+                        "Components": [
+                            {
+                                "Type": "Transform",
+                                "Active": true,
+                                "Position": [
+                                    -0.3282240331172943,
+                                    1.9358371496200562,
+                                    2.726240873336792
+                                ],
+                                "Rotation": [
+                                    -0.7071068286895752,
+                                    0.0,
+                                    0.0,
+                                    0.7071068286895752
+                                ],
+                                "Scale": [
+                                    1.0,
+                                    1.0,
+                                    1.0
+                                ],
+                                "LocalEulerAngles": [
+                                    -90.00000762939453,
+                                    0.0,
+                                    0.0
+                                ]
+                            }
+                        ],
+                        "Children": null
+                    },
+                    {
+                        "Name": "joint14",
+                        "Active": true,
+                        "RootBoneName": "",
+                        "Mask": 0,
+                        "Components": [
+                            {
+                                "Type": "Transform",
+                                "Active": true,
+                                "Position": [
+                                    -0.9171769618988037,
+                                    1.9358370304107667,
+                                    2.735325336456299
+                                ],
+                                "Rotation": [
+                                    -0.7071068286895752,
+                                    0.0,
+                                    0.0,
+                                    0.7071068286895752
+                                ],
+                                "Scale": [
+                                    1.0,
+                                    1.0,
+                                    1.0
+                                ],
+                                "LocalEulerAngles": [
+                                    -90.00000762939453,
+                                    0.0,
+                                    0.0
+                                ]
+                            }
+                        ],
+                        "Children": null
+                    },
+                    {
+                        "Name": "joint15",
+                        "Active": true,
+                        "RootBoneName": "",
+                        "Mask": 0,
+                        "Components": [
+                            {
+                                "Type": "Transform",
+                                "Active": true,
+                                "Position": [
+                                    -1.5160902738571168,
+                                    1.935836911201477,
+                                    2.7353250980377199
+                                ],
+                                "Rotation": [
+                                    -0.7071068286895752,
+                                    0.0,
+                                    0.0,
+                                    0.7071068286895752
+                                ],
+                                "Scale": [
+                                    1.0,
+                                    1.0,
+                                    1.0
+                                ],
+                                "LocalEulerAngles": [
+                                    -90.00000762939453,
+                                    0.0,
+                                    0.0
+                                ]
+                            }
+                        ],
+                        "Children": null
+                    },
+                    {
+                        "Name": "joint16",
+                        "Active": true,
+                        "RootBoneName": "",
+                        "Mask": 0,
+                        "Components": [
+                            {
+                                "Type": "Transform",
+                                "Active": true,
+                                "Position": [
+                                    -2.1187500953674318,
+                                    1.9358367919921876,
+                                    2.7353248596191408
+                                ],
+                                "Rotation": [
+                                    -0.7071068286895752,
+                                    0.0,
+                                    0.0,
+                                    0.7071068286895752
+                                ],
+                                "Scale": [
+                                    1.0,
+                                    1.0,
+                                    1.0
+                                ],
+                                "LocalEulerAngles": [
+                                    -90.00000762939453,
+                                    0.0,
+                                    0.0
+                                ]
+                            }
+                        ],
+                        "Children": null
+                    },
+                    {
+                        "Name": "joint17",
+                        "Active": true,
+                        "RootBoneName": "",
+                        "Mask": 0,
+                        "Components": [
+                            {
+                                "Type": "Transform",
+                                "Active": true,
+                                "Position": [
+                                    0.0,
+                                    1.571297287940979,
+                                    0.0
+                                ],
+                                "Rotation": [
+                                    -0.7071068286895752,
+                                    0.0,
+                                    0.0,
+                                    0.7071068286895752
+                                ],
+                                "Scale": [
+                                    1.0,
+                                    1.0,
+                                    1.0
+                                ],
+                                "LocalEulerAngles": [
+                                    -90.00000762939453,
+                                    0.0,
+                                    0.0
+                                ]
+                            }
+                        ],
+                        "Children": null
+                    },
+                    {
+                        "Name": "joint18",
+                        "Active": true,
+                        "RootBoneName": "",
+                        "Mask": 0,
+                        "Components": [
+                            {
+                                "Type": "Transform",
+                                "Active": true,
+                                "Position": [
+                                    6.031608279499778e-8,
+                                    1.571297287940979,
+                                    0.648101270198822
+                                ],
+                                "Rotation": [
+                                    -0.7071068286895752,
+                                    0.0,
+                                    0.0,
+                                    0.7071068286895752
+                                ],
+                                "Scale": [
+                                    1.0,
+                                    1.0,
+                                    1.0
+                                ],
+                                "LocalEulerAngles": [
+                                    -90.00000762939453,
+                                    0.0,
+                                    0.0
+                                ]
+                            }
+                        ],
+                        "Children": null
+                    },
+                    {
+                        "Name": "joint19",
+                        "Active": true,
+                        "RootBoneName": "",
+                        "Mask": 0,
+                        "Components": [
+                            {
+                                "Type": "Transform",
+                                "Active": true,
+                                "Position": [
+                                    1.2817167771572714e-7,
+                                    1.571297287940979,
+                                    1.4495470523834229
+                                ],
+                                "Rotation": [
+                                    -0.7071068286895752,
+                                    0.0,
+                                    0.0,
+                                    0.7071068286895752
+                                ],
+                                "Scale": [
+                                    1.0,
+                                    1.0,
+                                    1.0
+                                ],
+                                "LocalEulerAngles": [
+                                    -90.00000762939453,
+                                    0.0,
+                                    0.0
+                                ]
+                            }
+                        ],
+                        "Children": null
+                    },
+                    {
+                        "Name": "joint20",
+                        "Active": true,
+                        "RootBoneName": "",
+                        "Mask": 0,
+                        "Components": [
+                            {
+                                "Type": "Transform",
+                                "Active": true,
+                                "Position": [
+                                    2.0356678476218804e-7,
+                                    1.571297287940979,
+                                    2.2727596759796144
+                                ],
+                                "Rotation": [
+                                    -0.7071068286895752,
+                                    0.0,
+                                    0.0,
+                                    0.7071068286895752
+                                ],
+                                "Scale": [
+                                    1.0,
+                                    1.0,
+                                    1.0
+                                ],
+                                "LocalEulerAngles": [
+                                    -90.00000762939453,
+                                    0.0,
+                                    0.0
+                                ]
+                            }
+                        ],
+                        "Children": null
+                    }
+                ]
+            },
+            {
+                "Name": "EmberParticleSystem",
+                "Active": true,
+                "RootBoneName": "",
+                "Mask": 0,
+                "Components": [
+                    {
+                        "Type": "Transform",
+                        "Active": true,
+                        "Position": [
+                            0.0,
+                            2.0,
+                            0.0
+                        ],
+                        "Rotation": [
+                            0.0,
+                            0.0,
+                            0.0,
+                            1.0
+                        ],
+                        "Scale": [
+                            1.0,
+                            1.0,
+                            1.0
+                        ],
+                        "LocalEulerAngles": [
+                            -0.0,
+                            0.0,
+                            -0.0
+                        ]
+                    },
+                    {
+                        "Type": "Particle",
+                        "Active": true,
+                        "DrawGizmo": true,
+                        "Duration": 5.0,
+                        "Looping": true,
+                        "StartDelay": [
+                            0.0,
+                            0.0
+                        ],
+                        "LifeRM": 1,
+                        "Life": [
+                            1.0,
+                            2.0
+                        ],
+                        "SpeedRM": 1,
+                        "Speed": [
+                            2.0,
+                            4.0
+                        ],
+                        "RotationRM": 0,
+                        "Rotation": [
+                            0.0,
+                            0.0
+                        ],
+                        "ScaleRM": 1,
+                        "Scale": [
+                            0.5,
+                            1.0
+                        ],
+                        "ReverseEffect": false,
+                        "ReverseDistanceRM": 0,
+                        "ReverseDistance": [
+                            5.0,
+                            5.0
+                        ],
+                        "MaxParticle": 100,
+                        "PlayOnAwake": true,
+                        "AttachEmitter": true,
+                        "ParticlesPerSecondRM": 0,
+                        "ParticlesPerSecond": [
+                            6.0,
+                            10.0
+                        ],
+                        "GravityEffect": false,
+                        "GravityFactorRM": 0,
+                        "GravityFactor": [
+                            0.0,
+                            0.0
+                        ],
+                        "ParticleEmitterType": 0,
+                        "ConeRadiusUp": 2.700000047683716,
+                        "ConeRadiusDown": 2.700000047683716,
+                        "RandomConeRadiusUp": false,
+                        "RandomConeRadiusDown": true,
+                        "RotationOverLifetime": true,
+                        "RotationFactorRM": 1,
+                        "RotationFactor": [
+                            0.0,
+                            -6.2831854820251469
+                        ],
+                        "SizeOverLifetime": false,
+                        "ScaleFactorRM": 0,
+                        "ScaleFactor": [
+                            0.0,
+                            0.0
+                        ],
+                        "ColorOverLifetime": true,
+                        "GradientColors": [
+                            [
+                                1.0,
+                                1.0,
+                                1.0,
+                                1.0,
+                                0.0
+                            ],
+                            [
+                                1.0,
+                                1.0,
+                                1.0,
+                                1.0,
+                                0.6851211190223694
+                            ],
+                            [
+                                0.0,
+                                0.0,
+                                0.0,
+                                1.0,
+                                1.0
+                            ]
+                        ],
+                        "NumberColors": 3,
+                        "Ytiles": 1,
+                        "Xtiles": 1,
+                        "AnimationSpeed": 0.0,
+                        "IsRandomFrame": false,
+                        "LoopAnimation": true,
+                        "NCycles": 1.0,
+                        "TextureId": 1274027956835092096,
+                        "BillboardType": 0,
+                        "ParticleRenderMode": 0,
+                        "ParticleRenderAlignment": 0,
+                        "FlipTexture": [
+                            false,
+                            false
+                        ],
+                        "IsSoft": false,
+                        "SoftRange": 0.0,
+                        "HasCollision": false,
+                        "LayerIndex": 5,
+                        "CollRadius": 0.25,
+                        "HasTrail": false,
+                        "TrailRatio": 0.0,
+                        "WidthRM": 0,
+                        "Width": [
+                            0.0,
+                            0.0
+                        ],
+                        "TrailQuadsRM": 0,
+                        "TrailQuads": [
+                            0.0,
+                            0.0
+                        ],
+                        "QuadLifeRM": 0,
+                        "QuadLife": [
+                            0.0,
+                            0.0
+                        ],
+                        "TextureTrailID": 0,
+                        "FlipTrailTexture": [
+                            false,
+                            false
+                        ],
+                        "TextureRepeats": 0,
+                        "HasColorOverTrail": false,
+                        "GradientColorsTrail": null,
+                        "NumberColorsTrail": 0,
+                        "SubEmitters": null,
+                        "SubEmittersNumber": 0
+                    }
+                ],
+                "Children": null
+            },
+            {
+                "Name": "FireVerticalParticleSystem",
+                "Active": true,
+                "RootBoneName": "",
+                "Mask": 0,
+                "Components": [
+                    {
+                        "Type": "Transform",
+                        "Active": true,
+                        "Position": [
+                            0.0,
+                            2.0,
+                            0.0
+                        ],
+                        "Rotation": [
+                            0.0,
+                            0.0,
+                            0.0,
+                            1.0
+                        ],
+                        "Scale": [
+                            1.0,
+                            1.0,
+                            1.0
+                        ],
+                        "LocalEulerAngles": [
+                            -0.0,
+                            0.0,
+                            -0.0
+                        ]
+                    },
+                    {
+                        "Type": "Particle",
+                        "Active": true,
+                        "DrawGizmo": true,
+                        "Duration": 1.0,
+                        "Looping": true,
+                        "StartDelay": [
+                            0.0,
+                            0.0
+                        ],
+                        "LifeRM": 1,
+                        "Life": [
+                            0.10000000149011612,
+                            0.5
+                        ],
+                        "SpeedRM": 1,
+                        "Speed": [
+                            1.0,
+                            3.0
+                        ],
+                        "RotationRM": 1,
+                        "Rotation": [
+                            0.0,
+                            -6.2831854820251469
+                        ],
+                        "ScaleRM": 0,
+                        "Scale": [
+                            30.0,
+                            40.0
+                        ],
+                        "ReverseEffect": false,
+                        "ReverseDistanceRM": 0,
+                        "ReverseDistance": [
+                            5.0,
+                            5.0
+                        ],
+                        "MaxParticle": 100,
+                        "PlayOnAwake": false,
+                        "AttachEmitter": true,
+                        "ParticlesPerSecondRM": 0,
+                        "ParticlesPerSecond": [
+                            20.0,
+                            40.0
+                        ],
+                        "GravityEffect": false,
+                        "GravityFactorRM": 0,
+                        "GravityFactor": [
+                            0.0,
+                            0.0
+                        ],
+                        "ParticleEmitterType": 0,
+                        "ConeRadiusUp": 2.5,
+                        "ConeRadiusDown": 2.5,
+                        "RandomConeRadiusUp": false,
+                        "RandomConeRadiusDown": true,
+                        "RotationOverLifetime": true,
+                        "RotationFactorRM": 1,
+                        "RotationFactor": [
+                            0.0,
+                            -1.5707963705062867
+                        ],
+                        "SizeOverLifetime": true,
+                        "ScaleFactorRM": 1,
+                        "ScaleFactor": [
+                            2.0,
+                            4.0
+                        ],
+                        "ColorOverLifetime": true,
+                        "GradientColors": [
+                            [
+                                1.0,
+                                0.9906288981437683,
+                                0.47524750232696535,
+                                1.0,
+                                0.0
+                            ],
+                            [
+                                1.0,
+                                0.20289850234985352,
+                                0.0,
+                                1.0,
+                                0.8754327297210693
+                            ],
+                            [
+                                9.999999974752428e-7,
+                                9.999920393966023e-7,
+                                9.999899930335233e-7,
+                                1.0,
+                                0.9913495779037476
+                            ]
+                        ],
+                        "NumberColors": 3,
+                        "Ytiles": 1,
+                        "Xtiles": 1,
+                        "AnimationSpeed": 0.0,
+                        "IsRandomFrame": false,
+                        "LoopAnimation": true,
+                        "NCycles": 1.0,
+                        "TextureId": 6644379447420896038,
+                        "BillboardType": 0,
+                        "ParticleRenderMode": 0,
+                        "ParticleRenderAlignment": 0,
+                        "FlipTexture": [
+                            false,
+                            false
+                        ],
+                        "IsSoft": false,
+                        "SoftRange": 0.0,
+                        "HasCollision": false,
+                        "LayerIndex": 5,
+                        "CollRadius": 0.25,
+                        "HasTrail": false,
+                        "TrailRatio": 0.0,
+                        "WidthRM": 0,
+                        "Width": [
+                            0.0,
+                            0.0
+                        ],
+                        "TrailQuadsRM": 0,
+                        "TrailQuads": [
+                            0.0,
+                            0.0
+                        ],
+                        "QuadLifeRM": 0,
+                        "QuadLife": [
+                            0.0,
+                            0.0
+                        ],
+                        "TextureTrailID": 0,
+                        "FlipTrailTexture": [
+                            false,
+                            false
+                        ],
+                        "TextureRepeats": 0,
+                        "HasColorOverTrail": false,
+                        "GradientColorsTrail": null,
+                        "NumberColorsTrail": 0,
+                        "SubEmitters": null,
+                        "SubEmittersNumber": 0
+                    }
+                ],
+                "Children": [
+                    {
+                        "Name": "FireHorizontalParticleSystem",
+                        "Active": true,
+                        "RootBoneName": "",
+                        "Mask": 0,
+                        "Components": [
+                            {
+                                "Type": "Transform",
+                                "Active": true,
+                                "Position": [
+                                    0.0,
+                                    0.1865379810333252,
+                                    0.003033161163330078
+                                ],
+                                "Rotation": [
+                                    0.0,
+                                    0.0,
+                                    0.0,
+                                    1.0
+                                ],
+                                "Scale": [
+                                    1.0,
+                                    1.0,
+                                    1.0
+                                ],
+                                "LocalEulerAngles": [
+                                    -0.0,
+                                    0.0,
+                                    -0.0
+                                ]
+                            },
+                            {
+                                "Type": "Particle",
+                                "Active": true,
+                                "DrawGizmo": true,
+                                "Duration": 1.0,
+                                "Looping": true,
+                                "StartDelay": [
+                                    0.0,
+                                    0.0
+                                ],
+                                "LifeRM": 0,
+                                "Life": [
+                                    1.5,
+                                    3.0
+                                ],
+                                "SpeedRM": 0,
+                                "Speed": [
+                                    0.0,
+                                    5.0
+                                ],
+                                "RotationRM": 1,
+                                "Rotation": [
+                                    0.0,
+                                    -6.2831854820251469
+                                ],
+                                "ScaleRM": 0,
+                                "Scale": [
+                                    35.0,
+                                    43.54999923706055
+                                ],
+                                "ReverseEffect": false,
+                                "ReverseDistanceRM": 0,
+                                "ReverseDistance": [
+                                    5.0,
+                                    5.0
+                                ],
+                                "MaxParticle": 100,
+                                "PlayOnAwake": false,
+                                "AttachEmitter": true,
+                                "ParticlesPerSecondRM": 0,
+                                "ParticlesPerSecond": [
+                                    3.0,
+                                    40.0
+                                ],
+                                "GravityEffect": false,
+                                "GravityFactorRM": 0,
+                                "GravityFactor": [
+                                    0.0,
+                                    0.0
+                                ],
+                                "ParticleEmitterType": 0,
+                                "ConeRadiusUp": 1.0,
+                                "ConeRadiusDown": 1.0,
+                                "RandomConeRadiusUp": false,
+                                "RandomConeRadiusDown": true,
+                                "RotationOverLifetime": false,
+                                "RotationFactorRM": 0,
+                                "RotationFactor": [
+                                    -0.0,
+                                    -1.5707963705062867
+                                ],
+                                "SizeOverLifetime": true,
+                                "ScaleFactorRM": 0,
+                                "ScaleFactor": [
+                                    3.0,
+                                    5.0
+                                ],
+                                "ColorOverLifetime": true,
+                                "GradientColors": [
+                                    [
+                                        9.999999974752428e-7,
+                                        9.999997701015673e-7,
+                                        9.999899930335233e-7,
+                                        1.0,
+                                        0.008650518953800202
+                                    ],
+                                    [
+                                        0.7077294588088989,
+                                        0.7013184428215027,
+                                        0.3487362563610077,
+                                        1.0,
+                                        0.2197231948375702
+                                    ],
+                                    [
+                                        0.7342995405197144,
+                                        0.15322966873645783,
+                                        0.005321010015904903,
+                                        1.0,
+                                        0.7525954842567444
+                                    ],
+                                    [
+                                        9.999999974752428e-7,
+                                        2.045450173682184e-7,
+                                        0.0,
+                                        1.0,
+                                        0.9913495779037476
+                                    ]
+                                ],
+                                "NumberColors": 4,
+                                "Ytiles": 1,
+                                "Xtiles": 1,
+                                "AnimationSpeed": 0.0,
+                                "IsRandomFrame": false,
+                                "LoopAnimation": true,
+                                "NCycles": 1.0,
+                                "TextureId": 6644379447420896038,
+                                "BillboardType": 2,
+                                "ParticleRenderMode": 0,
+                                "ParticleRenderAlignment": 0,
+                                "FlipTexture": [
+                                    false,
+                                    false
+                                ],
+                                "IsSoft": false,
+                                "SoftRange": 0.0,
+                                "HasCollision": false,
+                                "LayerIndex": 5,
+                                "CollRadius": 0.25,
+                                "HasTrail": false,
+                                "TrailRatio": 0.0,
+                                "WidthRM": 0,
+                                "Width": [
+                                    0.0,
+                                    0.0
+                                ],
+                                "TrailQuadsRM": 0,
+                                "TrailQuads": [
+                                    0.0,
+                                    0.0
+                                ],
+                                "QuadLifeRM": 0,
+                                "QuadLife": [
+                                    0.0,
+                                    0.0
+                                ],
+                                "TextureTrailID": 0,
+                                "FlipTrailTexture": [
+                                    false,
+                                    false
+                                ],
+                                "TextureRepeats": 0,
+                                "HasColorOverTrail": false,
+                                "GradientColorsTrail": null,
+                                "NumberColorsTrail": 0,
+                                "SubEmitters": null,
+                                "SubEmittersNumber": 0
+                            }
+                        ],
+                        "Children": null
+                    }
+                ]
+            }
+        ]
+    }
+}

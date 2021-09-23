@@ -1,0 +1,51 @@
+{
+    "Root": {
+        "Name": "Batteries Light",
+        "Active": true,
+        "RootBoneName": "",
+        "Mask": 0,
+        "Components": [
+            {
+                "Type": "Transform",
+                "Active": true,
+                "Position": [
+                    71.9491958618164,
+                    3.944659948348999,
+                    9.508649826049805
+                ],
+                "Rotation": [
+                    0.0,
+                    0.0,
+                    0.0,
+                    1.0
+                ],
+                "Scale": [
+                    1.0,
+                    1.0,
+                    1.0
+                ],
+                "LocalEulerAngles": [
+                    -0.0,
+                    0.0,
+                    -0.0
+                ]
+            },
+            {
+                "Type": "Light",
+                "Active": true,
+                "LightType": 1,
+                "Color": [
+                    0.0,
+                    0.8809614181518555,
+                    1.0
+                ],
+                "Intensity": 50.0,
+                "Kl": 0.019999999552965165,
+                "Kq": 0.5,
+                "InnerAngle": 0.2617993950843811,
+                "OuterAngle": 0.5235987901687622
+            }
+        ],
+        "Children": null
+    }
+}

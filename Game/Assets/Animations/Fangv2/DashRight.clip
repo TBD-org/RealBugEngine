@@ -1,0 +1,9 @@
+{
+    "Name": "DashRight",
+    "AnimationUID": 5614041873872763134,
+    "BeginIndex": 128,
+    "EndIndex": 128,
+    "Loop": true,
+    "Speed": 1.0,
+    "FrameRate": 0.03329545259475708
+}

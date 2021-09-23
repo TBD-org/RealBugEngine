@@ -1,0 +1,129 @@
+{
+    "InitialState": 11658907375526238975,
+    "Clips": [
+        3083679852799510876,
+        13108322054687879847,
+        14200718773596707017,
+        6191787490365787401
+    ],
+    "States": [
+        {
+            "Id": 8384204406561273674,
+            "Name": "Run",
+            "ClipId": 3083679852799510876
+        },
+        {
+            "Id": 11658907375526238975,
+            "Name": "Idle1",
+            "ClipId": 13108322054687879847
+        },
+        {
+            "Id": 3749978458477905456,
+            "Name": "Idle3",
+            "ClipId": 14200718773596707017
+        },
+        {
+            "Id": 17298972341611662745,
+            "Name": "Idle2",
+            "ClipId": 6191787490365787401
+        }
+    ],
+    "Transitions": [
+        {
+            "Trigger": "Idle2Idle3",
+            "Id": 17998218477136963629,
+            "Source": 17298972341611662745,
+            "Target": 3749978458477905456,
+            "Interpolation": 0.3
+        },
+        {
+            "Trigger": "Idle2Run",
+            "Id": 15367691776429476006,
+            "Source": 17298972341611662745,
+            "Target": 8384204406561273674,
+            "Interpolation": 0.3
+        },
+        {
+            "Trigger": "Idle2Idle1",
+            "Id": 14817695451079313166,
+            "Source": 17298972341611662745,
+            "Target": 11658907375526238975,
+            "Interpolation": 0.3
+        },
+        {
+            "Trigger": "Idle3Idle2",
+            "Id": 11882842244520922371,
+            "Source": 3749978458477905456,
+            "Target": 17298972341611662745,
+            "Interpolation": 0.3
+        },
+        {
+            "Trigger": "Idle3Run",
+            "Id": 13260494941094138583,
+            "Source": 3749978458477905456,
+            "Target": 8384204406561273674,
+            "Interpolation": 0.3
+        },
+        {
+            "Trigger": "Idle3Idle1",
+            "Id": 16016634840667103759,
+            "Source": 3749978458477905456,
+            "Target": 11658907375526238975,
+            "Interpolation": 0.3
+        },
+        {
+            "Trigger": "RunIdle2",
+            "Id": 4800808963707537132,
+            "Source": 8384204406561273674,
+            "Target": 17298972341611662745,
+            "Interpolation": 0.3
+        },
+        {
+            "Trigger": "RunIdle3",
+            "Id": 15264686956790214494,
+            "Source": 8384204406561273674,
+            "Target": 3749978458477905456,
+            "Interpolation": 0.3
+        },
+        {
+            "Trigger": "RunIdle1",
+            "Id": 10769570552647943321,
+            "Source": 8384204406561273674,
+            "Target": 11658907375526238975,
+            "Interpolation": 0.3
+        },
+        {
+            "Trigger": "Idle1Idle2",
+            "Id": 14460561474375557584,
+            "Source": 11658907375526238975,
+            "Target": 17298972341611662745,
+            "Interpolation": 0.3
+        },
+        {
+            "Trigger": "Idle1Idle3",
+            "Id": 8394316700438081802,
+            "Source": 11658907375526238975,
+            "Target": 3749978458477905456,
+            "Interpolation": 0.3
+        },
+        {
+            "Trigger": "Idle1Run",
+            "Id": 15741485572619948479,
+            "Source": 11658907375526238975,
+            "Target": 8384204406561273674,
+            "Interpolation": 0.3
+        }
+    ],
+    "Bones": [
+        "Joint_Neck",
+        "Joint_Back",
+        "Joint_Bottom",
+        "Joint_Tail_01",
+        "Joint_Tail_02",
+        "Joint_Foot_L",
+        "Joint_Foot_R",
+        "Joint_Hand_L",
+        "Joint_Hand_R",
+        "Joint_Face"
+    ]
+}

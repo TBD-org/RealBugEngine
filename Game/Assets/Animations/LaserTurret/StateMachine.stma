@@ -1,0 +1,186 @@
+{
+    "InitialState": 7438987159145220416,
+    "Clips": [
+        15056981267920649324,
+        2897738392317287129,
+        16285895699798166059,
+        2220165099868280862,
+        6909556844124450370
+    ],
+    "States": [
+        {
+            "Id": 11354842642623341349,
+            "Name": "End",
+            "ClipId": 15056981267920649324
+        },
+        {
+            "Id": 7438987159145220416,
+            "Name": "StartUpIdle",
+            "ClipId": 2897738392317287129
+        },
+        {
+            "Id": 5186657002270806504,
+            "Name": "EndIdle",
+            "ClipId": 16285895699798166059
+        },
+        {
+            "Id": 12439139532514847388,
+            "Name": "Shoot",
+            "ClipId": 2220165099868280862
+        },
+        {
+            "Id": 6799563395698679665,
+            "Name": "Startup",
+            "ClipId": 6909556844124450370
+        }
+    ],
+    "Transitions": [
+        {
+            "Trigger": "EndStartup",
+            "Id": 10736111796228734982,
+            "Source": 11354842642623341349,
+            "Target": 6799563395698679665,
+            "Interpolation": 0.3
+        },
+        {
+            "Trigger": "EndEndIdle",
+            "Id": 6947392486328490436,
+            "Source": 11354842642623341349,
+            "Target": 5186657002270806504,
+            "Interpolation": 0.3
+        },
+        {
+            "Trigger": "EndStartUpIdle",
+            "Id": 11538848648636824908,
+            "Source": 11354842642623341349,
+            "Target": 7438987159145220416,
+            "Interpolation": 0.3
+        },
+        {
+            "Trigger": "EndShoot",
+            "Id": 17886082904264544856,
+            "Source": 11354842642623341349,
+            "Target": 12439139532514847388,
+            "Interpolation": 0.3
+        },
+        {
+            "Trigger": "StartupEnd",
+            "Id": 15440956065302036388,
+            "Source": 6799563395698679665,
+            "Target": 11354842642623341349,
+            "Interpolation": 0.3
+        },
+        {
+            "Trigger": "StartupEndIdle",
+            "Id": 16571000907643508861,
+            "Source": 6799563395698679665,
+            "Target": 5186657002270806504,
+            "Interpolation": 0.3
+        },
+        {
+            "Trigger": "StartupStartUpIdle",
+            "Id": 1530342085900008048,
+            "Source": 6799563395698679665,
+            "Target": 7438987159145220416,
+            "Interpolation": 0.3
+        },
+        {
+            "Trigger": "StartupShoot",
+            "Id": 1926268318639967617,
+            "Source": 6799563395698679665,
+            "Target": 12439139532514847388,
+            "Interpolation": 0.3
+        },
+        {
+            "Trigger": "EndIdleEnd",
+            "Id": 18046564558447746732,
+            "Source": 5186657002270806504,
+            "Target": 11354842642623341349,
+            "Interpolation": 0.3
+        },
+        {
+            "Trigger": "EndIdleStartup",
+            "Id": 12956464452635602483,
+            "Source": 5186657002270806504,
+            "Target": 6799563395698679665,
+            "Interpolation": 0.3
+        },
+        {
+            "Trigger": "EndIdleStartUpIdle",
+            "Id": 4790442379549443219,
+            "Source": 5186657002270806504,
+            "Target": 7438987159145220416,
+            "Interpolation": 0.3
+        },
+        {
+            "Trigger": "EndIdleShoot",
+            "Id": 12571104929376821968,
+            "Source": 5186657002270806504,
+            "Target": 12439139532514847388,
+            "Interpolation": 0.3
+        },
+        {
+            "Trigger": "StartUpIdleEnd",
+            "Id": 780691579056851684,
+            "Source": 7438987159145220416,
+            "Target": 11354842642623341349,
+            "Interpolation": 0.3
+        },
+        {
+            "Trigger": "StartUpIdleStartup",
+            "Id": 14484798455310673332,
+            "Source": 7438987159145220416,
+            "Target": 6799563395698679665,
+            "Interpolation": 0.3
+        },
+        {
+            "Trigger": "StartUpIdleEndIdle",
+            "Id": 1077270242657946600,
+            "Source": 7438987159145220416,
+            "Target": 5186657002270806504,
+            "Interpolation": 0.3
+        },
+        {
+            "Trigger": "StartUpIdleShoot",
+            "Id": 9677490187911240907,
+            "Source": 7438987159145220416,
+            "Target": 12439139532514847388,
+            "Interpolation": 0.3
+        },
+        {
+            "Trigger": "ShootEnd",
+            "Id": 4404328047332970878,
+            "Source": 12439139532514847388,
+            "Target": 11354842642623341349,
+            "Interpolation": 0.3
+        },
+        {
+            "Trigger": "ShootStartup",
+            "Id": 2219303726620734546,
+            "Source": 12439139532514847388,
+            "Target": 6799563395698679665,
+            "Interpolation": 0.3
+        },
+        {
+            "Trigger": "ShootEndIdle",
+            "Id": 14649973931317961690,
+            "Source": 12439139532514847388,
+            "Target": 5186657002270806504,
+            "Interpolation": 0.3
+        },
+        {
+            "Trigger": "ShootStartUpIdle",
+            "Id": 12092519313994427504,
+            "Source": 12439139532514847388,
+            "Target": 7438987159145220416,
+            "Interpolation": 0.3
+        }
+    ],
+    "Bones": [
+        "LaserTurret0",
+		"LaserTurret1",
+		"LaserTurret2",
+		"LaserTurret3",
+		"LaserTurret4"
+    ]
+}

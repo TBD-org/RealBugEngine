@@ -1,0 +1,63 @@
+{
+    "Root": {
+        "Name": "Spawn_",
+        "Active": true,
+        "RootBoneName": "",
+        "Mask": 0,
+        "Components": [
+            {
+                "Type": "Transform",
+                "Active": true,
+                "Position": [
+                    -129.45314025878907,
+                    10.093485832214356,
+                    11.274106979370118
+                ],
+                "Rotation": [
+                    0.0,
+                    0.0,
+                    0.0,
+                    1.0
+                ],
+                "Scale": [
+                    1.0,
+                    1.0,
+                    1.0
+                ],
+                "LocalEulerAngles": [
+                    -0.0,
+                    0.0,
+                    -0.0
+                ]
+            },
+            {
+                "Type": "Script",
+                "Active": true,
+                "Script": 14237604830987124740,
+                "Values": [
+                    {
+                        "Name": "prefabId",
+                        "Type": "PrefabResourceUID",
+                        "Value": 9998956702901793097
+                    },
+                    {
+                        "Name": "amountOfEnemies",
+                        "Type": "Int",
+                        "Value": 1
+                    },
+                    {
+                        "Name": "offset",
+                        "Type": "Int",
+                        "Value": 0
+                    },
+                    {
+                        "Name": "winUID",
+                        "Type": "GameObjectUID",
+                        "Value": 16579210181260590797
+                    }
+                ]
+            }
+        ],
+        "Children": null
+    }
+}

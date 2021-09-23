@@ -1,0 +1,458 @@
+{
+    "Root": {
+        "Name": "RatRobot",
+        "Active": true,
+        "RootBoneName": "Joint_Neck",
+        "Mask": 0,
+        "Components": [
+            {
+                "Type": "Transform",
+                "Active": true,
+                "Position": [
+                    -115.2000503540039,
+                    3.3307347297668459,
+                    -5.278433322906494
+                ],
+                "Rotation": [
+                    0.0,
+                    0.0,
+                    0.0,
+                    1.0
+                ],
+                "Scale": [
+                    0.5,
+                    0.5,
+                    0.5
+                ],
+                "LocalEulerAngles": [
+                    -0.0,
+                    0.0,
+                    -0.0
+                ]
+            },
+            {
+                "Type": "Animation",
+                "Active": true,
+                "StateMachinePrincipalId": 14500859168709815111,
+                "StateMachineSecondaryId": 170235261915610627
+            },
+            {
+                "Type": "Agent",
+                "Active": true,
+                "MaxSpeed": 10.0,
+                "MaxAcceleration": 100.0,
+                "AvoidingObstacle": true
+            },
+            {
+                "Type": "Script",
+                "Active": true,
+                "Script": 17939709168703530699,
+                "Values": [
+                    {
+                        "Name": "playerId",
+                        "Type": "GameObjectUID",
+                        "Value": 9835691270176894595
+                    }
+                ]
+            }
+        ],
+        "Children": [
+            {
+                "Name": "Joint_Neck",
+                "Active": true,
+                "RootBoneName": "",
+                "Mask": 0,
+                "Components": [
+                    {
+                        "Type": "Transform",
+                        "Active": true,
+                        "Position": [
+                            -0.6860601902008057,
+                            0.6289794445037842,
+                            0.0
+                        ],
+                        "Rotation": [
+                            0.0,
+                            0.0,
+                            -0.021035345271229745,
+                            0.9997787475585938
+                        ],
+                        "Scale": [
+                            1.0,
+                            1.0,
+                            1.0
+                        ],
+                        "LocalEulerAngles": [
+                            0.0,
+                            0.0,
+                            -2.4106507301330568
+                        ]
+                    }
+                ],
+                "Children": [
+                    {
+                        "Name": "Joint_Back",
+                        "Active": true,
+                        "RootBoneName": "",
+                        "Mask": 0,
+                        "Components": [
+                            {
+                                "Type": "Transform",
+                                "Active": true,
+                                "Position": [
+                                    0.29118385910987856,
+                                    -0.16426727175712586,
+                                    0.0
+                                ],
+                                "Rotation": [
+                                    0.0,
+                                    0.0,
+                                    -0.20751363039016725,
+                                    0.9782321453094482
+                                ],
+                                "Scale": [
+                                    1.0,
+                                    1.0,
+                                    1.0
+                                ],
+                                "LocalEulerAngles": [
+                                    0.0,
+                                    0.0,
+                                    -23.953369140625
+                                ]
+                            }
+                        ],
+                        "Children": [
+                            {
+                                "Name": "Jont_Bottom",
+                                "Active": true,
+                                "RootBoneName": "",
+                                "Mask": 0,
+                                "Components": [
+                                    {
+                                        "Type": "Transform",
+                                        "Active": true,
+                                        "Position": [
+                                            0.39276087284088137,
+                                            -0.2221391350030899,
+                                            0.0
+                                        ],
+                                        "Rotation": [
+                                            0.0,
+                                            0.0,
+                                            0.26129385828971865,
+                                            0.965259313583374
+                                        ],
+                                        "Scale": [
+                                            1.0,
+                                            1.0,
+                                            1.0
+                                        ],
+                                        "LocalEulerAngles": [
+                                            -0.0,
+                                            0.0,
+                                            30.293699264526368
+                                        ]
+                                    }
+                                ],
+                                "Children": [
+                                    {
+                                        "Name": "Joint_Tail_01",
+                                        "Active": true,
+                                        "RootBoneName": "",
+                                        "Mask": 0,
+                                        "Components": [
+                                            {
+                                                "Type": "Transform",
+                                                "Active": true,
+                                                "Position": [
+                                                    0.4238882064819336,
+                                                    -0.008782264776527882,
+                                                    0.0003320782561786473
+                                                ],
+                                                "Rotation": [
+                                                    0.0,
+                                                    0.12249698489904404,
+                                                    0.0,
+                                                    0.9924688935279846
+                                                ],
+                                                "Scale": [
+                                                    1.0,
+                                                    1.0,
+                                                    1.0
+                                                ],
+                                                "LocalEulerAngles": [
+                                                    -0.0,
+                                                    14.072464942932129,
+                                                    -0.0
+                                                ]
+                                            }
+                                        ],
+                                        "Children": [
+                                            {
+                                                "Name": "Joint_Tail_02",
+                                                "Active": true,
+                                                "RootBoneName": "",
+                                                "Mask": 0,
+                                                "Components": [
+                                                    {
+                                                        "Type": "Transform",
+                                                        "Active": true,
+                                                        "Position": [
+                                                            0.49544504284858706,
+                                                            -0.05737268924713135,
+                                                            0.041685234755277637
+                                                        ],
+                                                        "Rotation": [
+                                                            0.0,
+                                                            -0.21070396900177003,
+                                                            0.0,
+                                                            0.9775499105453491
+                                                        ],
+                                                        "Scale": [
+                                                            1.0,
+                                                            1.0,
+                                                            1.0
+                                                        ],
+                                                        "LocalEulerAngles": [
+                                                            0.0,
+                                                            -24.327219009399415,
+                                                            0.0
+                                                        ]
+                                                    }
+                                                ],
+                                                "Children": null
+                                            }
+                                        ]
+                                    }
+                                ]
+                            },
+                            {
+                                "Name": "Joint_Foot_L",
+                                "Active": true,
+                                "RootBoneName": "",
+                                "Mask": 0,
+                                "Components": [
+                                    {
+                                        "Type": "Transform",
+                                        "Active": true,
+                                        "Position": [
+                                            0.09085527807474137,
+                                            -0.38068634271621706,
+                                            0.22205078601837159
+                                        ],
+                                        "Rotation": [
+                                            0.0,
+                                            0.0,
+                                            0.22804516553878785,
+                                            0.9736505746841431
+                                        ],
+                                        "Scale": [
+                                            1.0,
+                                            1.0,
+                                            1.0
+                                        ],
+                                        "LocalEulerAngles": [
+                                            -0.0,
+                                            0.0,
+                                            26.3640193939209
+                                        ]
+                                    }
+                                ],
+                                "Children": null
+                            },
+                            {
+                                "Name": "Joint_Foot_R",
+                                "Active": true,
+                                "RootBoneName": "",
+                                "Mask": 0,
+                                "Components": [
+                                    {
+                                        "Type": "Transform",
+                                        "Active": true,
+                                        "Position": [
+                                            0.08792934566736222,
+                                            -0.3747828006744385,
+                                            -0.22848300635814668
+                                        ],
+                                        "Rotation": [
+                                            0.0,
+                                            0.0,
+                                            0.22804516553878785,
+                                            0.9736505746841431
+                                        ],
+                                        "Scale": [
+                                            1.0,
+                                            1.0,
+                                            1.0
+                                        ],
+                                        "LocalEulerAngles": [
+                                            -0.0,
+                                            0.0,
+                                            26.3640193939209
+                                        ]
+                                    }
+                                ],
+                                "Children": null
+                            }
+                        ]
+                    },
+                    {
+                        "Name": "Joint_Hand_L",
+                        "Active": true,
+                        "RootBoneName": "",
+                        "Mask": 0,
+                        "Components": [
+                            {
+                                "Type": "Transform",
+                                "Active": true,
+                                "Position": [
+                                    -0.21910442411899568,
+                                    -0.3820900321006775,
+                                    0.07442022860050202
+                                ],
+                                "Rotation": [
+                                    0.09533023834228516,
+                                    -0.01932040974497795,
+                                    -0.17575249075889588,
+                                    0.9796172380447388
+                                ],
+                                "Scale": [
+                                    1.0,
+                                    1.0,
+                                    1.0
+                                ],
+                                "LocalEulerAngles": [
+                                    10.395570755004883,
+                                    -4.092235088348389,
+                                    -19.96996307373047
+                                ]
+                            }
+                        ],
+                        "Children": null
+                    },
+                    {
+                        "Name": "Joint_Hand_R",
+                        "Active": true,
+                        "RootBoneName": "",
+                        "Mask": 0,
+                        "Components": [
+                            {
+                                "Type": "Transform",
+                                "Active": true,
+                                "Position": [
+                                    -0.21749451756477357,
+                                    -0.37750568985939028,
+                                    -0.08817038685083389
+                                ],
+                                "Rotation": [
+                                    -0.15717947483062745,
+                                    0.027779601514339448,
+                                    -0.17180947959423066,
+                                    0.9721133708953857
+                                ],
+                                "Scale": [
+                                    1.0,
+                                    1.0,
+                                    1.0
+                                ],
+                                "LocalEulerAngles": [
+                                    -17.324874877929689,
+                                    6.201172351837158,
+                                    -19.100034713745118
+                                ]
+                            }
+                        ],
+                        "Children": null
+                    },
+                    {
+                        "Name": "Joint_Face",
+                        "Active": true,
+                        "RootBoneName": "",
+                        "Mask": 0,
+                        "Components": [
+                            {
+                                "Type": "Transform",
+                                "Active": true,
+                                "Position": [
+                                    -0.3927571773529053,
+                                    0.007005240768194199,
+                                    0.0
+                                ],
+                                "Rotation": [
+                                    0.0,
+                                    0.0,
+                                    0.06659562885761261,
+                                    0.9977800846099854
+                                ],
+                                "Scale": [
+                                    1.0,
+                                    1.0,
+                                    1.0
+                                ],
+                                "LocalEulerAngles": [
+                                    -0.0,
+                                    0.0,
+                                    7.6369500160217289
+                                ]
+                            }
+                        ],
+                        "Children": null
+                    }
+                ]
+            },
+            {
+                "Name": "Rat_Robot_LP",
+                "Active": true,
+                "RootBoneName": "",
+                "Mask": 0,
+                "Components": [
+                    {
+                        "Type": "Transform",
+                        "Active": true,
+                        "Position": [
+                            0.0,
+                            0.0,
+                            0.0
+                        ],
+                        "Rotation": [
+                            0.0,
+                            0.0,
+                            0.0,
+                            1.0
+                        ],
+                        "Scale": [
+                            1.0,
+                            1.0,
+                            1.0
+                        ],
+                        "LocalEulerAngles": [
+                            -0.0,
+                            0.0,
+                            -0.0
+                        ]
+                    },
+                    {
+                        "Type": "MeshRenderer",
+                        "Active": true,
+                        "MeshID": 35546610952482990,
+                        "MaterialID": 2382315951714095673
+                    },
+                    {
+                        "Type": "BoundingBox",
+                        "Active": true,
+                        "LocalBoundingBox": [
+                            -1.3050792217254639,
+                            0.020296776667237283,
+                            -0.29891306161880495,
+                            1.3050793409347535,
+                            0.7675621509552002,
+                            0.29891306161880495
+                        ]
+                    }
+                ],
+                "Children": null
+            }
+        ]
+    }
+}

@@ -1,0 +1,198 @@
+{
+    "Root": {
+        "Name": "Laser Generator A",
+        "Active": true,
+        "RootBoneName": "LaserPilon1",
+        "Mask": 0,
+        "Components": [
+            {
+                "Type": "Transform",
+                "Active": true,
+                "Position": [
+                    17.979000091552736,
+                    4.870999813079834,
+                    -19.34600067138672
+                ],
+                "Rotation": [
+                    0.0,
+                    0.0,
+                    0.0,
+                    1.0
+                ],
+                "Scale": [
+                    0.4000000059604645,
+                    0.4000000059604645,
+                    0.4000000059604645
+                ],
+                "LocalEulerAngles": [
+                    -0.0,
+                    0.0,
+                    -0.0
+                ]
+            },
+            {
+                "Type": "Animation",
+                "Active": true,
+                "StateMachinePrincipalId": 13262278438037640162,
+                "StateMachineSecondaryId": 3081967088990656556
+            }
+        ],
+        "Children": [
+            {
+                "Name": "LaserPilon",
+                "Active": true,
+                "RootBoneName": "",
+                "Mask": 0,
+                "Components": [
+                    {
+                        "Type": "Transform",
+                        "Active": true,
+                        "Position": [
+                            0.0,
+                            0.0,
+                            0.0
+                        ],
+                        "Rotation": [
+                            0.0,
+                            0.0,
+                            0.0,
+                            1.0
+                        ],
+                        "Scale": [
+                            1.0,
+                            1.0,
+                            1.0
+                        ],
+                        "LocalEulerAngles": [
+                            -0.0,
+                            0.0,
+                            -0.0
+                        ]
+                    },
+                    {
+                        "Type": "MeshRenderer",
+                        "Active": true,
+                        "MeshID": 10036168970659097006,
+                        "MaterialID": 7398514980054782061
+                    },
+                    {
+                        "Type": "BoundingBox",
+                        "Active": true,
+                        "LocalBoundingBox": [
+                            -5.577505111694336,
+                            -5.367201805114746,
+                            -5.46051025390625,
+                            5.56025505065918,
+                            5.367201805114746,
+                            5.677250385284424
+                        ]
+                    }
+                ],
+                "Children": null
+            },
+            {
+                "Name": "LaserPilon1",
+                "Active": true,
+                "RootBoneName": "",
+                "Mask": 0,
+                "Components": [
+                    {
+                        "Type": "Transform",
+                        "Active": true,
+                        "Position": [
+                            -0.0037104724906384947,
+                            -3.011583089828491,
+                            0.11687988042831421
+                        ],
+                        "Rotation": [
+                            0.0,
+                            0.0,
+                            0.0,
+                            1.0
+                        ],
+                        "Scale": [
+                            1.0,
+                            1.0,
+                            1.0
+                        ],
+                        "LocalEulerAngles": [
+                            -0.0,
+                            0.0,
+                            -0.0
+                        ]
+                    }
+                ],
+                "Children": [
+                    {
+                        "Name": "LaserPilon2",
+                        "Active": true,
+                        "RootBoneName": "",
+                        "Mask": 0,
+                        "Components": [
+                            {
+                                "Type": "Transform",
+                                "Active": true,
+                                "Position": [
+                                    0.0,
+                                    1.3610038757324219,
+                                    0.0
+                                ],
+                                "Rotation": [
+                                    0.0,
+                                    0.987688422203064,
+                                    0.0,
+                                    -0.15643446147441865
+                                ],
+                                "Scale": [
+                                    1.0,
+                                    1.0,
+                                    1.0
+                                ],
+                                "LocalEulerAngles": [
+                                    -180.0,
+                                    -18.0,
+                                    -180.0
+                                ]
+                            }
+                        ],
+                        "Children": null
+                    },
+                    {
+                        "Name": "LaserPilon3",
+                        "Active": true,
+                        "RootBoneName": "",
+                        "Mask": 0,
+                        "Components": [
+                            {
+                                "Type": "Transform",
+                                "Active": true,
+                                "Position": [
+                                    0.0,
+                                    4.111968994140625,
+                                    0.0
+                                ],
+                                "Rotation": [
+                                    0.0,
+                                    -0.7604060173034668,
+                                    0.0,
+                                    0.649448037147522
+                                ],
+                                "Scale": [
+                                    1.0,
+                                    1.0,
+                                    1.0
+                                ],
+                                "LocalEulerAngles": [
+                                    180.0,
+                                    -81.00000762939453,
+                                    180.0
+                                ]
+                            }
+                        ],
+                        "Children": null
+                    }
+                ]
+            }
+        ]
+    }
+}

@@ -1,0 +1,35 @@
+{
+    "Name": "Attack1",
+    "AnimationUID": 380165032061128578,
+    "BeginIndex": 134,
+    "EndIndex": 200,
+    "Loop": false,
+    "Speed": 1.5,
+    "FrameRate": 0.033270321786403659,
+    "KeyEventClip": [
+        {
+            "KeyFrame": 160,
+            "Name": "StopTrack"
+        },
+        {
+            "KeyFrame": 168,
+            "Name": "BladeDamageOn"
+        },
+        {
+            "KeyFrame": 174,
+            "Name": "BladeDamageOff"
+        },
+        {
+            "KeyFrame": 185,
+            "Name": "StopStep"
+        },
+        {
+            "KeyFrame": 175,
+            "Name": "FootstepRight"
+        },
+        {
+            "KeyFrame": 188,
+            "Name": "FootstepLeft"
+        }
+    ]
+}

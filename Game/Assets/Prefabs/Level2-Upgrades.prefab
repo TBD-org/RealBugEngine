@@ -1,0 +1,286 @@
+{
+    "Root": {
+        "Name": "Upgrades",
+        "Active": true,
+        "RootBoneName": "",
+        "Mask": 0,
+        "Components": [
+            {
+                "Type": "Transform",
+                "Active": true,
+                "Position": [
+                    0.0,
+                    0.0,
+                    0.0
+                ],
+                "Rotation": [
+                    0.0,
+                    0.0,
+                    0.0,
+                    1.0
+                ],
+                "Scale": [
+                    1.0,
+                    1.0,
+                    1.0
+                ],
+                "LocalEulerAngles": [
+                    -0.0,
+                    0.0,
+                    -0.0
+                ]
+            }
+        ],
+        "Children": [
+            {
+                "Name": "Trigger PowerUp 1",
+                "Active": true,
+                "RootBoneName": "",
+                "Mask": 0,
+                "Components": [
+                    {
+                        "Type": "Transform",
+                        "Active": true,
+                        "Position": [
+                            9.717823028564454,
+                            1.999760389328003,
+                            1.2705738544464112
+                        ],
+                        "Rotation": [
+                            -0.7071068286895752,
+                            0.0,
+                            0.0,
+                            0.7071067094802856
+                        ],
+                        "Scale": [
+                            0.25,
+                            0.2499999850988388,
+                            0.2499999850988388
+                        ],
+                        "LocalEulerAngles": [
+                            -90.00000762939453,
+                            0.0,
+                            0.0
+                        ]
+                    },
+                    {
+                        "Type": "MeshRenderer",
+                        "Active": true,
+                        "MeshID": 3990515034000168322,
+                        "MaterialID": 16033045169238983730
+                    },
+                    {
+                        "Type": "BoundingBox",
+                        "Active": true,
+                        "LocalBoundingBox": [
+                            -3.9100112915039064,
+                            -3.9362192153930666,
+                            -3.818950891494751,
+                            3.9100074768066408,
+                            3.9362189769744875,
+                            3.817514657974243
+                        ]
+                    },
+                    {
+                        "Type": "Script",
+                        "Active": true,
+                        "Script": 17865769448038874423,
+                        "Values": [
+                            {
+                                "Name": "gameControllerUID",
+                                "Type": "GameObjectUID",
+                                "Value": 12142689215597503301
+                            },
+                            {
+                                "Name": "playerUID",
+                                "Type": "GameObjectUID",
+                                "Value": 17022400611641520942
+                            }
+                        ]
+                    },
+                    {
+                        "Type": "SphereCollider",
+                        "Active": true,
+                        "colliderType": 3,
+                        "layerType": 1,
+                        "mass": 1.0,
+                        "radius": 1.0,
+                        "centerOffset": [
+                            0.0,
+                            -0.0003590583801269531,
+                            0.0
+                        ],
+                        "freezeRotation": false
+                    }
+                ],
+                "Children": null
+            },
+            {
+                "Name": "Trigger PowerUp 2",
+                "Active": true,
+                "RootBoneName": "",
+                "Mask": 0,
+                "Components": [
+                    {
+                        "Type": "Transform",
+                        "Active": true,
+                        "Position": [
+                            -80.72065734863281,
+                            1.9999970197677613,
+                            -12.59763240814209
+                        ],
+                        "Rotation": [
+                            -0.7071068286895752,
+                            0.0,
+                            0.0,
+                            0.7071067094802856
+                        ],
+                        "Scale": [
+                            0.25,
+                            0.2499999850988388,
+                            0.2499999850988388
+                        ],
+                        "LocalEulerAngles": [
+                            -90.00000762939453,
+                            0.0,
+                            0.0
+                        ]
+                    },
+                    {
+                        "Type": "MeshRenderer",
+                        "Active": true,
+                        "MeshID": 3990515034000168322,
+                        "MaterialID": 16033045169238983730
+                    },
+                    {
+                        "Type": "BoundingBox",
+                        "Active": true,
+                        "LocalBoundingBox": [
+                            -3.9100112915039064,
+                            -3.9362192153930666,
+                            -3.818950891494751,
+                            3.9100074768066408,
+                            3.9362189769744875,
+                            3.817514657974243
+                        ]
+                    },
+                    {
+                        "Type": "Script",
+                        "Active": true,
+                        "Script": 17865769448038874423,
+                        "Values": [
+                            {
+                                "Name": "gameControllerUID",
+                                "Type": "GameObjectUID",
+                                "Value": 12142689215597503301
+                            },
+                            {
+                                "Name": "playerUID",
+                                "Type": "GameObjectUID",
+                                "Value": 17022400611641520942
+                            }
+                        ]
+                    },
+                    {
+                        "Type": "SphereCollider",
+                        "Active": true,
+                        "colliderType": 3,
+                        "layerType": 1,
+                        "mass": 1.0,
+                        "radius": 1.0,
+                        "centerOffset": [
+                            0.0,
+                            -0.0003590583801269531,
+                            0.0
+                        ],
+                        "freezeRotation": false
+                    }
+                ],
+                "Children": null
+            },
+            {
+                "Name": "Trigger PowerUp 3",
+                "Active": true,
+                "RootBoneName": "",
+                "Mask": 0,
+                "Components": [
+                    {
+                        "Type": "Transform",
+                        "Active": true,
+                        "Position": [
+                            21.879928588867189,
+                            1.999951958656311,
+                            64.97223663330078
+                        ],
+                        "Rotation": [
+                            -0.7071068286895752,
+                            0.0,
+                            0.0,
+                            0.7071067094802856
+                        ],
+                        "Scale": [
+                            0.25,
+                            0.2499999850988388,
+                            0.2499999850988388
+                        ],
+                        "LocalEulerAngles": [
+                            -90.00000762939453,
+                            0.0,
+                            0.0
+                        ]
+                    },
+                    {
+                        "Type": "MeshRenderer",
+                        "Active": true,
+                        "MeshID": 3990515034000168322,
+                        "MaterialID": 16033045169238983730
+                    },
+                    {
+                        "Type": "BoundingBox",
+                        "Active": true,
+                        "LocalBoundingBox": [
+                            -3.9100112915039064,
+                            -3.9362192153930666,
+                            -3.818950891494751,
+                            3.9100074768066408,
+                            3.9362189769744875,
+                            3.817514657974243
+                        ]
+                    },
+                    {
+                        "Type": "Script",
+                        "Active": true,
+                        "Script": 17865769448038874423,
+                        "Values": [
+                            {
+                                "Name": "gameControllerUID",
+                                "Type": "GameObjectUID",
+                                "Value": 12142689215597503301
+                            },
+                            {
+                                "Name": "playerUID",
+                                "Type": "GameObjectUID",
+                                "Value": 17022400611641520942
+                            }
+                        ]
+                    },
+                    {
+                        "Type": "SphereCollider",
+                        "Active": true,
+                        "colliderType": 3,
+                        "layerType": 1,
+                        "mass": 1.0,
+                        "radius": 1.0,
+                        "centerOffset": [
+                            0.0,
+                            -0.0003590583801269531,
+                            0.0
+                        ],
+                        "freezeRotation": false
+                    }
+                ],
+                "Children": null
+            }
+        ]
+    }
+}

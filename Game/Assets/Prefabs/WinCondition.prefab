@@ -1,0 +1,73 @@
+{
+    "Root": {
+        "Name": "WinCondition",
+        "Active": true,
+        "RootBoneName": "",
+        "Mask": 0,
+        "Components": [
+            {
+                "Type": "Transform",
+                "Active": true,
+                "Position": [
+                    219.5789794921875,
+                    3.925863742828369,
+                    0.0
+                ],
+                "Rotation": [
+                    -0.7071068286895752,
+                    0.0,
+                    0.0,
+                    0.7071067094802856
+                ],
+                "Scale": [
+                    5.0,
+                    10.0,
+                    1.0
+                ],
+                "LocalEulerAngles": [
+                    -90.00000762939453,
+                    0.0,
+                    0.0
+                ]
+            },
+            {
+                "Type": "Script",
+                "Active": true,
+                "Script": 4240581393573860681,
+                "Values": [
+                    {
+                        "Name": "enemiesUID",
+                        "Type": "GameObjectUID",
+                        "Value": 9424093591244721738
+                    },
+                    {
+                        "Name": "sceneUID",
+                        "Type": "SceneResourceUID",
+                        "Value": 7141310542589317769
+                    },
+                    {
+                        "Name": "loseOffsetX",
+                        "Type": "Float",
+                        "Value": 4.0
+                    },
+                    {
+                        "Name": "winUID",
+                        "Type": "GameObjectUID",
+                        "Value": 16579210181260590797
+                    },
+                    {
+                        "Name": "playerUID",
+                        "Type": "GameObjectUID",
+                        "Value": 189561909595027362
+                    },
+                    {
+                        "Name": "loseOffsetZ",
+                        "Type": "Float",
+                        "Value": 4.0
+                    }
+                ]
+            }
+        ],
+        "Children": null
+    }
+}

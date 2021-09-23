@@ -1,0 +1,104 @@
+{
+    "Root": {
+        "Name": "SkillCDEffect",
+        "Active": true,
+        "RootBoneName": "",
+        "Mask": 0,
+        "Components": [
+            {
+                "Type": "Transform2D",
+                "Active": true,
+                "Position": [
+                    0.0,
+                    13.0,
+                    0.0
+                ],
+                "Rotation": [
+                    0.0,
+                    0.0,
+                    0.0,
+                    1.0
+                ],
+                "Scale": [
+                    0.699999988079071,
+                    0.699999988079071,
+                    0.699999988079071
+                ],
+                "LocalEulerAngles": [
+                    0.0,
+                    0.0,
+                    0.0
+                ],
+                "Pivot": [
+                    0.5,
+                    0.5
+                ],
+                "PivotPosition": [
+                    0.0,
+                    13.0,
+                    0.0
+                ],
+                "Size": [
+                    142.0,
+                    142.0
+                ],
+                "AnchorMin": [
+                    0.5,
+                    0.5
+                ],
+                "AnchorMax": [
+                    0.5,
+                    0.5
+                ],
+                "AnchorSelected": 5,
+                "IsCustomAnchor": false
+            },
+            {
+                "Type": "CanvasRenderer",
+                "Active": true
+            },
+            {
+                "Type": "Image",
+                "Active": true,
+                "TextureId": 10420605530275458608,
+                "Color": [
+                    0.9254902005195618,
+                    0.23529411852359773,
+                    0.5372549295425415,
+                    1.0
+                ],
+                "AlphaTransparency": true,
+                "IsFill": false,
+                "FillValue": 1.0
+            },
+            {
+                "Type": "Script",
+                "Active": true,
+                "Script": 2365800644043909262,
+                "Values": [
+                    {
+                        "Name": "totalEffectTime",
+                        "Type": "Float",
+                        "Value": 1.5
+                    },
+                    {
+                        "Name": "effectMember1UID",
+                        "Type": "GameObjectUID",
+                        "Value": 8610446593664966122
+                    },
+                    {
+                        "Name": "skillParentObjectUID",
+                        "Type": "GameObjectUID",
+                        "Value": 4660927708080343342
+                    },
+                    {
+                        "Name": "effectScale",
+                        "Type": "Float",
+                        "Value": 1.2999999523162842
+                    }
+                ]
+            }
+        ],
+        "Children": null
+    }
+}

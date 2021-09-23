@@ -1,0 +1,130 @@
+{
+    "Root": {
+        "Name": "Fog",
+        "Active": true,
+        "RootBoneName": "",
+        "Mask": 0,
+        "Components": [
+            {
+                "Type": "Transform",
+                "Active": true,
+                "Position": [
+                    229.9444580078125,
+                    -116.12129211425781,
+                    -33.70176696777344
+                ],
+                "Rotation": [
+                    5.989427811285725e-22,
+                    1.0048591563601838e-14,
+                    0.7071068286895752,
+                    0.7071067094802856
+                ],
+                "Scale": [
+                    1.0000001192092896,
+                    1.0000001192092896,
+                    1.0
+                ],
+                "LocalEulerAngles": [
+                    -8.14221953748806e-13,
+                    8.14221953748806e-13,
+                    90.00000762939453
+                ]
+            },
+            {
+                "Type": "Particle",
+                "Active": true,
+                "DrawGizmo": true,
+                "Duration": 5.0,
+                "Looping": true,
+                "StartDelay": [
+                    0.0,
+                    0.0
+                ],
+                "LifeRM": 0,
+                "Life": [
+                    30.0,
+                    30.0
+                ],
+                "SpeedRM": 0,
+                "Speed": [
+                    15.0,
+                    15.0
+                ],
+                "RotationRM": 1,
+                "Rotation": [
+                    6.2831854820251469,
+                    -6.2831854820251469
+                ],
+                "ScaleRM": 0,
+                "Scale": [
+                    1800.0,
+                    5000.0
+                ],
+                "ReverseEffect": false,
+                "ReverseDistanceRM": 0,
+                "ReverseDistance": [
+                    5.0,
+                    5.0
+                ],
+                "MaxParticle": 100,
+                "AttachEmitter": true,
+                "ParticlesPerSecondRM": 0,
+                "ParticlesPerSecond": [
+                    0.10000000149011612,
+                    10.0
+                ],
+                "GravityEffect": false,
+                "GravityFactorRM": 0,
+                "GravityFactor": [
+                    0.0,
+                    0.0
+                ],
+                "ParticleEmitterType": 0,
+                "ConeRadiusUp": 100.0,
+                "ConeRadiusDown": 100.0,
+                "RandomConeRadiusUp": false,
+                "RandomConeRadiusDown": false,
+                "RotationOverLifetime": false,
+                "RotationFactorRM": 0,
+                "RotationFactor": [
+                    0.0,
+                    0.0
+                ],
+                "SizeOverLifetime": false,
+                "ScaleFactorRM": 0,
+                "ScaleFactor": [
+                    0.0,
+                    0.0
+                ],
+                "ColorOverLifetime": true,
+                "GradientColors": [
+                    [
+                        0.9921568632125855,
+                        0.9921568632125855,
+                        0.9921568632125855,
+                        0.5882353186607361,
+                        0.27213114500045779
+                    ]
+                ],
+                "NumberColors": 1,
+                "Ytiles": 1,
+                "Xtiles": 1,
+                "AnimationSpeed": 0.0,
+                "IsRandomFrame": false,
+                "LoopAnimation": true,
+                "NCycles": 1.0,
+                "TextureId": 4791890127668400584,
+                "BillboardType": 2,
+                "ParticleRenderMode": 1,
+                "ParticleRenderAlignment": 0,
+                "FlipTexture": [
+                    false,
+                    false
+                ],
+                "HasCollision": false,
+                "LayerIndex": 5
+            }
+        ],
+        "Children": null
+    }
+}

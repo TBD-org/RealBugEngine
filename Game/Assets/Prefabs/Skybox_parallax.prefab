@@ -1,0 +1,535 @@
+{
+    "Root": {
+        "Name": "Skybox",
+        "Active": true,
+        "RootBoneName": "",
+        "Mask": 0,
+        "Components": [
+            {
+                "Type": "Transform",
+                "Active": true,
+                "Position": [
+                    0.0,
+                    0.0,
+                    0.0
+                ],
+                "Rotation": [
+                    0.0,
+                    0.0,
+                    0.0,
+                    1.0
+                ],
+                "Scale": [
+                    1.0,
+                    1.0,
+                    1.0
+                ],
+                "LocalEulerAngles": [
+                    -0.0,
+                    0.0,
+                    -0.0
+                ]
+            }
+        ],
+        "Children": [
+            {
+                "Name": "Background_Building_001",
+                "Active": true,
+                "RootBoneName": "",
+                "Mask": 0,
+                "Components": [
+                    {
+                        "Type": "Transform",
+                        "Active": true,
+                        "Position": [
+                            238.69314575195313,
+                            -316.5075378417969,
+                            78.41004943847656
+                        ],
+                        "Rotation": [
+                            -0.549202024936676,
+                            -0.0672672837972641,
+                            -0.16152507066726685,
+                            0.8171669840812683
+                        ],
+                        "Scale": [
+                            0.6739679574966431,
+                            0.6739680767059326,
+                            0.6739680171012878
+                        ],
+                        "LocalEulerAngles": [
+                            -67.13319396972656,
+                            3.86940860748291,
+                            -19.794313430786134
+                        ]
+                    },
+                    {
+                        "Type": "MeshRenderer",
+                        "Active": true,
+                        "MeshID": 5240442372979579551,
+                        "MaterialID": 1145203049338510034
+                    },
+                    {
+                        "Type": "MeshRenderer",
+                        "Active": true,
+                        "MeshID": 640254743730858832,
+                        "MaterialID": 1145203049338510034
+                    },
+                    {
+                        "Type": "BoundingBox",
+                        "Active": true,
+                        "LocalBoundingBox": [
+                            -47.230224609375,
+                            -57.5931396484375,
+                            0.0,
+                            34.701171875,
+                            63.719970703125,
+                            0.0
+                        ]
+                    }
+                ],
+                "Children": null
+            },
+            {
+                "Name": "Background_Building_002",
+                "Active": true,
+                "RootBoneName": "",
+                "Mask": 0,
+                "Components": [
+                    {
+                        "Type": "Transform",
+                        "Active": true,
+                        "Position": [
+                            -90.98896789550781,
+                            -290.9034118652344,
+                            71.06178283691406
+                        ],
+                        "Rotation": [
+                            -0.6305094957351685,
+                            -0.11221817135810852,
+                            -0.12742848694324494,
+                            0.7573816180229187
+                        ],
+                        "Scale": [
+                            0.4486680030822754,
+                            0.4486680030822754,
+                            0.4486680030822754
+                        ],
+                        "LocalEulerAngles": [
+                            -79.6455307006836,
+                            -0.5325267910957336,
+                            -19.54503631591797
+                        ]
+                    },
+                    {
+                        "Type": "MeshRenderer",
+                        "Active": true,
+                        "MeshID": 2900051953867126713,
+                        "MaterialID": 1145203049338510034
+                    },
+                    {
+                        "Type": "MeshRenderer",
+                        "Active": true,
+                        "MeshID": 6058937339821125949,
+                        "MaterialID": 1145203049338510034
+                    },
+                    {
+                        "Type": "BoundingBox",
+                        "Active": true,
+                        "LocalBoundingBox": [
+                            -39.145263671875,
+                            -68.9248046875,
+                            0.0,
+                            42.828125,
+                            69.829345703125,
+                            0.0
+                        ]
+                    }
+                ],
+                "Children": null
+            },
+            {
+                "Name": "Background_Buildings_Group_001",
+                "Active": true,
+                "RootBoneName": "",
+                "Mask": 0,
+                "Components": [
+                    {
+                        "Type": "Transform",
+                        "Active": true,
+                        "Position": [
+                            -147.63743591308595,
+                            -187.71795654296876,
+                            -80.8768310546875
+                        ],
+                        "Rotation": [
+                            -0.4755990505218506,
+                            -0.17779889702796937,
+                            -0.0324963741004467,
+                            0.860893189907074
+                        ],
+                        "Scale": [
+                            1.0631382465362549,
+                            1.0631396770477296,
+                            1.06313955783844
+                        ],
+                        "LocalEulerAngles": [
+                            -59.745338439941409,
+                            -15.975197792053223,
+                            -13.539467811584473
+                        ]
+                    },
+                    {
+                        "Type": "MeshRenderer",
+                        "Active": true,
+                        "MeshID": 7465516162169822438,
+                        "MaterialID": 1145203049338510034
+                    },
+                    {
+                        "Type": "MeshRenderer",
+                        "Active": true,
+                        "MeshID": 11069616274142637713,
+                        "MaterialID": 1145203049338510034
+                    },
+                    {
+                        "Type": "BoundingBox",
+                        "Active": true,
+                        "LocalBoundingBox": [
+                            -178.27392578125,
+                            -108.2833251953125,
+                            0.0,
+                            162.46435546875,
+                            76.4593505859375,
+                            0.0
+                        ]
+                    }
+                ],
+                "Children": null
+            },
+            {
+                "Name": "Background_Buildings_Group_002",
+                "Active": true,
+                "RootBoneName": "",
+                "Mask": 0,
+                "Components": [
+                    {
+                        "Type": "Transform",
+                        "Active": true,
+                        "Position": [
+                            125.09776306152344,
+                            -144.82620239257813,
+                            115.00756072998047
+                        ],
+                        "Rotation": [
+                            -0.3399980068206787,
+                            -0.21084146201610566,
+                            -0.06209166347980499,
+                            0.9143806099891663
+                        ],
+                        "Scale": [
+                            0.9045933485031128,
+                            0.9045933485031128,
+                            0.9045934677124023
+                        ],
+                        "LocalEulerAngles": [
+                            -43.62223815917969,
+                            -20.08150863647461,
+                            -15.875789642333985
+                        ]
+                    },
+                    {
+                        "Type": "MeshRenderer",
+                        "Active": true,
+                        "MeshID": 12317123953181065743,
+                        "MaterialID": 1145203049338510034
+                    },
+                    {
+                        "Type": "BoundingBox",
+                        "Active": true,
+                        "LocalBoundingBox": [
+                            -199.2508544921875,
+                            -132.3338623046875,
+                            0.0,
+                            113.5911865234375,
+                            113.0543212890625,
+                            0.0
+                        ]
+                    }
+                ],
+                "Children": null
+            },
+            {
+                "Name": "Background_Buildings_Group_003",
+                "Active": true,
+                "RootBoneName": "",
+                "Mask": 0,
+                "Components": [
+                    {
+                        "Type": "Transform",
+                        "Active": true,
+                        "Position": [
+                            593.8500366210938,
+                            -628.1947021484375,
+                            488.0474853515625
+                        ],
+                        "Rotation": [
+                            -0.4182756245136261,
+                            0.010948696173727513,
+                            -0.11620449274778366,
+                            0.900789737701416
+                        ],
+                        "Scale": [
+                            0.8034076690673828,
+                            0.8060543537139893,
+                            0.8185006380081177
+                        ],
+                        "LocalEulerAngles": [
+                            -49.13035202026367,
+                            6.715300559997559,
+                            -11.629098892211914
+                        ]
+                    },
+                    {
+                        "Type": "MeshRenderer",
+                        "Active": true,
+                        "MeshID": 2828946157851176401,
+                        "MaterialID": 1145203049338510034
+                    },
+                    {
+                        "Type": "BoundingBox",
+                        "Active": true,
+                        "LocalBoundingBox": [
+                            -1210.4976806640626,
+                            161.36404418945313,
+                            0.0,
+                            -952.57568359375,
+                            408.5759582519531,
+                            0.0
+                        ]
+                    }
+                ],
+                "Children": null
+            },
+            {
+                "Name": "Background_Building_003",
+                "Active": true,
+                "RootBoneName": "",
+                "Mask": 0,
+                "Components": [
+                    {
+                        "Type": "Transform",
+                        "Active": true,
+                        "Position": [
+                            -253.76760864257813,
+                            -206.64303588867188,
+                            -140.37322998046876
+                        ],
+                        "Rotation": [
+                            -0.5019219517707825,
+                            -0.051968567073345187,
+                            -0.09154398739337921,
+                            0.8584831357002258
+                        ],
+                        "Scale": [
+                            0.638821005821228,
+                            0.6388209462165833,
+                            0.6388211250305176
+                        ],
+                        "LocalEulerAngles": [
+                            -60.61017608642578,
+                            0.15284189581871034,
+                            -12.084088325500489
+                        ]
+                    },
+                    {
+                        "Type": "MeshRenderer",
+                        "Active": true,
+                        "MeshID": 3446427921680907996,
+                        "MaterialID": 1145203049338510034
+                    },
+                    {
+                        "Type": "MeshRenderer",
+                        "Active": true,
+                        "MeshID": 13694325668905122608,
+                        "MaterialID": 1145203049338510034
+                    },
+                    {
+                        "Type": "BoundingBox",
+                        "Active": true,
+                        "LocalBoundingBox": [
+                            -47.230224609375,
+                            -57.5931396484375,
+                            0.0,
+                            34.701171875,
+                            63.719970703125,
+                            0.0
+                        ]
+                    }
+                ],
+                "Children": null
+            },
+            {
+                "Name": "Background_Buildings_Group_004",
+                "Active": true,
+                "RootBoneName": "",
+                "Mask": 0,
+                "Components": [
+                    {
+                        "Type": "Transform",
+                        "Active": true,
+                        "Position": [
+                            107.4968032836914,
+                            -198.0216827392578,
+                            4.908204555511475
+                        ],
+                        "Rotation": [
+                            -0.3937548100948334,
+                            -0.18621420860290528,
+                            0.02180211991071701,
+                            0.899892270565033
+                        ],
+                        "Scale": [
+                            1.176757574081421,
+                            1.176757574081421,
+                            1.1767578125
+                        ],
+                        "LocalEulerAngles": [
+                            -48.464927673339847,
+                            -20.628965377807618,
+                            -6.590065956115723
+                        ]
+                    },
+                    {
+                        "Type": "MeshRenderer",
+                        "Active": true,
+                        "MeshID": 5359015244295601271,
+                        "MaterialID": 1145203049338510034
+                    },
+                    {
+                        "Type": "MeshRenderer",
+                        "Active": true,
+                        "MeshID": 2438899464369939202,
+                        "MaterialID": 1145203049338510034
+                    },
+                    {
+                        "Type": "BoundingBox",
+                        "Active": true,
+                        "LocalBoundingBox": [
+                            -178.27392578125,
+                            -108.2833251953125,
+                            0.0,
+                            162.46435546875,
+                            76.4593505859375,
+                            0.0
+                        ]
+                    }
+                ],
+                "Children": null
+            },
+            {
+                "Name": "Background_Buildings_Group_005",
+                "Active": true,
+                "RootBoneName": "",
+                "Mask": 0,
+                "Components": [
+                    {
+                        "Type": "Transform",
+                        "Active": true,
+                        "Position": [
+                            -106.43704223632813,
+                            -232.84857177734376,
+                            93.9394760131836
+                        ],
+                        "Rotation": [
+                            -0.5212454795837402,
+                            -0.16127273440361024,
+                            -0.03942715749144554,
+                            0.8371019959449768
+                        ],
+                        "Scale": [
+                            1.0509557723999024,
+                            1.0509554147720338,
+                            1.0509557723999024
+                        ],
+                        "LocalEulerAngles": [
+                            -65.44141387939453,
+                            -13.232378005981446,
+                            -13.917254447937012
+                        ]
+                    },
+                    {
+                        "Type": "MeshRenderer",
+                        "Active": true,
+                        "MeshID": 11318039650129718739,
+                        "MaterialID": 1145203049338510034
+                    },
+                    {
+                        "Type": "BoundingBox",
+                        "Active": true,
+                        "LocalBoundingBox": [
+                            -199.2508544921875,
+                            -132.3338623046875,
+                            0.0,
+                            113.5911865234375,
+                            113.0543212890625,
+                            0.0
+                        ]
+                    }
+                ],
+                "Children": null
+            },
+            {
+                "Name": "Background_Plane_City",
+                "Active": true,
+                "RootBoneName": "",
+                "Mask": 0,
+                "Components": [
+                    {
+                        "Type": "Transform",
+                        "Active": true,
+                        "Position": [
+                            9.765727996826172,
+                            -183.16372680664063,
+                            -137.71981811523438
+                        ],
+                        "Rotation": [
+                            -0.377725750207901,
+                            -0.1640491783618927,
+                            -0.03112739883363247,
+                            0.9107372164726257
+                        ],
+                        "Scale": [
+                            1.0,
+                            1.0,
+                            1.0
+                        ],
+                        "LocalEulerAngles": [
+                            -46.57668685913086,
+                            -15.979662895202637,
+                            -10.829619407653809
+                        ]
+                    },
+                    {
+                        "Type": "MeshRenderer",
+                        "Active": true,
+                        "MeshID": 16429966857887618200,
+                        "MaterialID": 1145203049338510034
+                    },
+                    {
+                        "Type": "BoundingBox",
+                        "Active": true,
+                        "LocalBoundingBox": [
+                            -481.4034423828125,
+                            -242.4443359375,
+                            0.0,
+                            481.4034423828125,
+                            242.4443359375,
+                            0.0
+                        ]
+                    }
+                ],
+                "Children": null
+            }
+        ]
+    }
+}

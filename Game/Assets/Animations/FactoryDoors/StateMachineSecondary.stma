@@ -1,0 +1,74 @@
+{
+    "InitialState": 0,
+    "Clips": [
+        14654052627670973986,
+        1267499798399892229,
+        3646111480446057889
+    ],
+    "States": [
+        {
+            "Id": 16596682500681113418,
+            "Name": "Closed",
+            "ClipId": 14654052627670973986
+        },
+        {
+            "Id": 7122261368983493400,
+            "Name": "Open",
+            "ClipId": 1267499798399892229
+        },
+        {
+            "Id": 14507980810285681704,
+            "Name": "Opening",
+            "ClipId": 3646111480446057889
+        }
+    ],
+    "Transitions": [
+        {
+            "Trigger": "OpeningClosed",
+            "Id": 2567990965660208156,
+            "Source": 14507980810285681704,
+            "Target": 16596682500681113418,
+            "Interpolation": 0.3
+        },
+        {
+            "Trigger": "OpeningOpen",
+            "Id": 14964135563069957419,
+            "Source": 14507980810285681704,
+            "Target": 7122261368983493400,
+            "Interpolation": 0.3
+        },
+        {
+            "Trigger": "ClosedOpening",
+            "Id": 8628387024478661608,
+            "Source": 16596682500681113418,
+            "Target": 14507980810285681704,
+            "Interpolation": 0.3
+        },
+        {
+            "Trigger": "ClosedOpen",
+            "Id": 5401258090373569990,
+            "Source": 16596682500681113418,
+            "Target": 7122261368983493400,
+            "Interpolation": 0.3
+        },
+        {
+            "Trigger": "OpenOpening",
+            "Id": 15025661739903593507,
+            "Source": 7122261368983493400,
+            "Target": 14507980810285681704,
+            "Interpolation": 0.3
+        },
+        {
+            "Trigger": "OpenClosed",
+            "Id": 16833518482520490914,
+            "Source": 7122261368983493400,
+            "Target": 16596682500681113418,
+            "Interpolation": 0.3
+        }
+    ],
+    "Bones": [
+        "joint1",
+        "joint2",
+        "joint3"
+    ]
+}

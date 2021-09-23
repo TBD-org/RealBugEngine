@@ -1,0 +1,19 @@
+{
+    "Name": "RunLeft",
+    "AnimationUID": 5614041873872763134,
+    "BeginIndex": 105,
+    "EndIndex": 125,
+    "Loop": true,
+    "Speed": 1.0,
+    "FrameRate": 0.03329545259475708,
+    "KeyEventClip": [
+        {
+            "KeyFrame": 106,
+            "Name": "FootstepLeft"
+        },
+        {
+            "KeyFrame": 116,
+            "Name": "FootstepRight"
+        }
+    ]
+}
